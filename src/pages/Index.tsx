@@ -34,10 +34,10 @@ const Index = () => {
       <nav className="pb-6 px-8">
         <div className="relative max-w-fit mx-auto">
           {/* macOS Dock glass effect */}
-          <div className="backdrop-blur-3xl bg-gradient-to-b from-white/[0.15] to-white/[0.05] border border-white/20 rounded-[24px] px-3 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)] relative">
+          <div className="backdrop-blur-3xl bg-gradient-to-b from-white/[0.15] to-white/[0.05] border border-white/20 rounded-[24px] px-8 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)] relative">
             <div className="absolute inset-0 rounded-[24px] bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
             
-            <div className="flex items-end justify-center gap-2 relative">
+            <div className="flex items-end justify-center gap-6 relative">
               {menuItems.map((item, index) => (
                 <button
                   key={index}
