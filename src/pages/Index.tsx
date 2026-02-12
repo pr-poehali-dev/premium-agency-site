@@ -75,45 +75,46 @@ const Index = () => {
           </div>
 
           <div className="relative hidden lg:block h-[700px]">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent rounded-sm" />
-            <div className="absolute inset-0 backdrop-blur-3xl bg-gradient-to-tl from-primary/10 to-transparent rounded-sm" />
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
             
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]">
-              <div className="absolute inset-0 bg-gradient-conic from-primary/30 via-transparent to-primary/30 blur-3xl animate-[spin_20s_linear_infinite]" />
-              
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <div className="text-[20rem] font-zen text-primary/10 leading-none tracking-wider">
-                    albe
-                  </div>
-                  
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-64 h-64 border border-primary/30 rounded-sm flex items-center justify-center backdrop-blur-sm bg-background/50">
-                      <div className="text-center space-y-4">
-                        <div className="w-16 h-16 border-2 border-primary mx-auto rounded-sm flex items-center justify-center">
-                          <div className="w-8 h-8 bg-primary animate-pulse" />
-                        </div>
-                        <div className="text-xs tracking-[0.3em] uppercase text-foreground/60">
-                          Creating<br />Business
-                        </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-full max-w-[500px] aspect-square">
+                <div className="absolute inset-0 border border-primary/20 backdrop-blur-sm bg-gradient-to-br from-background/80 to-background/40">
+                  <div className="h-full flex flex-col items-center justify-center p-16 space-y-12">
+                    <div className="w-32 h-32 border-2 border-primary/40 flex items-center justify-center">
+                      <div className="text-6xl font-zen text-primary tracking-wider">A</div>
+                    </div>
+                    
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                    
+                    <div className="text-center space-y-6">
+                      <h3 className="text-2xl font-light tracking-[0.2em] text-foreground">ПРЕМИУМ</h3>
+                      <p className="text-xs tracking-[0.3em] uppercase text-foreground/50">
+                        Безупречное качество<br />
+                        Индивидуальный подход<br />
+                        Гарантия результата
+                      </p>
+                    </div>
+                    
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                    
+                    <div className="grid grid-cols-2 gap-8 w-full text-center">
+                      <div>
+                        <div className="text-3xl font-light text-primary mb-1">∞</div>
+                        <div className="text-[9px] tracking-[0.25em] uppercase text-foreground/40">Опыт</div>
+                      </div>
+                      <div>
+                        <div className="text-3xl font-light text-primary mb-1">№1</div>
+                        <div className="text-[9px] tracking-[0.25em] uppercase text-foreground/40">Выбор</div>
                       </div>
                     </div>
                   </div>
+                  
+                  <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary/60" />
+                  <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary/60" />
+                  <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary/60" />
+                  <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary/60" />
                 </div>
-              </div>
-            </div>
-
-            <div className="absolute top-10 right-10 w-40 h-40 border border-primary/20 rounded-sm backdrop-blur-sm bg-background/30 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-3xl font-zen text-primary mb-2">98%</div>
-                <div className="text-[9px] tracking-[0.3em] uppercase text-foreground/40">Success Rate</div>
-              </div>
-            </div>
-
-            <div className="absolute bottom-10 left-10 w-40 h-40 border border-primary/20 rounded-sm backdrop-blur-sm bg-background/30 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-3xl font-zen text-primary mb-2">500+</div>
-                <div className="text-[9px] tracking-[0.3em] uppercase text-foreground/40">Projects</div>
               </div>
             </div>
           </div>
