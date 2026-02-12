@@ -3,14 +3,14 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   return (
     <div className="h-screen bg-black text-foreground flex flex-col overflow-hidden">
-      <div className="absolute top-8 left-8 md:top-12 md:left-12">
-        <h1 className="font-zen text-7xl md:text-8xl lg:text-9xl tracking-normal text-white">
+      <div className="flex-1 flex items-center justify-center">
+        <h1 className="font-zen text-[12rem] md:text-[16rem] lg:text-[20rem] tracking-normal text-white">
           <span className="text-yellow-500">a</span>lbe
         </h1>
       </div>
       
-      <div className="flex-1 flex items-center justify-center px-8 md:px-16">
-        <div className="max-w-4xl w-full">
+      <div className="pb-24 px-8 md:px-16">
+        <div className="max-w-4xl mx-auto text-center">
           <p className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-zinc-600 leading-tight">
             МЫ СОЗДАЕМ НЕ ПРОСТО САЙТЫ
             <br />
