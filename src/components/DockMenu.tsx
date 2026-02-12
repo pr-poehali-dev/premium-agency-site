@@ -5,11 +5,16 @@ const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const menuItems = [
-    { icon: 'Briefcase', label: 'Портфолио' },
+    { icon: 'House', label: 'Главная' },
+    { icon: 'Folder', label: 'Портфолио' },
+    { icon: 'Globe', label: 'Веб' },
+    { icon: 'Megaphone', label: 'Маркетинг' },
+    { icon: 'Zap', label: 'AI' },
     { icon: 'Handshake', label: 'Партнеры' },
     { icon: 'Mail', label: 'Контакты' },
     { icon: 'Users', label: 'О нас' },
     { icon: 'ClipboardList', label: 'Квиз' },
+    { icon: 'Grid3x3', label: 'Меню' },
   ];
 
   return (
