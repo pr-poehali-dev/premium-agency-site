@@ -1,4 +1,13 @@
+import { useEffect, useState } from "react";
+
 const Index = () => {
+  const [showLogo, setShowLogo] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLogo(true), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-foreground/5">
@@ -51,21 +60,30 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="relative hidden lg:block h-[600px]">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-full h-full max-w-[500px]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 backdrop-blur-3xl" />
-                  
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <img 
-                      src="https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/3b92c666-db1a-4e8e-b907-4a23819bed50.jpg" 
-                      alt="Premium Design" 
-                      className="w-[450px] h-[450px] object-cover opacity-60"
-                    />
+            <div className="relative hidden lg:flex items-center justify-center h-[600px]">
+              <div className="relative w-full h-full flex items-center justify-center">
+                {!showLogo && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{
+                      animation: 'flashFade 1.2s ease-out forwards'
+                    }}
+                  >
+                    <div className="w-96 h-96 bg-primary/30 rounded-full blur-[120px]" />
                   </div>
-                  
-                  <div className="absolute inset-0 border border-foreground/10" />
-                </div>
+                )}
+                
+                {showLogo && (
+                  <div 
+                    className="text-[14rem] font-zen tracking-[0.2em] text-foreground leading-none"
+                    style={{
+                      animation: 'fadeInScale 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                      opacity: 0
+                    }}
+                  >
+                    albe
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -80,6 +98,36 @@ const Index = () => {
         <div className="w-8 h-px bg-foreground/20" />
         <div className="text-[9px] tracking-[0.3em] uppercase text-foreground/30">Scroll</div>
       </div>
+
+      <style>{`
+        @keyframes flashFade {
+          0% {
+            opacity: 0;
+            transform: scale(0.3);
+          }
+          40% {
+            opacity: 1;
+            transform: scale(1.8);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(2.5);
+          }
+        }
+
+        @keyframes fadeInScale {
+          0% {
+            opacity: 0;
+            transform: scale(0.8);
+            filter: blur(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+            filter: blur(0);
+          }
+        }
+      `}</style>
     </div>
   );
 };
