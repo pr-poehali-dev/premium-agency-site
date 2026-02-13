@@ -63,12 +63,12 @@ const techStack = [
   {
     title: 'AI TECH',
     color: '#f97316',
-    items: ['ML/DL/NLP, Graph analytics', 'Computer Vision', 'Voice technologies ASR/NLP/NLU/TTS', 'Python, Pandas, CatBoost, Sklearn, Airflow, sqlalchemy, Falcon, Django', 'OpenVINO, MediaPipe'],
+    items: ['ML/DL/NLP, Graph analytics', 'Computer Vision', 'Voice technologies ASR/NLP/NLU/TTS', 'Python, Pandas, CatBoost, Sklearn, Airflow, sqlalchemy, Falcon, Django', 'data analytics, NLP, CatBoost, OpenVINO, MediaPipe'],
   },
   {
     title: 'ДОПОЛНИТЕЛЬНЫЕ КОМПЕТЕНЦИИ',
     color: '#eab308',
-    items: ['AI, Machine Learning, Deep Learning, Computer Vision', 'Анализ Big Data и адаптивные алгоритмы', 'Trading аналитика', 'Blockchain аналитика'],
+    items: ['Используем в работе современные технологии: AI, Machine Learning, Deep Learning, Computer Vision, технологии анализа Big Data и адаптивные алгоритмы', 'Trading аналитика', 'Blockchain аналитика'],
   },
 ];
 
