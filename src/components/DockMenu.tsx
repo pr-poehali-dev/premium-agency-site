@@ -9,7 +9,7 @@ const DockMenu = () => {
     { icon: 'Folder', label: 'Портфолио' },
     { icon: 'Globe', label: 'Веб' },
     { icon: 'Megaphone', label: 'Маркетинг' },
-    { icon: 'Brain', label: 'AI' },
+    { icon: 'Zap', label: 'AI' },
     { icon: 'Handshake', label: 'Партнеры' },
     { icon: 'Mail', label: 'Контакты' },
     { icon: 'Users', label: 'О нас' },
@@ -37,14 +37,6 @@ const DockMenu = () => {
 
   return (
     <nav className="fixed bottom-6 left-0 right-0 px-8 pointer-events-none">
-      <svg width="0" height="0" className="absolute">
-        <defs>
-          <linearGradient id="iconGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#1a1a1a" />
-            <stop offset="100%" stopColor="#eab308" />
-          </linearGradient>
-        </defs>
-      </svg>
       <div className="relative max-w-fit mx-auto pointer-events-auto">
         <div
           className="rounded-2xl px-5 py-3"
@@ -84,8 +76,8 @@ const DockMenu = () => {
                       name={item.icon}
                       size={44}
                       strokeWidth={1.2}
-                      className="relative z-10"
-                      style={{ stroke: 'url(#iconGrad)' }}
+                      className="relative z-10 transition-colors duration-300"
+                      style={{ color: '#eab308' }}
                     />
                   </div>
 
