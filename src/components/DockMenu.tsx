@@ -9,7 +9,7 @@ const DockMenu = () => {
     { icon: 'Folder', label: 'Портфолио' },
     { icon: 'Globe', label: 'Веб' },
     { icon: 'Megaphone', label: 'Маркетинг' },
-    { icon: 'Zap', label: 'AI' },
+    { icon: 'Brain', label: 'AI' },
     { icon: 'Handshake', label: 'Партнеры' },
     { icon: 'Mail', label: 'Контакты' },
     { icon: 'Users', label: 'О нас' },
