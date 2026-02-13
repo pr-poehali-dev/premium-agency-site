@@ -14,7 +14,7 @@ const DockMenu = () => {
     { icon: 'Mail', label: 'Контакты' },
     { icon: 'Users', label: 'О нас' },
     { icon: 'ClipboardList', label: 'Квиз' },
-    { icon: 'Grid3x3', label: 'Меню' },
+    { icon: 'LayoutGrid', label: 'Меню' },
   ];
 
   const getScale = (index: number) => {
