@@ -11,7 +11,7 @@ const Hero = () => {
           <span className="text-yellow-500" style={{ textShadow: '0 0 60px rgba(234,179,8,0.3), 0 0 120px rgba(234,179,8,0.1)' }}>a</span>lbe
         </h1>
         <p
-          className="w-full text-center font-light whitespace-nowrap tracking-[0.85em] text-zinc-400 text-[2.8rem] md:text-[3.8rem] lg:text-[4.8rem] -mt-4 md:-mt-8 lg:-mt-12"
+          className="w-full text-center font-light whitespace-nowrap tracking-[1.2em] text-zinc-400 text-[2.2rem] md:text-[3rem] lg:text-[3.8rem] -mt-4 md:-mt-8 lg:-mt-12 px-4"
         >
           DIGITAL AGENCY
         </p>
@@ -22,10 +22,10 @@ const Hero = () => {
       <div className="px-8 md:px-16">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-2xl md:text-4xl lg:text-5xl font-extralight tracking-wider text-zinc-500 leading-relaxed uppercase">
-            МЫ СОЗДАЕМ НЕ ПРОСТО САЙТЫ
+            МЫ СОЗДАЕМ НЕ ПРОСТО САЙТЫ,
           </p>
           <p
-            className="text-2xl md:text-4xl lg:text-5xl font-extralight tracking-wider leading-relaxed uppercase mt-2"
+            className="text-2xl md:text-4xl lg:text-5xl font-extralight tracking-wider leading-relaxed uppercase"
             style={{
               background: 'linear-gradient(90deg, #a1a1aa 0%, #ffffff 50%, #a1a1aa 100%)',
               WebkitBackgroundClip: 'text',
