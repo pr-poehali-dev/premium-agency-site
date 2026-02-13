@@ -17,7 +17,7 @@ const Hero = () => {
         </p>
       </div>
       
-      <div className="px-8 md:px-16">
+      <div className="px-8 md:px-16 mb-32">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-zinc-500 leading-tight uppercase">
             МЫ СОЗДАЕМ НЕ ПРОСТО САЙТЫ
