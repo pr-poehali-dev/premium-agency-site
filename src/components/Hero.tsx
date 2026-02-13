@@ -3,7 +3,7 @@ const Hero = () => {
     <div className="flex-1 flex flex-col items-center justify-center relative">
       <div className="flex flex-col items-center justify-center mb-20">
         <h1
-          className="font-zen text-[12rem] md:text-[16rem] lg:text-[20rem] tracking-normal text-white leading-none"
+          className="font-zen text-[12rem] md:text-[16rem] lg:text-[20rem] tracking-tight text-white leading-none font-bold"
           style={{
             textShadow: '0 0 80px rgba(255,255,255,0.08), 0 0 160px rgba(234,179,8,0.04)',
           }}
@@ -11,7 +11,11 @@ const Hero = () => {
           <span className="text-yellow-500" style={{ textShadow: '0 0 60px rgba(234,179,8,0.3), 0 0 120px rgba(234,179,8,0.1)' }}>a</span>lbe
         </h1>
         <p
-          className="text-center font-light whitespace-nowrap tracking-[0.3em] text-zinc-400 text-[3.2rem] md:text-[4.4rem] lg:text-[5.6rem] -mt-4 md:-mt-8 lg:-mt-12"
+          className="text-center font-light whitespace-nowrap tracking-[0.35em] text-transparent text-[2.6rem] md:text-[3.6rem] lg:text-[4.6rem] -mt-6 md:-mt-10 lg:-mt-14 uppercase"
+          style={{
+            WebkitTextStroke: '1.5px rgba(255,255,255,0.9)',
+            textStroke: '1.5px rgba(255,255,255,0.9)',
+          }}
         >
           DIGITAL AGENCY
         </p>
