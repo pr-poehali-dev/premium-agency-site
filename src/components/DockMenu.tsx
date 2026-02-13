@@ -1,20 +1,23 @@
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
-    { icon: 'House', label: 'Главная' },
-    { icon: 'Folder', label: 'Портфолио' },
-    { icon: 'Code', label: 'Разработка' },
-    { icon: 'TrendingUp', label: 'Маркетинг' },
-    { icon: 'Brain', label: 'AI' },
-    { icon: 'Handshake', label: 'Партнеры' },
-    { icon: 'Mail', label: 'Контакты' },
-    { icon: 'Users', label: 'О нас' },
-    { icon: 'ClipboardList', label: 'Квиз' },
-    { icon: 'LayoutGrid', label: 'Меню' },
+    { icon: 'House', label: 'Главная', path: '/' },
+    { icon: 'Folder', label: 'Портфолио', path: '/portfolio' },
+    { icon: 'Code', label: 'Разработка', path: '/development' },
+    { icon: 'TrendingUp', label: 'Маркетинг', path: '/marketing' },
+    { icon: 'Brain', label: 'AI', path: '/ai' },
+    { icon: 'Handshake', label: 'Партнеры', path: '/partners' },
+    { icon: 'Mail', label: 'Контакты', path: '/contacts' },
+    { icon: 'Users', label: 'О нас', path: '/about' },
+    { icon: 'ClipboardList', label: 'Квиз', path: '/quiz' },
+    { icon: 'LayoutGrid', label: 'Меню', path: '/menu' },
   ];
 
   const getScale = (index: number) => {
@@ -35,8 +38,12 @@ const DockMenu = () => {
     return 0;
   };
 
+  const handleClick = (path: string) => {
+    navigate(path);
+  };
+
   return (
-    <nav className="fixed bottom-6 left-0 right-0 px-8 pointer-events-none">
+    <nav className="fixed bottom-6 left-0 right-0 px-8 pointer-events-none z-50">
       <div className="relative max-w-fit mx-auto pointer-events-auto">
         <div
           className="rounded-2xl px-5 py-3"
@@ -50,12 +57,14 @@ const DockMenu = () => {
           <div className="flex items-end justify-center gap-4">
             {menuItems.map((item, index) => {
               const isHovered = hoveredIndex === index;
+              const isActive = location.pathname === item.path;
               const scale = getScale(index);
               const translateY = getTranslateY(index);
 
               return (
                 <button
                   key={index}
+                  onClick={() => handleClick(item.path)}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="relative flex flex-col items-center"
@@ -80,6 +89,13 @@ const DockMenu = () => {
                       style={{ color: '#eab308' }}
                     />
                   </div>
+
+                  {isActive && (
+                    <div
+                      className="absolute -bottom-1 w-1.5 h-1.5 rounded-full"
+                      style={{ background: '#eab308', boxShadow: '0 0 8px rgba(234,179,8,0.6)' }}
+                    />
+                  )}
 
                   <div
                     className="absolute -top-12 left-1/2 pointer-events-none transition-all duration-300"
