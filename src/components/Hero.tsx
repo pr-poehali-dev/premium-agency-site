@@ -13,9 +13,9 @@ const Hero = () => {
       <div className="px-8 md:px-16 mt-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xl md:text-2xl lg:text-3xl font-light tracking-wider text-zinc-600 leading-relaxed uppercase">
-            \u041c\u044b \u0441\u043e\u0437\u0434\u0430\u0435\u043c \u043d\u0435 \u043f\u0440\u043e\u0441\u0442\u043e \u0441\u0430\u0439\u0442\u044b
+            МЫ СОЗДАЕМ НЕ ПРОСТО САЙТЫ
             <br />
-            \u043c\u044b \u0441\u043e\u0437\u0434\u0430\u0435\u043c \u0431\u0438\u0437\u043d\u0435\u0441
+            МЫ СОЗДАЕМ БИЗНЕС
           </p>
         </div>
       </div>
