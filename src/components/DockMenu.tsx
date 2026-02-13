@@ -8,7 +8,7 @@ const DockMenu = () => {
     { icon: 'House', label: 'Главная' },
     { icon: 'Folder', label: 'Портфолио' },
     { icon: 'Globe', label: 'Веб' },
-    { icon: 'Megaphone', label: 'Маркетинг' },
+    { icon: 'TrendingUp', label: 'Маркетинг' },
     { icon: 'Brain', label: 'AI' },
     { icon: 'Handshake', label: 'Партнеры' },
     { icon: 'Mail', label: 'Контакты' },
