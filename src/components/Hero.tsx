@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <div className="flex-1 flex flex-col items-center justify-center relative">
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center mb-20">
         <h1
           className="font-zen text-[12rem] md:text-[16rem] lg:text-[20rem] tracking-normal text-white leading-none"
           style={{
@@ -11,23 +11,21 @@ const Hero = () => {
           <span className="text-yellow-500" style={{ textShadow: '0 0 60px rgba(234,179,8,0.3), 0 0 120px rgba(234,179,8,0.1)' }}>a</span>lbe
         </h1>
         <p
-          className="w-full text-center font-light whitespace-nowrap tracking-[1.2em] text-zinc-400 text-[2.2rem] md:text-[3rem] lg:text-[3.8rem] -mt-4 md:-mt-8 lg:-mt-12 px-4"
+          className="text-center font-light whitespace-nowrap tracking-[1.15em] text-zinc-400 text-[2.4rem] md:text-[3.2rem] lg:text-[4rem] -mt-4 md:-mt-8 lg:-mt-12"
         >
           DIGITAL AGENCY
         </p>
       </div>
-
-      <div className="w-[280px] md:w-[400px] lg:w-[500px] h-px bg-gradient-to-r from-transparent via-zinc-700/60 to-transparent mt-10 mb-10" />
       
       <div className="px-8 md:px-16">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-2xl md:text-4xl lg:text-5xl font-extralight tracking-wider text-zinc-500 leading-relaxed uppercase">
-            МЫ СОЗДАЕМ НЕ ПРОСТО САЙТЫ,
+          <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-zinc-500 leading-tight uppercase">
+            МЫ СОЗДАЕМ НЕ ПРОСТО САЙТЫ
           </p>
           <p
-            className="text-2xl md:text-4xl lg:text-5xl font-extralight tracking-wider leading-relaxed uppercase"
+            className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide leading-tight uppercase mt-1"
             style={{
-              background: 'linear-gradient(90deg, #a1a1aa 0%, #ffffff 50%, #a1a1aa 100%)',
+              background: 'linear-gradient(90deg, #71717a 0%, #ffffff 50%, #71717a 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}
