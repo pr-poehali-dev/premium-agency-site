@@ -1,5 +1,26 @@
 import { useEffect, useRef } from 'react';
 
+interface Star {
+  x: number;
+  y: number;
+  size: number;
+  opacity: number;
+  fadeDir: number;
+  speed: number;
+  color: string;
+}
+
+interface ShootingStar {
+  x: number;
+  y: number;
+  length: number;
+  speed: number;
+  opacity: number;
+  angle: number;
+  life: number;
+  maxLife: number;
+}
+
 const PremiumBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -10,15 +31,9 @@ const PremiumBackground = () => {
     if (!ctx) return;
 
     let animationId: number;
-    const particles: Array<{
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
-      fadeDir: number;
-    }> = [];
+    const stars: Star[] = [];
+    const shootingStars: ShootingStar[] = [];
+    let tick = 0;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -27,56 +42,103 @@ const PremiumBackground = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    for (let i = 0; i < 50; i++) {
-      particles.push({
+    const colors = [
+      '255,255,255',
+      '234,179,8',
+      '200,200,220',
+      '180,160,255',
+      '255,220,150',
+    ];
+
+    for (let i = 0; i < 200; i++) {
+      stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 1.5 + 0.3,
-        speedX: (Math.random() - 0.5) * 0.2,
-        speedY: (Math.random() - 0.5) * 0.2,
-        opacity: Math.random() * 0.35,
+        size: Math.random() * 2 + 0.2,
+        opacity: Math.random() * 0.8,
         fadeDir: Math.random() > 0.5 ? 1 : -1,
+        speed: Math.random() * 0.004 + 0.001,
+        color: colors[Math.floor(Math.random() * colors.length)],
       });
     }
 
+    const spawnShootingStar = () => {
+      shootingStars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height * 0.4,
+        length: Math.random() * 120 + 60,
+        speed: Math.random() * 8 + 4,
+        opacity: 1,
+        angle: (Math.random() * 30 + 15) * (Math.PI / 180),
+        life: 0,
+        maxLife: Math.random() * 60 + 40,
+      });
+    };
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      tick++;
 
-      particles.forEach((p) => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        p.opacity += p.fadeDir * 0.002;
+      stars.forEach((s) => {
+        s.opacity += s.fadeDir * s.speed;
+        if (s.opacity >= 0.9) s.fadeDir = -1;
+        if (s.opacity <= 0.05) s.fadeDir = 1;
 
-        if (p.opacity >= 0.4) p.fadeDir = -1;
-        if (p.opacity <= 0.03) p.fadeDir = 1;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
+        if (s.size > 1.2) {
+          const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.size * 4);
+          glow.addColorStop(0, `rgba(${s.color}, ${s.opacity * 0.3})`);
+          glow.addColorStop(1, `rgba(${s.color}, 0)`);
+          ctx.fillStyle = glow;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.size * 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(234, 179, 8, ${p.opacity})`;
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${s.color}, ${s.opacity})`;
         ctx.fill();
       });
 
-      particles.forEach((p, i) => {
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(234, 179, 8, ${0.03 * (1 - dist / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
+      if (tick % 180 === 0 && Math.random() > 0.3) {
+        spawnShootingStar();
+      }
+
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const ss = shootingStars[i];
+        ss.life++;
+        ss.x += Math.cos(ss.angle) * ss.speed;
+        ss.y += Math.sin(ss.angle) * ss.speed;
+        ss.opacity = 1 - ss.life / ss.maxLife;
+
+        if (ss.life >= ss.maxLife) {
+          shootingStars.splice(i, 1);
+          continue;
         }
-      });
+
+        const tailX = ss.x - Math.cos(ss.angle) * ss.length;
+        const tailY = ss.y - Math.sin(ss.angle) * ss.length;
+
+        const grad = ctx.createLinearGradient(tailX, tailY, ss.x, ss.y);
+        grad.addColorStop(0, `rgba(255,255,255,0)`);
+        grad.addColorStop(0.7, `rgba(234,179,8,${ss.opacity * 0.4})`);
+        grad.addColorStop(1, `rgba(255,255,255,${ss.opacity})`);
+
+        ctx.beginPath();
+        ctx.moveTo(tailX, tailY);
+        ctx.lineTo(ss.x, ss.y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        const headGlow = ctx.createRadialGradient(ss.x, ss.y, 0, ss.x, ss.y, 6);
+        headGlow.addColorStop(0, `rgba(255,255,255,${ss.opacity})`);
+        headGlow.addColorStop(1, `rgba(234,179,8,0)`);
+        ctx.fillStyle = headGlow;
+        ctx.beginPath();
+        ctx.arc(ss.x, ss.y, 6, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
       animationId = requestAnimationFrame(animate);
     };
@@ -91,82 +153,68 @@ const PremiumBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <div
-        className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full opacity-[0.07]"
+        className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full opacity-[0.06]"
         style={{
-          background: 'radial-gradient(circle, rgba(234,179,8,0.6) 0%, rgba(234,179,8,0.1) 30%, transparent 65%)',
+          background: 'radial-gradient(circle, rgba(234,179,8,0.5) 0%, rgba(100,50,0,0.2) 25%, rgba(40,10,80,0.1) 50%, transparent 70%)',
         }}
       />
 
       <div
-        className="absolute top-[-30%] left-[-20%] w-[800px] h-[800px] rounded-full opacity-[0.03]"
+        className="absolute top-[-30%] left-[60%] w-[1000px] h-[600px] rounded-full opacity-[0.04]"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(100,50,180,0.8) 0%, rgba(60,20,120,0.3) 40%, transparent 70%)',
+          animation: 'nebulaFloat1 35s ease-in-out infinite',
+          filter: 'blur(40px)',
+        }}
+      />
+
+      <div
+        className="absolute bottom-[-10%] left-[-10%] w-[800px] h-[500px] rounded-full opacity-[0.035]"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(20,80,180,0.8) 0%, rgba(10,40,100,0.3) 40%, transparent 70%)',
+          animation: 'nebulaFloat2 40s ease-in-out infinite',
+          filter: 'blur(50px)',
+        }}
+      />
+
+      <div
+        className="absolute top-[60%] right-[-5%] w-[600px] h-[400px] rounded-full opacity-[0.03]"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(180,50,80,0.6) 0%, rgba(120,20,60,0.2) 40%, transparent 70%)',
+          animation: 'nebulaFloat3 30s ease-in-out infinite',
+          filter: 'blur(60px)',
+        }}
+      />
+
+      <div
+        className="absolute top-[20%] left-[30%] w-[300px] h-[300px] rounded-full opacity-[0.025]"
         style={{
           background: 'radial-gradient(circle, rgba(234,179,8,1) 0%, transparent 60%)',
-          animation: 'floatOrb1 25s ease-in-out infinite',
+          animation: 'nebulaFloat3 25s ease-in-out infinite',
         }}
       />
 
-      <div
-        className="absolute bottom-[-20%] right-[-15%] w-[700px] h-[700px] rounded-full opacity-[0.025]"
-        style={{
-          background: 'radial-gradient(circle, rgba(161,161,170,1) 0%, transparent 60%)',
-          animation: 'floatOrb2 30s ease-in-out infinite',
-        }}
-      />
-
-      <div
-        className="absolute top-[30%] right-[10%] w-[400px] h-[400px] rounded-full opacity-[0.02]"
-        style={{
-          background: 'radial-gradient(circle, rgba(234,179,8,1) 0%, transparent 60%)',
-          animation: 'floatOrb3 22s ease-in-out infinite',
-        }}
-      />
-
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 50%, transparent 0%, rgba(0,0,0,0.6) 100%)' }} />
-
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800/50 to-transparent" />
-
-      <div className="absolute top-[12%] left-[6%] w-px h-[250px] bg-gradient-to-b from-transparent via-zinc-800/20 to-transparent" />
-      <div className="absolute top-[20%] right-[8%] w-px h-[180px] bg-gradient-to-b from-transparent via-yellow-500/8 to-transparent" />
-      <div className="absolute bottom-[25%] left-[15%] w-px h-[120px] bg-gradient-to-b from-transparent via-zinc-700/15 to-transparent" />
-      <div className="absolute top-[45%] right-[25%] w-px h-[160px] bg-gradient-to-b from-transparent via-zinc-800/15 to-transparent" />
-
-      <div className="absolute top-[8%] right-[12%] w-1 h-1 rounded-full bg-yellow-500/25" style={{ animation: 'twinkle 5s ease-in-out infinite' }} />
-      <div className="absolute top-[25%] left-[8%] w-1 h-1 rounded-full bg-zinc-500/30" style={{ animation: 'twinkle 7s ease-in-out infinite 1s' }} />
-      <div className="absolute bottom-[35%] right-[20%] w-0.5 h-0.5 rounded-full bg-yellow-500/15" style={{ animation: 'twinkle 6s ease-in-out infinite 2s' }} />
-      <div className="absolute top-[55%] left-[25%] w-1 h-1 rounded-full bg-zinc-600/25" style={{ animation: 'twinkle 8s ease-in-out infinite 0.5s' }} />
-      <div className="absolute top-[15%] left-[45%] w-0.5 h-0.5 rounded-full bg-yellow-500/20" style={{ animation: 'twinkle 5.5s ease-in-out infinite 3s' }} />
-      <div className="absolute bottom-[50%] right-[40%] w-0.5 h-0.5 rounded-full bg-zinc-500/20" style={{ animation: 'twinkle 9s ease-in-out infinite 1.5s' }} />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 40%, transparent 0%, rgba(0,0,0,0.7) 100%)' }} />
 
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-      <div
-        className="absolute inset-0 opacity-[0.012]"
-        style={{
-          backgroundImage: 'radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
-        }}
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
 
       <style>{`
-        @keyframes floatOrb1 {
-          0%, 100% { transform: translate(0, 0); }
-          33% { transform: translate(100px, 50px); }
-          66% { transform: translate(-50px, 100px); }
+        @keyframes nebulaFloat1 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(60px, 30px) rotate(2deg); }
+          66% { transform: translate(-30px, 60px) rotate(-1deg); }
         }
-        @keyframes floatOrb2 {
-          0%, 100% { transform: translate(0, 0); }
-          33% { transform: translate(-80px, -40px); }
-          66% { transform: translate(50px, -80px); }
+        @keyframes nebulaFloat2 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(-50px, -25px) rotate(-2deg); }
+          66% { transform: translate(40px, -50px) rotate(1deg); }
         }
-        @keyframes floatOrb3 {
+        @keyframes nebulaFloat3 {
           0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(-60px, 40px); }
-        }
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.15; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.8); }
+          50% { transform: translate(-40px, 30px); }
         }
       `}</style>
     </div>
