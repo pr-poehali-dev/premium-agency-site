@@ -7,7 +7,7 @@ const DockMenu = () => {
   const menuItems = [
     { icon: 'House', label: 'Главная' },
     { icon: 'Folder', label: 'Портфолио' },
-    { icon: 'Globe', label: 'Веб' },
+    { icon: 'Code', label: 'Разработка' },
     { icon: 'TrendingUp', label: 'Маркетинг' },
     { icon: 'Brain', label: 'AI' },
     { icon: 'Handshake', label: 'Партнеры' },
