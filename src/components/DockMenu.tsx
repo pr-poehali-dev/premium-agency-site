@@ -5,16 +5,16 @@ const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const menuItems = [
-    { icon: 'Compass', label: 'Главная' },
-    { icon: 'FolderOpen', label: 'Портфолио' },
-    { icon: 'Globe', label: 'Веб' },
-    { icon: 'BarChart3', label: 'Маркетинг' },
-    { icon: 'Sparkles', label: 'AI' },
-    { icon: 'Users', label: 'Партнеры' },
-    { icon: 'MessageSquare', label: 'Контакты' },
-    { icon: 'BookOpen', label: 'О нас' },
-    { icon: 'ListChecks', label: 'Квиз' },
-    { icon: 'LayoutGrid', label: 'Меню' },
+    { icon: 'Compass', label: 'Главная', bg: 'linear-gradient(135deg, #3b82f6, #1d4ed8)' },
+    { icon: 'FolderOpen', label: 'Портфолио', bg: 'linear-gradient(135deg, #60a5fa, #2563eb)' },
+    { icon: 'Globe', label: 'Веб', bg: 'linear-gradient(135deg, #06b6d4, #0891b2)' },
+    { icon: 'BarChart3', label: 'Маркетинг', bg: 'linear-gradient(135deg, #22c55e, #16a34a)' },
+    { icon: 'Sparkles', label: 'AI', bg: 'linear-gradient(135deg, #a855f7, #7c3aed)' },
+    { icon: 'Users', label: 'Партнеры', bg: 'linear-gradient(135deg, #f97316, #ea580c)' },
+    { icon: 'MessageSquare', label: 'Контакты', bg: 'linear-gradient(135deg, #34d399, #10b981)' },
+    { icon: 'BookOpen', label: 'О нас', bg: 'linear-gradient(135deg, #f59e0b, #d97706)' },
+    { icon: 'ListChecks', label: 'Квиз', bg: 'linear-gradient(135deg, #ec4899, #db2777)' },
+    { icon: 'LayoutGrid', label: 'Меню', bg: 'linear-gradient(135deg, #8b5cf6, #6d28d9)' },
   ];
 
   const getScale = (index: number) => {
@@ -37,14 +37,6 @@ const DockMenu = () => {
 
   return (
     <nav className="fixed bottom-6 left-0 right-0 px-8 pointer-events-none">
-      <svg width="0" height="0" className="absolute">
-        <defs>
-          <linearGradient id="iconGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#a1a1aa" />
-            <stop offset="100%" stopColor="#eab308" />
-          </linearGradient>
-        </defs>
-      </svg>
       <div className="relative max-w-fit mx-auto pointer-events-auto">
         <div
           className="rounded-2xl px-5 py-3"
@@ -72,29 +64,21 @@ const DockMenu = () => {
                     transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                   }}
                 >
-                  <div className="relative p-3">
-                    <div
-                      className="absolute inset-0 rounded-[14px] transition-all duration-300"
-                      style={{
-                        background: isHovered ? 'rgba(161,161,170,0.1)' : 'transparent',
-                        border: isHovered ? '1px solid rgba(161,161,170,0.2)' : '1px solid transparent',
-                      }}
+                  <div
+                    className="relative rounded-[14px] w-[54px] h-[54px] flex items-center justify-center"
+                    style={{
+                      background: item.bg,
+                      boxShadow: isHovered
+                        ? '0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25)'
+                        : '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)',
+                    }}
+                  >
+                    <Icon
+                      name={item.icon}
+                      size={28}
+                      strokeWidth={1.8}
+                      className="text-white"
                     />
-                    <div
-                      className="relative z-10"
-                      style={{
-                        background: 'linear-gradient(180deg, #a1a1aa 0%, #eab308 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                      }}
-                    >
-                      <Icon
-                        name={item.icon}
-                        size={44}
-                        strokeWidth={1.2}
-                        style={{ stroke: 'url(#iconGradient)' }}
-                      />
-                    </div>
                   </div>
 
                   <div
