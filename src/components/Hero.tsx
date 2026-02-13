@@ -1,10 +1,13 @@
 const Hero = () => {
   return (
     <div className="flex-1 flex flex-col items-center justify-center">
-      <div className="flex items-center justify-center mb-24">
+      <div className="flex flex-col items-center justify-center mb-24">
         <h1 className="font-zen text-[12rem] md:text-[16rem] lg:text-[20rem] tracking-normal text-white">
           <span className="text-yellow-500">a</span>lbe
         </h1>
+        <p className="w-full text-center font-light tracking-[0.5em] text-white text-[2.4rem] md:text-[3.2rem] lg:text-[4rem] -mt-10 md:-mt-14 lg:-mt-20">
+          DIGITAL AGENCY
+        </p>
       </div>
       
       <div className="px-8 md:px-16">
