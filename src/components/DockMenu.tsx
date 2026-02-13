@@ -5,16 +5,16 @@ const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const menuItems = [
-    { icon: 'Home', label: 'Главная' },
-    { icon: 'Briefcase', label: 'Портфолио' },
+    { icon: 'Compass', label: 'Главная' },
+    { icon: 'FolderOpen', label: 'Портфолио' },
     { icon: 'Globe', label: 'Веб' },
-    { icon: 'Target', label: 'Маркетинг' },
-    { icon: 'Brain', label: 'AI' },
-    { icon: 'Handshake', label: 'Партнеры' },
-    { icon: 'Send', label: 'Контакты' },
-    { icon: 'Users', label: 'О нас' },
-    { icon: 'CircleHelp', label: 'Квиз' },
-    { icon: 'Menu', label: 'Меню' },
+    { icon: 'BarChart3', label: 'Маркетинг' },
+    { icon: 'Sparkles', label: 'AI' },
+    { icon: 'Users', label: 'Партнеры' },
+    { icon: 'MessageSquare', label: 'Контакты' },
+    { icon: 'BookOpen', label: 'О нас' },
+    { icon: 'ListChecks', label: 'Квиз' },
+    { icon: 'LayoutGrid', label: 'Меню' },
   ];
 
   const getScale = (index: number) => {
