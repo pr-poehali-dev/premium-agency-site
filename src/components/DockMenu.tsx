@@ -5,16 +5,16 @@ const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const menuItems = [
-    { icon: 'Compass', label: 'Главная', bg: 'linear-gradient(135deg, #3b82f6, #1d4ed8)' },
-    { icon: 'FolderOpen', label: 'Портфолио', bg: 'linear-gradient(135deg, #60a5fa, #2563eb)' },
-    { icon: 'Globe', label: 'Веб', bg: 'linear-gradient(135deg, #06b6d4, #0891b2)' },
-    { icon: 'BarChart3', label: 'Маркетинг', bg: 'linear-gradient(135deg, #22c55e, #16a34a)' },
-    { icon: 'Sparkles', label: 'AI', bg: 'linear-gradient(135deg, #a855f7, #7c3aed)' },
-    { icon: 'Users', label: 'Партнеры', bg: 'linear-gradient(135deg, #f97316, #ea580c)' },
-    { icon: 'MessageSquare', label: 'Контакты', bg: 'linear-gradient(135deg, #34d399, #10b981)' },
-    { icon: 'BookOpen', label: 'О нас', bg: 'linear-gradient(135deg, #f59e0b, #d97706)' },
-    { icon: 'ListChecks', label: 'Квиз', bg: 'linear-gradient(135deg, #ec4899, #db2777)' },
-    { icon: 'LayoutGrid', label: 'Меню', bg: 'linear-gradient(135deg, #8b5cf6, #6d28d9)' },
+    { icon: 'House', label: 'Главная' },
+    { icon: 'Folder', label: 'Портфолио' },
+    { icon: 'Globe', label: 'Веб' },
+    { icon: 'Megaphone', label: 'Маркетинг' },
+    { icon: 'Zap', label: 'AI' },
+    { icon: 'Handshake', label: 'Партнеры' },
+    { icon: 'Mail', label: 'Контакты' },
+    { icon: 'Users', label: 'О нас' },
+    { icon: 'ClipboardList', label: 'Квиз' },
+    { icon: 'Grid3x3', label: 'Меню' },
   ];
 
   const getScale = (index: number) => {
@@ -64,20 +64,20 @@ const DockMenu = () => {
                     transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                   }}
                 >
-                  <div
-                    className="relative rounded-[14px] w-[54px] h-[54px] flex items-center justify-center"
-                    style={{
-                      background: item.bg,
-                      boxShadow: isHovered
-                        ? '0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25)'
-                        : '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)',
-                    }}
-                  >
+                  <div className="relative p-3">
+                    <div
+                      className="absolute inset-0 rounded-[14px] transition-all duration-300"
+                      style={{
+                        background: isHovered ? 'rgba(161,161,170,0.1)' : 'transparent',
+                        border: isHovered ? '1px solid rgba(161,161,170,0.2)' : '1px solid transparent',
+                      }}
+                    />
                     <Icon
                       name={item.icon}
-                      size={28}
-                      strokeWidth={1.8}
-                      className="text-white"
+                      size={44}
+                      strokeWidth={1.2}
+                      className="relative z-10 transition-colors duration-300"
+                      style={{ color: '#a1a1aa' }}
                     />
                   </div>
 
