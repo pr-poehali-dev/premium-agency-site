@@ -11,7 +11,7 @@ const Hero = () => {
           <span className="text-yellow-500" style={{ textShadow: '0 0 60px rgba(234,179,8,0.3), 0 0 120px rgba(234,179,8,0.1)' }}>a</span>lbe
         </h1>
         <p
-          className="w-full text-center font-light tracking-[0.85em] text-zinc-400 text-[2.8rem] md:text-[3.8rem] lg:text-[4.8rem] -mt-4 md:-mt-8 lg:-mt-12"
+          className="w-full text-center font-light whitespace-nowrap tracking-[0.85em] text-zinc-400 text-[2.8rem] md:text-[3.8rem] lg:text-[4.8rem] -mt-4 md:-mt-8 lg:-mt-12"
         >
           DIGITAL AGENCY
         </p>
