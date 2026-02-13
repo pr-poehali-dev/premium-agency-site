@@ -74,10 +74,10 @@ const techStack = [
 
 const Development = () => {
   return (
-    <div className="absolute inset-0 p-5 pb-28 flex items-stretch justify-center overflow-hidden">
-      <div className="w-full h-full flex flex-col">
+    <div className="flex-1 flex items-center justify-center px-6 md:px-12 pb-32">
+      <div className="w-full max-w-6xl">
         <div
-          className="flex-1 rounded-3xl overflow-y-auto"
+          className="rounded-3xl p-8 md:p-12"
           style={{
             background: 'rgba(0,0,0,0.6)',
             border: '1px solid rgba(234,179,8,0.2)',
@@ -85,95 +85,91 @@ const Development = () => {
             boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
           }}
         >
-          <div className="h-full flex flex-col p-6 md:p-8 lg:p-10">
-            <div className="mb-6 text-center flex-shrink-0">
-              <h1 className="font-montserrat font-bold text-2xl md:text-4xl lg:text-5xl text-white mb-2">
-                <span className="text-yellow-500">Разработка</span>
-              </h1>
-              <p className="font-montserrat text-zinc-400 text-xs md:text-sm lg:text-base">
-                Что мы создаем и наш стек технологий
-              </p>
+          <div className="mb-10 text-center">
+            <h1 className="font-montserrat font-bold text-3xl md:text-5xl text-white mb-3">
+              <span className="text-yellow-500">Разработка</span>
+            </h1>
+            <p className="font-montserrat text-zinc-400 text-sm md:text-base">
+              Что мы создаем и наш стек технологий
+            </p>
+          </div>
+
+          <div className="mb-10">
+            <h2 className="font-montserrat font-semibold text-yellow-500 text-lg md:text-xl mb-6">
+              ЧТО МЫ РАЗРАБАТЫВАЕМ
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {services.map((service) => (
+                <div
+                  key={service.title}
+                  className="group relative rounded-xl p-6 transition-all duration-300 hover:scale-[1.02]"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(234,179,8,0.1)',
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="p-2 rounded-lg"
+                      style={{ background: 'rgba(234,179,8,0.1)' }}
+                    >
+                      <Icon name={service.icon} size={20} className="text-yellow-500" />
+                    </div>
+                    <h3 className="font-montserrat font-semibold text-yellow-500 text-sm md:text-base">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {service.items.map((item) => (
+                      <li key={item} className="font-montserrat text-zinc-400 text-xs md:text-sm leading-relaxed">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="flex-1 overflow-y-auto">
-              <div className="mb-8">
-                <h2 className="font-montserrat font-semibold text-yellow-500 text-base md:text-lg lg:text-xl mb-4">
-                  ЧТО МЫ РАЗРАБАТЫВАЕМ
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                  {services.map((service) => (
-                    <div
-                      key={service.title}
-                      className="group relative rounded-xl p-4 md:p-5 transition-all duration-300 hover:scale-[1.02]"
-                      style={{
-                        background: 'rgba(255,255,255,0.03)',
-                        border: '1px solid rgba(234,179,8,0.1)',
-                      }}
+          <div>
+            <h2 className="font-montserrat font-semibold text-yellow-500 text-lg md:text-xl mb-6">
+              СТЕК ТЕХНОЛОГИЙ
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {techStack.map((stack) => (
+                <div
+                  key={stack.title}
+                  className="group relative rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] overflow-hidden"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: `1px solid ${stack.color}20`,
+                  }}
+                >
+                  <div
+                    className="absolute top-0 right-0 w-24 h-24 rounded-full opacity-10 blur-2xl"
+                    style={{ background: stack.color }}
+                  />
+                  <div className="relative z-10">
+                    <h3
+                      className="font-montserrat font-semibold text-xs md:text-sm mb-3"
+                      style={{ color: stack.color }}
                     >
-                      <div className="flex items-center gap-2.5 mb-3">
-                        <div
-                          className="p-1.5 md:p-2 rounded-lg"
-                          style={{ background: 'rgba(234,179,8,0.1)' }}
-                        >
-                          <Icon name={service.icon} size={16} className="text-yellow-500 md:w-5 md:h-5" />
-                        </div>
-                        <h3 className="font-montserrat font-semibold text-yellow-500 text-xs md:text-sm lg:text-base">
-                          {service.title}
-                        </h3>
-                      </div>
-                      <ul className="space-y-1">
-                        {service.items.map((item) => (
-                          <li key={item} className="font-montserrat text-zinc-400 text-[10px] md:text-xs lg:text-sm leading-relaxed">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                      {stack.title}
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {stack.items.map((item) => (
+                        <li key={item} className="font-montserrat text-zinc-400 text-[10px] md:text-xs flex items-start gap-1.5">
+                          <span
+                            className="mt-1 w-1 h-1 rounded-full flex-shrink-0"
+                            style={{ background: stack.color }}
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                <h2 className="font-montserrat font-semibold text-yellow-500 text-base md:text-lg lg:text-xl mb-4">
-                  СТЕК ТЕХНОЛОГИЙ
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
-                  {techStack.map((stack) => (
-                    <div
-                      key={stack.title}
-                      className="group relative rounded-xl p-3 md:p-4 transition-all duration-300 hover:scale-[1.02] overflow-hidden"
-                      style={{
-                        background: 'rgba(255,255,255,0.03)',
-                        border: `1px solid ${stack.color}20`,
-                      }}
-                    >
-                      <div
-                        className="absolute top-0 right-0 w-20 h-20 md:w-24 md:h-24 rounded-full opacity-10 blur-2xl"
-                        style={{ background: stack.color }}
-                      />
-                      <div className="relative z-10">
-                        <h3
-                          className="font-montserrat font-semibold text-[10px] md:text-xs lg:text-sm mb-2 md:mb-3"
-                          style={{ color: stack.color }}
-                        >
-                          {stack.title}
-                        </h3>
-                        <ul className="space-y-1">
-                          {stack.items.map((item) => (
-                            <li key={item} className="font-montserrat text-zinc-400 text-[8px] md:text-[10px] lg:text-xs flex items-start gap-1">
-                              <span
-                                className="mt-0.5 md:mt-1 w-0.5 h-0.5 md:w-1 md:h-1 rounded-full flex-shrink-0"
-                                style={{ background: stack.color }}
-                              />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
