@@ -77,7 +77,7 @@ const DockMenu = () => {
                       size={44}
                       strokeWidth={1.2}
                       className="relative z-10 transition-colors duration-300"
-                      style={{ color: '#a1a1aa' }}
+                      style={{ color: '#eab308' }}
                     />
                   </div>
 
