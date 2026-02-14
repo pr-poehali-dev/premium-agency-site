@@ -95,7 +95,7 @@ const DockMenu = () => {
           </linearGradient>
         </defs>
       </svg>
-      <nav className="fixed bottom-3 md:bottom-5 left-0 right-0 px-2 md:px-5 pointer-events-none z-[10000]">
+      <nav className="fixed bottom-3 md:bottom-5 left-0 right-0 px-2 md:px-5 pointer-events-none z-[10000]" style={{ willChange: 'auto' }}>
         <div className="relative w-full md:max-w-fit mx-auto pointer-events-auto" ref={containerRef}>
           <div
             className="rounded-xl md:rounded-2xl px-3 py-2 md:px-5 md:py-3"

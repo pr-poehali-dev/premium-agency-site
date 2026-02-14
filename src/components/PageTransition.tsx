@@ -22,9 +22,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
       className="flex-1"
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: `scale(${isVisible ? 1 : 0.95})`,
-        transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
-        willChange: 'opacity, transform',
+        transition: 'opacity 0.15s ease-out',
       }}
     >
       {children}
