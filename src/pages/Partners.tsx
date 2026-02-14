@@ -14,7 +14,7 @@ const clients = [
   { name: 'Mercedes-Benz', logo: 'https://cdn.poehali.dev/files/9a7bf506-b4e8-4317-84d4-83d6e72b515d.png', isDark: true },
   { name: 'S7 Airlines', logo: 'https://cdn.poehali.dev/files/882ed5ef-9d14-42ca-a8e4-e6a1f4cf668f.png', isDark: false },
   { name: 'Сбер', logo: 'https://cdn.poehali.dev/files/a88249f5-e048-46b2-ac80-41d8d9be5e28.png', isDark: false },
-  { name: 'Т-Банк', logo: 'https://cdn.poehali.dev/files/32051a84-d001-46a0-808c-9f68469f9dfa.png', isDark: true },
+  { name: 'Т-Банк', logo: 'https://cdn.poehali.dev/files/32051a84-d001-46a0-808c-9f68469f9dfa.png', isDark: false },
   { name: 'Зенит', logo: 'https://cdn.poehali.dev/files/7c2572ab-04d4-4802-9e60-20738749315f.png', isDark: false },
 ];
 
