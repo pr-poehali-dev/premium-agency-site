@@ -15,10 +15,10 @@ const allPages = [
   { label: 'Команда', path: '/team', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/9ad85cd2-400b-41b7-8bc5-e3e4f5121006.png' },
   { label: 'Отзывы', path: '/reviews', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/00745d1c-4357-400a-b183-36ef2dd4759c.png' },
   { label: 'Клиенты', path: '/partners', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/1208343a-a4b1-4f59-9013-8b90acb29eb8.png' },
-  { label: 'Контакты', path: '/contact', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/5a59e1a1-9200-4b0f-9f5b-e8c16c9d9d28.jpg' },
-  { label: 'О нас', path: '/about', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/c66bc2f2-1cde-4965-ac22-9ca248350797.jpg' },
-  { label: 'Квиз', path: '/quiz', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/1b9caa12-305e-4b72-a92b-2c6441162827.jpg' },
-  { label: 'FAQ', path: '/faqs', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/1daeeab4-300c-41e3-81bf-1ae05fd851d7.jpg' },
+  { label: 'Контакты', path: '/contact', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/bd4b8b19-2d6c-42a7-909b-18cc002a3cee.png' },
+  { label: 'О нас', path: '/about', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/08a6bc50-3597-4d68-b1b7-16c6287be512.png' },
+  { label: 'Квиз', path: '/quiz', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/fefc558d-5cd6-4d92-909c-d6b5e94ae1df.png' },
+  { label: 'FAQ', path: '/faqs', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/c938ee86-49ce-4704-ba53-167090873dca.png' },
 ];
 
 const Menu = () => {
