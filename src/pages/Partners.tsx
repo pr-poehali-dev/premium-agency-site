@@ -44,7 +44,7 @@ const Partners = () => {
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-w-full max-h-16 object-contain"
+                  className="max-w-full max-h-20 object-contain"
                   style={{
                     filter: client.isDark ? 'brightness(0) invert(1)' : 'none',
                   }}
