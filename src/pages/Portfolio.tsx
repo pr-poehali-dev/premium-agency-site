@@ -18,6 +18,8 @@ const casesByCategory = {
       tech: ['Figma', 'Adobe Illustrator', 'Prototyping'],
       cost: 'от 500 000 ₽',
       duration: '3 недели',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-design-1.jpg',
+      link: '#',
     },
     {
       title: 'E-Commerce платформа',
@@ -25,6 +27,8 @@ const casesByCategory = {
       tech: ['Figma', 'Sketch', 'Design System'],
       cost: 'от 800 000 ₽',
       duration: '1.5 месяца',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-design-2.jpg',
+      link: '#',
     },
     {
       title: 'Корпоративный сайт',
@@ -32,6 +36,8 @@ const casesByCategory = {
       tech: ['Figma', 'After Effects', 'Lottie'],
       cost: 'от 300 000 ₽',
       duration: '2 недели',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-design-3.jpg',
+      link: '#',
     },
   ],
   'Разработка': [
@@ -41,6 +47,8 @@ const casesByCategory = {
       tech: ['React', 'Python', 'ML', 'PostgreSQL'],
       cost: 'от 2 500 000 ₽',
       duration: '4 месяца',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-dev-1.jpg',
+      link: '#',
     },
     {
       title: 'Healthcare CRM',
@@ -48,6 +56,8 @@ const casesByCategory = {
       tech: ['TypeScript', 'PostgreSQL', 'FHIR', 'Docker'],
       cost: 'от 1 800 000 ₽',
       duration: '3 месяца',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-dev-2.jpg',
+      link: '#',
     },
     {
       title: 'Logistics ERP',
@@ -55,6 +65,8 @@ const casesByCategory = {
       tech: ['Python', 'Kubernetes', 'RabbitMQ', 'MongoDB'],
       cost: 'от 3 000 000 ₽',
       duration: '5 месяцев',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-dev-3.jpg',
+      link: '#',
     },
     {
       title: 'EdTech Platform',
@@ -62,6 +74,8 @@ const casesByCategory = {
       tech: ['React', 'NLP', 'WebRTC', 'PostgreSQL'],
       cost: 'от 2 200 000 ₽',
       duration: '4 месяца',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-dev-4.jpg',
+      link: '#',
     },
   ],
   'Маркетинг': [
@@ -71,6 +85,8 @@ const casesByCategory = {
       tech: ['Google Ads', 'Yandex Direct', 'SEO', 'Analytics'],
       cost: 'от 200 000 ₽/мес',
       duration: 'постоянно',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-marketing-1.jpg',
+      link: '#',
     },
     {
       title: 'Performance маркетинг E-commerce',
@@ -78,6 +94,8 @@ const casesByCategory = {
       tech: ['Facebook Ads', 'Instagram', 'Google Shopping', 'CRM'],
       cost: 'от 150 000 ₽/мес',
       duration: 'постоянно',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-marketing-2.jpg',
+      link: '#',
     },
     {
       title: 'Контент-маркетинг B2B',
@@ -85,6 +103,8 @@ const casesByCategory = {
       tech: ['Content Strategy', 'LinkedIn', 'Webinars', 'Lead Gen'],
       cost: 'от 180 000 ₽/мес',
       duration: 'постоянно',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/placeholder-marketing-3.jpg',
+      link: '#',
     },
   ],
 };
@@ -190,14 +210,42 @@ const Portfolio = () => {
                 {casesByCategory[selectedCategory as keyof typeof casesByCategory]?.map((caseItem, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl p-5"
+                    className="rounded-2xl overflow-hidden"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
                       border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}20`,
                     }}
                   >
-                    <h4 className="font-montserrat font-semibold text-xl text-white mb-2">{caseItem.title}</h4>
-                    <p className="font-montserrat text-zinc-400 text-base leading-relaxed mb-4">{caseItem.desc}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-5">
+                      <div className="relative overflow-hidden group rounded-2xl md:rounded-none">
+                        <img
+                          src={caseItem.image}
+                          alt={caseItem.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          style={{ minHeight: '200px', maxHeight: '300px' }}
+                        />
+                        <div 
+                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                          style={{ background: 'rgba(0,0,0,0.7)' }}
+                        >
+                          <a
+                            href={caseItem.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            style={{
+                              background: `${categories.find(c => c.name === selectedCategory)?.color}`,
+                              color: '#000',
+                            }}
+                          >
+                            Посмотреть проект
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <div className="p-5">
+                        <h4 className="font-montserrat font-semibold text-xl text-white mb-2">{caseItem.title}</h4>
+                        <p className="font-montserrat text-zinc-400 text-base leading-relaxed mb-4">{caseItem.desc}</p>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
                       <div className="rounded-xl p-3" style={{ background: 'rgba(255,255,255,0.02)' }}>
@@ -220,39 +268,41 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-3">
-                      <button
-                        onClick={handleOrderProject}
-                        className="flex-1 min-w-[200px] px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
-                        style={{
-                          background: `${categories.find(c => c.name === selectedCategory)?.color}`,
-                          color: '#000',
-                        }}
-                      >
-                        Заказать подобный проект
-                      </button>
-                      <button
-                        onClick={handleQuiz}
-                        className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
-                        style={{
-                          background: 'rgba(255,255,255,0.05)',
-                          border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
-                          color: categories.find(c => c.name === selectedCategory)?.color,
-                        }}
-                      >
-                        Пройти квиз
-                      </button>
-                      <button
-                        onClick={handleOrderProject}
-                        className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
-                        style={{
-                          background: 'rgba(255,255,255,0.05)',
-                          border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
-                          color: categories.find(c => c.name === selectedCategory)?.color,
-                        }}
-                      >
-                        Связаться
-                      </button>
+                        <div className="flex flex-wrap gap-3">
+                          <button
+                            onClick={handleOrderProject}
+                            className="flex-1 min-w-[200px] px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            style={{
+                              background: `${categories.find(c => c.name === selectedCategory)?.color}`,
+                              color: '#000',
+                            }}
+                          >
+                            Заказать подобный проект
+                          </button>
+                          <button
+                            onClick={handleQuiz}
+                            className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            style={{
+                              background: 'rgba(255,255,255,0.05)',
+                              border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
+                              color: categories.find(c => c.name === selectedCategory)?.color,
+                            }}
+                          >
+                            Пройти квиз
+                          </button>
+                          <button
+                            onClick={handleOrderProject}
+                            className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            style={{
+                              background: 'rgba(255,255,255,0.05)',
+                              border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
+                              color: categories.find(c => c.name === selectedCategory)?.color,
+                            }}
+                          >
+                            Связаться
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
