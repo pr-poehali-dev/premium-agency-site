@@ -6,11 +6,11 @@ const Hero = () => {
           className="font-zen tracking-normal leading-none"
           style={{
             fontSize: 'clamp(5rem, 22vw, 28rem)',
-            background: 'linear-gradient(90deg, #c4a853 0%, #8b7355 50%, #5a4a3a 100%)',
+            background: 'linear-gradient(90deg, #b8a01e 0%, #9d8c3f 50%, #6d5d3a 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
-            textShadow: '0 0 120px rgba(196,168,83,0.15), 0 0 240px rgba(196,168,83,0.08)',
+            textShadow: '0 0 120px rgba(184,160,30,0.15), 0 0 240px rgba(184,160,30,0.08)',
           }}
         >
           albe
