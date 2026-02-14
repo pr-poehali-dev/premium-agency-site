@@ -31,6 +31,27 @@ const plans = [
   },
 ];
 
+const services = [
+  { title: 'Лендинг', price: 'от 10 000 за блок', icon: 'FileText' },
+  { title: 'Чат-бот', price: 'от 100 000', icon: 'Bot' },
+  { title: 'Корпоративный сайт', price: 'от 200 000', icon: 'Building2' },
+  { title: 'Интернет-магазин', price: 'от 300 000', icon: 'ShoppingCart' },
+  { title: 'Веб-приложение', price: 'от 400 000', icon: 'AppWindow' },
+  { title: 'Мобильное приложение', price: 'от 500 000', icon: 'Smartphone' },
+  { title: 'Корпоративный портал', price: 'от 600 000', icon: 'Network' },
+  { title: 'CRM/ERP', price: 'от 800 000', icon: 'Database' },
+  { title: 'Разработка ИИ решений', price: 'от 1 000 000', icon: 'Brain' },
+];
+
+const support = [
+  { title: 'Консультация', price: 'бесплатно', icon: 'MessageCircle' },
+  { title: 'Составление технического задания', price: 'бесплатно', icon: 'ClipboardCheck' },
+  { title: 'Дизайн UI/UX', price: 'от 20 000', icon: 'Palette' },
+  { title: 'SEO оптимизация', price: 'от 30 000', icon: 'TrendingUp' },
+  { title: 'Доработка проекта', price: 'по согласованию', icon: 'Wrench' },
+  { title: 'Техническая поддержка', price: 'по согласованию', icon: 'Headphones' },
+];
+
 const Pricing = () => {
   return (
     <AppLayout>
@@ -54,7 +75,7 @@ const Pricing = () => {
               <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
                 СТОИМОСТЬ УСЛУГ
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
                 {plans.map((plan) => (
                   <div
                     key={plan.title}
@@ -92,6 +113,54 @@ const Pricing = () => {
                         </li>
                       ))}
                     </ul>
+                  </div>
+                ))}
+              </div>
+
+              <h3 className="font-montserrat font-light text-xl md:text-2xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
+                РАЗРАБОТКА
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
+                {services.map((service) => (
+                  <div
+                    key={service.title}
+                    className="rounded-xl p-4 transition-all duration-300 hover:scale-[1.02]"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(234,179,8,0.1)',
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
+                        <Icon name={service.icon} size={20} style={{ color: '#eab308' }} />
+                      </div>
+                      <h4 className="font-montserrat font-medium text-white text-sm">{service.title}</h4>
+                    </div>
+                    <p className="font-montserrat text-base ml-11" style={{ color: '#eab308' }}>{service.price}</p>
+                  </div>
+                ))}
+              </div>
+
+              <h3 className="font-montserrat font-light text-xl md:text-2xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
+                ПОДДЕРЖКА И АНАЛИТИКА
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {support.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-xl p-4 transition-all duration-300 hover:scale-[1.02]"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(234,179,8,0.1)',
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
+                        <Icon name={item.icon} size={20} style={{ color: '#eab308' }} />
+                      </div>
+                      <h4 className="font-montserrat font-medium text-white text-sm">{item.title}</h4>
+                    </div>
+                    <p className="font-montserrat text-base ml-11" style={{ color: '#eab308' }}>{item.price}</p>
                   </div>
                 ))}
               </div>
