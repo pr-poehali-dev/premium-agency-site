@@ -30,10 +30,11 @@ const DockMenu = () => {
   useEffect(() => {
     const calculateVisible = () => {
       const width = window.innerWidth;
-      const iconWidth = 70;
-      const gap = 16;
-      const padding = 80;
-      const menuIconSpace = 70 + gap;
+      const isMobile = width < 768;
+      const iconWidth = isMobile ? 50 : 70;
+      const gap = isMobile ? 8 : 16;
+      const padding = isMobile ? 40 : 80;
+      const menuIconSpace = iconWidth + gap;
       
       const availableWidth = width - padding - menuIconSpace;
       const maxIcons = Math.floor(availableWidth / (iconWidth + gap));
@@ -80,12 +81,14 @@ const DockMenu = () => {
     setIsMenuOpen(false);
   };
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   return (
     <>
-      <nav className="fixed bottom-8 left-0 right-0 px-8 pointer-events-none z-50">
+      <nav className="fixed bottom-4 md:bottom-8 left-0 right-0 px-4 md:px-8 pointer-events-none z-50">
         <div className="relative max-w-fit mx-auto pointer-events-auto" ref={containerRef}>
           <div
-            className="rounded-2xl px-5 py-3"
+            className="rounded-xl md:rounded-2xl px-3 py-2 md:px-5 md:py-3"
             style={{
               background: 'rgba(82,82,91,0.08)',
               border: '1px solid rgba(161,161,170,0.2)',
@@ -93,7 +96,7 @@ const DockMenu = () => {
               boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)',
             }}
           >
-            <div className="flex items-end justify-center gap-4">
+            <div className="flex items-end justify-center gap-2 md:gap-4">
               {visibleItems.map((item, index) => {
                 const isHovered = hoveredIndex === index;
                 const scale = getScale(index);
@@ -104,17 +107,17 @@ const DockMenu = () => {
                   <button
                     key={index}
                     onClick={() => handleItemClick(item.path)}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
+                    onMouseEnter={() => !isMobile && setHoveredIndex(index)}
+                    onMouseLeave={() => !isMobile && setHoveredIndex(null)}
                     className="relative flex flex-col items-center"
                     style={{
-                      transform: `translateY(${translateY}px) scale(${scale})`,
+                      transform: isMobile ? 'none' : `translateY(${translateY}px) scale(${scale})`,
                       transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                     }}
                   >
-                    <div className="relative p-3">
+                    <div className="relative p-2 md:p-3">
                       <div
-                        className="absolute inset-0 rounded-[14px] transition-all duration-300"
+                        className="absolute inset-0 rounded-lg md:rounded-[14px] transition-all duration-300"
                         style={{
                           background: isHovered || isActive ? `${item.color}15` : 'transparent',
                           border: isHovered || isActive ? `1px solid ${item.color}30` : '1px solid transparent',
@@ -122,43 +125,45 @@ const DockMenu = () => {
                       />
                       <Icon
                         name={item.icon}
-                        size={44}
+                        size={isMobile ? 28 : 44}
                         strokeWidth={1.2}
                         className="relative z-10 transition-colors duration-300"
                         style={{ color: item.color }}
                       />
                     </div>
 
-                    <div
-                      className="absolute -top-12 left-1/2 pointer-events-none transition-all duration-300"
-                      style={{
-                        opacity: isHovered ? 1 : 0,
-                        transform: `translateX(-50%) translateY(${isHovered ? '0' : '6px'})`,
-                      }}
-                    >
-                      <div className="bg-zinc-900/95 backdrop-blur-xl px-4 py-2 rounded-xl border border-zinc-700/40 shadow-2xl">
-                        <span className="text-xs font-medium text-white whitespace-nowrap tracking-wide">
-                          {item.label}
-                        </span>
+                    {!isMobile && (
+                      <div
+                        className="absolute -top-12 left-1/2 pointer-events-none transition-all duration-300"
+                        style={{
+                          opacity: isHovered ? 1 : 0,
+                          transform: `translateX(-50%) translateY(${isHovered ? '0' : '6px'})`,
+                        }}
+                      >
+                        <div className="bg-zinc-900/95 backdrop-blur-xl px-4 py-2 rounded-xl border border-zinc-700/40 shadow-2xl">
+                          <span className="text-xs font-medium text-white whitespace-nowrap tracking-wide">
+                            {item.label}
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </button>
                 );
               })}
 
               <button
                 onClick={handleMenuClick}
-                onMouseEnter={() => setHoveredIndex(visibleItems.length)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                onMouseEnter={() => !isMobile && setHoveredIndex(visibleItems.length)}
+                onMouseLeave={() => !isMobile && setHoveredIndex(null)}
                 className="relative flex flex-col items-center"
                 style={{
-                  transform: `translateY(${getTranslateY(visibleItems.length)}px) scale(${getScale(visibleItems.length)})`,
+                  transform: isMobile ? 'none' : `translateY(${getTranslateY(visibleItems.length)}px) scale(${getScale(visibleItems.length)})`,
                   transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                 }}
               >
-                <div className="relative p-3">
+                <div className="relative p-2 md:p-3">
                   <div
-                    className="absolute inset-0 rounded-[14px] transition-all duration-300"
+                    className="absolute inset-0 rounded-lg md:rounded-[14px] transition-all duration-300"
                     style={{
                       background: hoveredIndex === visibleItems.length || isMenuOpen ? `${menuIcon.color}15` : 'transparent',
                       border: hoveredIndex === visibleItems.length || isMenuOpen ? `1px solid ${menuIcon.color}30` : '1px solid transparent',
@@ -166,14 +171,14 @@ const DockMenu = () => {
                   />
                   <Icon
                     name={menuIcon.icon}
-                    size={44}
+                    size={isMobile ? 28 : 44}
                     strokeWidth={1.2}
                     className="relative z-10 transition-colors duration-300"
                     style={{ color: menuIcon.color }}
                   />
                   {hiddenItems.length > 0 && (
                     <div 
-                      className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
+                      className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center text-[8px] md:text-[10px] font-bold"
                       style={{
                         background: menuIcon.color,
                         color: '#000',
@@ -184,19 +189,21 @@ const DockMenu = () => {
                   )}
                 </div>
 
-                <div
-                  className="absolute -top-12 left-1/2 pointer-events-none transition-all duration-300"
-                  style={{
-                    opacity: hoveredIndex === visibleItems.length ? 1 : 0,
-                    transform: `translateX(-50%) translateY(${hoveredIndex === visibleItems.length ? '0' : '6px'})`,
-                  }}
-                >
-                  <div className="bg-zinc-900/95 backdrop-blur-xl px-4 py-2 rounded-xl border border-zinc-700/40 shadow-2xl">
-                    <span className="text-xs font-medium text-white whitespace-nowrap tracking-wide">
-                      {menuIcon.label}
-                    </span>
+                {!isMobile && (
+                  <div
+                    className="absolute -top-12 left-1/2 pointer-events-none transition-all duration-300"
+                    style={{
+                      opacity: hoveredIndex === visibleItems.length ? 1 : 0,
+                      transform: `translateX(-50%) translateY(${hoveredIndex === visibleItems.length ? '0' : '6px'})`,
+                    }}
+                  >
+                    <div className="bg-zinc-900/95 backdrop-blur-xl px-4 py-2 rounded-xl border border-zinc-700/40 shadow-2xl">
+                      <span className="text-xs font-medium text-white whitespace-nowrap tracking-wide">
+                        {menuIcon.label}
+                      </span>
+                    </div>
                   </div>
-                </div>
+                )}
               </button>
             </div>
           </div>
@@ -214,7 +221,7 @@ const DockMenu = () => {
           />
           
           <div 
-            className="relative z-50 rounded-3xl p-8"
+            className="relative z-50 rounded-2xl md:rounded-3xl p-4 md:p-8 mx-4"
             style={{
               background: 'rgba(0,0,0,0.85)',
               border: '1px solid rgba(6,182,212,0.3)',
@@ -224,32 +231,32 @@ const DockMenu = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-3 md:gap-6">
               {hiddenItems.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => handleItemClick(item.path)}
-                  className="group relative flex flex-col items-center gap-3 p-4 rounded-2xl transition-all duration-300 hover:scale-110"
+                  className="group relative flex flex-col items-center gap-2 md:gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95"
                   style={{
                     background: 'rgba(255,255,255,0.03)',
                     border: `1px solid ${item.color}20`,
                   }}
                 >
                   <div 
-                    className="p-4 rounded-xl"
+                    className="p-3 md:p-4 rounded-lg md:rounded-xl"
                     style={{
                       background: `${item.color}10`,
                     }}
                   >
                     <Icon
                       name={item.icon}
-                      size={40}
+                      size={isMobile ? 28 : 40}
                       strokeWidth={1.2}
                       style={{ color: item.color }}
                     />
                   </div>
                   <span 
-                    className="text-xs font-medium whitespace-nowrap"
+                    className="text-[10px] md:text-xs font-medium whitespace-nowrap"
                     style={{ color: item.color }}
                   >
                     {item.label}
