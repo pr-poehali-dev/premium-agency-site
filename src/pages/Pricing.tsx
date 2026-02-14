@@ -2,6 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
 
 const plans = [
   {
@@ -61,20 +62,10 @@ const Pricing = () => {
         path="/pricing"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(250,204,21,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                СТОИМОСТЬ УСЛУГ
-              </h2>
+        <PageContainer>
+          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
+            СТОИМОСТЬ УСЛУГ
+          </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
                 {plans.map((plan) => (
                   <div
@@ -164,9 +155,7 @@ const Pricing = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );

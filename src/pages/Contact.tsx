@@ -2,6 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
 
 const contacts = [
   { icon: 'Mail', label: 'Email', value: 'albe.web@yandex.ru', href: 'mailto:albe.web@yandex.ru' },
@@ -19,20 +20,11 @@ const Contact = () => {
         path="/contact"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(94,234,212,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                СВЯЗАТЬСЯ С НАМИ
-              </h2>
+        <PageContainer>
+          <div className="flex flex-col items-center">
+            <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
+              СВЯЗАТЬСЯ С НАМИ
+            </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-2xl w-full">
                 {contacts.map((contact) => {
                   const Wrapper = contact.href ? 'a' : 'div';
@@ -58,12 +50,11 @@ const Contact = () => {
                   );
                 })}
               </div>
-              <p className="font-montserrat text-white text-base text-center mt-8 max-w-md">
-                Оставьте заявку — мы свяжемся с вами в течение 24 часов и обсудим ваш проект
-              </p>
-            </div>
+            <p className="font-montserrat text-white text-base text-center mt-8 max-w-md">
+              Оставьте заявку — мы свяжемся с вами в течение 24 часов и обсудим ваш проект
+            </p>
           </div>
-        </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );

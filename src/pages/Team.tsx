@@ -2,6 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
 
 const teamMembers = [
   { icon: 'UserCircle', name: 'CEO & Founder', role: 'Стратегия и управление', color: '#bef264' },
@@ -30,20 +31,10 @@ const Team = () => {
         path="/team"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(190,242,100,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
-                НАША КОМАНДА
-              </h2>
+        <PageContainer>
+          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
+            НАША КОМАНДА
+          </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
                 {stats.map((stat) => (
                   <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.1)' }}>
@@ -70,9 +61,7 @@ const Team = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );

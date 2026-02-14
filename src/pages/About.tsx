@@ -2,6 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
 
 const values = [
   { icon: 'Zap', title: 'Скорость', desc: 'Быстрый запуск проектов без потери качества' },
@@ -27,20 +28,10 @@ const About = () => {
         path="/about"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(45,212,191,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4 text-center uppercase" style={{ color: '#eab308' }}>
-                О КОМПАНИИ
-              </h2>
+        <PageContainer>
+          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4 text-center uppercase" style={{ color: '#eab308' }}>
+            О КОМПАНИИ
+          </h2>
               <p className="font-montserrat text-white text-base text-center max-w-2xl mx-auto mb-8 leading-relaxed">
                 Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования.
               </p>
@@ -80,9 +71,7 @@ const About = () => {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );
