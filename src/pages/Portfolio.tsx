@@ -205,31 +205,13 @@ const Portfolio = () => {
                       border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}20`,
                     }}
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-5">
-                      <div className="relative overflow-hidden group rounded-2xl md:rounded-none">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+                      <div className="relative overflow-hidden group h-[250px] md:h-auto">
                         <img
                           src={caseItem.image}
                           alt={caseItem.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          style={{ minHeight: '200px', maxHeight: '300px' }}
+                          className="w-full h-full object-cover"
                         />
-                        <div 
-                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                          style={{ background: 'rgba(0,0,0,0.7)' }}
-                        >
-                          <a
-                            href={caseItem.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-6 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
-                            style={{
-                              background: `${categories.find(c => c.name === selectedCategory)?.color}`,
-                              color: '#000',
-                            }}
-                          >
-                            Посмотреть проект
-                          </a>
-                        </div>
                       </div>
                       
                       <div className="p-5">
