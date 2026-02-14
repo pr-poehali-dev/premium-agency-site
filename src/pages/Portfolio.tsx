@@ -16,6 +16,15 @@ const categories = [
 const casesByCategory = {
   'Дизайн': [
     {
+      title: 'Доска объявлений для UA рынка',
+      desc: 'Создали дизайн доски объявлений с функционалом как у Авито для украинского рынка',
+      tech: ['Figma', 'UI/UX Design', 'Design System'],
+      cost: '150 000 ₽',
+      duration: '3 недели',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/ea32fe55-bfa1-42da-80e0-bbe4629bc0b5.png',
+      link: '#',
+    },
+    {
       title: 'Элитный женский клуб',
       desc: 'Создали премиальный сайт для женского клуба, объединяющего бизнес, науку, искусство и культуру',
       tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
@@ -80,6 +89,15 @@ const casesByCategory = {
     },
   ],
   'Разработка': [
+    {
+      title: 'Доска объявлений для UA рынка',
+      desc: 'Разработали полнофункциональную доску объявлений с поиском, категориями, чатом и личным кабинетом',
+      tech: ['React', 'Python', 'PostgreSQL', 'Redis'],
+      cost: '500 000 ₽',
+      duration: '2 месяца',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/ea32fe55-bfa1-42da-80e0-bbe4629bc0b5.png',
+      link: '#',
+    },
     {
       title: 'Элитный женский клуб',
       desc: 'Разработали премиальный сайт для женского клуба с элегантным дизайном и плавными анимациями',
