@@ -133,21 +133,16 @@ const DockMenu = () => {
                           border: isHovered || isActive ? '1px solid rgba(234,179,8,0.2)' : '1px solid transparent',
                         }}
                       />
-                      <div style={{
-                        background: 'linear-gradient(75deg, #eab308 0%, rgba(0,0,0,0.8) 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                        display: 'inline-block'
-                      }}>
-                        <Icon
-                          name={item.icon}
-                          size={isMobile ? 28 : 44}
-                          strokeWidth={1.2}
-                          className="relative z-10 transition-opacity duration-300"
-                          style={{ color: '#eab308' }}
-                        />
-                      </div>
+                      <Icon
+                        name={item.icon}
+                        size={isMobile ? 28 : 44}
+                        strokeWidth={1.2}
+                        className="relative z-10 transition-opacity duration-300"
+                        style={{ 
+                          color: '#eab308',
+                          filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
+                        }}
+                      />
                     </div>
 
                     {!isMobile && (
@@ -187,21 +182,16 @@ const DockMenu = () => {
                       border: hoveredIndex === visibleItems.length || isMenuOpen ? '1px solid rgba(234,179,8,0.2)' : '1px solid transparent',
                     }}
                   />
-                  <div style={{
-                    background: 'linear-gradient(75deg, #eab308 0%, rgba(0,0,0,0.8) 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    display: 'inline-block'
-                  }}>
-                    <Icon
-                      name={menuIcon.icon}
-                      size={isMobile ? 28 : 44}
-                      strokeWidth={1.2}
-                      className="relative z-10 transition-opacity duration-300"
-                      style={{ color: '#eab308' }}
-                    />
-                  </div>
+                  <Icon
+                    name={menuIcon.icon}
+                    size={isMobile ? 28 : 44}
+                    strokeWidth={1.2}
+                    className="relative z-10 transition-opacity duration-300"
+                    style={{ 
+                      color: '#eab308',
+                      filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
+                    }}
+                  />
                   {hiddenItems.length > 0 && (
                     <div 
                       className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center text-[8px] md:text-[10px] font-bold"
@@ -274,20 +264,15 @@ const DockMenu = () => {
                       background: 'rgba(234,179,8,0.06)',
                     }}
                   >
-                    <div style={{
-                      background: 'linear-gradient(75deg, #eab308 0%, rgba(0,0,0,0.8) 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                      display: 'inline-block'
-                    }}>
-                      <Icon
-                        name={item.icon}
-                        size={isMobile ? 28 : 40}
-                        strokeWidth={1.2}
-                        style={{ color: '#eab308' }}
-                      />
-                    </div>
+                    <Icon
+                      name={item.icon}
+                      size={isMobile ? 28 : 40}
+                      strokeWidth={1.2}
+                      style={{ 
+                        color: '#eab308',
+                        filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
+                      }}
+                    />
                   </div>
                   <span 
                     className="text-[10px] md:text-xs font-medium whitespace-nowrap"
