@@ -150,8 +150,9 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
+      </PageTransition>
 
-        {selectedCategory && (
+      {selectedCategory && (
           <div
             className="fixed inset-0 z-[9999]"
             style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(10px)' }}
@@ -262,7 +263,6 @@ const Portfolio = () => {
             </div>
           </div>
         )}
-      </PageTransition>
     </AppLayout>
   );
 };
