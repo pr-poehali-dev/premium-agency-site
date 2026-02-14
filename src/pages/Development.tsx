@@ -84,9 +84,9 @@ const Development = () => {
         path="/development"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-44 md:pb-40">
+        <div className="p-2 sm:p-5 pb-24 sm:pb-28">
           <div
-            className="rounded-3xl mb-8"
+            className="rounded-3xl"
             style={{
               background: 'rgba(0,0,0,0.6)',
               border: '1px solid rgba(253,186,116,0.2)',
