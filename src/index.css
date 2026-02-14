@@ -62,17 +62,30 @@
     font-family: "Zen Dots", cursive;
   }
 
-  @media (max-width: 768px) {
-    body::-webkit-scrollbar {
-      display: none;
-    }
-    body {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .modal-scroll::-webkit-scrollbar {
+  *::-webkit-scrollbar {
     display: none;
+  }
+
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

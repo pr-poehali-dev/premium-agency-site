@@ -11,12 +11,13 @@ const Hero = () => {
           <span className="text-yellow-500" style={{ textShadow: '0 0 60px rgba(234,179,8,0.3), 0 0 120px rgba(234,179,8,0.1)' }}>a</span>lbe
         </h1>
         <p
-          className="text-center font-light whitespace-nowrap tracking-[0.3em] text-[2rem] sm:text-[2.8rem] md:text-[4.4rem] lg:text-[5.6rem] -mt-2 sm:-mt-3 md:-mt-8 lg:-mt-12"
+          className="text-center font-light tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em] lg:tracking-[0.3em] text-[1.2rem] sm:text-[2rem] md:text-[3.2rem] lg:text-[4.4rem] -mt-2 sm:-mt-3 md:-mt-6 lg:-mt-8 px-4"
           style={{
             background: 'linear-gradient(90deg, #3f3f46 0%, #fafafa 30%, #fafafa 70%, #3f3f46 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             textShadow: 'none',
+            wordSpacing: '-0.1em',
           }}
         >
           DIGITAL AGENCY
