@@ -38,7 +38,7 @@ const About = () => {
             }}
           >
             <div className="p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-semibold text-2xl mb-4 text-center" style={{ color: '#2dd4bf' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4 text-center uppercase" style={{ color: '#2dd4bf' }}>
                 О КОМПАНИИ
               </h2>
               <p className="font-montserrat text-zinc-400 text-base text-center max-w-2xl mx-auto mb-8 leading-relaxed">
@@ -63,7 +63,7 @@ const About = () => {
                 ))}
               </div>
               <div className="rounded-2xl p-6" style={{ background: 'rgba(45,212,191,0.05)', border: '1px solid rgba(45,212,191,0.15)' }}>
-                <h3 className="font-montserrat font-semibold text-lg mb-5 text-center" style={{ color: '#2dd4bf' }}>
+                <h3 className="font-montserrat font-light text-lg md:text-xl lg:text-2xl tracking-wide mb-5 text-center uppercase" style={{ color: '#2dd4bf' }}>
                   НАША ИСТОРИЯ
                 </h3>
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">

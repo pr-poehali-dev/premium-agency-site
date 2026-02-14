@@ -43,7 +43,7 @@ const Menu = () => {
             }}
           >
             <div className="flex flex-col items-center p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center" style={{ color: '#06b6d4' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#06b6d4' }}>
                 ВСЕ РАЗДЕЛЫ
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 w-full">

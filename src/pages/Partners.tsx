@@ -38,7 +38,7 @@ const Partners = () => {
             }}
           >
             <div className="p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center" style={{ color: '#6ee7b7' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#6ee7b7' }}>
                 ПАРТНЁРЫ
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">

@@ -71,7 +71,7 @@ const Faqs = () => {
             }}
           >
             <div className="p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center" style={{ color: '#a855f7' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#a855f7' }}>
                 ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
               </h2>
               <div className="space-y-3 max-w-4xl mx-auto">

@@ -41,7 +41,7 @@ const Team = () => {
             }}
           >
             <div className="p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-semibold text-2xl mb-6 text-center" style={{ color: '#bef264' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#bef264' }}>
                 НАША КОМАНДА
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">

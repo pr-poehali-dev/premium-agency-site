@@ -65,7 +65,7 @@ const Quiz = () => {
                       />
                     ))}
                   </div>
-                  <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center text-white">
+                  <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center text-white uppercase">
                     {questions[step].q}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">

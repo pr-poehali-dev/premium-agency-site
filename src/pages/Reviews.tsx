@@ -62,7 +62,7 @@ const Reviews = () => {
             }}
           >
             <div className="p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center" style={{ color: '#86efac' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#86efac' }}>
                 ОТЗЫВЫ КЛИЕНТОВ
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
