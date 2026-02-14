@@ -38,13 +38,11 @@ const PageTransition = ({ children }: PageTransitionProps) => {
         transform: isVisible 
           ? 'scale(1) translateZ(0)' 
           : 'scale(0.85) translateZ(0)',
-        filter: transitionStage === 'entering' && isVisible ? 'blur(0px)' : 'blur(8px)',
         transition: `
           opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-          transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-          filter 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)
         `,
-        willChange: 'opacity, transform, filter',
+        willChange: 'opacity, transform',
         backfaceVisibility: 'hidden',
         WebkitBackfaceVisibility: 'hidden',
         perspective: 1000,
