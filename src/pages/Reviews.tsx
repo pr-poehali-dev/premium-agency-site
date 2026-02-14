@@ -5,39 +5,38 @@ import Icon from '@/components/ui/icon';
 
 const reviews = [
   {
-    name: 'Александр К.',
-    company: 'FinTech Startup',
-    text: 'Команда ALBE превзошла все ожидания. Платформа работает безупречно, а AI-аналитика увеличила конверсию на 40%.',
+    name: 'Команда СБЕР',
+    company: 'ПАО Сбербанк',
+    position: '',
+    text: 'Выражаем искреннюю благодарность Студии Разработки Albe за проделанную работу при создании и внедрении CRM-системы, которая стала важным шагом на пути к повышению эффективности наших бизнес-процессов и улучшению взаимодействия с клиентами. Благодаря высокому профессионализму вашей команды, глубокому пониманию наших потребностей и индивидуальному подходу, проект был успешно реализован в кратчайшие сроки на самом высоком уровне. Рекомендуем вас как стабильного и компетентного партнера в сфере разработки высокотехнологичных решений!',
     rating: 5,
   },
   {
-    name: 'Мария В.',
-    company: 'Ритейл сеть',
-    text: 'Профессиональный подход к разработке маркетплейса. Сроки соблюдены, бюджет не превышен. Рекомендую!',
+    name: 'Николай Юрьевич',
+    company: 'ПАО Сбербанк',
+    position: 'Руководитель направления перспективной разработки',
+    text: 'ПАО СБЕРБАНК выражает признательность команде AlbeWeb за значительный вклад в разработку приложения «Сбербанк Онлайн». Особое внимание хотелось бы уделить вашему специалисту, который взял на себя нелёгкую задачу занять должность Team Lead в отделе разработки Frontend. Его опыт, лидерские качества и способность находить решения даже в самых сложных задачах позволили обеспечить успешное выполнение всех этапов проекта в поставленные сроки. С уверенностью можем рекомендовать компанию AlbeWeb как надёжного партнёра, который обеспечивает высококлассную экспертизу и выдающийся результат.',
     rating: 5,
   },
   {
-    name: 'Дмитрий С.',
-    company: 'Медицинский центр',
-    text: 'CRM-система полностью автоматизировала работу наших клиник. Интеграция с медкартами работает отлично.',
+    name: 'Валерий Акимов',
+    company: 'T-Bank',
+    position: 'Директор по цифровым технологиям',
+    text: 'От лица T-Bank выражаем огромную благодарность студии за участие в разработке голосового ассистента T-Банк нашего проекта на базе искусственного интеллекта. Команда Albe профессионально подошла к задаче, на каждом этапе демонстрируя высокий уровень экспертизы и креативный подход.',
     rating: 5,
   },
   {
-    name: 'Елена Р.',
-    company: 'EdTech проект',
-    text: 'Платформа онлайн-обучения с AI-тьютором стала нашим флагманским продуктом. Отличная команда!',
+    name: 'Александра Кулик',
+    company: 'Отель Аквамарин',
+    position: 'г. Зеленогорск',
+    text: 'Спасибо, Albe, за великолепный опыт сотрудничества! Каждый этап разработки проходил гладко, и мы получили именно то, что хотели. Успехов вам!',
     rating: 5,
   },
   {
-    name: 'Игорь Л.',
-    company: 'Логистическая компания',
-    text: 'ERP-система сократила операционные расходы на 25%. Техподдержка реагирует моментально.',
-    rating: 4,
-  },
-  {
-    name: 'Анна М.',
-    company: 'Digital Agency',
-    text: 'Заказывали дизайн и брендинг. Результат превзошёл макеты — всё выглядит премиально и современно.',
+    name: 'Евгений Алексеевич Корбут',
+    company: 'ООО "Строймеханизм"',
+    position: 'Начальник службы безопасности',
+    text: 'Выражаем искреннюю признательность команде разработчиков за успешную реализацию проекта по разработке и внедрению технологии компьютерного зрения, которая была адаптирована под нужды службы безопасности нашей компании. Проект стал для нас настоящим прорывом в повышении уровня контроля, безопасности и эффективности работы. В процессе разработки и внедрения технологии мы увидели высокий профессионализм команды, индивидуальный подход к нашим задачам и стремление предоставить оптимальное решение.',
     rating: 5,
   },
 ];
@@ -51,7 +50,7 @@ const Reviews = () => {
         path="/reviews"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32">
+        <div className="p-2 sm:p-5 pb-24 sm:pb-28">
           <div
             className="rounded-3xl"
             style={{
@@ -65,32 +64,35 @@ const Reviews = () => {
               <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#86efac' }}>
                 ОТЗЫВЫ КЛИЕНТОВ
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {reviews.map((review) => (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {reviews.map((review, index) => (
                   <div
-                    key={review.name}
-                    className="rounded-2xl p-3 sm:p-5 transition-all duration-300 hover:scale-[1.02]"
+                    key={index}
+                    className="rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:scale-[1.01]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(134,239,172,0.1)',
+                      border: '1px solid rgba(134,239,172,0.15)',
                     }}
                   >
-                    <div className="flex gap-0.5 mb-3">
+                    <div className="flex gap-1 mb-4">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Icon
                           key={i}
                           name="Star"
-                          size={16}
-                          style={{ color: i < review.rating ? '#86efac' : '#3f3f46' }}
+                          size={20}
+                          style={{ color: i < review.rating ? '#86efac' : '#3f3f46', fill: i < review.rating ? '#86efac' : 'none' }}
                         />
                       ))}
                     </div>
-                    <p className="font-montserrat text-zinc-300 text-base leading-relaxed mb-4 italic">
-                      "{review.text}"
+                    <p className="font-montserrat text-zinc-300 text-base leading-relaxed mb-6">
+                      {review.text}
                     </p>
-                    <div>
-                      <div className="font-montserrat font-semibold text-base text-white">{review.name}</div>
-                      <div className="font-montserrat text-zinc-500 text-sm">{review.company}</div>
+                    <div className="border-t border-zinc-800 pt-4">
+                      <div className="font-montserrat font-semibold text-lg text-white">{review.name}</div>
+                      {review.position && (
+                        <div className="font-montserrat text-zinc-400 text-sm mb-1">{review.position}</div>
+                      )}
+                      <div className="font-montserrat text-sm font-medium" style={{ color: '#86efac' }}>{review.company}</div>
                     </div>
                   </div>
                 ))}
