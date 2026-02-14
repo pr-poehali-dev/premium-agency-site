@@ -16,6 +16,15 @@ const categories = [
 const casesByCategory = {
   'Дизайн': [
     {
+      title: 'Онлайн-магазин автомобилей',
+      desc: 'Создали дизайн онлайн-магазина для крупнейшего автодилера Республики Беларусь',
+      tech: ['Figma', 'UI/UX Design', 'Design System'],
+      cost: '100 000 ₽',
+      duration: '2 недели',
+      image: 'https://cdn.poehali.dev/files/ba8e9984-9af0-4baa-bf11-6434ed3eb4fb.jpg',
+      link: '#',
+    },
+    {
       title: 'Ребрендинг FinTech стартапа',
       desc: 'Создали полный брендбук, UI-kit и дизайн мобильного приложения для финансового стартапа',
       tech: ['Figma', 'Adobe Illustrator', 'Prototyping'],
@@ -44,6 +53,15 @@ const casesByCategory = {
     },
   ],
   'Разработка': [
+    {
+      title: 'Онлайн-магазин автомобилей',
+      desc: 'Создали онлайн-магазин для крупнейшего автодилера Республики Беларусь с каталогом, фильтрами и личным кабинетом',
+      tech: ['PHP Laravel', 'Laravel Nova', 'React.js'],
+      cost: '430 000 ₽',
+      duration: '2 месяца',
+      image: 'https://cdn.poehali.dev/files/94295911-ca72-4f6d-bc90-bb19dd8156f1.jpg',
+      link: '#',
+    },
     {
       title: 'FinTech Platform',
       desc: 'Платформа для управления инвестициями с AI-аналитикой и автоматическими стратегиями',
