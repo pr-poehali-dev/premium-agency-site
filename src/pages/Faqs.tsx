@@ -60,7 +60,7 @@ const Faqs = () => {
         path="/faqs"
       />
       <PageTransition>
-        <div className="p-5 pb-32">
+        <div className="p-2 sm:p-5 pb-32">
           <div
             className="rounded-3xl"
             style={{
@@ -70,7 +70,7 @@ const Faqs = () => {
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
           >
-            <div className="p-6 md:p-8 lg:p-10">
+            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
               <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#a855f7' }}>
                 ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
               </h2>

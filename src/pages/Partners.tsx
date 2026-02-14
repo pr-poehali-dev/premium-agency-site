@@ -27,7 +27,7 @@ const Partners = () => {
         path="/partners"
       />
       <PageTransition>
-        <div className="p-5 pb-32">
+        <div className="p-2 sm:p-5 pb-32">
           <div
             className="rounded-3xl"
             style={{
@@ -37,7 +37,7 @@ const Partners = () => {
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
           >
-            <div className="p-6 md:p-8 lg:p-10">
+            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
               <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#6ee7b7' }}>
                 ПАРТНЁРЫ
               </h2>
@@ -45,7 +45,7 @@ const Partners = () => {
                 {partners.map((partner) => (
                   <div
                     key={partner.name}
-                    className="rounded-2xl p-5 text-center transition-all duration-300 hover:scale-[1.03]"
+                    className="rounded-2xl p-3 sm:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
                       border: '1px solid rgba(110,231,183,0.1)',
@@ -63,7 +63,7 @@ const Partners = () => {
                 {benefits.map((item) => (
                   <div
                     key={item.title}
-                    className="rounded-2xl p-5"
+                    className="rounded-2xl p-3 sm:p-5"
                     style={{
                       background: 'rgba(110,231,183,0.05)',
                       border: '1px solid rgba(110,231,183,0.15)',

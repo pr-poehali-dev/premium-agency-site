@@ -30,7 +30,7 @@ const Team = () => {
         path="/team"
       />
       <PageTransition>
-        <div className="p-5 pb-32">
+        <div className="p-2 sm:p-5 pb-32">
           <div
             className="rounded-3xl"
             style={{
@@ -40,7 +40,7 @@ const Team = () => {
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
           >
-            <div className="p-6 md:p-8 lg:p-10">
+            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
               <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#bef264' }}>
                 НАША КОМАНДА
               </h2>
@@ -56,7 +56,7 @@ const Team = () => {
                 {teamMembers.map((member) => (
                   <div
                     key={member.name}
-                    className="rounded-2xl p-5 text-center transition-all duration-300 hover:scale-[1.03]"
+                    className="rounded-2xl p-3 sm:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
                       border: `1px solid ${member.color}15`,

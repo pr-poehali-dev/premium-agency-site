@@ -55,9 +55,20 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Montserrat", sans-serif;
+    -webkit-overflow-scrolling: touch;
   }
 
   .font-zen {
     font-family: "Zen Dots", cursive;
+  }
+
+  @media (max-width: 768px) {
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   }
 }

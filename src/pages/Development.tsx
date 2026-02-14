@@ -84,7 +84,7 @@ const Development = () => {
         path="/development"
       />
       <PageTransition>
-        <div className="p-5 pb-32">
+        <div className="p-2 sm:p-5 pb-32">
           <div
             className="rounded-3xl"
             style={{
@@ -94,7 +94,7 @@ const Development = () => {
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
           >
-            <div className="p-6 md:p-8 lg:p-10">
+            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
               <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#fdba74' }}>
                 ЧТО МЫ РАЗРАБАТЫВАЕМ
               </h2>
@@ -102,7 +102,7 @@ const Development = () => {
                 {services.map((service) => (
                   <div
                     key={service.title}
-                    className="group relative rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]"
+                    className="group relative rounded-2xl p-3 sm:p-6 transition-all duration-300 hover:scale-[1.02]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
                       border: '1px solid rgba(253,186,116,0.1)',

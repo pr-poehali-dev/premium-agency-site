@@ -43,7 +43,7 @@ const Quiz = () => {
         path="/quiz"
       />
       <PageTransition>
-        <div className="p-5 pb-32 min-h-[80vh] flex items-center justify-center">
+        <div className="p-2 sm:p-5 pb-32 min-h-[80vh] flex items-center justify-center">
           <div
             className="rounded-3xl w-full max-w-3xl"
             style={{
@@ -53,7 +53,7 @@ const Quiz = () => {
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
           >
-            <div className="flex flex-col items-center p-6 md:p-8 lg:p-10">
+            <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10">
               {!isFinished ? (
                 <>
                   <div className="flex gap-2 mb-6">

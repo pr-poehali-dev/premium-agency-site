@@ -40,7 +40,7 @@ const Pricing = () => {
         path="/pricing"
       />
       <PageTransition>
-        <div className="p-5 pb-32">
+        <div className="p-2 sm:p-5 pb-32">
           <div
             className="rounded-3xl"
             style={{
@@ -50,7 +50,7 @@ const Pricing = () => {
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
           >
-            <div className="p-6 md:p-8 lg:p-10">
+            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
               <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#facc15' }}>
                 СТОИМОСТЬ УСЛУГ
               </h2>
@@ -58,7 +58,7 @@ const Pricing = () => {
                 {plans.map((plan) => (
                   <div
                     key={plan.title}
-                    className="relative rounded-2xl p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
+                    className="relative rounded-2xl p-3 sm:p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
                     style={{
                       background: plan.popular ? 'rgba(250,204,21,0.06)' : 'rgba(255,255,255,0.03)',
                       border: `1px solid ${plan.popular ? 'rgba(250,204,21,0.3)' : 'rgba(250,204,21,0.1)'}`,
