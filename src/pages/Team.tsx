@@ -5,7 +5,7 @@ const Team = () => {
   return (
     <AppLayout>
       <PageTransition>
-        <div className="absolute inset-0 p-5 pb-28 flex items-stretch justify-center overflow-hidden">
+        <div className="absolute inset-0 p-5 pb-28 md:p-8 md:pb-32 flex items-stretch justify-center overflow-hidden">
           <div className="w-full h-full flex flex-col">
             <div
               className="flex-1 rounded-3xl overflow-y-auto"
