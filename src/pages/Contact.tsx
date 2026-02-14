@@ -4,10 +4,10 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 
 const contacts = [
-  { icon: 'Mail', label: 'Email', value: 'hello@albe.agency', href: 'mailto:hello@albe.agency' },
-  { icon: 'Phone', label: 'Телефон', value: '+7 (999) 999-99-99', href: 'tel:+79999999999' },
-  { icon: 'Send', label: 'Telegram', value: '@albe_agency', href: 'https://t.me/+QgiLIa1gFRY4Y2Iy' },
-  { icon: 'MapPin', label: 'Офис', value: 'Москва, Россия', href: null },
+  { icon: 'Mail', label: 'Email', value: 'albe.web@yandex.ru', href: 'mailto:albe.web@yandex.ru' },
+  { icon: 'Phone', label: 'Телефон', value: '+7 995 987 0353', href: 'tel:+79959870353' },
+  { icon: 'Send', label: 'Telegram', value: '@albe_web', href: 'https://t.me/albe_web' },
+  { icon: 'MapPin', label: 'Офис', value: 'Сочи, Россия', href: null },
 ];
 
 const Contact = () => {
