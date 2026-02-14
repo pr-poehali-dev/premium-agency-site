@@ -125,9 +125,9 @@ const Pricing = () => {
                       <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
                         <Icon name={service.icon} size={20} style={{ color: '#eab308' }} />
                       </div>
-                      <h4 className="font-montserrat font-medium text-white text-sm">{service.title}</h4>
+                      <h4 className="font-montserrat font-medium text-sm" style={{ color: '#eab308' }}>{service.title}</h4>
                     </div>
-                    <p className="font-montserrat text-base ml-11" style={{ color: '#eab308' }}>{service.price}</p>
+                    <p className="font-montserrat text-base text-white ml-11">{service.price}</p>
                   </div>
                 ))}
               </div>
@@ -149,9 +149,9 @@ const Pricing = () => {
                       <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
                         <Icon name={item.icon} size={20} style={{ color: '#eab308' }} />
                       </div>
-                      <h4 className="font-montserrat font-medium text-white text-sm">{item.title}</h4>
+                      <h4 className="font-montserrat font-medium text-sm" style={{ color: '#eab308' }}>{item.title}</h4>
                     </div>
-                    <p className="font-montserrat text-base ml-11" style={{ color: '#eab308' }}>{item.price}</p>
+                    <p className="font-montserrat text-base text-white ml-11">{item.price}</p>
                   </div>
                 ))}
               </div>

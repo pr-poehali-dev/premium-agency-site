@@ -6,7 +6,7 @@ interface PageContainerProps {
 
 const PageContainer = ({ children }: PageContainerProps) => {
   return (
-    <div className="p-2 sm:p-5 pb-32">
+    <div className="p-2 sm:p-5 pb-24 md:pb-28 lg:pb-32">
       <div
         className="rounded-3xl"
         style={{
