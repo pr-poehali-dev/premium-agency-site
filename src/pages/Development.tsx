@@ -81,9 +81,21 @@ const Development = () => {
   return (
     <AppLayout>
       <SEO
-        title="Разработка"
-        description="Разработка мобильных приложений, CRM/ERP систем, корпоративных порталов и AI-решений от ALBE Digital Agency."
+        title="Разработка сайтов и мобильных приложений"
+        description="Профессиональная разработка сайтов, мобильных приложений, CRM/ERP систем и AI-решений под ключ. Используем React, Node.js, Python, TypeScript. 7 лет опыта. Работаем с Аэрофлот, Сбер, МегаФон."
         path="/development"
+        keywords="разработка сайтов, создание сайтов, веб разработка, разработка мобильных приложений, разработка crm, разработка erp, ai разработка, react разработка, node js разработка, python разработка"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'Разработка сайтов и приложений',
+          provider: {
+            '@type': 'Organization',
+            name: 'ALBE Digital Agency',
+          },
+          serviceType: 'Web Development',
+          areaServed: ['RU', 'US', 'EU'],
+        }}
       />
       <PageTransition>
         <PageContainer>

@@ -36,9 +36,21 @@ const Marketing = () => {
   return (
     <AppLayout>
       <SEO
-        title="Маркетинг"
-        description="Digital-маркетинг от ALBE: SEO, контекстная реклама, SMM, аналитика. Увеличиваем трафик и конверсию вашего бизнеса."
+        title="Digital маркетинг и продвижение"
+        description="Комплексный digital-маркетинг: SEO продвижение сайтов, контекстная реклама Яндекс.Директ и Google Ads, SMM, email-маркетинг. Увеличим трафик и продажи. Работаем с Лукойл, Деловой Петербург."
         path="/marketing"
+        keywords="digital маркетинг, seo продвижение, продвижение сайтов, контекстная реклама, яндекс директ, google ads, smm продвижение, email маркетинг, веб аналитика"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'Digital маркетинг',
+          provider: {
+            '@type': 'Organization',
+            name: 'ALBE Digital Agency',
+          },
+          serviceType: 'Marketing Services',
+          areaServed: ['RU', 'US', 'EU'],
+        }}
       />
       <PageTransition>
         <PageContainer>

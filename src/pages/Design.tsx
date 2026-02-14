@@ -36,9 +36,21 @@ const Design = () => {
   return (
     <AppLayout>
       <SEO
-        title="Дизайн"
-        description="UI/UX дизайн, веб-дизайн, мобильный дизайн и брендинг от ALBE Digital Agency. Создаем интерфейсы, которые конвертируют."
+        title="Дизайн сайтов и UI/UX"
+        description="Профессиональный дизайн сайтов, UI/UX проектирование, брендинг и фирменный стиль. Создаем интерфейсы, увеличивающие конверсию. Работаем в Figma. Опыт с Forbes, Mercedes-Benz, МегаФон."
         path="/design"
+        keywords="дизайн сайтов, ui ux дизайн, веб дизайн, дизайн интерфейсов, брендинг, фирменный стиль, логотип, мобильный дизайн, прототипирование, figma"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'Дизайн сайтов и UI/UX',
+          provider: {
+            '@type': 'Organization',
+            name: 'ALBE Digital Agency',
+          },
+          serviceType: 'Design Services',
+          areaServed: ['RU', 'US', 'EU'],
+        }}
       />
       <PageTransition>
         <PageContainer>

@@ -36,9 +36,15 @@ const Contact = () => {
   return (
     <AppLayout>
       <SEO
-        title="Контакты"
-        description="Свяжитесь с ALBE Digital Agency: email, телефон, Telegram. Обсудим ваш проект и предложим оптимальное решение."
+        title="Контакты — Связаться с нами"
+        description="Контакты ALBE Digital Agency в Сочи. Email: albe.web@yandex.ru, телефон: +7 995 987 0353, Telegram: @albe_web. Обсудим ваш проект в течение 24 часов. Работаем по всей России, Европе и США."
         path="/contact"
+        keywords="веб студия сочи, digital агентство сочи, контакты веб студии, заказать разработку сайта"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: 'Контакты ALBE Digital Agency',
+        }}
       />
       <PageTransition>
         <PageContainer>

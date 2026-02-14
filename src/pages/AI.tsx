@@ -80,9 +80,21 @@ const AI = () => {
   return (
     <AppLayout>
       <SEO
-        title="AI-решения"
-        description="Наши AI-разработки: Vision AI, AlbeAI, Brand Chef AI. Внедряем искусственный интеллект в бизнес и производственные процессы."
+        title="AI решения и внедрение искусственного интеллекта"
+        description="Разработка и внедрение AI-решений: машинное обучение, компьютерное зрение, NLP, чат-боты. Vision AI, AlbeAI, Brand Chef AI. Автоматизация бизнес-процессов через искусственный интеллект."
         path="/ai"
+        keywords="ai решения, искусственный интеллект, машинное обучение, компьютерное зрение, nlp, чат боты, автоматизация процессов, ai разработка, внедрение ai"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'AI решения и машинное обучение',
+          provider: {
+            '@type': 'Organization',
+            name: 'ALBE Digital Agency',
+          },
+          serviceType: 'AI Development',
+          areaServed: ['RU', 'US', 'EU'],
+        }}
       />
       <PageTransition>
         <PageContainer>

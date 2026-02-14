@@ -126,9 +126,16 @@ const Portfolio = () => {
   return (
     <AppLayout>
       <SEO
-        title="Портфолио"
-        description="Реализованные проекты ALBE Digital Agency: дизайн, разработка, маркетинг. Кейсы с результатами и стоимостью."
+        title="Портфолио — Наши проекты и кейсы"
+        description="Портфолио ALBE Digital Agency: готовые сайты, мобильные приложения, CRM/ERP системы. Работали с Аэрофлот, Лукойл, Forbes, Mercedes-Benz, S7 Airlines, Сбер, МегаФон. 30+ успешных кейсов."
         path="/portfolio"
+        keywords="портфолио веб студии, примеры работ, кейсы разработки, готовые сайты, примеры сайтов"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'Портфолио проектов',
+          description: 'Реализованные проекты ALBE Digital Agency',
+        }}
       />
       <PageTransition>
         <PageContainer>
