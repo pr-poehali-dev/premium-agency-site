@@ -153,14 +153,14 @@ const Portfolio = () => {
 
         {selectedCategory && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-hidden"
-            style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)' }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+            style={{ background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(10px)' }}
             onClick={() => setSelectedCategory(null)}
           >
             <div
-              className="relative max-w-5xl w-full max-h-[90vh] rounded-3xl flex flex-col overflow-hidden"
+              className="relative max-w-5xl w-full max-h-[85vh] rounded-3xl flex flex-col"
               style={{
-                background: 'rgba(0,0,0,0.95)',
+                background: 'rgba(0,0,0,0.98)',
                 border: `2px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
                 boxShadow: '0 20px 80px rgba(0,0,0,0.8)',
               }}
@@ -179,12 +179,13 @@ const Portfolio = () => {
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-6 space-y-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <style>{`
-                  .flex-1.overflow-y-auto::-webkit-scrollbar {
-                    display: none;
-                  }
-                `}</style>
+              <div 
+                className="flex-1 overflow-y-auto p-6 space-y-4 modal-scroll" 
+                style={{ 
+                  scrollbarWidth: 'none', 
+                  msOverflowStyle: 'none',
+                }}
+              >
                 {casesByCategory[selectedCategory as keyof typeof casesByCategory]?.map((caseItem, i) => (
                   <div
                     key={i}

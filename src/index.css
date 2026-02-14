@@ -71,4 +71,8 @@
       scrollbar-width: none;
     }
   }
+
+  .modal-scroll::-webkit-scrollbar {
+    display: none;
+  }
 }
