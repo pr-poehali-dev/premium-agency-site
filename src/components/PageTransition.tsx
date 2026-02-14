@@ -32,7 +32,7 @@ const PageTransition = ({ children }: PageTransitionProps) => {
 
   return (
     <div
-      className="h-full"
+      className="h-full flex-1 flex flex-col"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible 
