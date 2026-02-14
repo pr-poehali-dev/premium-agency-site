@@ -22,7 +22,7 @@ const casesByCategory = {
       cost: '100 000 ₽',
       duration: '2 недели',
       image: 'https://cdn.poehali.dev/files/ba8e9984-9af0-4baa-bf11-6434ed3eb4fb.jpg',
-      link: '#',
+      link: 'https://avmmotors.by/',
     },
     {
       title: 'Ребрендинг FinTech стартапа',
@@ -60,7 +60,7 @@ const casesByCategory = {
       cost: '430 000 ₽',
       duration: '2 месяца',
       image: 'https://cdn.poehali.dev/files/94295911-ca72-4f6d-bc90-bb19dd8156f1.jpg',
-      link: '#',
+      link: 'https://avmmotors.by/',
     },
     {
       title: 'FinTech Platform',
