@@ -16,6 +16,15 @@ const categories = [
 const casesByCategory = {
   'Дизайн': [
     {
+      title: 'Премиум сайт-приложение цифрового агентства',
+      desc: 'Создали премиальный сайт-приложение с уникальным дизайном и навигацией под ключ',
+      tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+      cost: '150 000 ₽',
+      duration: '2 недели',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/10e9d78f-c6f8-449f-a9b4-1b173d22a6ee.png',
+      link: 'https://albe.su/',
+    },
+    {
       title: 'Онлайн-магазин электротранспорта',
       desc: 'Создали дизайн онлайн-магазина электробайков и электросамокатов с премиальным UX',
       tech: ['Figma', 'UI/UX Design', 'Design System'],
@@ -62,6 +71,15 @@ const casesByCategory = {
     },
   ],
   'Разработка': [
+    {
+      title: 'Премиум сайт-приложение цифрового агентства',
+      desc: 'Разработали премиальный сайт-приложение с уникальной док-навигацией и анимациями под ключ',
+      tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+      cost: '150 000 ₽',
+      duration: '2 недели',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/10e9d78f-c6f8-449f-a9b4-1b173d22a6ee.png',
+      link: 'https://albe.su/',
+    },
     {
       title: 'Онлайн-магазин электротранспорта',
       desc: 'Создали онлайн-магазин электробайков и электросамокатов с системой онлайн-оплаты и доставки',
