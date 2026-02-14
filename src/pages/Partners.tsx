@@ -44,7 +44,7 @@ const Partners = () => {
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-w-full max-h-16 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  className="max-w-full max-h-16 object-contain"
                 />
               </div>
             ))}
