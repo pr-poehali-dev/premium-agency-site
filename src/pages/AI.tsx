@@ -111,13 +111,13 @@ const AI = () => {
             ))}
           </div>
 
-          <div className="rounded-3xl p-6 md:p-8 mb-8" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.15)' }}>
+          <div className="mb-8">
             <SectionTitle>BRAND CHEF AI — ПРИМЕНЕНИЕ</SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {brandChefFeatures.map((feature) => (
                 <div
                   key={feature.title}
-                  className="rounded-xl p-5 transition-all duration-300 hover:scale-[1.02]"
+                  className="rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02]"
                   style={{
                     background: 'rgba(255,255,255,0.03)',
                     border: '1px solid rgba(234,179,8,0.1)',
@@ -127,11 +127,11 @@ const AI = () => {
                     <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
                       <Icon name={feature.icon} size={20} style={{ color: '#eab308' }} />
                     </div>
-                    <h4 className="font-montserrat font-medium text-base text-white">
+                    <h4 className="font-montserrat font-light text-base uppercase" style={{ color: '#eab308' }}>
                       {feature.title}
                     </h4>
                   </div>
-                  <p className="font-montserrat text-sm text-zinc-400 leading-relaxed ml-14">
+                  <p className="font-montserrat text-sm text-white leading-relaxed ml-14">
                     {feature.desc}
                   </p>
                 </div>
