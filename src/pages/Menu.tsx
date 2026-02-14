@@ -47,7 +47,7 @@ const Menu = () => {
       />
       <PageTransition>
         <div className="fixed inset-0 p-3 sm:p-4 md:p-6 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 20000, paddingBottom: '120px' }}>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-[1800px] mx-auto" style={{ gridAutoRows: '140px' }}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-[1800px] mx-auto" style={{ gridAutoFlow: 'dense' }}>
             {allPages.map((page, index) => (
               <button
                 key={page.path}
@@ -59,6 +59,7 @@ const Menu = () => {
                   background: 'rgba(255,255,255,0.03)',
                   border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(234,179,8,0.15)',
                   boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.25)' : '0 4px 16px rgba(0,0,0,0.3)',
+                  aspectRatio: '16/10',
                 }}
               >
                 <img
