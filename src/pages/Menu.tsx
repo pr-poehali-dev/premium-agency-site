@@ -50,7 +50,7 @@ const Menu = () => {
                 onClick={() => navigate(page.path)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative rounded-lg md:rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-95"
+                className="group relative rounded-lg md:rounded-xl overflow-hidden transition-all duration-300"
                 style={{
                   background: 'rgba(255,255,255,0.03)',
                   border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(234,179,8,0.15)',
