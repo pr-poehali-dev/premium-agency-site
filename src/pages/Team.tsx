@@ -70,7 +70,7 @@ const Team = () => {
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                    className="w-full h-full object-cover grayscale"
                   />
                 </div>
                 <div className="p-4 text-center">
