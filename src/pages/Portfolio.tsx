@@ -92,6 +92,14 @@ const casesByCategory = {
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  const handleOrderProject = () => {
+    window.open('https://t.me/albe_web', '_blank');
+  };
+
+  const handleQuiz = () => {
+    window.location.href = '/quiz';
+  };
+
   return (
     <AppLayout>
       <SEO
@@ -115,23 +123,24 @@ const Portfolio = () => {
                 ПОРТФОЛИО
               </h2>
               
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 {categories.map((cat) => (
                   <button
                     key={cat.name}
                     onClick={() => setSelectedCategory(cat.name)}
-                    className="group relative px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105"
+                    className="group relative rounded-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
                     style={{
                       background: `linear-gradient(135deg, ${cat.color}15, ${cat.color}05)`,
                       border: `2px solid ${cat.color}40`,
                       boxShadow: `0 8px 24px ${cat.color}10`,
+                      aspectRatio: '16/9',
                     }}
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-xl" style={{ background: `${cat.color}20` }}>
-                        <Icon name={cat.icon} size={24} style={{ color: cat.color }} />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6">
+                      <div className="p-4 rounded-2xl" style={{ background: `${cat.color}20` }}>
+                        <Icon name={cat.icon} size={48} style={{ color: cat.color }} />
                       </div>
-                      <span className="font-montserrat font-semibold text-lg" style={{ color: cat.color }}>
+                      <span className="font-montserrat font-light text-2xl md:text-3xl tracking-wide uppercase" style={{ color: cat.color }}>
                         {cat.name}
                       </span>
                     </div>
@@ -144,12 +153,12 @@ const Portfolio = () => {
 
         {selectedCategory && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-hidden"
             style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)' }}
             onClick={() => setSelectedCategory(null)}
           >
             <div
-              className="relative max-w-5xl w-full max-h-[90vh] overflow-y-auto rounded-3xl"
+              className="relative max-w-5xl w-full max-h-[90vh] rounded-3xl flex flex-col overflow-hidden"
               style={{
                 background: 'rgba(0,0,0,0.95)',
                 border: `2px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
@@ -157,7 +166,7 @@ const Portfolio = () => {
               }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="sticky top-0 z-10 p-6 flex items-center justify-between" style={{ background: 'rgba(0,0,0,0.95)', borderBottom: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}20` }}>
+              <div className="flex-shrink-0 p-6 flex items-center justify-between" style={{ background: 'rgba(0,0,0,0.95)', borderBottom: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}20` }}>
                 <h3 className="font-montserrat font-light text-2xl md:text-3xl uppercase" style={{ color: categories.find(c => c.name === selectedCategory)?.color }}>
                   {selectedCategory}
                 </h3>
@@ -170,11 +179,16 @@ const Portfolio = () => {
                 </button>
               </div>
 
-              <div className="p-6 space-y-4">
+              <div className="flex-1 overflow-y-auto p-6 space-y-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <style>{`
+                  .flex-1.overflow-y-auto::-webkit-scrollbar {
+                    display: none;
+                  }
+                `}</style>
                 {casesByCategory[selectedCategory as keyof typeof casesByCategory]?.map((caseItem, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl p-5 transition-all duration-300 hover:scale-[1.01]"
+                    className="rounded-2xl p-5"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
                       border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}20`,
@@ -202,6 +216,41 @@ const Portfolio = () => {
                           ))}
                         </div>
                       </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                      <button
+                        onClick={handleOrderProject}
+                        className="flex-1 min-w-[200px] px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                        style={{
+                          background: `${categories.find(c => c.name === selectedCategory)?.color}`,
+                          color: '#000',
+                        }}
+                      >
+                        Заказать подобный проект
+                      </button>
+                      <button
+                        onClick={handleQuiz}
+                        className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                        style={{
+                          background: 'rgba(255,255,255,0.05)',
+                          border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
+                          color: categories.find(c => c.name === selectedCategory)?.color,
+                        }}
+                      >
+                        Пройти квиз
+                      </button>
+                      <button
+                        onClick={handleOrderProject}
+                        className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                        style={{
+                          background: 'rgba(255,255,255,0.05)',
+                          border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
+                          color: categories.find(c => c.name === selectedCategory)?.color,
+                        }}
+                      >
+                        Связаться
+                      </button>
                     </div>
                   </div>
                 ))}
