@@ -71,7 +71,7 @@ const Faqs = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#a855f7' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
                 ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
               </h2>
               <div className="space-y-3 max-w-4xl mx-auto">
@@ -80,8 +80,8 @@ const Faqs = () => {
                     key={i}
                     className="rounded-2xl overflow-hidden transition-all duration-300"
                     style={{
-                      background: openIndex === i ? 'rgba(168,85,247,0.08)' : 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${openIndex === i ? 'rgba(168,85,247,0.3)' : 'rgba(168,85,247,0.1)'}`,
+                      background: openIndex === i ? 'rgba(234,179,8,0.08)' : 'rgba(255,255,255,0.03)',
+                      border: `1px solid ${openIndex === i ? 'rgba(234,179,8,0.3)' : 'rgba(234,179,8,0.1)'}`,
                     }}
                   >
                     <button
@@ -94,7 +94,7 @@ const Faqs = () => {
                       <Icon
                         name="ChevronDown"
                         size={20}
-                        style={{ color: '#a855f7', transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
+                        style={{ color: '#eab308', transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
                       />
                     </button>
                     <div
@@ -105,7 +105,7 @@ const Faqs = () => {
                         overflow: 'hidden',
                       }}
                     >
-                      <p className="font-montserrat text-zinc-400 text-base px-5 pb-5 leading-relaxed">
+                      <p className="font-montserrat text-white text-base px-5 pb-5 leading-relaxed">
                         {item.a}
                       </p>
                     </div>

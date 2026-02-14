@@ -38,7 +38,7 @@ const Partners = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#6ee7b7' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
                 ПАРТНЁРЫ
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
@@ -48,14 +48,14 @@ const Partners = () => {
                     className="rounded-2xl p-3 sm:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(110,231,183,0.1)',
+                      border: '1px solid rgba(234,179,8,0.1)',
                     }}
                   >
-                    <div className="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(110,231,183,0.1)' }}>
-                      <Icon name={partner.icon} size={28} style={{ color: '#6ee7b7' }} />
+                    <div className="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(234,179,8,0.1)' }}>
+                      <Icon name={partner.icon} size={28} style={{ color: '#eab308' }} />
                     </div>
                     <h3 className="font-montserrat font-semibold text-base text-white">{partner.name}</h3>
-                    <p className="font-montserrat text-zinc-500 text-sm">{partner.desc}</p>
+                    <p className="font-montserrat text-white text-sm">{partner.desc}</p>
                   </div>
                 ))}
               </div>
@@ -65,15 +65,15 @@ const Partners = () => {
                     key={item.title}
                     className="rounded-2xl p-3 sm:p-5"
                     style={{
-                      background: 'rgba(110,231,183,0.05)',
-                      border: '1px solid rgba(110,231,183,0.15)',
+                      background: 'rgba(234,179,8,0.05)',
+                      border: '1px solid rgba(234,179,8,0.15)',
                     }}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <Icon name={item.icon} size={22} style={{ color: '#6ee7b7' }} />
-                      <h3 className="font-montserrat font-semibold text-base" style={{ color: '#6ee7b7' }}>{item.title}</h3>
+                      <Icon name={item.icon} size={22} style={{ color: '#eab308' }} />
+                      <h3 className="font-montserrat font-semibold text-base" style={{ color: '#eab308' }}>{item.title}</h3>
                     </div>
-                    <p className="font-montserrat text-zinc-400 text-base leading-relaxed">{item.desc}</p>
+                    <p className="font-montserrat text-white text-base leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>

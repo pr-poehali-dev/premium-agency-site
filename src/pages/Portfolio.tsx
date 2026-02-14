@@ -5,9 +5,9 @@ import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 
 const categories = [
-  { name: 'Дизайн', icon: 'Palette', color: '#fde68a' },
-  { name: 'Разработка', icon: 'Code', color: '#fef08a' },
-  { name: 'Маркетинг', icon: 'TrendingUp', color: '#fef9c3' },
+  { name: 'Дизайн', icon: 'Palette', color: '#eab308' },
+  { name: 'Разработка', icon: 'Code', color: '#eab308' },
+  { name: 'Маркетинг', icon: 'TrendingUp', color: '#eab308' },
 ];
 
 const casesByCategory = {

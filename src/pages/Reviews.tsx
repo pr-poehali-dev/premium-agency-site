@@ -68,7 +68,7 @@ const Reviews = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#86efac' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
                 ОТЗЫВЫ КЛИЕНТОВ
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -78,7 +78,7 @@ const Reviews = () => {
                     className="rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:scale-[1.01]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(134,239,172,0.15)',
+                      border: '1px solid rgba(234,179,8,0.15)',
                     }}
                   >
                     <div className="flex gap-1 mb-4">
@@ -87,19 +87,19 @@ const Reviews = () => {
                           key={i}
                           name="Star"
                           size={20}
-                          style={{ color: i < review.rating ? '#86efac' : '#3f3f46', fill: i < review.rating ? '#86efac' : 'none' }}
+                          style={{ color: i < review.rating ? '#eab308' : '#3f3f46', fill: i < review.rating ? '#eab308' : 'none' }}
                         />
                       ))}
                     </div>
-                    <p className="font-montserrat text-zinc-300 text-base leading-relaxed mb-6">
+                    <p className="font-montserrat text-white text-base leading-relaxed mb-6">
                       {review.text}
                     </p>
                     <div className="border-t border-zinc-800 pt-4">
                       <div className="font-montserrat font-semibold text-lg text-white">{review.name}</div>
                       {review.position && (
-                        <div className="font-montserrat text-zinc-400 text-sm mb-1">{review.position}</div>
+                        <div className="font-montserrat text-white text-sm mb-1">{review.position}</div>
                       )}
-                      <div className="font-montserrat text-sm font-medium" style={{ color: '#86efac' }}>{review.company}</div>
+                      <div className="font-montserrat text-sm font-medium" style={{ color: '#eab308' }}>{review.company}</div>
                     </div>
                   </div>
                 ))}

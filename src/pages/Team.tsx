@@ -41,14 +41,14 @@ const Team = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#bef264' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
                 НАША КОМАНДА
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
                 {stats.map((stat) => (
-                  <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(190,242,100,0.05)', border: '1px solid rgba(190,242,100,0.1)' }}>
+                  <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.1)' }}>
                     <div className="font-montserrat font-bold text-2xl text-white">{stat.value}</div>
-                    <div className="font-montserrat text-zinc-500 text-sm">{stat.label}</div>
+                    <div className="font-montserrat text-white text-sm">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -59,14 +59,14 @@ const Team = () => {
                     className="rounded-2xl p-3 sm:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${member.color}15`,
+                      border: `1px solid rgba(234,179,8,0.15)`,
                     }}
                   >
-                    <div className="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-3" style={{ background: `${member.color}15` }}>
-                      <Icon name={member.icon} size={28} style={{ color: member.color }} />
+                    <div className="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(234,179,8,0.15)' }}>
+                      <Icon name={member.icon} size={28} style={{ color: '#eab308' }} />
                     </div>
                     <h3 className="font-montserrat font-semibold text-base text-white mb-1">{member.name}</h3>
-                    <p className="font-montserrat text-zinc-500 text-sm">{member.role}</p>
+                    <p className="font-montserrat text-white text-sm">{member.role}</p>
                   </div>
                 ))}
               </div>

@@ -95,7 +95,7 @@ const Development = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#fdba74' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
                 ЧТО МЫ РАЗРАБАТЫВАЕМ
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
@@ -105,20 +105,20 @@ const Development = () => {
                     className="group relative rounded-2xl p-3 sm:p-6 transition-all duration-300 hover:scale-[1.02]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(253,186,116,0.1)',
+                      border: '1px solid rgba(234,179,8,0.1)',
                     }}
                   >
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 rounded-xl" style={{ background: 'rgba(253,186,116,0.1)' }}>
-                        <Icon name={service.icon} size={32} style={{ color: '#fdba74' }} />
+                      <div className="p-3 rounded-xl" style={{ background: 'rgba(234,179,8,0.1)' }}>
+                        <Icon name={service.icon} size={32} style={{ color: '#eab308' }} />
                       </div>
-                      <h3 className="font-montserrat font-semibold text-lg" style={{ color: '#fdba74' }}>
+                      <h3 className="font-montserrat font-semibold text-lg" style={{ color: '#eab308' }}>
                         {service.title}
                       </h3>
                     </div>
                     <ul className="space-y-2">
                       {service.items.map((item) => (
-                        <li key={item} className="font-montserrat text-zinc-300 text-base leading-relaxed">
+                        <li key={item} className="font-montserrat text-white text-base leading-relaxed">
                           {item}
                         </li>
                       ))}
@@ -130,11 +130,11 @@ const Development = () => {
               <div
                 className="rounded-2xl p-6 md:p-8"
                 style={{
-                  background: 'rgba(253,186,116,0.03)',
-                  border: '1px solid rgba(253,186,116,0.15)',
+                  background: 'rgba(234,179,8,0.03)',
+                  border: '1px solid rgba(234,179,8,0.15)',
                 }}
               >
-                <h3 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#fdba74' }}>
+                <h3 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
                   СТЕК ТЕХНОЛОГИЙ
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -144,19 +144,19 @@ const Development = () => {
                       className="rounded-xl p-4"
                       style={{
                         background: 'rgba(255,255,255,0.02)',
-                        border: `1px solid ${stack.color}20`,
+                        border: `1px solid #eab30820`,
                       }}
                     >
                       <h4
                         className="font-montserrat font-semibold text-base mb-3 pb-2"
-                        style={{ color: stack.color, borderBottom: `1px solid ${stack.color}20` }}
+                        style={{ color: '#eab308', borderBottom: `1px solid #eab30820` }}
                       >
                         {stack.title}
                       </h4>
                       <ul className="space-y-1.5">
                         {stack.items.map((item) => (
-                          <li key={item} className="font-montserrat text-zinc-400 text-sm leading-relaxed flex items-start gap-2">
-                            <span className="w-1 h-1 rounded-full flex-shrink-0 mt-2" style={{ background: stack.color }} />
+                          <li key={item} className="font-montserrat text-white text-sm leading-relaxed flex items-start gap-2">
+                            <span className="w-1 h-1 rounded-full flex-shrink-0 mt-2" style={{ background: '#eab308' }} />
                             {item}
                           </li>
                         ))}

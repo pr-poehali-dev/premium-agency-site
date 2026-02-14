@@ -38,10 +38,10 @@ const About = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4 text-center uppercase" style={{ color: '#2dd4bf' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4 text-center uppercase" style={{ color: '#eab308' }}>
                 О КОМПАНИИ
               </h2>
-              <p className="font-montserrat text-zinc-400 text-base text-center max-w-2xl mx-auto mb-8 leading-relaxed">
+              <p className="font-montserrat text-white text-base text-center max-w-2xl mx-auto mb-8 leading-relaxed">
                 Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -51,30 +51,30 @@ const About = () => {
                     className="rounded-2xl p-3 sm:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(45,212,191,0.1)',
+                      border: '1px solid rgba(234,179,8,0.1)',
                     }}
                   >
-                    <div className="mx-auto w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(45,212,191,0.1)' }}>
-                      <Icon name={v.icon} size={24} style={{ color: '#2dd4bf' }} />
+                    <div className="mx-auto w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(234,179,8,0.1)' }}>
+                      <Icon name={v.icon} size={24} style={{ color: '#eab308' }} />
                     </div>
                     <h3 className="font-montserrat font-semibold text-base text-white mb-1">{v.title}</h3>
-                    <p className="font-montserrat text-zinc-500 text-sm">{v.desc}</p>
+                    <p className="font-montserrat text-white text-sm">{v.desc}</p>
                   </div>
                 ))}
               </div>
-              <div className="rounded-2xl p-6" style={{ background: 'rgba(45,212,191,0.05)', border: '1px solid rgba(45,212,191,0.15)' }}>
-                <h3 className="font-montserrat font-light text-lg md:text-xl lg:text-2xl tracking-wide mb-5 text-center uppercase" style={{ color: '#2dd4bf' }}>
+              <div className="rounded-2xl p-6" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.15)' }}>
+                <h3 className="font-montserrat font-light text-lg md:text-xl lg:text-2xl tracking-wide mb-5 text-center uppercase" style={{ color: '#eab308' }}>
                   НАША ИСТОРИЯ
                 </h3>
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
                   {milestones.map((m, i) => (
                     <div key={m.year} className="flex md:flex-col items-center gap-3 md:gap-1 text-center">
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style={{ background: 'rgba(45,212,191,0.2)', color: '#2dd4bf' }}>
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style={{ background: 'rgba(234,179,8,0.2)', color: '#eab308' }}>
                         {i + 1}
                       </div>
                       <div>
                         <div className="font-montserrat font-bold text-base text-white">{m.year}</div>
-                        <div className="font-montserrat text-zinc-500 text-sm">{m.text}</div>
+                        <div className="font-montserrat text-white text-sm">{m.text}</div>
                       </div>
                     </div>
                   ))}

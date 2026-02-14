@@ -51,7 +51,7 @@ const Pricing = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#facc15' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
                 СТОИМОСТЬ УСЛУГ
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -60,34 +60,34 @@ const Pricing = () => {
                     key={plan.title}
                     className="relative rounded-2xl p-3 sm:p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
                     style={{
-                      background: plan.popular ? 'rgba(250,204,21,0.06)' : 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${plan.popular ? 'rgba(250,204,21,0.3)' : 'rgba(250,204,21,0.1)'}`,
+                      background: plan.popular ? 'rgba(234,179,8,0.06)' : 'rgba(255,255,255,0.03)',
+                      border: `1px solid ${plan.popular ? 'rgba(234,179,8,0.3)' : 'rgba(234,179,8,0.1)'}`,
                     }}
                   >
                     {plan.popular && (
                       <div
                         className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-sm font-bold"
-                        style={{ background: '#facc15', color: '#000' }}
+                        style={{ background: '#eab308', color: '#000' }}
                       >
                         ПОПУЛЯРНЫЙ
                       </div>
                     )}
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2.5 rounded-xl" style={{ background: `${plan.color}15` }}>
-                        <Icon name={plan.icon} size={24} style={{ color: plan.color }} />
+                      <div className="p-2.5 rounded-xl" style={{ background: 'rgba(234,179,8,0.15)' }}>
+                        <Icon name={plan.icon} size={24} style={{ color: '#eab308' }} />
                       </div>
                       <div>
-                        <h3 className="font-montserrat font-semibold text-base" style={{ color: plan.color }}>
+                        <h3 className="font-montserrat font-semibold text-base" style={{ color: '#eab308' }}>
                           {plan.title}
                         </h3>
-                        <p className="font-montserrat text-zinc-500 text-sm">{plan.desc}</p>
+                        <p className="font-montserrat text-white text-sm">{plan.desc}</p>
                       </div>
                     </div>
                     <div className="font-montserrat font-bold text-2xl text-white mb-4">{plan.price}</div>
                     <ul className="space-y-2">
                       {plan.items.map((item) => (
-                        <li key={item} className="font-montserrat text-zinc-300 text-base flex items-center gap-2">
-                          <Icon name="Check" size={16} style={{ color: plan.color }} />
+                        <li key={item} className="font-montserrat text-white text-base flex items-center gap-2">
+                          <Icon name="Check" size={16} style={{ color: '#eab308' }} />
                           {item}
                         </li>
                       ))}
