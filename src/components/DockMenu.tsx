@@ -20,7 +20,7 @@ const DockMenu = () => {
     { icon: 'DollarSign', label: 'Стоимость', color: '#86efac', path: '/pricing' },
     { icon: 'UserCheck', label: 'Команда', color: '#6ee7b7', path: '/team' },
     { icon: 'MessageSquareText', label: 'Отзывы', color: '#5eead4', path: '/reviews' },
-    { icon: 'Handshake', label: 'Партнеры', color: '#2dd4bf', path: '/partners' },
+    { icon: 'Building2', label: 'Клиенты', color: '#2dd4bf', path: '/partners' },
     { icon: 'Phone', label: 'Контакты', color: '#22d3ee', path: '/contact' },
     { icon: 'Users', label: 'О нас', color: '#38bdf8', path: '/about' },
     { icon: 'ClipboardList', label: 'Квиз', color: '#818cf8', path: '/quiz' },

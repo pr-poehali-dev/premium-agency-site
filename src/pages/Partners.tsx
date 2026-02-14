@@ -1,85 +1,55 @@
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
-import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
+import { PageTitle } from '@/components/Typography';
 
-const partners = [
-  { name: 'Yandex Cloud', desc: 'Облачная инфраструктура', icon: 'Cloud' },
-  { name: 'Selectel', desc: 'Хостинг и серверы', icon: 'Server' },
-  { name: 'Тинькофф', desc: 'Платёжные решения', icon: 'CreditCard' },
-  { name: 'Bitrix24', desc: 'CRM-интеграции', icon: 'Database' },
-  { name: '1С', desc: 'Учётные системы', icon: 'Calculator' },
-  { name: 'Figma', desc: 'Дизайн-инструменты', icon: 'Pen' },
-];
-
-const benefits = [
-  { icon: 'Handshake', title: 'Партнёрская программа', desc: 'Взаимовыгодные условия сотрудничества и реферальные бонусы' },
-  { icon: 'Users', title: 'Совместные проекты', desc: 'Объединяем экспертизу для реализации масштабных проектов' },
-  { icon: 'Award', title: 'Сертификация', desc: 'Подтверждённая экспертиза в работе с технологическими партнёрами' },
+const clients = [
+  { name: 'Аэрофлот', logo: 'https://cdn.poehali.dev/files/4f9c0d7b-d804-401a-acd5-f20a8d8f7b9a.png' },
+  { name: 'Лукойл', logo: 'https://cdn.poehali.dev/files/a798ad1d-5279-44eb-b261-feb7c0117cdd.png' },
+  { name: 'Деловой Петербург', logo: 'https://cdn.poehali.dev/files/4fb78e8d-d718-480b-8e17-a4ae28dcfd81.png' },
+  { name: 'Yandex Go', logo: 'https://cdn.poehali.dev/files/3a1365c4-296f-48c8-a88c-d4d158190487.png' },
+  { name: 'Forbes', logo: 'https://cdn.poehali.dev/files/8ad70740-fe10-463f-8979-d97df8c0e7a5.png' },
+  { name: 'МегаФон', logo: 'https://cdn.poehali.dev/files/c419dbe6-7fc7-4864-a565-ebea5615b1b1.png' },
+  { name: 'Mercedes-Benz', logo: 'https://cdn.poehali.dev/files/9a7bf506-b4e8-4317-84d4-83d6e72b515d.png' },
+  { name: 'S7 Airlines', logo: 'https://cdn.poehali.dev/files/882ed5ef-9d14-42ca-a8e4-e6a1f4cf668f.png' },
+  { name: 'Сбер', logo: 'https://cdn.poehali.dev/files/a88249f5-e048-46b2-ac80-41d8d9be5e28.png' },
+  { name: 'Т-Банк', logo: 'https://cdn.poehali.dev/files/32051a84-d001-46a0-808c-9f68469f9dfa.png' },
+  { name: 'Зенит', logo: 'https://cdn.poehali.dev/files/7c2572ab-04d4-4802-9e60-20738749315f.png' },
 ];
 
 const Partners = () => {
   return (
     <AppLayout>
       <SEO
-        title="Партнеры"
-        description="Технологические партнёры ALBE Digital Agency: Yandex Cloud, Selectel, Тинькофф, Bitrix24, 1С. Партнёрская программа."
+        title="Клиенты"
+        description="Клиенты ALBE Digital Agency: Аэрофлот, Лукойл, Forbes, Mercedes-Benz, S7 Airlines, Сбер, МегаФон и другие крупные компании."
         path="/partners"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(110,231,183,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                ПАРТНЁРЫ
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                {partners.map((partner) => (
-                  <div
-                    key={partner.name}
-                    className="rounded-2xl p-3 sm:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
-                    style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(234,179,8,0.1)',
-                    }}
-                  >
-                    <div className="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(234,179,8,0.1)' }}>
-                      <Icon name={partner.icon} size={28} style={{ color: '#eab308' }} />
-                    </div>
-                    <h3 className="font-montserrat font-semibold text-base text-white">{partner.name}</h3>
-                    <p className="font-montserrat text-white text-sm">{partner.desc}</p>
-                  </div>
-                ))}
+        <PageContainer>
+          <PageTitle>НАШИ КЛИЕНТЫ</PageTitle>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+            {clients.map((client) => (
+              <div
+                key={client.name}
+                className="rounded-2xl p-6 flex items-center justify-center transition-all duration-300 hover:scale-[1.03]"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(234,179,8,0.1)',
+                  minHeight: '140px',
+                }}
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="max-w-full max-h-16 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {benefits.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl p-3 sm:p-5"
-                    style={{
-                      background: 'rgba(234,179,8,0.05)',
-                      border: '1px solid rgba(234,179,8,0.15)',
-                    }}
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <Icon name={item.icon} size={22} style={{ color: '#eab308' }} />
-                      <h3 className="font-montserrat font-semibold text-base" style={{ color: '#eab308' }}>{item.title}</h3>
-                    </div>
-                    <p className="font-montserrat text-white text-base leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );
