@@ -60,7 +60,7 @@ const Faqs = () => {
         path="/faqs"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32">
+        <div className="p-2 sm:p-5 pb-24 sm:pb-28">
           <div
             className="rounded-3xl"
             style={{
