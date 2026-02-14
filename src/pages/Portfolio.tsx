@@ -153,40 +153,39 @@ const Portfolio = () => {
 
         {selectedCategory && (
           <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 overflow-y-auto"
-            style={{ background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(10px)' }}
+            className="fixed inset-0 z-[9999]"
+            style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(10px)' }}
             onClick={() => setSelectedCategory(null)}
           >
-            <div
-              className="relative max-w-5xl w-full my-auto rounded-3xl flex flex-col"
-              style={{
-                background: 'rgba(0,0,0,0.98)',
-                border: `2px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
-                boxShadow: '0 20px 80px rgba(0,0,0,0.8)',
-                maxHeight: 'calc(100vh - 2rem)',
-              }}
-              onClick={(e) => e.stopPropagation()}
+            <div 
+              className="h-full overflow-y-auto modal-scroll" 
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              <div className="flex-shrink-0 p-6 flex items-center justify-between" style={{ background: 'rgba(0,0,0,0.95)', borderBottom: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}20` }}>
-                <h3 className="font-montserrat font-light text-2xl md:text-3xl uppercase" style={{ color: categories.find(c => c.name === selectedCategory)?.color }}>
-                  {selectedCategory}
-                </h3>
-                <button
-                  onClick={() => setSelectedCategory(null)}
-                  className="p-2 rounded-xl transition-all hover:scale-110"
-                  style={{ background: 'rgba(255,255,255,0.05)' }}
+              <div className="p-2 sm:p-5 pb-24 sm:pb-28 min-h-screen" onClick={(e) => e.stopPropagation()}>
+                <div
+                  className="rounded-3xl"
+                  style={{
+                    background: 'rgba(0,0,0,0.9)',
+                    border: `2px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
+                    backdropFilter: 'blur(40px)',
+                    boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+                  }}
                 >
-                  <Icon name="X" size={24} style={{ color: '#fff' }} />
-                </button>
-              </div>
+                  <div className="p-4 sm:p-6 md:p-8 lg:p-10">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide uppercase" style={{ color: categories.find(c => c.name === selectedCategory)?.color }}>
+                        {selectedCategory}
+                      </h3>
+                      <button
+                        onClick={() => setSelectedCategory(null)}
+                        className="p-2 rounded-xl transition-all hover:scale-110"
+                        style={{ background: 'rgba(255,255,255,0.05)' }}
+                      >
+                        <Icon name="X" size={24} style={{ color: '#fff' }} />
+                      </button>
+                    </div>
 
-              <div 
-                className="flex-1 overflow-y-auto p-6 space-y-4 modal-scroll" 
-                style={{ 
-                  scrollbarWidth: 'none', 
-                  msOverflowStyle: 'none',
-                }}
-              >
+                    <div className="space-y-4">
                 {casesByCategory[selectedCategory as keyof typeof casesByCategory]?.map((caseItem, i) => (
                   <div
                     key={i}
@@ -256,6 +255,9 @@ const Portfolio = () => {
                     </div>
                   </div>
                 ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
