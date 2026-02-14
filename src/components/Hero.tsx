@@ -14,8 +14,8 @@ const Hero = () => {
         <p
           className="text-center font-light -mt-2 sm:-mt-3 md:-mt-8 lg:-mt-12 xl:-mt-16 w-full"
           style={{
-            fontSize: 'clamp(1rem, 5vw, 6rem)',
-            letterSpacing: 'clamp(0.1em, 0.4vw, 0.4em)',
+            fontSize: 'clamp(1.4rem, 7vw, 8rem)',
+            letterSpacing: 'clamp(0.15em, 0.5vw, 0.5em)',
             background: 'linear-gradient(90deg, #3f3f46 0%, #fafafa 30%, #fafafa 70%, #3f3f46 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
