@@ -271,32 +271,33 @@ const Portfolio = () => {
                         <div className="flex flex-wrap gap-3">
                           <button
                             onClick={handleOrderProject}
-                            className="flex-1 min-w-[200px] px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            className="flex-1 min-w-[180px] px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl"
                             style={{
-                              background: `${categories.find(c => c.name === selectedCategory)?.color}`,
+                              background: 'linear-gradient(135deg, #fde68a, #fef08a)',
                               color: '#000',
+                              boxShadow: '0 4px 16px rgba(253, 230, 138, 0.3)',
                             }}
                           >
                             Заказать подобный проект
                           </button>
                           <button
                             onClick={handleQuiz}
-                            className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            className="flex-1 px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl"
                             style={{
-                              background: 'rgba(255,255,255,0.05)',
-                              border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
-                              color: categories.find(c => c.name === selectedCategory)?.color,
+                              background: 'linear-gradient(135deg, #86efac, #6ee7b7)',
+                              color: '#000',
+                              boxShadow: '0 4px 16px rgba(134, 239, 172, 0.3)',
                             }}
                           >
                             Пройти квиз
                           </button>
                           <button
                             onClick={handleOrderProject}
-                            className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            className="flex-1 px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl"
                             style={{
-                              background: 'rgba(255,255,255,0.05)',
-                              border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
-                              color: categories.find(c => c.name === selectedCategory)?.color,
+                              background: 'linear-gradient(135deg, #22d3ee, #38bdf8)',
+                              color: '#000',
+                              boxShadow: '0 4px 16px rgba(34, 211, 238, 0.3)',
                             }}
                           >
                             Связаться
