@@ -19,7 +19,7 @@ const Hero = () => {
             background: 'linear-gradient(90deg, #3f3f46 0%, #fafafa 30%, #fafafa 70%, #3f3f46 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            textShadow: 'none',
+            filter: 'drop-shadow(0 0 40px rgba(255,255,255,0.3)) drop-shadow(0 0 80px rgba(255,255,255,0.1))',
             wordSpacing: '-0.1em',
           }}
         >
