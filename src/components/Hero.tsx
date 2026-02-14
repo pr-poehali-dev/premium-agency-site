@@ -1,18 +1,21 @@
 const Hero = () => {
   return (
     <div className="min-h-[calc(100vh-120px)] flex flex-col items-center justify-center relative gap-8 md:gap-12">
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-full px-4">
         <h1
-          className="font-zen text-[8rem] sm:text-[10rem] md:text-[16rem] lg:text-[20rem] tracking-normal text-white leading-none"
+          className="font-zen tracking-normal text-white leading-none"
           style={{
+            fontSize: 'clamp(5rem, 22vw, 20rem)',
             textShadow: '0 0 80px rgba(255,255,255,0.08), 0 0 160px rgba(234,179,8,0.04)',
           }}
         >
           <span className="text-yellow-500" style={{ textShadow: '0 0 60px rgba(234,179,8,0.3), 0 0 120px rgba(234,179,8,0.1)' }}>a</span>lbe
         </h1>
         <p
-          className="text-center font-light tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em] lg:tracking-[0.3em] text-[1.2rem] sm:text-[2rem] md:text-[3.2rem] lg:text-[4.4rem] -mt-2 sm:-mt-3 md:-mt-6 lg:-mt-8 px-4"
+          className="text-center font-light -mt-2 sm:-mt-3 md:-mt-6 lg:-mt-8 w-full"
           style={{
+            fontSize: 'clamp(1rem, 5vw, 4.4rem)',
+            letterSpacing: 'clamp(0.1em, 0.3vw, 0.3em)',
             background: 'linear-gradient(90deg, #3f3f46 0%, #fafafa 30%, #fafafa 70%, #3f3f46 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
