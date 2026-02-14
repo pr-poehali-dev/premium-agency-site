@@ -268,10 +268,10 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-col md:flex-row gap-3">
                           <button
                             onClick={handleOrderProject}
-                            className="w-full px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            className="w-full md:w-auto md:flex-1 px-6 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 whitespace-nowrap"
                             style={{
                               background: `${categories.find(c => c.name === selectedCategory)?.color}`,
                               color: '#000',
@@ -279,28 +279,26 @@ const Portfolio = () => {
                           >
                             Заказать подобный проект
                           </button>
-                          <div className="grid grid-cols-2 gap-3">
-                            <button
-                              onClick={handleQuiz}
-                              className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
-                              style={{
-                                background: '#86efac',
-                                color: '#000',
-                              }}
-                            >
-                              Пройти квиз
-                            </button>
-                            <button
-                              onClick={handleOrderProject}
-                              className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
-                              style={{
-                                background: '#22d3ee',
-                                color: '#000',
-                              }}
-                            >
-                              Связаться
-                            </button>
-                          </div>
+                          <button
+                            onClick={handleQuiz}
+                            className="px-6 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 whitespace-nowrap"
+                            style={{
+                              background: '#86efac',
+                              color: '#000',
+                            }}
+                          >
+                            Пройти квиз
+                          </button>
+                          <button
+                            onClick={handleOrderProject}
+                            className="px-6 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 whitespace-nowrap"
+                            style={{
+                              background: '#22d3ee',
+                              color: '#000',
+                            }}
+                          >
+                            Связаться
+                          </button>
                         </div>
                       </div>
                     </div>
