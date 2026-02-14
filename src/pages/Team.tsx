@@ -47,11 +47,11 @@ const Team = () => {
         <PageContainer>
           <PageTitle>НАША КОМАНДА</PageTitle>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.1)' }}>
                 <div className="font-montserrat font-bold text-xl md:text-2xl text-white">{stat.value}</div>
-                <div className="font-montserrat text-white text-xs md:text-sm">{stat.label}</div>
+                <div className="font-montserrat font-light text-white text-xs md:text-sm uppercase">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -60,24 +60,24 @@ const Team = () => {
             {teamLeaders.map((member) => (
               <div
                 key={member.name}
-                className="rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.03]"
+                className="rounded-2xl overflow-hidden transition-all duration-300"
                 style={{
                   background: 'rgba(255,255,255,0.03)',
                   border: '1px solid rgba(234,179,8,0.15)',
                 }}
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative overflow-hidden" style={{ aspectRatio: '4/5' }}>
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover object-center grayscale"
                   />
                 </div>
-                <div className="p-4 text-center">
-                  <h3 className="font-montserrat font-light text-lg uppercase mb-1" style={{ color: '#eab308' }}>
+                <div className="p-5 text-center">
+                  <h3 className="font-montserrat font-light text-base md:text-lg uppercase mb-2" style={{ color: '#eab308' }}>
                     {member.name}
                   </h3>
-                  <p className="font-montserrat text-sm text-zinc-400">
+                  <p className="font-montserrat font-light text-xs md:text-sm text-white uppercase tracking-wide">
                     {member.role}
                   </p>
                 </div>
