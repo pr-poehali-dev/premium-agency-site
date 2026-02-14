@@ -16,6 +16,15 @@ const categories = [
 const casesByCategory = {
   'Дизайн': [
     {
+      title: 'Элитный женский клуб',
+      desc: 'Создали премиальный сайт для женского клуба, объединяющего бизнес, науку, искусство и культуру',
+      tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+      cost: '150 000 ₽',
+      duration: '2 недели',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/4514b74c-e7d5-4b17-93f4-79db0781afd5.png',
+      link: '#',
+    },
+    {
       title: 'Премиум сайт-приложение цифрового агентства',
       desc: 'Создали премиальный сайт-приложение с уникальным дизайном и навигацией под ключ',
       tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
@@ -71,6 +80,15 @@ const casesByCategory = {
     },
   ],
   'Разработка': [
+    {
+      title: 'Элитный женский клуб',
+      desc: 'Разработали премиальный сайт для женского клуба с элегантным дизайном и плавными анимациями',
+      tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+      cost: '150 000 ₽',
+      duration: '2 недели',
+      image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/4514b74c-e7d5-4b17-93f4-79db0781afd5.png',
+      link: '#',
+    },
     {
       title: 'Премиум сайт-приложение цифрового агентства',
       desc: 'Разработали премиальный сайт-приложение с уникальной док-навигацией и анимациями под ключ',
