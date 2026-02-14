@@ -5,17 +5,17 @@ const Hero = () => {
         <h1
           className="font-zen tracking-normal text-white leading-none"
           style={{
-            fontSize: 'clamp(5rem, 22vw, 20rem)',
-            textShadow: '0 0 80px rgba(255,255,255,0.08), 0 0 160px rgba(234,179,8,0.04)',
+            fontSize: 'clamp(5rem, 22vw, 28rem)',
+            textShadow: '0 0 120px rgba(255,255,255,0.15), 0 0 240px rgba(234,179,8,0.08)',
           }}
         >
-          <span className="text-yellow-500" style={{ textShadow: '0 0 60px rgba(234,179,8,0.3), 0 0 120px rgba(234,179,8,0.1)' }}>a</span>lbe
+          <span className="text-yellow-500" style={{ textShadow: '0 0 80px rgba(234,179,8,0.5), 0 0 160px rgba(234,179,8,0.2)' }}>a</span>lbe
         </h1>
         <p
-          className="text-center font-light -mt-2 sm:-mt-3 md:-mt-6 lg:-mt-8 w-full"
+          className="text-center font-light -mt-2 sm:-mt-3 md:-mt-8 lg:-mt-12 xl:-mt-16 w-full"
           style={{
-            fontSize: 'clamp(1rem, 5vw, 4.4rem)',
-            letterSpacing: 'clamp(0.1em, 0.3vw, 0.3em)',
+            fontSize: 'clamp(1rem, 5vw, 6rem)',
+            letterSpacing: 'clamp(0.1em, 0.4vw, 0.4em)',
             background: 'linear-gradient(90deg, #3f3f46 0%, #fafafa 30%, #fafafa 70%, #3f3f46 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
