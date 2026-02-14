@@ -65,7 +65,7 @@ const Faqs = () => {
             className="rounded-3xl"
             style={{
               background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(168,85,247,0.2)',
+              border: '1px solid rgba(234,179,8,0.2)',
               backdropFilter: 'blur(40px)',
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
