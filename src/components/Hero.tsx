@@ -3,13 +3,17 @@ const Hero = () => {
     <div className="min-h-[calc(100vh-120px)] flex flex-col items-center justify-center relative gap-8 md:gap-12">
       <div className="flex flex-col items-center justify-center w-full px-4">
         <h1
-          className="font-zen tracking-normal text-white leading-none"
+          className="font-zen tracking-normal leading-none"
           style={{
             fontSize: 'clamp(5rem, 22vw, 28rem)',
-            textShadow: '0 0 120px rgba(255,255,255,0.15), 0 0 240px rgba(234,179,8,0.08)',
+            background: 'linear-gradient(90deg, #c4a853 0%, #8b7355 50%, #5a4a3a 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            textShadow: '0 0 120px rgba(196,168,83,0.15), 0 0 240px rgba(196,168,83,0.08)',
           }}
         >
-          <span className="text-yellow-500" style={{ textShadow: '0 0 80px rgba(234,179,8,0.5), 0 0 160px rgba(234,179,8,0.2)' }}>a</span>lbe
+          albe
         </h1>
         <p
           className="text-center font-light -mt-2 sm:-mt-3 md:-mt-8 lg:-mt-12 xl:-mt-16 w-full"
