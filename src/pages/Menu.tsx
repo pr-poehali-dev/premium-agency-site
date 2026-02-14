@@ -1,28 +1,38 @@
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
-import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 
 const allPages = [
-  { icon: 'House', label: 'Главная', path: '/', color: '#fbbf24' },
-  { icon: 'Folder', label: 'Портфолио', path: '/portfolio', color: '#fcd34d' },
-  { icon: 'Palette', label: 'Дизайн', path: '/design', color: '#fde68a' },
-  { icon: 'Code', label: 'Разработка', path: '/development', color: '#fef08a' },
-  { icon: 'TrendingUp', label: 'Маркетинг', path: '/marketing', color: '#fef9c3' },
-  { icon: 'Brain', label: 'AI', path: '/ai', color: '#bef264' },
-  { icon: 'DollarSign', label: 'Стоимость', path: '/pricing', color: '#86efac' },
-  { icon: 'UserCheck', label: 'Команда', path: '/team', color: '#6ee7b7' },
-  { icon: 'MessageSquareText', label: 'Отзывы', path: '/reviews', color: '#5eead4' },
-  { icon: 'Building2', label: 'Клиенты', path: '/partners', color: '#2dd4bf' },
-  { icon: 'Phone', label: 'Контакты', path: '/contact', color: '#22d3ee' },
-  { icon: 'Users', label: 'О нас', path: '/about', color: '#38bdf8' },
-  { icon: 'ClipboardList', label: 'Квиз', path: '/quiz', color: '#818cf8' },
-  { icon: 'HelpCircle', label: 'FAQ', path: '/faqs', color: '#a78bfa' },
+  { label: 'Главная', path: '/' },
+  { label: 'Портфолио', path: '/portfolio' },
+  { label: 'Дизайн', path: '/design' },
+  { label: 'Разработка', path: '/development' },
+  { label: 'Маркетинг', path: '/marketing' },
+  { label: 'AI', path: '/ai' },
+  { label: 'Стоимость', path: '/pricing' },
+  { label: 'Команда', path: '/team' },
+  { label: 'Отзывы', path: '/reviews' },
+  { label: 'Клиенты', path: '/partners' },
+  { label: 'Контакты', path: '/contact' },
+  { label: 'О нас', path: '/about' },
+  { label: 'Квиз', path: '/quiz' },
+  { label: 'FAQ', path: '/faqs' },
 ];
 
 const Menu = () => {
   const navigate = useNavigate();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const iframeRefs = useRef<(HTMLIFrameElement | null)[]>([]);
+
+  useEffect(() => {
+    iframeRefs.current.forEach((iframe) => {
+      if (iframe) {
+        iframe.style.pointerEvents = 'none';
+      }
+    });
+  }, []);
 
   return (
     <AppLayout>
@@ -32,47 +42,50 @@ const Menu = () => {
         path="/menu"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32 min-h-[80vh] flex items-center justify-center">
-          <div
-            className="rounded-3xl w-full max-w-4xl"
-            style={{
-              background: 'rgba(82,82,91,0.08)',
-              border: '1px solid rgba(161,161,170,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)',
-            }}
-          >
-            <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                ВСЕ РАЗДЕЛЫ
-              </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 w-full">
-                {allPages.map((page) => (
-                  <button
-                    key={page.path}
-                    onClick={() => navigate(page.path)}
-                    className="group rounded-2xl p-4 md:p-5 flex flex-col items-center gap-3 transition-all duration-300 hover:scale-[1.03] active:scale-95"
+        <div className="fixed inset-0 p-4 sm:p-6 md:p-8 pb-24 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)' }}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-[2000px] mx-auto">
+            {allPages.map((page, index) => (
+              <button
+                key={page.path}
+                onClick={() => navigate(page.path)}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className="group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.5)' : '2px solid rgba(234,179,8,0.2)',
+                  aspectRatio: '16/10',
+                }}
+              >
+                <div className="absolute inset-0 overflow-hidden">
+                  <iframe
+                    ref={(el) => (iframeRefs.current[index] = el)}
+                    src={page.path === '/' ? '/' : page.path}
+                    className="w-full h-full border-0"
                     style={{
-                      background: 'rgba(234,179,8,0.08)',
-                      border: '1px solid rgba(234,179,8,0.2)',
+                      transform: 'scale(0.25)',
+                      transformOrigin: 'top left',
+                      width: '400%',
+                      height: '400%',
+                      pointerEvents: 'none',
                     }}
-                  >
-                    <Icon 
-                      name={page.icon} 
-                      size={44} 
-                      strokeWidth={1.2} 
-                      style={{ 
-                        color: '#eab308',
-                        filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
-                      }} 
-                    />
-                    <span className="font-montserrat text-xs font-light tracking-wide uppercase" style={{ color: '#eab308' }}>
-                      {page.label}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
+                    title={page.label}
+                  />
+                </div>
+                <div 
+                  className="absolute inset-0 transition-opacity duration-300"
+                  style={{
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)',
+                    opacity: hoveredIndex === index ? 0.6 : 1,
+                  }}
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
+                  <span className="font-montserrat text-xs md:text-sm font-light tracking-wide uppercase text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                    {page.label}
+                  </span>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </PageTransition>
