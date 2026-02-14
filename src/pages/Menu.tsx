@@ -14,7 +14,7 @@ const allPages = [
   { icon: 'DollarSign', label: 'Стоимость', path: '/pricing', color: '#86efac' },
   { icon: 'UserCheck', label: 'Команда', path: '/team', color: '#6ee7b7' },
   { icon: 'MessageSquareText', label: 'Отзывы', path: '/reviews', color: '#5eead4' },
-  { icon: 'Handshake', label: 'Партнеры', path: '/partners', color: '#2dd4bf' },
+  { icon: 'Building2', label: 'Клиенты', path: '/partners', color: '#2dd4bf' },
   { icon: 'Phone', label: 'Контакты', path: '/contact', color: '#22d3ee' },
   { icon: 'Users', label: 'О нас', path: '/about', color: '#38bdf8' },
   { icon: 'ClipboardList', label: 'Квиз', path: '/quiz', color: '#818cf8' },
@@ -36,10 +36,10 @@ const Menu = () => {
           <div
             className="rounded-3xl w-full max-w-4xl"
             style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(6,182,212,0.2)',
+              background: 'rgba(82,82,91,0.08)',
+              border: '1px solid rgba(161,161,170,0.2)',
               backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)',
             }}
           >
             <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10">
@@ -51,16 +51,22 @@ const Menu = () => {
                   <button
                     key={page.path}
                     onClick={() => navigate(page.path)}
-                    className="group rounded-2xl p-4 md:p-5 flex flex-col items-center gap-3 transition-all duration-300 hover:scale-110 active:scale-95"
+                    className="group rounded-2xl p-4 md:p-5 flex flex-col items-center gap-3 transition-all duration-300 hover:scale-[1.03] active:scale-95"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(234,179,8,0.13)',
+                      background: 'rgba(234,179,8,0.08)',
+                      border: '1px solid rgba(234,179,8,0.2)',
                     }}
                   >
-                    <div className="p-3 rounded-xl" style={{ background: 'rgba(234,179,8,0.1)' }}>
-                      <Icon name={page.icon} size={28} strokeWidth={1.2} style={{ color: '#eab308' }} />
-                    </div>
-                    <span className="font-montserrat text-sm font-medium text-white">
+                    <Icon 
+                      name={page.icon} 
+                      size={44} 
+                      strokeWidth={1.2} 
+                      style={{ 
+                        color: '#eab308',
+                        filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
+                      }} 
+                    />
+                    <span className="font-montserrat text-xs font-light tracking-wide uppercase" style={{ color: '#eab308' }}>
                       {page.label}
                     </span>
                   </button>
