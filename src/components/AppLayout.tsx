@@ -12,8 +12,8 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       <PremiumBackground />
       <div className="relative z-10 min-h-screen">
         {children}
-        <DockMenu />
       </div>
+      <DockMenu />
     </div>
   );
 };
