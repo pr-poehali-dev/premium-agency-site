@@ -2,7 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 const allPages = [
   { label: 'Главная', path: '/', size: 'large' },
@@ -24,19 +24,6 @@ const allPages = [
 const Menu = () => {
   const navigate = useNavigate();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [loadedIframes, setLoadedIframes] = useState<Set<number>>(new Set());
-  const iframeRefs = useRef<(HTMLIFrameElement | null)[]>([]);
-
-  useEffect(() => {
-    iframeRefs.current.forEach((iframe, index) => {
-      if (iframe) {
-        iframe.style.pointerEvents = 'none';
-        iframe.onload = () => {
-          setLoadedIframes(prev => new Set(prev).add(index));
-        };
-      }
-    });
-  }, []);
 
   const getSizeClass = (size: string) => {
     switch (size) {
@@ -59,8 +46,8 @@ const Menu = () => {
         path="/menu"
       />
       <PageTransition>
-        <div className="fixed inset-0 p-3 sm:p-4 md:p-6 pb-24 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)' }}>
-          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 auto-rows-[120px] md:auto-rows-[140px] gap-2 md:gap-3 max-w-[1800px] mx-auto">
+        <div className="fixed inset-0 p-2 sm:p-3 md:p-4 pb-20 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)' }}>
+          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3 max-w-[1800px] mx-auto" style={{ gridAutoRows: '1fr', minHeight: 'calc(100vh - 6rem)' }}>
             {allPages.map((page, index) => (
               <button
                 key={page.path}
@@ -72,13 +59,12 @@ const Menu = () => {
                   background: 'rgba(255,255,255,0.03)',
                   border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(234,179,8,0.15)',
                   boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.2)' : '0 4px 16px rgba(0,0,0,0.3)',
+                  minHeight: '150px',
                 }}
               >
                 <div className="absolute inset-0 overflow-hidden">
                   <iframe
-                    ref={(el) => (iframeRefs.current[index] = el)}
                     src={page.path === '/' ? '/' : page.path}
-                    loading="eager"
                     className="w-full h-full border-0"
                     style={{
                       transform: 'scale(0.2)',
@@ -86,16 +72,9 @@ const Menu = () => {
                       width: '500%',
                       height: '500%',
                       pointerEvents: 'none',
-                      opacity: loadedIframes.has(index) ? 1 : 0,
-                      transition: 'opacity 0.3s ease',
                     }}
                     title={page.label}
                   />
-                  {!loadedIframes.has(index) && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-8 h-8 border-2 border-t-transparent border-[#eab308] rounded-full animate-spin" />
-                    </div>
-                  )}
                 </div>
                 <div 
                   className="absolute inset-0 transition-opacity duration-300"
