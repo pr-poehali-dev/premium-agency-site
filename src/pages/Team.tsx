@@ -50,7 +50,7 @@ const Team = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.1)' }}>
-                <div className="font-montserrat font-bold text-xl md:text-2xl text-white">{stat.value}</div>
+                <div className="font-montserrat font-light text-xl md:text-2xl text-white">{stat.value}</div>
                 <div className="font-montserrat font-light text-white text-xs md:text-sm uppercase">{stat.label}</div>
               </div>
             ))}
