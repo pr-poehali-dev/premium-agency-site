@@ -204,6 +204,7 @@ const casesByCategory = {
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const categoryColor = categories.find(c => c.name === selectedCategory)?.color || '#eab308';
 
   const handleOrderProject = () => {
     window.open('https://t.me/albe_web', '_blank');
@@ -266,14 +267,14 @@ const Portfolio = () => {
                   className="rounded-3xl"
                   style={{
                     background: 'rgba(0,0,0,0.9)',
-                    border: `2px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
+                    border: `2px solid ${categoryColor}40`,
                     backdropFilter: 'blur(40px)',
                     boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
                   }}
                 >
                   <div className="p-4 sm:p-6 md:p-8 lg:p-10">
                     <div className="flex items-center justify-between mb-8">
-                      <h3 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide uppercase" style={{ color: categories.find(c => c.name === selectedCategory)?.color }}>
+                      <h3 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide uppercase" style={{ color: categoryColor }}>
                         {selectedCategory}
                       </h3>
                       <button
@@ -292,7 +293,7 @@ const Portfolio = () => {
                     className="rounded-2xl overflow-hidden"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}20`,
+                      border: `1px solid ${categoryColor}20`,
                     }}
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
@@ -311,11 +312,11 @@ const Portfolio = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                       <div className="rounded-xl p-3" style={{ background: 'rgba(255,255,255,0.02)' }}>
                         <div className="font-montserrat text-xs text-zinc-500 mb-1">СТОИМОСТЬ</div>
-                        <div className="font-montserrat font-semibold text-base" style={{ color: categories.find(c => c.name === selectedCategory)?.color }}>{caseItem.cost}</div>
+                        <div className="font-montserrat font-semibold text-base" style={{ color: categoryColor }}>{caseItem.cost}</div>
                       </div>
                       <div className="rounded-xl p-3" style={{ background: 'rgba(255,255,255,0.02)' }}>
                         <div className="font-montserrat text-xs text-zinc-500 mb-1">СРОК</div>
-                        <div className="font-montserrat font-semibold text-base" style={{ color: categories.find(c => c.name === selectedCategory)?.color }}>{caseItem.duration}</div>
+                        <div className="font-montserrat font-semibold text-base" style={{ color: categoryColor }}>{caseItem.duration}</div>
                       </div>
                     </div>
 
@@ -343,7 +344,7 @@ const Portfolio = () => {
                       <div className="font-montserrat text-xs text-zinc-500 mb-2">ТЕХНОЛОГИИ</div>
                       <div className="flex flex-wrap gap-1.5">
                         {caseItem.tech.map((t) => (
-                          <span key={t} className="font-montserrat text-xs px-2 py-0.5 rounded-full" style={{ background: `${categories.find(c => c.name === selectedCategory)?.color}20`, color: categories.find(c => c.name === selectedCategory)?.color }}>
+                          <span key={t} className="font-montserrat text-xs px-2 py-0.5 rounded-full" style={{ background: `${categoryColor}20`, color: categoryColor }}>
                             {t}
                           </span>
                         ))}
