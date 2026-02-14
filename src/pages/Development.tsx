@@ -94,13 +94,28 @@ const Development = () => {
             >
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-3 rounded-xl transition-all duration-300 hover:scale-110 active:scale-95 group"
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-4 md:p-5 rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95 group animate-pulse-slow"
                 style={{
-                  background: 'rgba(253,186,116,0.1)',
-                  border: '1px solid rgba(253,186,116,0.3)',
+                  background: 'rgba(253,186,116,0.2)',
+                  border: '2px solid rgba(253,186,116,0.5)',
+                  boxShadow: '0 0 30px rgba(253,186,116,0.3), 0 0 60px rgba(253,186,116,0.1)',
                 }}
               >
-                <Icon name="Code2" size={24} style={{ color: '#fdba74' }} className="transition-transform duration-300 group-hover:rotate-12" />
+                <Icon name="Code2" size={28} style={{ color: '#fdba74' }} className="md:w-8 md:h-8 transition-transform duration-300 group-hover:rotate-12" />
+                
+                <div
+                  className="absolute -bottom-14 right-0 pointer-events-none transition-all duration-300 whitespace-nowrap"
+                  style={{
+                    opacity: 0,
+                    transform: 'translateY(-6px)',
+                  }}
+                >
+                  <div className="bg-zinc-900/95 backdrop-blur-xl px-4 py-2 rounded-xl border border-zinc-700/40 shadow-2xl group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                    <span className="text-xs font-medium text-white tracking-wide">
+                      Стек технологий
+                    </span>
+                  </div>
+                </div>
               </button>
 
               <div className="h-full flex flex-col p-6 md:p-8 lg:p-10">
@@ -234,6 +249,21 @@ const Development = () => {
               opacity: 1;
               transform: scale(1);
             }
+          }
+          @keyframes pulse-slow {
+            0%, 100% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0.7;
+            }
+          }
+          .animate-pulse-slow {
+            animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          }
+          .group:hover > div {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
           }
         `}</style>
       </PageTransition>
