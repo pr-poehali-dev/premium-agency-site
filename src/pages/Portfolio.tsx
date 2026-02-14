@@ -321,7 +321,7 @@ const Portfolio = () => {
                     </div>
 
                     <Button 
-                      onClick={handleOrderProject} 
+                      onClick={() => window.open(caseItem.link, '_blank')} 
                       variant="primary" 
                       size="medium"
                       fullWidth
