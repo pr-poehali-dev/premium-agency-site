@@ -4,6 +4,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageTitle } from '@/components/Typography';
+import Button from '@/components/Button';
 import { useState } from 'react';
 
 const categories = [
@@ -235,7 +236,7 @@ const Portfolio = () => {
                         <h4 className="font-montserrat font-semibold text-xl text-white mb-2">{caseItem.title}</h4>
                         <p className="font-montserrat text-zinc-400 text-base leading-relaxed mb-4">{caseItem.desc}</p>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                       <div className="rounded-xl p-3" style={{ background: 'rgba(255,255,255,0.02)' }}>
                         <div className="font-montserrat text-xs text-zinc-500 mb-1">СТОИМОСТЬ</div>
                         <div className="font-montserrat font-semibold text-base" style={{ color: categories.find(c => c.name === selectedCategory)?.color }}>{caseItem.cost}</div>
@@ -244,50 +245,57 @@ const Portfolio = () => {
                         <div className="font-montserrat text-xs text-zinc-500 mb-1">СРОК</div>
                         <div className="font-montserrat font-semibold text-base" style={{ color: categories.find(c => c.name === selectedCategory)?.color }}>{caseItem.duration}</div>
                       </div>
-                      <div className="rounded-xl p-3 sm:col-span-1 col-span-2" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                        <div className="font-montserrat text-xs text-zinc-500 mb-1">ТЕХНОЛОГИИ</div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {caseItem.tech.map((t) => (
-                            <span key={t} className="font-montserrat text-xs px-2 py-0.5 rounded-full" style={{ background: `${categories.find(c => c.name === selectedCategory)?.color}20`, color: categories.find(c => c.name === selectedCategory)?.color }}>
-                              {t}
-                            </span>
-                          ))}
-                        </div>
+                    </div>
+
+                    <Button 
+                      onClick={handleOrderProject} 
+                      variant="primary" 
+                      size="medium"
+                      fullWidth
+                      className="mb-3"
+                    >
+                      Посмотреть проект
+                    </Button>
+
+                    <Button 
+                      onClick={handleOrderProject} 
+                      variant="secondary" 
+                      size="medium"
+                      fullWidth
+                      className="mb-4"
+                    >
+                      Заказать подобный проект
+                    </Button>
+
+                    <div className="rounded-xl p-3 mb-4" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                      <div className="font-montserrat text-xs text-zinc-500 mb-2">ТЕХНОЛОГИИ</div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {caseItem.tech.map((t) => (
+                          <span key={t} className="font-montserrat text-xs px-2 py-0.5 rounded-full" style={{ background: `${categories.find(c => c.name === selectedCategory)?.color}20`, color: categories.find(c => c.name === selectedCategory)?.color }}>
+                            {t}
+                          </span>
+                        ))}
                       </div>
                     </div>
 
-                        <div className="flex flex-col md:flex-row gap-3">
-                          <button
-                            onClick={handleOrderProject}
-                            className="w-full md:w-auto md:flex-1 px-6 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 whitespace-nowrap"
-                            style={{
-                              background: `${categories.find(c => c.name === selectedCategory)?.color}`,
-                              color: '#000',
-                            }}
-                          >
-                            Заказать подобный проект
-                          </button>
-                          <button
-                            onClick={handleQuiz}
-                            className="px-6 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 whitespace-nowrap"
-                            style={{
-                              background: '#86efac',
-                              color: '#000',
-                            }}
-                          >
-                            Пройти квиз
-                          </button>
-                          <button
-                            onClick={handleOrderProject}
-                            className="px-6 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105 whitespace-nowrap"
-                            style={{
-                              background: '#22d3ee',
-                              color: '#000',
-                            }}
-                          >
-                            Связаться
-                          </button>
-                        </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Button 
+                        onClick={handleQuiz} 
+                        variant="secondary" 
+                        size="medium"
+                        fullWidth
+                      >
+                        Пройти квиз
+                      </Button>
+                      <Button 
+                        onClick={handleOrderProject} 
+                        variant="secondary" 
+                        size="medium"
+                        fullWidth
+                      >
+                        Связаться
+                      </Button>
+                    </div>
                       </div>
                     </div>
                   </div>
