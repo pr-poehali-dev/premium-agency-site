@@ -5,20 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const allPages = [
-  { label: 'Главная', path: '/', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/625eaa13-d2b3-4f0f-a4bd-38868c09ebb8.png' },
-  { label: 'Портфолио', path: '/portfolio', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/0222faa8-025b-48f7-9cfd-88f77e0d6d72.png' },
-  { label: 'Дизайн', path: '/design', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/e5ac3607-8d34-460b-9474-77bcde8f7b6c.png' },
-  { label: 'Разработка', path: '/development', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/672f5ac7-c5f1-4fe2-ab79-c74536f89e34.png' },
-  { label: 'Маркетинг', path: '/marketing', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/9f63a371-dd01-458e-8dfa-282056c5afb2.png' },
-  { label: 'AI', path: '/ai', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/d5b585c7-8f39-4d47-9b5b-3db56c69e40a.png' },
-  { label: 'Стоимость', path: '/pricing', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/35f677e4-028b-410c-a596-91fea1a0bda9.png' },
-  { label: 'Команда', path: '/team', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/9ad85cd2-400b-41b7-8bc5-e3e4f5121006.png' },
-  { label: 'Отзывы', path: '/reviews', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/00745d1c-4357-400a-b183-36ef2dd4759c.png' },
-  { label: 'Клиенты', path: '/partners', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/1208343a-a4b1-4f59-9013-8b90acb29eb8.png' },
-  { label: 'Контакты', path: '/contact', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/bd4b8b19-2d6c-42a7-909b-18cc002a3cee.png' },
-  { label: 'О нас', path: '/about', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/08a6bc50-3597-4d68-b1b7-16c6287be512.png' },
-  { label: 'Квиз', path: '/quiz', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/fefc558d-5cd6-4d92-909c-d6b5e94ae1df.png' },
-  { label: 'FAQ', path: '/faqs', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/c938ee86-49ce-4704-ba53-167090873dca.png' },
+  { label: 'Главная', path: '/', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/625eaa13-d2b3-4f0f-a4bd-38868c09ebb8.png', gridArea: '1 / 1 / 3 / 3' },
+  { label: 'Портфолио', path: '/portfolio', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/0222faa8-025b-48f7-9cfd-88f77e0d6d72.png', gridArea: '1 / 3 / 3 / 5' },
+  { label: 'Дизайн', path: '/design', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/e5ac3607-8d34-460b-9474-77bcde8f7b6c.png', gridArea: '1 / 5 / 2 / 6' },
+  { label: 'Разработка', path: '/development', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/672f5ac7-c5f1-4fe2-ab79-c74536f89e34.png', gridArea: '2 / 5 / 3 / 6' },
+  { label: 'Маркетинг', path: '/marketing', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/9f63a371-dd01-458e-8dfa-282056c5afb2.png', gridArea: '1 / 6 / 2 / 7' },
+  { label: 'AI', path: '/ai', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/d5b585c7-8f39-4d47-9b5b-3db56c69e40a.png', gridArea: '2 / 6 / 3 / 7' },
+  { label: 'Стоимость', path: '/pricing', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/35f677e4-028b-410c-a596-91fea1a0bda9.png', gridArea: '3 / 1 / 4 / 2' },
+  { label: 'Команда', path: '/team', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/9ad85cd2-400b-41b7-8bc5-e3e4f5121006.png', gridArea: '3 / 2 / 4 / 3' },
+  { label: 'Отзывы', path: '/reviews', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/00745d1c-4357-400a-b183-36ef2dd4759c.png', gridArea: '3 / 3 / 4 / 4' },
+  { label: 'Клиенты', path: '/partners', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/1208343a-a4b1-4f59-9013-8b90acb29eb8.png', gridArea: '3 / 4 / 4 / 5' },
+  { label: 'Контакты', path: '/contact', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/bd4b8b19-2d6c-42a7-909b-18cc002a3cee.png', gridArea: '3 / 5 / 4 / 6' },
+  { label: 'О нас', path: '/about', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/08a6bc50-3597-4d68-b1b7-16c6287be512.png', gridArea: '3 / 6 / 4 / 7' },
+  { label: 'Квиз', path: '/quiz', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/fefc558d-5cd6-4d92-909c-d6b5e94ae1df.png', gridArea: '4 / 1 / 5 / 3' },
+  { label: 'FAQ', path: '/faqs', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/c938ee86-49ce-4704-ba53-167090873dca.png', gridArea: '4 / 3 / 5 / 5' },
 ];
 
 const Menu = () => {
@@ -37,7 +37,7 @@ const Menu = () => {
           <div 
             className="grid gap-2 md:gap-3 w-full" 
             style={{ 
-              gridTemplateColumns: 'repeat(7, 1fr)',
+              gridTemplateColumns: 'repeat(6, 1fr)',
               gridTemplateRows: 'repeat(4, 1fr)',
               maxWidth: '95vw',
               maxHeight: 'calc(100vh - 140px)',
@@ -55,8 +55,7 @@ const Menu = () => {
                   background: 'rgba(255,255,255,0.03)',
                   border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(234,179,8,0.15)',
                   boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.25)' : '0 4px 16px rgba(0,0,0,0.3)',
-                  gridColumn: index < 2 ? 'span 2' : 'span 1',
-                  gridRow: index < 2 ? 'span 2' : index < 6 ? 'span 2' : 'span 1',
+                  gridArea: page.gridArea,
                 }}
               >
                 <img
