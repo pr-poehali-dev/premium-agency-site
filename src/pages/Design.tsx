@@ -2,6 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
 
 const designServices = [
   {
@@ -39,20 +40,10 @@ const Design = () => {
         path="/design"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(249,115,22,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                ДИЗАЙН
-              </h2>
+        <PageContainer>
+          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
+            ДИЗАЙН
+          </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {designServices.map((service) => (
                   <div
@@ -68,7 +59,7 @@ const Design = () => {
                         <Icon name={service.icon} size={28} style={{ color: '#eab308' }} />
                       </div>
                       <div>
-                        <h3 className="font-montserrat font-semibold text-lg" style={{ color: '#eab308' }}>
+                        <h3 className="font-montserrat font-semibold text-lg uppercase" style={{ color: '#eab308' }}>
                           {service.title}
                         </h3>
                         <p className="font-montserrat text-white text-sm">{service.desc}</p>
@@ -85,9 +76,7 @@ const Design = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );

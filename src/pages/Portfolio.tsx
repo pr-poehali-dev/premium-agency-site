@@ -2,6 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
 import { useState } from 'react';
 
 const categories = [
@@ -128,48 +129,36 @@ const Portfolio = () => {
         path="/portfolio"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-24 sm:pb-28">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(251,146,60,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                ПОРТФОЛИО
-              </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                {categories.map((cat) => (
-                  <button
-                    key={cat.name}
-                    onClick={() => setSelectedCategory(cat.name)}
-                    className="group relative rounded-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
-                    style={{
-                      background: `linear-gradient(135deg, ${cat.color}15, ${cat.color}05)`,
-                      border: `2px solid ${cat.color}40`,
-                      boxShadow: `0 8px 24px ${cat.color}10`,
-                      aspectRatio: '16/9',
-                    }}
-                  >
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6">
-                      <div className="p-4 rounded-2xl" style={{ background: `${cat.color}20` }}>
-                        <Icon name={cat.icon} size={48} style={{ color: cat.color }} />
-                      </div>
-                      <span className="font-montserrat font-light text-2xl md:text-3xl tracking-wide uppercase" style={{ color: cat.color }}>
-                        {cat.name}
-                      </span>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
+        <PageContainer>
+          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
+            ПОРТФОЛИО
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {categories.map((cat) => (
+              <button
+                key={cat.name}
+                onClick={() => setSelectedCategory(cat.name)}
+                className="group relative rounded-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                style={{
+                  background: `linear-gradient(135deg, ${cat.color}15, ${cat.color}05)`,
+                  border: `2px solid ${cat.color}40`,
+                  boxShadow: `0 8px 24px ${cat.color}10`,
+                  aspectRatio: '16/9',
+                }}
+              >
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6">
+                  <div className="p-4 rounded-2xl" style={{ background: `${cat.color}20` }}>
+                    <Icon name={cat.icon} size={48} style={{ color: cat.color }} />
+                  </div>
+                  <span className="font-montserrat font-light text-2xl md:text-3xl tracking-wide uppercase" style={{ color: cat.color }}>
+                    {cat.name}
+                  </span>
+                </div>
+              </button>
+            ))}
           </div>
-        </div>
+        </PageContainer>
       </PageTransition>
 
       {selectedCategory && (
@@ -179,10 +168,10 @@ const Portfolio = () => {
             onClick={() => setSelectedCategory(null)}
           >
             <div 
-              className="h-full overflow-y-auto modal-scroll" 
+              className="h-full overflow-y-auto modal-scroll pb-24 md:pb-28 lg:pb-32" 
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              <div className="p-2 sm:p-5 pb-24 sm:pb-28 min-h-screen" onClick={(e) => e.stopPropagation()}>
+              <div className="p-2 sm:p-5 min-h-screen" onClick={(e) => e.stopPropagation()}>
                 <div
                   className="rounded-3xl"
                   style={{

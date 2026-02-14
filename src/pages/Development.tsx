@@ -2,6 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
 
 const services = [
   {
@@ -84,20 +85,10 @@ const Development = () => {
         path="/development"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-24 sm:pb-28">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(253,186,116,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                ЧТО МЫ РАЗРАБАТЫВАЕМ
-              </h2>
+        <PageContainer>
+          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
+            ЧТО МЫ РАЗРАБАТЫВАЕМ
+          </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
                 {services.map((service) => (
                   <div
@@ -112,7 +103,7 @@ const Development = () => {
                       <div className="p-3 rounded-xl" style={{ background: 'rgba(234,179,8,0.1)' }}>
                         <Icon name={service.icon} size={32} style={{ color: '#eab308' }} />
                       </div>
-                      <h3 className="font-montserrat font-semibold text-lg" style={{ color: '#eab308' }}>
+                      <h3 className="font-montserrat font-semibold text-lg uppercase" style={{ color: '#eab308' }}>
                         {service.title}
                       </h3>
                     </div>
@@ -148,7 +139,7 @@ const Development = () => {
                       }}
                     >
                       <h4
-                        className="font-montserrat font-semibold text-base mb-3 pb-2"
+                        className="font-montserrat font-semibold text-base mb-3 pb-2 uppercase"
                         style={{ color: '#eab308', borderBottom: `1px solid #eab30820` }}
                       >
                         {stack.title}
@@ -165,9 +156,7 @@ const Development = () => {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );
