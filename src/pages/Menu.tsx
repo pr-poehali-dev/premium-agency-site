@@ -28,9 +28,9 @@ const Menu = () => {
   const getSizeClass = (size: string) => {
     switch (size) {
       case 'large':
-        return 'col-span-2 row-span-2';
+        return 'col-span-1 sm:col-span-2 row-span-2';
       case 'medium':
-        return 'col-span-2 row-span-1';
+        return 'col-span-1 sm:col-span-2 md:col-span-1 row-span-2';
       case 'small':
         return 'col-span-1 row-span-1';
       default:
@@ -46,20 +46,19 @@ const Menu = () => {
         path="/menu"
       />
       <PageTransition>
-        <div className="fixed inset-0 p-3 sm:p-4 md:p-6 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 20000, paddingBottom: '120px' }}>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-[1600px] mx-auto">
+        <div className="fixed inset-0 p-3 sm:p-4 md:p-6 lg:p-8 overflow-hidden flex items-center justify-center" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 20000 }}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 lg:gap-5 w-full h-full max-w-[1800px]" style={{ gridAutoRows: 'minmax(0, 1fr)', paddingBottom: '100px' }}>
             {allPages.map((page, index) => (
               <button
                 key={page.path}
                 onClick={() => navigate(page.path)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-95"
+                className={`group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-95 ${getSizeClass(page.size)}`}
                 style={{
                   background: 'rgba(255,255,255,0.03)',
                   border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(234,179,8,0.15)',
                   boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.25)' : '0 4px 16px rgba(0,0,0,0.3)',
-                  aspectRatio: '16/10',
                 }}
               >
                 <img
