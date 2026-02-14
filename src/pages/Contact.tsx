@@ -20,7 +20,7 @@ const Contact = () => {
     script.async = true;
     script.onload = () => {
       if (window.VK) {
-        window.VK.Widgets.Group('vk_groups', { mode: 4, wide: 1, width: 'auto', height: '400', color1: '000000', color2: 'eab308', color3: 'eab308' }, 221931076);
+        window.VK.Widgets.Group('vk_groups', { mode: 4, wide: 1, width: 'auto', height: '400', color1: '000000', color2: 'eab308', color3: 'eab308' }, 'albeweb');
       }
     };
     document.body.appendChild(script);
