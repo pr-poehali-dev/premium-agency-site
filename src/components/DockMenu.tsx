@@ -87,6 +87,14 @@ const DockMenu = () => {
 
   return (
     <>
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="75%">
+            <stop offset="0%" stopColor="#eab308" stopOpacity="1" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0.8" />
+          </linearGradient>
+        </defs>
+      </svg>
       <nav className="fixed bottom-3 md:bottom-5 left-0 right-0 px-2 md:px-5 pointer-events-none z-[10000]">
         <div className="relative w-full md:max-w-fit mx-auto pointer-events-auto" ref={containerRef}>
           <div
@@ -130,7 +138,7 @@ const DockMenu = () => {
                         size={isMobile ? 28 : 44}
                         strokeWidth={1.2}
                         className="relative z-10 transition-colors duration-300"
-                        style={{ color: item.color }}
+                        style={{ color: 'url(#iconGradient)' }}
                       />
                     </div>
 
@@ -176,7 +184,7 @@ const DockMenu = () => {
                     size={isMobile ? 28 : 44}
                     strokeWidth={1.2}
                     className="relative z-10 transition-colors duration-300"
-                    style={{ color: menuIcon.color }}
+                    style={{ color: 'url(#iconGradient)' }}
                   />
                   {hiddenItems.length > 0 && (
                     <div 
@@ -254,12 +262,17 @@ const DockMenu = () => {
                       name={item.icon}
                       size={isMobile ? 28 : 40}
                       strokeWidth={1.2}
-                      style={{ color: item.color }}
+                      style={{ color: 'url(#iconGradient)' }}
                     />
                   </div>
                   <span 
                     className="text-[10px] md:text-xs font-medium whitespace-nowrap"
-                    style={{ color: item.color }}
+                    style={{ 
+                      background: 'linear-gradient(75deg, #eab308 0%, rgba(0,0,0,0.8) 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}
                   >
                     {item.label}
                   </span>
