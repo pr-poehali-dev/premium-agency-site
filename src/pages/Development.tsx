@@ -3,6 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
+import { PageTitle, SectionTitle } from '@/components/Typography';
 
 const services = [
   {
@@ -86,9 +87,7 @@ const Development = () => {
       />
       <PageTransition>
         <PageContainer>
-          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-            ЧТО МЫ РАЗРАБАТЫВАЕМ
-          </h2>
+          <PageTitle>ЧТО МЫ РАЗРАБАТЫВАЕМ</PageTitle>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
                 {services.map((service) => (
                   <div
@@ -109,7 +108,7 @@ const Development = () => {
                     </div>
                     <ul className="space-y-2">
                       {service.items.map((item) => (
-                        <li key={item} className="font-montserrat text-white text-base leading-relaxed">
+                        <li key={item} className="font-montserrat text-white text-sm md:text-base leading-relaxed">
                           {item}
                         </li>
                       ))}
@@ -125,9 +124,7 @@ const Development = () => {
                   border: '1px solid rgba(234,179,8,0.15)',
                 }}
               >
-                <h3 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
-                  СТЕК ТЕХНОЛОГИЙ
-                </h3>
+                <SectionTitle>СТЕК ТЕХНОЛОГИЙ</SectionTitle>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {techStack.map((stack) => (
                     <div

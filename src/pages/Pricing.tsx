@@ -3,6 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
+import { PageTitle, SectionTitle, BodyText } from '@/components/Typography';
 
 const plans = [
   {
@@ -63,9 +64,7 @@ const Pricing = () => {
       />
       <PageTransition>
         <PageContainer>
-          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-            СТОИМОСТЬ УСЛУГ
-          </h2>
+          <PageTitle>СТОИМОСТЬ УСЛУГ</PageTitle>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
                 {plans.map((plan) => (
                   <div
@@ -89,16 +88,16 @@ const Pricing = () => {
                         <Icon name={plan.icon} size={24} style={{ color: '#eab308' }} />
                       </div>
                       <div>
-                        <h3 className="font-montserrat font-semibold text-base" style={{ color: '#eab308' }}>
+                        <h3 className="font-montserrat font-semibold text-base md:text-lg uppercase" style={{ color: '#eab308' }}>
                           {plan.title}
                         </h3>
-                        <p className="font-montserrat text-white text-sm">{plan.desc}</p>
+                        <p className="font-montserrat text-white text-xs md:text-sm">{plan.desc}</p>
                       </div>
                     </div>
-                    <div className="font-montserrat font-bold text-2xl text-white mb-4">{plan.price}</div>
+                    <div className="font-montserrat font-bold text-xl md:text-2xl text-white mb-4">{plan.price}</div>
                     <ul className="space-y-2">
                       {plan.items.map((item) => (
-                        <li key={item} className="font-montserrat text-white text-base flex items-center gap-2">
+                        <li key={item} className="font-montserrat text-white text-sm md:text-base flex items-center gap-2">
                           <Icon name="Check" size={16} style={{ color: '#eab308' }} />
                           {item}
                         </li>
@@ -108,9 +107,7 @@ const Pricing = () => {
                 ))}
               </div>
 
-              <h3 className="font-montserrat font-light text-xl md:text-2xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
-                РАЗРАБОТКА
-              </h3>
+              <SectionTitle>РАЗРАБОТКА</SectionTitle>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
                 {services.map((service) => (
                   <div
@@ -125,16 +122,14 @@ const Pricing = () => {
                       <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
                         <Icon name={service.icon} size={20} style={{ color: '#eab308' }} />
                       </div>
-                      <h4 className="font-montserrat font-medium text-sm" style={{ color: '#eab308' }}>{service.title}</h4>
+                      <h4 className="font-montserrat font-medium text-sm md:text-base uppercase" style={{ color: '#eab308' }}>{service.title}</h4>
                     </div>
-                    <p className="font-montserrat text-base text-white ml-11">{service.price}</p>
+                    <p className="font-montserrat text-sm md:text-base text-white ml-11">{service.price}</p>
                   </div>
                 ))}
               </div>
 
-              <h3 className="font-montserrat font-light text-xl md:text-2xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
-                ПОДДЕРЖКА И АНАЛИТИКА
-              </h3>
+              <SectionTitle>ПОДДЕРЖКА И АНАЛИТИКА</SectionTitle>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {support.map((item) => (
                   <div
@@ -149,9 +144,9 @@ const Pricing = () => {
                       <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
                         <Icon name={item.icon} size={20} style={{ color: '#eab308' }} />
                       </div>
-                      <h4 className="font-montserrat font-medium text-sm" style={{ color: '#eab308' }}>{item.title}</h4>
+                      <h4 className="font-montserrat font-medium text-sm md:text-base uppercase" style={{ color: '#eab308' }}>{item.title}</h4>
                     </div>
-                    <p className="font-montserrat text-base text-white ml-11">{item.price}</p>
+                    <p className="font-montserrat text-sm md:text-base text-white ml-11">{item.price}</p>
                   </div>
                 ))}
               </div>

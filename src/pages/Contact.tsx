@@ -3,6 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
+import { PageTitle, BodyText } from '@/components/Typography';
 
 const contacts = [
   { icon: 'Mail', label: 'Email', value: 'albe.web@yandex.ru', href: 'mailto:albe.web@yandex.ru' },
@@ -22,9 +23,7 @@ const Contact = () => {
       <PageTransition>
         <PageContainer>
           <div className="flex flex-col items-center">
-            <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-              СВЯЗАТЬСЯ С НАМИ
-            </h2>
+            <PageTitle>СВЯЗАТЬСЯ С НАМИ</PageTitle>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-2xl w-full">
                 {contacts.map((contact) => {
                   const Wrapper = contact.href ? 'a' : 'div';
@@ -43,16 +42,16 @@ const Contact = () => {
                         <Icon name={contact.icon} size={24} style={{ color: '#eab308' }} />
                       </div>
                       <div>
-                        <div className="font-montserrat text-white text-sm">{contact.label}</div>
-                        <div className="font-montserrat font-medium text-base text-white">{contact.value}</div>
+                        <div className="font-montserrat text-white text-xs md:text-sm">{contact.label}</div>
+                        <div className="font-montserrat font-medium text-sm md:text-base text-white">{contact.value}</div>
                       </div>
                     </Wrapper>
                   );
                 })}
               </div>
-            <p className="font-montserrat text-white text-base text-center mt-8 max-w-md">
+            <BodyText className="text-center mt-8 max-w-md">
               Оставьте заявку — мы свяжемся с вами в течение 24 часов и обсудим ваш проект
-            </p>
+            </BodyText>
           </div>
         </PageContainer>
       </PageTransition>

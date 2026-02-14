@@ -3,6 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
+import { PageTitle } from '@/components/Typography';
 
 const teamMembers = [
   { icon: 'UserCircle', name: 'CEO & Founder', role: 'Стратегия и управление', color: '#bef264' },
@@ -32,14 +33,12 @@ const Team = () => {
       />
       <PageTransition>
         <PageContainer>
-          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color: '#eab308' }}>
-            НАША КОМАНДА
-          </h2>
+          <PageTitle>НАША КОМАНДА</PageTitle>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
                 {stats.map((stat) => (
                   <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.1)' }}>
-                    <div className="font-montserrat font-bold text-2xl text-white">{stat.value}</div>
-                    <div className="font-montserrat text-white text-sm">{stat.label}</div>
+                    <div className="font-montserrat font-bold text-xl md:text-2xl text-white">{stat.value}</div>
+                    <div className="font-montserrat text-white text-xs md:text-sm">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -56,8 +55,8 @@ const Team = () => {
                     <div className="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(234,179,8,0.15)' }}>
                       <Icon name={member.icon} size={28} style={{ color: '#eab308' }} />
                     </div>
-                    <h3 className="font-montserrat font-semibold text-base text-white mb-1">{member.name}</h3>
-                    <p className="font-montserrat text-white text-sm">{member.role}</p>
+                    <h3 className="font-montserrat font-semibold text-sm md:text-base uppercase text-white mb-1">{member.name}</h3>
+                    <p className="font-montserrat text-white text-xs md:text-sm">{member.role}</p>
                   </div>
                 ))}
               </div>

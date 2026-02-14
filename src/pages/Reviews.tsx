@@ -3,6 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
+import { PageTitle, BodyText } from '@/components/Typography';
 
 const reviews = [
   {
@@ -59,9 +60,7 @@ const Reviews = () => {
       />
       <PageTransition>
         <PageContainer>
-          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-            ОТЗЫВЫ КЛИЕНТОВ
-          </h2>
+          <PageTitle>ОТЗЫВЫ КЛИЕНТОВ</PageTitle>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {reviews.map((review, index) => (
                   <div
@@ -82,15 +81,15 @@ const Reviews = () => {
                         />
                       ))}
                     </div>
-                    <p className="font-montserrat text-white text-base leading-relaxed mb-6">
+                    <BodyText className="mb-6">
                       {review.text}
-                    </p>
+                    </BodyText>
                     <div className="border-t border-zinc-800 pt-4">
-                      <div className="font-montserrat font-semibold text-lg uppercase" style={{ color: '#eab308' }}>{review.name}</div>
+                      <div className="font-montserrat font-semibold text-base md:text-lg uppercase" style={{ color: '#eab308' }}>{review.name}</div>
                       {review.position && (
-                        <div className="font-montserrat text-white text-sm mb-1">{review.position}</div>
+                        <div className="font-montserrat text-white text-xs md:text-sm mb-1">{review.position}</div>
                       )}
-                      <div className="font-montserrat text-sm font-medium text-white">{review.company}</div>
+                      <div className="font-montserrat text-xs md:text-sm font-medium text-white">{review.company}</div>
                     </div>
                   </div>
                 ))}

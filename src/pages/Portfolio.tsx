@@ -3,6 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
+import { PageTitle } from '@/components/Typography';
 import { useState } from 'react';
 
 const categories = [
@@ -130,9 +131,7 @@ const Portfolio = () => {
       />
       <PageTransition>
         <PageContainer>
-          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-            ПОРТФОЛИО
-          </h2>
+          <PageTitle>ПОРТФОЛИО</PageTitle>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {categories.map((cat) => (
