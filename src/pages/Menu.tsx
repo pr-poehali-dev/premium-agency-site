@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const allPages = [
-  { label: 'Главная', path: '/', size: 'large', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/2a33e13d-1495-48fc-b0f1-1fede32f008e.jpg' },
-  { label: 'Портфолио', path: '/portfolio', size: 'large', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/d099ce2d-5de6-47a0-b4df-518323b0e268.jpg' },
-  { label: 'Дизайн', path: '/design', size: 'medium', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/58ee8273-75e2-4544-9b48-1f718bb5ba47.jpg' },
-  { label: 'Разработка', path: '/development', size: 'medium', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/a9ff044d-d524-46fb-ba3b-a029913cbce1.jpg' },
-  { label: 'Маркетинг', path: '/marketing', size: 'medium', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/6f6ef7c7-c3b7-4f0e-a3d7-16fbe54367c6.jpg' },
+  { label: 'Главная', path: '/', size: 'large', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/625eaa13-d2b3-4f0f-a4bd-38868c09ebb8.png' },
+  { label: 'Портфолио', path: '/portfolio', size: 'large', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/0222faa8-025b-48f7-9cfd-88f77e0d6d72.png' },
+  { label: 'Дизайн', path: '/design', size: 'medium', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/e5ac3607-8d34-460b-9474-77bcde8f7b6c.png' },
+  { label: 'Разработка', path: '/development', size: 'medium', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/672f5ac7-c5f1-4fe2-ab79-c74536f89e34.png' },
+  { label: 'Маркетинг', path: '/marketing', size: 'medium', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/9f63a371-dd01-458e-8dfa-282056c5afb2.png' },
   { label: 'AI', path: '/ai', size: 'medium', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/668cd7dc-7c66-4973-a142-320436a4f845.jpg' },
   { label: 'Стоимость', path: '/pricing', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/78a2fe29-ebfe-4c2d-9f2f-e59330b2a7d3.jpg' },
   { label: 'Команда', path: '/team', size: 'small', preview: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/d8718998-44b3-4d2f-ac52-a3e3eddb192a.jpg' },
@@ -46,20 +46,20 @@ const Menu = () => {
         path="/menu"
       />
       <PageTransition>
-        <div className="fixed inset-0 p-2 sm:p-3 md:p-4 pb-20 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 20000 }}>
-          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3 max-w-[1800px] mx-auto" style={{ gridAutoRows: '1fr', minHeight: 'calc(100vh - 6rem)' }}>
+        <div className="fixed inset-0 p-3 sm:p-4 md:p-6 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 20000, paddingBottom: '120px' }}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-[1600px] mx-auto">
             {allPages.map((page, index) => (
               <button
                 key={page.path}
                 onClick={() => navigate(page.path)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative rounded-lg md:rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-95 ${getSizeClass(page.size)}`}
+                className="group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-95"
                 style={{
                   background: 'rgba(255,255,255,0.03)',
                   border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(234,179,8,0.15)',
-                  boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.2)' : '0 4px 16px rgba(0,0,0,0.3)',
-                  minHeight: '150px',
+                  boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.25)' : '0 4px 16px rgba(0,0,0,0.3)',
+                  aspectRatio: '16/10',
                 }}
               >
                 <img
@@ -70,12 +70,12 @@ const Menu = () => {
                 <div 
                   className="absolute inset-0 transition-opacity duration-300"
                   style={{
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)',
-                    opacity: hoveredIndex === index ? 0.5 : 1,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 30%, transparent 60%)',
+                    opacity: hoveredIndex === index ? 0.6 : 1,
                   }}
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
-                  <span className="font-montserrat text-[10px] md:text-xs font-light tracking-wide uppercase text-white block" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.9)' }}>
+                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                  <span className="font-montserrat text-xs md:text-sm font-light tracking-wide uppercase text-white block" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.9)' }}>
                     {page.label}
                   </span>
                 </div>
