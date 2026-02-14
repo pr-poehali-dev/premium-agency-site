@@ -34,6 +34,30 @@ const About = () => {
           <BodyText className="text-center max-w-2xl mx-auto mb-8">
             Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования.
           </BodyText>
+
+          <div className="max-w-4xl mx-auto mb-12 rounded-3xl overflow-hidden" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.15)' }}>
+            <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-0">
+              <div className="relative h-[400px] md:h-auto">
+                <img 
+                  src="https://cdn.poehali.dev/files/75f21e51-f47a-4b40-a93d-5b1b6a16033e.jpg" 
+                  alt="Алексей Беляев"
+                  className="w-full h-full object-cover grayscale"
+                />
+              </div>
+              <div className="p-6 md:p-8 flex flex-col justify-center">
+                <h3 className="font-montserrat font-light text-2xl md:text-3xl uppercase text-white mb-2" style={{ color: '#eab308' }}>
+                  Алексей Беляев
+                </h3>
+                <p className="font-montserrat text-sm text-zinc-400 mb-4">Основатель и CEO</p>
+                <blockquote className="relative">
+                  <div className="absolute -left-2 -top-2 text-6xl opacity-20" style={{ color: '#eab308' }}>"</div>
+                  <p className="font-montserrat text-base md:text-lg text-white leading-relaxed relative z-10 italic">
+                    Я создал ALBE, чтобы доказать: качественный digital не должен быть доступен только корпорациям. Каждый бизнес заслуживает технологии, которые работают.
+                  </p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 {values.map((v) => (
                   <div
