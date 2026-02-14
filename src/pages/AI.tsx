@@ -1,14 +1,48 @@
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
+import SEO from '@/components/SEO';
+import Icon from '@/components/ui/icon';
+
+const aiServices = [
+  {
+    icon: 'Brain',
+    title: 'MACHINE LEARNING',
+    desc: 'Обучаем модели на ваших данных для прогнозирования и автоматизации',
+    items: ['Предиктивная аналитика', 'Рекомендательные системы', 'Детекция аномалий', 'Кластеризация данных'],
+  },
+  {
+    icon: 'MessageCircle',
+    title: 'NLP / ЧАТБОТЫ',
+    desc: 'Обработка естественного языка и умные диалоговые системы',
+    items: ['Чат-боты и ассистенты', 'Анализ тональности', 'Извлечение сущностей', 'Автоматический перевод'],
+  },
+  {
+    icon: 'Eye',
+    title: 'КОМПЬЮТЕРНОЕ ЗРЕНИЕ',
+    desc: 'Распознавание изображений, видео и реальных объектов',
+    items: ['Распознавание лиц', 'OCR документов', 'Контроль качества', 'Видеоаналитика'],
+  },
+  {
+    icon: 'Sparkles',
+    title: 'ГЕНЕРАТИВНЫЙ AI',
+    desc: 'Создание контента, изображений и кода с помощью ИИ',
+    items: ['Генерация текстов', 'Создание изображений', 'Кодогенерация', 'Персонализация контента'],
+  },
+];
 
 const AI = () => {
   return (
     <AppLayout>
+      <SEO
+        title="AI-решения"
+        description="Разработка AI-решений: машинное обучение, NLP, компьютерное зрение, генеративный AI. Внедряем искусственный интеллект в ваш бизнес."
+        path="/ai"
+      />
       <PageTransition>
         <div className="absolute inset-0 p-5 pb-32 flex items-stretch justify-center overflow-hidden">
           <div className="w-full h-full flex flex-col">
             <div
-              className="flex-1 rounded-3xl overflow-y-auto"
+              className="flex-1 rounded-3xl overflow-hidden"
               style={{
                 background: 'rgba(0,0,0,0.6)',
                 border: '1px solid rgba(253,224,71,0.2)',
@@ -17,13 +51,40 @@ const AI = () => {
               }}
             >
               <div className="h-full flex flex-col p-6 md:p-8 lg:p-10">
-                <div className="mb-6 text-center flex-shrink-0">
-                  <h1 className="font-montserrat font-bold text-2xl md:text-4xl lg:text-5xl text-white mb-2">
-                    <span style={{ color: '#fde047' }}>AI</span>
-                  </h1>
-                  <p className="font-montserrat text-zinc-400 text-xs md:text-sm lg:text-base">
-                    Искусственный интеллект
-                  </p>
+                <h2 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8 text-center" style={{ color: '#fde047' }}>
+                  ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ
+                </h2>
+                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  {aiServices.map((service) => (
+                    <div
+                      key={service.title}
+                      className="group rounded-2xl p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
+                      style={{
+                        background: 'rgba(255,255,255,0.03)',
+                        border: '1px solid rgba(253,224,71,0.1)',
+                      }}
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-3 rounded-xl" style={{ background: 'rgba(253,224,71,0.1)' }}>
+                          <Icon name={service.icon} size={28} style={{ color: '#fde047' }} />
+                        </div>
+                        <div>
+                          <h3 className="font-montserrat font-semibold text-sm md:text-base lg:text-lg" style={{ color: '#fde047' }}>
+                            {service.title}
+                          </h3>
+                          <p className="font-montserrat text-zinc-500 text-[10px] md:text-xs">{service.desc}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-1.5 ml-1">
+                        {service.items.map((item) => (
+                          <li key={item} className="font-montserrat text-zinc-300 text-xs md:text-sm flex items-center gap-2">
+                            <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#fde047' }} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

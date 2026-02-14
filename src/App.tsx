@@ -4,8 +4,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
+import Design from "./pages/Design";
 import Development from "./pages/Development";
 import Marketing from "./pages/Marketing";
 import AI from "./pages/AI";
@@ -16,37 +18,42 @@ import Partners from "./pages/Partners";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Quiz from "./pages/Quiz";
+import Faqs from "./pages/Faqs";
 import Menu from "./pages/Menu";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/development" element={<Development />} />
-          <Route path="/marketing" element={<Marketing />} />
-          <Route path="/ai" element={<AI />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/menu" element={<Menu />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/design" element={<Design />} />
+            <Route path="/development" element={<Development />} />
+            <Route path="/marketing" element={<Marketing />} />
+            <Route path="/ai" element={<AI />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/faqs" element={<Faqs />} />
+            <Route path="/menu" element={<Menu />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

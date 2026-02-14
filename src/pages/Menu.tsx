@@ -1,14 +1,41 @@
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
+import SEO from '@/components/SEO';
+import Icon from '@/components/ui/icon';
+import { useNavigate } from 'react-router-dom';
+
+const allPages = [
+  { icon: 'House', label: 'Главная', path: '/', color: '#f97316' },
+  { icon: 'Folder', label: 'Портфолио', path: '/portfolio', color: '#fb923c' },
+  { icon: 'Palette', label: 'Дизайн', path: '/design', color: '#f97316' },
+  { icon: 'Code', label: 'Разработка', path: '/development', color: '#fdba74' },
+  { icon: 'TrendingUp', label: 'Маркетинг', path: '/marketing', color: '#fbbf24' },
+  { icon: 'Brain', label: 'AI', path: '/ai', color: '#fde047' },
+  { icon: 'DollarSign', label: 'Стоимость', path: '/pricing', color: '#facc15' },
+  { icon: 'UserCheck', label: 'Команда', path: '/team', color: '#bef264' },
+  { icon: 'MessageSquareText', label: 'Отзывы', path: '/reviews', color: '#86efac' },
+  { icon: 'Handshake', label: 'Партнеры', path: '/partners', color: '#6ee7b7' },
+  { icon: 'Mail', label: 'Контакты', path: '/contact', color: '#5eead4' },
+  { icon: 'Users', label: 'О нас', path: '/about', color: '#2dd4bf' },
+  { icon: 'ClipboardList', label: 'Квиз', path: '/quiz', color: '#22d3ee' },
+  { icon: 'HelpCircle', label: 'FAQ', path: '/faqs', color: '#a855f7' },
+];
 
 const Menu = () => {
+  const navigate = useNavigate();
+
   return (
     <AppLayout>
+      <SEO
+        title="Меню"
+        description="Навигация по сайту ALBE Digital Agency. Все разделы: разработка, дизайн, маркетинг, AI, портфолио, стоимость, команда."
+        path="/menu"
+      />
       <PageTransition>
         <div className="absolute inset-0 p-5 pb-32 flex items-stretch justify-center overflow-hidden">
           <div className="w-full h-full flex flex-col">
             <div
-              className="flex-1 rounded-3xl overflow-y-auto"
+              className="flex-1 rounded-3xl overflow-hidden"
               style={{
                 background: 'rgba(0,0,0,0.6)',
                 border: '1px solid rgba(6,182,212,0.2)',
@@ -16,14 +43,29 @@ const Menu = () => {
                 boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
               }}
             >
-              <div className="h-full flex flex-col p-6 md:p-8 lg:p-10">
-                <div className="mb-6 text-center flex-shrink-0">
-                  <h1 className="font-montserrat font-bold text-2xl md:text-4xl lg:text-5xl text-white mb-2">
-                    <span style={{ color: '#06b6d4' }}>Меню</span>
-                  </h1>
-                  <p className="font-montserrat text-zinc-400 text-xs md:text-sm lg:text-base">
-                    Все разделы
-                  </p>
+              <div className="h-full flex flex-col items-center justify-center p-6 md:p-8 lg:p-10">
+                <h2 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl mb-8 text-center" style={{ color: '#06b6d4' }}>
+                  ВСЕ РАЗДЕЛЫ
+                </h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-4xl w-full">
+                  {allPages.map((page) => (
+                    <button
+                      key={page.path}
+                      onClick={() => navigate(page.path)}
+                      className="group rounded-2xl p-4 md:p-5 flex flex-col items-center gap-2 md:gap-3 transition-all duration-300 hover:scale-110 active:scale-95"
+                      style={{
+                        background: 'rgba(255,255,255,0.03)',
+                        border: `1px solid ${page.color}20`,
+                      }}
+                    >
+                      <div className="p-3 rounded-xl" style={{ background: `${page.color}10` }}>
+                        <Icon name={page.icon} size={28} strokeWidth={1.2} style={{ color: page.color }} />
+                      </div>
+                      <span className="font-montserrat text-xs md:text-sm font-medium" style={{ color: page.color }}>
+                        {page.label}
+                      </span>
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>

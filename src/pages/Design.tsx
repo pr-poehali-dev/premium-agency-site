@@ -1,0 +1,98 @@
+import AppLayout from '@/components/AppLayout';
+import PageTransition from '@/components/PageTransition';
+import SEO from '@/components/SEO';
+import Icon from '@/components/ui/icon';
+
+const designServices = [
+  {
+    icon: 'Palette',
+    title: 'UI/UX ДИЗАЙН',
+    desc: 'Проектируем интерфейсы, которые увеличивают конверсию и удерживают пользователей',
+    items: ['Прототипирование', 'Wireframes', 'Пользовательские сценарии', 'A/B тестирование'],
+  },
+  {
+    icon: 'Monitor',
+    title: 'ВЕБ-ДИЗАЙН',
+    desc: 'Создаем визуально привлекательные и функциональные веб-сайты',
+    items: ['Лендинги', 'Корпоративные сайты', 'Интернет-магазины', 'Адаптивный дизайн'],
+  },
+  {
+    icon: 'Smartphone',
+    title: 'МОБИЛЬНЫЙ ДИЗАЙН',
+    desc: 'Нативный опыт для iOS и Android с фокусом на юзабилити',
+    items: ['iOS Human Interface', 'Material Design', 'Кроссплатформенный UX', 'App Store визуалы'],
+  },
+  {
+    icon: 'PenTool',
+    title: 'БРЕНДИНГ',
+    desc: 'Формируем уникальный визуальный язык вашего бренда',
+    items: ['Логотипы', 'Фирменный стиль', 'Брендбуки', 'Гайдлайны'],
+  },
+];
+
+const Design = () => {
+  return (
+    <AppLayout>
+      <SEO
+        title="Дизайн"
+        description="UI/UX дизайн, веб-дизайн, мобильный дизайн и брендинг от ALBE Digital Agency. Создаем интерфейсы, которые конвертируют."
+        path="/design"
+      />
+      <PageTransition>
+        <div className="absolute inset-0 p-5 pb-32 flex items-stretch justify-center overflow-hidden">
+          <div className="w-full h-full flex flex-col">
+            <div
+              className="flex-1 rounded-3xl overflow-hidden relative"
+              style={{
+                background: 'rgba(0,0,0,0.6)',
+                border: '1px solid rgba(249,115,22,0.2)',
+                backdropFilter: 'blur(40px)',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+              }}
+            >
+              <div className="h-full flex flex-col p-6 md:p-8 lg:p-10">
+                <h2 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8 text-center" style={{ color: '#f97316' }}>
+                  ДИЗАЙН
+                </h2>
+                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  {designServices.map((service) => (
+                    <div
+                      key={service.title}
+                      className="group relative rounded-2xl p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
+                      style={{
+                        background: 'rgba(255,255,255,0.03)',
+                        border: '1px solid rgba(249,115,22,0.1)',
+                      }}
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-3 rounded-xl" style={{ background: 'rgba(249,115,22,0.1)' }}>
+                          <Icon name={service.icon} size={28} style={{ color: '#f97316' }} />
+                        </div>
+                        <div>
+                          <h3 className="font-montserrat font-semibold text-sm md:text-base lg:text-lg" style={{ color: '#f97316' }}>
+                            {service.title}
+                          </h3>
+                          <p className="font-montserrat text-zinc-500 text-[10px] md:text-xs">{service.desc}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-1.5 ml-1">
+                        {service.items.map((item) => (
+                          <li key={item} className="font-montserrat text-zinc-300 text-xs md:text-sm flex items-center gap-2">
+                            <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#f97316' }} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </PageTransition>
+    </AppLayout>
+  );
+};
+
+export default Design;

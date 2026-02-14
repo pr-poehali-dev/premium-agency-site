@@ -13,6 +13,7 @@ const DockMenu = () => {
   const menuItems = [
     { icon: 'House', label: 'Главная', color: '#f97316', path: '/' },
     { icon: 'Folder', label: 'Портфолио', color: '#fb923c', path: '/portfolio' },
+    { icon: 'Palette', label: 'Дизайн', color: '#f97316', path: '/design' },
     { icon: 'Code', label: 'Разработка', color: '#fdba74', path: '/development' },
     { icon: 'TrendingUp', label: 'Маркетинг', color: '#fbbf24', path: '/marketing' },
     { icon: 'Brain', label: 'AI', color: '#fde047', path: '/ai' },
@@ -23,6 +24,7 @@ const DockMenu = () => {
     { icon: 'Mail', label: 'Контакты', color: '#5eead4', path: '/contact' },
     { icon: 'Users', label: 'О нас', color: '#2dd4bf', path: '/about' },
     { icon: 'ClipboardList', label: 'Квиз', color: '#22d3ee', path: '/quiz' },
+    { icon: 'HelpCircle', label: 'FAQ', color: '#a855f7', path: '/faqs' },
   ];
 
   const menuIcon = { icon: 'LayoutGrid', label: 'Меню', color: '#06b6d4', path: '/menu' };

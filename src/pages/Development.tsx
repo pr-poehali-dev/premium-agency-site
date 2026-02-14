@@ -1,5 +1,6 @@
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
+import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 
@@ -80,6 +81,11 @@ const Development = () => {
 
   return (
     <AppLayout>
+      <SEO
+        title="Разработка"
+        description="Разработка мобильных приложений, CRM/ERP систем, корпоративных порталов и AI-решений от ALBE Digital Agency."
+        path="/development"
+      />
       <PageTransition>
         <div className="absolute inset-0 p-5 pb-32 flex items-stretch justify-center overflow-hidden">
           <div className="w-full h-full flex flex-col">
