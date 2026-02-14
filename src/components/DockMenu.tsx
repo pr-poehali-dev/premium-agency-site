@@ -129,17 +129,25 @@ const DockMenu = () => {
                       <div
                         className="absolute inset-0 rounded-lg md:rounded-[14px] transition-all duration-300"
                         style={{
-                          background: isHovered || isActive ? `${item.color}15` : 'transparent',
-                          border: isHovered || isActive ? `1px solid ${item.color}30` : '1px solid transparent',
+                          background: isHovered || isActive ? 'rgba(234,179,8,0.08)' : 'transparent',
+                          border: isHovered || isActive ? '1px solid rgba(234,179,8,0.2)' : '1px solid transparent',
                         }}
                       />
-                      <Icon
-                        name={item.icon}
-                        size={isMobile ? 28 : 44}
-                        strokeWidth={1.2}
-                        className="relative z-10 transition-colors duration-300"
-                        style={{ color: 'url(#iconGradient)' }}
-                      />
+                      <div style={{
+                        background: 'linear-gradient(75deg, #eab308 0%, rgba(0,0,0,0.8) 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        display: 'inline-block'
+                      }}>
+                        <Icon
+                          name={item.icon}
+                          size={isMobile ? 28 : 44}
+                          strokeWidth={1.2}
+                          className="relative z-10 transition-opacity duration-300"
+                          style={{ color: '#eab308' }}
+                        />
+                      </div>
                     </div>
 
                     {!isMobile && (
@@ -175,22 +183,30 @@ const DockMenu = () => {
                   <div
                     className="absolute inset-0 rounded-lg md:rounded-[14px] transition-all duration-300"
                     style={{
-                      background: hoveredIndex === visibleItems.length || isMenuOpen ? `${menuIcon.color}15` : 'transparent',
-                      border: hoveredIndex === visibleItems.length || isMenuOpen ? `1px solid ${menuIcon.color}30` : '1px solid transparent',
+                      background: hoveredIndex === visibleItems.length || isMenuOpen ? 'rgba(234,179,8,0.08)' : 'transparent',
+                      border: hoveredIndex === visibleItems.length || isMenuOpen ? '1px solid rgba(234,179,8,0.2)' : '1px solid transparent',
                     }}
                   />
-                  <Icon
-                    name={menuIcon.icon}
-                    size={isMobile ? 28 : 44}
-                    strokeWidth={1.2}
-                    className="relative z-10 transition-colors duration-300"
-                    style={{ color: 'url(#iconGradient)' }}
-                  />
+                  <div style={{
+                    background: 'linear-gradient(75deg, #eab308 0%, rgba(0,0,0,0.8) 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    display: 'inline-block'
+                  }}>
+                    <Icon
+                      name={menuIcon.icon}
+                      size={isMobile ? 28 : 44}
+                      strokeWidth={1.2}
+                      className="relative z-10 transition-opacity duration-300"
+                      style={{ color: '#eab308' }}
+                    />
+                  </div>
                   {hiddenItems.length > 0 && (
                     <div 
                       className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center text-[8px] md:text-[10px] font-bold"
                       style={{
-                        background: menuIcon.color,
+                        background: '#eab308',
                         color: '#000',
                       }}
                     >
@@ -249,21 +265,29 @@ const DockMenu = () => {
                   className="group relative flex flex-col items-center gap-2 md:gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95"
                   style={{
                     background: 'rgba(255,255,255,0.03)',
-                    border: `1px solid ${item.color}20`,
+                    border: '1px solid rgba(234,179,8,0.13)',
                   }}
                 >
                   <div 
                     className="p-3 md:p-4 rounded-lg md:rounded-xl"
                     style={{
-                      background: `${item.color}10`,
+                      background: 'rgba(234,179,8,0.06)',
                     }}
                   >
-                    <Icon
-                      name={item.icon}
-                      size={isMobile ? 28 : 40}
-                      strokeWidth={1.2}
-                      style={{ color: 'url(#iconGradient)' }}
-                    />
+                    <div style={{
+                      background: 'linear-gradient(75deg, #eab308 0%, rgba(0,0,0,0.8) 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      display: 'inline-block'
+                    }}>
+                      <Icon
+                        name={item.icon}
+                        size={isMobile ? 28 : 40}
+                        strokeWidth={1.2}
+                        style={{ color: '#eab308' }}
+                      />
+                    </div>
                   </div>
                   <span 
                     className="text-[10px] md:text-xs font-medium whitespace-nowrap"
