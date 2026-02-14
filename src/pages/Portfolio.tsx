@@ -16,6 +16,15 @@ const categories = [
 const casesByCategory = {
   'Дизайн': [
     {
+      title: 'Онлайн-магазин электротранспорта',
+      desc: 'Создали дизайн онлайн-магазина электробайков и электросамокатов с премиальным UX',
+      tech: ['Figma', 'UI/UX Design', 'Design System'],
+      cost: '100 000 ₽',
+      duration: '2 недели',
+      image: 'https://cdn.poehali.dev/files/cdb86a51-0bf6-436e-b9cd-6847e63f1501.jpg',
+      link: 'https://electroby.by/',
+    },
+    {
       title: 'Онлайн-магазин автомобилей',
       desc: 'Создали дизайн онлайн-магазина для крупнейшего автодилера Республики Беларусь',
       tech: ['Figma', 'UI/UX Design', 'Design System'],
@@ -53,6 +62,15 @@ const casesByCategory = {
     },
   ],
   'Разработка': [
+    {
+      title: 'Онлайн-магазин электротранспорта',
+      desc: 'Создали онлайн-магазин электробайков и электросамокатов с системой онлайн-оплаты и доставки',
+      tech: ['PHP Laravel', 'Laravel Nova', 'React.js'],
+      cost: '150 000 ₽',
+      duration: '1 месяц',
+      image: 'https://cdn.poehali.dev/files/cdb86a51-0bf6-436e-b9cd-6847e63f1501.jpg',
+      link: 'https://electroby.by/',
+    },
     {
       title: 'Онлайн-магазин автомобилей',
       desc: 'Создали онлайн-магазин для крупнейшего автодилера Республики Беларусь с каталогом, фильтрами и личным кабинетом',
