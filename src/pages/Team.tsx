@@ -66,7 +66,7 @@ const Team = () => {
                   border: '1px solid rgba(234,179,8,0.15)',
                 }}
               >
-                <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
+                <div className="relative h-64 overflow-hidden">
                   <img 
                     src={member.image} 
                     alt={member.name}
