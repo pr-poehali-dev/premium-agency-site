@@ -5,22 +5,34 @@ import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageTitle } from '@/components/Typography';
 
-const teamMembers = [
-  { icon: 'UserCircle', name: 'CEO & Founder', role: 'Стратегия и управление', color: '#bef264' },
-  { icon: 'Code2', name: 'Lead Developer', role: 'Архитектура и разработка', color: '#a3e635' },
-  { icon: 'Palette', name: 'Head of Design', role: 'UI/UX и визуальный язык', color: '#84cc16' },
-  { icon: 'Brain', name: 'AI Engineer', role: 'ML/DL модели и NLP', color: '#65a30d' },
-  { icon: 'TrendingUp', name: 'Marketing Lead', role: 'Стратегия продвижения', color: '#bef264' },
-  { icon: 'Shield', name: 'DevOps Engineer', role: 'Инфраструктура и CI/CD', color: '#a3e635' },
-  { icon: 'TestTube', name: 'QA Lead', role: 'Тестирование и качество', color: '#84cc16' },
-  { icon: 'FileText', name: 'Business Analyst', role: 'Аналитика и требования', color: '#65a30d' },
+const teamLeaders = [
+  { 
+    name: 'Алексей Беляев', 
+    role: 'CEO & Founder', 
+    image: 'https://cdn.poehali.dev/files/4b75fe68-6c92-495c-b6b3-2cc430e85cf7.jpg',
+  },
+  { 
+    name: 'Дмитрий', 
+    role: 'Senior Java + PHP', 
+    image: 'https://cdn.poehali.dev/files/0d701674-3a28-48fa-84ba-6a8dd5bd7188.jpg',
+  },
+  { 
+    name: 'Алексей', 
+    role: 'Senior Python + Web3', 
+    image: 'https://cdn.poehali.dev/files/8f71d934-2ccd-4633-8b04-e9d279264e57.jpg',
+  },
+  { 
+    name: 'Александр', 
+    role: 'Senior JavaScript + PHP', 
+    image: 'https://cdn.poehali.dev/files/414fe440-c637-47af-a036-d7090f7412d0.jpg',
+  },
 ];
 
 const stats = [
-  { value: '50+', label: 'Специалистов' },
-  { value: '200+', label: 'Проектов' },
-  { value: '8+', label: 'Лет опыта' },
-  { value: '15+', label: 'Стран' },
+  { value: '20+', label: 'Специалистов' },
+  { value: '30+', label: 'Проектов в год' },
+  { value: '7', label: 'Лет опыта' },
+  { value: 'СНГ, EU, USA', label: 'Рынки' },
 ];
 
 const Team = () => {
@@ -28,38 +40,50 @@ const Team = () => {
     <AppLayout>
       <SEO
         title="Команда"
-        description="Команда ALBE Digital Agency: 50+ специалистов в разработке, дизайне, AI, маркетинге. 200+ реализованных проектов за 8 лет."
+        description="Команда ALBE Digital Agency: 20+ специалистов, 30+ проектов в год, 7 лет опыта. Работаем на рынках СНГ, Европы и США."
         path="/team"
       />
       <PageTransition>
         <PageContainer>
           <PageTitle>НАША КОМАНДА</PageTitle>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-                {stats.map((stat) => (
-                  <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.1)' }}>
-                    <div className="font-montserrat font-bold text-xl md:text-2xl text-white">{stat.value}</div>
-                    <div className="font-montserrat text-white text-xs md:text-sm">{stat.label}</div>
-                  </div>
-                ))}
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.1)' }}>
+                <div className="font-montserrat font-bold text-xl md:text-2xl text-white">{stat.value}</div>
+                <div className="font-montserrat text-white text-xs md:text-sm">{stat.label}</div>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {teamMembers.map((member) => (
-                  <div
-                    key={member.name}
-                    className="rounded-2xl p-3 sm:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
-                    style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: `1px solid rgba(234,179,8,0.15)`,
-                    }}
-                  >
-                    <div className="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(234,179,8,0.15)' }}>
-                      <Icon name={member.icon} size={28} style={{ color: '#eab308' }} />
-                    </div>
-                    <h3 className="font-montserrat font-semibold text-sm md:text-base uppercase text-white mb-1">{member.name}</h3>
-                    <p className="font-montserrat text-white text-xs md:text-sm">{member.role}</p>
-                  </div>
-                ))}
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {teamLeaders.map((member) => (
+              <div
+                key={member.name}
+                className="rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.03]"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(234,179,8,0.15)',
+                }}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-montserrat font-light text-lg uppercase mb-1" style={{ color: '#eab308' }}>
+                    {member.name}
+                  </h3>
+                  <p className="font-montserrat text-sm text-zinc-400">
+                    {member.role}
+                  </p>
+                </div>
               </div>
+            ))}
+          </div>
         </PageContainer>
       </PageTransition>
     </AppLayout>
