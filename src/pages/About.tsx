@@ -47,7 +47,7 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-0">
               <div className="relative h-[400px] md:h-auto">
                 <img 
-                  src="https://cdn.poehali.dev/files/75f21e51-f47a-4b40-a93d-5b1b6a16033e.jpg" 
+                  src="https://cdn.poehali.dev/files/4b75fe68-6c92-495c-b6b3-2cc430e85cf7.jpg" 
                   alt="Алексей Беляев"
                   className="w-full h-full object-cover grayscale"
                 />
