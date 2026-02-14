@@ -5,19 +5,19 @@ const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const menuItems = [
-    { icon: 'House', label: 'Главная' },
-    { icon: 'Folder', label: 'Портфолио' },
-    { icon: 'Code', label: 'Разработка' },
-    { icon: 'TrendingUp', label: 'Маркетинг' },
-    { icon: 'Brain', label: 'AI' },
-    { icon: 'DollarSign', label: 'Стоимость' },
-    { icon: 'UserCheck', label: 'Команда' },
-    { icon: 'MessageSquareText', label: 'Отзывы' },
-    { icon: 'Handshake', label: 'Партнеры' },
-    { icon: 'Mail', label: 'Контакты' },
-    { icon: 'Users', label: 'О нас' },
-    { icon: 'ClipboardList', label: 'Квиз' },
-    { icon: 'LayoutGrid', label: 'Меню' },
+    { icon: 'House', label: 'Главная', color: '#eab308' },
+    { icon: 'Folder', label: 'Портфолио', color: '#8b5cf6' },
+    { icon: 'Code', label: 'Разработка', color: '#3b82f6' },
+    { icon: 'TrendingUp', label: 'Маркетинг', color: '#ec4899' },
+    { icon: 'Brain', label: 'AI', color: '#a855f7' },
+    { icon: 'DollarSign', label: 'Стоимость', color: '#10b981' },
+    { icon: 'UserCheck', label: 'Команда', color: '#06b6d4' },
+    { icon: 'MessageSquareText', label: 'Отзывы', color: '#f97316' },
+    { icon: 'Handshake', label: 'Партнеры', color: '#f59e0b' },
+    { icon: 'Mail', label: 'Контакты', color: '#ef4444' },
+    { icon: 'Users', label: 'О нас', color: '#14b8a6' },
+    { icon: 'ClipboardList', label: 'Квиз', color: '#6366f1' },
+    { icon: 'LayoutGrid', label: 'Меню', color: '#71717a' },
   ];
 
   const getScale = (index: number) => {
@@ -71,8 +71,8 @@ const DockMenu = () => {
                     <div
                       className="absolute inset-0 rounded-[14px] transition-all duration-300"
                       style={{
-                        background: isHovered ? 'rgba(161,161,170,0.1)' : 'transparent',
-                        border: isHovered ? '1px solid rgba(161,161,170,0.2)' : '1px solid transparent',
+                        background: isHovered ? `${item.color}15` : 'transparent',
+                        border: isHovered ? `1px solid ${item.color}30` : '1px solid transparent',
                       }}
                     />
                     <Icon
@@ -80,7 +80,7 @@ const DockMenu = () => {
                       size={44}
                       strokeWidth={1.2}
                       className="relative z-10 transition-colors duration-300"
-                      style={{ color: '#eab308' }}
+                      style={{ color: item.color }}
                     />
                   </div>
 
