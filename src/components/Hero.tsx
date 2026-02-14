@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <div className="flex-1 flex flex-col items-center justify-center relative">
-      <div className="flex flex-col items-center justify-center mb-12 md:mb-20">
+      <div className="flex flex-col items-center justify-center">
         <h1
           className="font-zen text-[8rem] sm:text-[10rem] md:text-[16rem] lg:text-[20rem] tracking-normal text-white leading-none"
           style={{
@@ -17,7 +17,7 @@ const Hero = () => {
         </p>
       </div>
       
-      <div className="px-4 sm:px-8 md:px-16 mb-20 md:mb-32">
+      <div className="absolute bottom-24 md:bottom-32 left-0 right-0 px-4 sm:px-8 md:px-16">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-base sm:text-xl md:text-3xl lg:text-4xl font-light tracking-wide text-zinc-500 leading-tight uppercase">
             МЫ СОЗДАЕМ НЕ ПРОСТО САЙТЫ
