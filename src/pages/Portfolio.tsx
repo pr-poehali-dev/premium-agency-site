@@ -268,10 +268,10 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-col gap-3">
                           <button
                             onClick={handleOrderProject}
-                            className="flex-1 min-w-[200px] px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                            className="w-full px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
                             style={{
                               background: `${categories.find(c => c.name === selectedCategory)?.color}`,
                               color: '#000',
@@ -279,28 +279,28 @@ const Portfolio = () => {
                           >
                             Заказать подобный проект
                           </button>
-                          <button
-                            onClick={handleQuiz}
-                            className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
-                            style={{
-                              background: 'rgba(255,255,255,0.05)',
-                              border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
-                              color: categories.find(c => c.name === selectedCategory)?.color,
-                            }}
-                          >
-                            Пройти квиз
-                          </button>
-                          <button
-                            onClick={handleOrderProject}
-                            className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
-                            style={{
-                              background: 'rgba(255,255,255,0.05)',
-                              border: `1px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
-                              color: categories.find(c => c.name === selectedCategory)?.color,
-                            }}
-                          >
-                            Связаться
-                          </button>
+                          <div className="grid grid-cols-2 gap-3">
+                            <button
+                              onClick={handleQuiz}
+                              className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                              style={{
+                                background: '#86efac',
+                                color: '#000',
+                              }}
+                            >
+                              Пройти квиз
+                            </button>
+                            <button
+                              onClick={handleOrderProject}
+                              className="px-4 py-3 rounded-xl font-montserrat font-medium text-sm transition-all duration-300 hover:scale-105"
+                              style={{
+                                background: '#22d3ee',
+                                color: '#000',
+                              }}
+                            >
+                              Связаться
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
