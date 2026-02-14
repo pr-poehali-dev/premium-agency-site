@@ -139,7 +139,7 @@ const Portfolio = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#fb923c' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
                 ПОРТФОЛИО
               </h2>
               

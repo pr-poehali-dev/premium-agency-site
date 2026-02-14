@@ -43,7 +43,7 @@ const Menu = () => {
             }}
           >
             <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#06b6d4' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
                 ВСЕ РАЗДЕЛЫ
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 w-full">
@@ -54,13 +54,13 @@ const Menu = () => {
                     className="group rounded-2xl p-4 md:p-5 flex flex-col items-center gap-3 transition-all duration-300 hover:scale-110 active:scale-95"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${page.color}20`,
+                      border: '1px solid rgba(234,179,8,0.13)',
                     }}
                   >
-                    <div className="p-3 rounded-xl" style={{ background: `${page.color}10` }}>
-                      <Icon name={page.icon} size={28} strokeWidth={1.2} style={{ color: page.color }} />
+                    <div className="p-3 rounded-xl" style={{ background: 'rgba(234,179,8,0.1)' }}>
+                      <Icon name={page.icon} size={28} strokeWidth={1.2} style={{ color: '#eab308' }} />
                     </div>
-                    <span className="font-montserrat text-sm font-medium" style={{ color: page.color }}>
+                    <span className="font-montserrat text-sm font-medium text-white">
                       {page.label}
                     </span>
                   </button>
