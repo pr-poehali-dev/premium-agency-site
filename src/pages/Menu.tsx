@@ -46,7 +46,7 @@ const Menu = () => {
         path="/menu"
       />
       <PageTransition>
-        <div className="fixed inset-0 p-2 sm:p-3 md:p-4 pb-20 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 30 }}>
+        <div className="fixed inset-0 p-2 sm:p-3 md:p-4 pb-20 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 20000 }}>
           <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3 max-w-[1800px] mx-auto" style={{ gridAutoRows: '1fr', minHeight: 'calc(100vh - 6rem)' }}>
             {allPages.map((page, index) => (
               <button

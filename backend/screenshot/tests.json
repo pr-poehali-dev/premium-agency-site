@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "name": "Screenshot generation",
+      "method": "POST",
+      "body": {
+        "url": "https://example.com"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "url": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
