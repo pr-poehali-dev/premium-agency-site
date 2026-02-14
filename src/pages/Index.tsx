@@ -1,16 +1,14 @@
 import Hero from '@/components/Hero';
-import DockMenu from '@/components/DockMenu';
-import PremiumBackground from '@/components/PremiumBackground';
+import AppLayout from '@/components/AppLayout';
+import PageTransition from '@/components/PageTransition';
 
 const Index = () => {
   return (
-    <div className="h-screen bg-black text-foreground overflow-hidden relative">
-      <PremiumBackground />
-      <div className="relative z-10 h-full flex flex-col">
+    <AppLayout>
+      <PageTransition>
         <Hero />
-        <DockMenu />
-      </div>
-    </div>
+      </PageTransition>
+    </AppLayout>
   );
 };
 

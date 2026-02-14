@@ -5,6 +5,18 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Portfolio from "./pages/Portfolio";
+import Development from "./pages/Development";
+import Marketing from "./pages/Marketing";
+import AI from "./pages/AI";
+import Pricing from "./pages/Pricing";
+import Team from "./pages/Team";
+import Reviews from "./pages/Reviews";
+import Partners from "./pages/Partners";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Quiz from "./pages/Quiz";
+import Menu from "./pages/Menu";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -17,6 +29,18 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/development" element={<Development />} />
+          <Route path="/marketing" element={<Marketing />} />
+          <Route path="/ai" element={<AI />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/menu" element={<Menu />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,4 +1,5 @@
 import { useEffect, useState, ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -6,21 +7,48 @@ interface PageTransitionProps {
 
 const PageTransition = ({ children }: PageTransitionProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [transitionStage, setTransitionStage] = useState<'entering' | 'visible'>('entering');
+  const location = useLocation();
 
   useEffect(() => {
-    const raf = requestAnimationFrame(() => {
-      setIsVisible(true);
+    setIsVisible(false);
+    setTransitionStage('entering');
+
+    const timer1 = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setIsVisible(true);
+      });
     });
-    return () => cancelAnimationFrame(raf);
-  }, []);
+
+    const timer2 = setTimeout(() => {
+      setTransitionStage('visible');
+    }, 400);
+
+    return () => {
+      cancelAnimationFrame(timer1);
+      clearTimeout(timer2);
+    };
+  }, [location.pathname]);
 
   return (
     <div
       className="h-full"
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'scale(1)' : 'scale(0.92)',
-        transition: 'opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+        transform: isVisible 
+          ? 'scale(1) translateZ(0)' 
+          : 'scale(0.85) translateZ(0)',
+        filter: transitionStage === 'entering' && isVisible ? 'blur(0px)' : 'blur(8px)',
+        transition: `
+          opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          filter 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+        `,
+        willChange: 'opacity, transform, filter',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
+        perspective: 1000,
+        WebkitPerspective: 1000,
       }}
     >
       {children}

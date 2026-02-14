@@ -1,23 +1,26 @@
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
-    { icon: 'House', label: 'Главная', color: '#f97316' },
-    { icon: 'Folder', label: 'Портфолио', color: '#fb923c' },
-    { icon: 'Code', label: 'Разработка', color: '#fdba74' },
-    { icon: 'TrendingUp', label: 'Маркетинг', color: '#fbbf24' },
-    { icon: 'Brain', label: 'AI', color: '#fde047' },
-    { icon: 'DollarSign', label: 'Стоимость', color: '#facc15' },
-    { icon: 'UserCheck', label: 'Команда', color: '#bef264' },
-    { icon: 'MessageSquareText', label: 'Отзывы', color: '#86efac' },
-    { icon: 'Handshake', label: 'Партнеры', color: '#6ee7b7' },
-    { icon: 'Mail', label: 'Контакты', color: '#5eead4' },
-    { icon: 'Users', label: 'О нас', color: '#2dd4bf' },
-    { icon: 'ClipboardList', label: 'Квиз', color: '#22d3ee' },
-    { icon: 'LayoutGrid', label: 'Меню', color: '#06b6d4' },
+    { icon: 'House', label: 'Главная', color: '#f97316', path: '/' },
+    { icon: 'Folder', label: 'Портфолио', color: '#fb923c', path: '/portfolio' },
+    { icon: 'Code', label: 'Разработка', color: '#fdba74', path: '/development' },
+    { icon: 'TrendingUp', label: 'Маркетинг', color: '#fbbf24', path: '/marketing' },
+    { icon: 'Brain', label: 'AI', color: '#fde047', path: '/ai' },
+    { icon: 'DollarSign', label: 'Стоимость', color: '#facc15', path: '/pricing' },
+    { icon: 'UserCheck', label: 'Команда', color: '#bef264', path: '/team' },
+    { icon: 'MessageSquareText', label: 'Отзывы', color: '#86efac', path: '/reviews' },
+    { icon: 'Handshake', label: 'Партнеры', color: '#6ee7b7', path: '/partners' },
+    { icon: 'Mail', label: 'Контакты', color: '#5eead4', path: '/contact' },
+    { icon: 'Users', label: 'О нас', color: '#2dd4bf', path: '/about' },
+    { icon: 'ClipboardList', label: 'Квиз', color: '#22d3ee', path: '/quiz' },
+    { icon: 'LayoutGrid', label: 'Меню', color: '#06b6d4', path: '/menu' },
   ];
 
   const getScale = (index: number) => {
@@ -56,9 +59,12 @@ const DockMenu = () => {
               const scale = getScale(index);
               const translateY = getTranslateY(index);
 
+              const isActive = location.pathname === item.path;
+
               return (
                 <button
                   key={index}
+                  onClick={() => navigate(item.path)}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="relative flex flex-col items-center"
@@ -71,8 +77,8 @@ const DockMenu = () => {
                     <div
                       className="absolute inset-0 rounded-[14px] transition-all duration-300"
                       style={{
-                        background: isHovered ? `${item.color}15` : 'transparent',
-                        border: isHovered ? `1px solid ${item.color}30` : '1px solid transparent',
+                        background: isHovered || isActive ? `${item.color}15` : 'transparent',
+                        border: isHovered || isActive ? `1px solid ${item.color}30` : '1px solid transparent',
                       }}
                     />
                     <Icon
