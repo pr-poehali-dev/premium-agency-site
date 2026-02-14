@@ -4,6 +4,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageTitle, BodyText } from '@/components/Typography';
+import { useEffect } from 'react';
 
 const contacts = [
   { icon: 'Mail', label: 'Email', value: 'albe.web@yandex.ru', href: 'mailto:albe.web@yandex.ru' },
@@ -13,6 +14,25 @@ const contacts = [
 ];
 
 const Contact = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://vk.com/js/api/openapi.js?169';
+    script.async = true;
+    script.onload = () => {
+      if (window.VK) {
+        window.VK.Widgets.Group('vk_groups', { mode: 4, wide: 1, width: 'auto', height: '400', color1: '000000', color2: 'eab308', color3: 'eab308' }, 221931076);
+      }
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      const existingScript = document.querySelector('script[src*="openapi.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <AppLayout>
       <SEO
@@ -24,7 +44,7 @@ const Contact = () => {
         <PageContainer>
           <div className="flex flex-col items-center">
             <PageTitle>СВЯЗАТЬСЯ С НАМИ</PageTitle>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-2xl w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-2xl w-full mb-8">
                 {contacts.map((contact) => {
                   const Wrapper = contact.href ? 'a' : 'div';
                   const extraProps = contact.href ? { href: contact.href, target: '_blank', rel: 'noopener noreferrer' } : {};
@@ -49,7 +69,12 @@ const Contact = () => {
                   );
                 })}
               </div>
-            <BodyText className="text-center mt-8 max-w-md">
+
+              <div className="w-full max-w-2xl rounded-2xl overflow-hidden mb-8" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(234,179,8,0.15)' }}>
+                <div id="vk_groups"></div>
+              </div>
+
+            <BodyText className="text-center max-w-md">
               Оставьте заявку — мы свяжемся с вами в течение 24 часов и обсудим ваш проект
             </BodyText>
           </div>
