@@ -8,9 +8,9 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   return (
-    <div className="h-screen bg-black text-foreground overflow-hidden relative">
+    <div className="min-h-screen bg-black text-foreground relative">
       <PremiumBackground />
-      <div className="relative z-10 h-full flex flex-col">
+      <div className="relative z-10 min-h-screen">
         {children}
         <DockMenu />
       </div>

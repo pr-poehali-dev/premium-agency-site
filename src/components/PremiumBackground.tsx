@@ -232,7 +232,7 @@ const PremiumBackground = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none">
       <div
         className="absolute top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full opacity-[0.06]"
         style={{ background: 'radial-gradient(circle, rgba(234,179,8,0.5) 0%, rgba(234,179,8,0.1) 30%, transparent 60%)' }}

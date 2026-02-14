@@ -32,41 +32,39 @@ const Menu = () => {
         path="/menu"
       />
       <PageTransition>
-        <div className="absolute inset-0 p-5 pb-32 flex items-stretch justify-center overflow-hidden">
-          <div className="w-full h-full flex flex-col">
-            <div
-              className="flex-1 rounded-3xl overflow-hidden"
-              style={{
-                background: 'rgba(0,0,0,0.6)',
-                border: '1px solid rgba(6,182,212,0.2)',
-                backdropFilter: 'blur(40px)',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-              }}
-            >
-              <div className="h-full flex flex-col items-center justify-center p-6 md:p-8 lg:p-10">
-                <h2 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl mb-8 text-center" style={{ color: '#06b6d4' }}>
-                  ВСЕ РАЗДЕЛЫ
-                </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-4xl w-full">
-                  {allPages.map((page) => (
-                    <button
-                      key={page.path}
-                      onClick={() => navigate(page.path)}
-                      className="group rounded-2xl p-4 md:p-5 flex flex-col items-center gap-2 md:gap-3 transition-all duration-300 hover:scale-110 active:scale-95"
-                      style={{
-                        background: 'rgba(255,255,255,0.03)',
-                        border: `1px solid ${page.color}20`,
-                      }}
-                    >
-                      <div className="p-3 rounded-xl" style={{ background: `${page.color}10` }}>
-                        <Icon name={page.icon} size={28} strokeWidth={1.2} style={{ color: page.color }} />
-                      </div>
-                      <span className="font-montserrat text-xs md:text-sm font-medium" style={{ color: page.color }}>
-                        {page.label}
-                      </span>
-                    </button>
-                  ))}
-                </div>
+        <div className="p-5 pb-32 min-h-[80vh] flex items-center justify-center">
+          <div
+            className="rounded-3xl w-full max-w-4xl"
+            style={{
+              background: 'rgba(0,0,0,0.6)',
+              border: '1px solid rgba(6,182,212,0.2)',
+              backdropFilter: 'blur(40px)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+            }}
+          >
+            <div className="flex flex-col items-center p-6 md:p-8 lg:p-10">
+              <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center" style={{ color: '#06b6d4' }}>
+                ВСЕ РАЗДЕЛЫ
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 w-full">
+                {allPages.map((page) => (
+                  <button
+                    key={page.path}
+                    onClick={() => navigate(page.path)}
+                    className="group rounded-2xl p-4 md:p-5 flex flex-col items-center gap-3 transition-all duration-300 hover:scale-110 active:scale-95"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      border: `1px solid ${page.color}20`,
+                    }}
+                  >
+                    <div className="p-3 rounded-xl" style={{ background: `${page.color}10` }}>
+                      <Icon name={page.icon} size={28} strokeWidth={1.2} style={{ color: page.color }} />
+                    </div>
+                    <span className="font-montserrat text-sm font-medium" style={{ color: page.color }}>
+                      {page.label}
+                    </span>
+                  </button>
+                ))}
               </div>
             </div>
           </div>

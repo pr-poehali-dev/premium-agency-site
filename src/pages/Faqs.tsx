@@ -60,59 +60,57 @@ const Faqs = () => {
         path="/faqs"
       />
       <PageTransition>
-        <div className="absolute inset-0 p-5 pb-32 flex items-stretch justify-center overflow-hidden">
-          <div className="w-full h-full flex flex-col">
-            <div
-              className="flex-1 rounded-3xl overflow-y-auto"
-              style={{
-                background: 'rgba(0,0,0,0.6)',
-                border: '1px solid rgba(168,85,247,0.2)',
-                backdropFilter: 'blur(40px)',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-              }}
-            >
-              <div className="h-full flex flex-col p-6 md:p-8 lg:p-10">
-                <h2 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8 text-center" style={{ color: '#a855f7' }}>
-                  ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-                </h2>
-                <div className="flex-1 space-y-3 max-w-4xl mx-auto w-full">
-                  {faqItems.map((item, i) => (
+        <div className="p-5 pb-32">
+          <div
+            className="rounded-3xl"
+            style={{
+              background: 'rgba(0,0,0,0.6)',
+              border: '1px solid rgba(168,85,247,0.2)',
+              backdropFilter: 'blur(40px)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+            }}
+          >
+            <div className="p-6 md:p-8 lg:p-10">
+              <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center" style={{ color: '#a855f7' }}>
+                ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
+              </h2>
+              <div className="space-y-3 max-w-4xl mx-auto">
+                {faqItems.map((item, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl overflow-hidden transition-all duration-300"
+                    style={{
+                      background: openIndex === i ? 'rgba(168,85,247,0.08)' : 'rgba(255,255,255,0.03)',
+                      border: `1px solid ${openIndex === i ? 'rgba(168,85,247,0.3)' : 'rgba(168,85,247,0.1)'}`,
+                    }}
+                  >
+                    <button
+                      className="w-full flex items-center justify-between gap-4 p-5"
+                      onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                    >
+                      <span className="font-montserrat font-medium text-base text-white text-left">
+                        {item.q}
+                      </span>
+                      <Icon
+                        name="ChevronDown"
+                        size={20}
+                        style={{ color: '#a855f7', transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
+                      />
+                    </button>
                     <div
-                      key={i}
-                      className="rounded-2xl overflow-hidden transition-all duration-300"
                       style={{
-                        background: openIndex === i ? 'rgba(168,85,247,0.08)' : 'rgba(255,255,255,0.03)',
-                        border: `1px solid ${openIndex === i ? 'rgba(168,85,247,0.3)' : 'rgba(168,85,247,0.1)'}`,
+                        maxHeight: openIndex === i ? '200px' : '0',
+                        opacity: openIndex === i ? 1 : 0,
+                        transition: 'max-height 0.3s ease, opacity 0.2s ease',
+                        overflow: 'hidden',
                       }}
                     >
-                      <button
-                        className="w-full flex items-center justify-between gap-4 p-4 md:p-5 text-left"
-                        onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                      >
-                        <span className="font-montserrat font-medium text-sm md:text-base text-white">
-                          {item.q}
-                        </span>
-                        <Icon
-                          name="ChevronDown"
-                          size={20}
-                          style={{ color: '#a855f7', transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
-                        />
-                      </button>
-                      <div
-                        style={{
-                          maxHeight: openIndex === i ? '200px' : '0',
-                          opacity: openIndex === i ? 1 : 0,
-                          transition: 'max-height 0.3s ease, opacity 0.2s ease',
-                          overflow: 'hidden',
-                        }}
-                      >
-                        <p className="font-montserrat text-zinc-400 text-xs md:text-sm px-4 md:px-5 pb-4 md:pb-5 leading-relaxed">
-                          {item.a}
-                        </p>
-                      </div>
+                      <p className="font-montserrat text-zinc-400 text-base px-5 pb-5 leading-relaxed">
+                        {item.a}
+                      </p>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

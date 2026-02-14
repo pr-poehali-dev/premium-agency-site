@@ -39,53 +39,51 @@ const Marketing = () => {
         path="/marketing"
       />
       <PageTransition>
-        <div className="absolute inset-0 p-5 pb-32 flex items-stretch justify-center overflow-hidden">
-          <div className="w-full h-full flex flex-col">
-            <div
-              className="flex-1 rounded-3xl overflow-hidden"
-              style={{
-                background: 'rgba(0,0,0,0.6)',
-                border: '1px solid rgba(251,191,36,0.2)',
-                backdropFilter: 'blur(40px)',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-              }}
-            >
-              <div className="h-full flex flex-col p-6 md:p-8 lg:p-10">
-                <h2 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8 text-center" style={{ color: '#fbbf24' }}>
-                  МАРКЕТИНГ
-                </h2>
-                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  {marketingServices.map((service) => (
-                    <div
-                      key={service.title}
-                      className="group rounded-2xl p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
-                      style={{
-                        background: 'rgba(255,255,255,0.03)',
-                        border: '1px solid rgba(251,191,36,0.1)',
-                      }}
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="p-3 rounded-xl" style={{ background: 'rgba(251,191,36,0.1)' }}>
-                          <Icon name={service.icon} size={28} style={{ color: '#fbbf24' }} />
-                        </div>
-                        <div>
-                          <h3 className="font-montserrat font-semibold text-sm md:text-base lg:text-lg" style={{ color: '#fbbf24' }}>
-                            {service.title}
-                          </h3>
-                          <p className="font-montserrat text-zinc-500 text-[10px] md:text-xs">{service.desc}</p>
-                        </div>
+        <div className="p-5 pb-32">
+          <div
+            className="rounded-3xl"
+            style={{
+              background: 'rgba(0,0,0,0.6)',
+              border: '1px solid rgba(251,191,36,0.2)',
+              backdropFilter: 'blur(40px)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+            }}
+          >
+            <div className="p-6 md:p-8 lg:p-10">
+              <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center" style={{ color: '#fbbf24' }}>
+                МАРКЕТИНГ
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                {marketingServices.map((service) => (
+                  <div
+                    key={service.title}
+                    className="group rounded-2xl p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(251,191,36,0.1)',
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-3 rounded-xl" style={{ background: 'rgba(251,191,36,0.1)' }}>
+                        <Icon name={service.icon} size={28} style={{ color: '#fbbf24' }} />
                       </div>
-                      <ul className="space-y-1.5 ml-1">
-                        {service.items.map((item) => (
-                          <li key={item} className="font-montserrat text-zinc-300 text-xs md:text-sm flex items-center gap-2">
-                            <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#fbbf24' }} />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                      <div>
+                        <h3 className="font-montserrat font-semibold text-lg" style={{ color: '#fbbf24' }}>
+                          {service.title}
+                        </h3>
+                        <p className="font-montserrat text-zinc-500 text-sm">{service.desc}</p>
+                      </div>
                     </div>
-                  ))}
-                </div>
+                    <ul className="space-y-1.5 ml-1">
+                      {service.items.map((item) => (
+                        <li key={item} className="font-montserrat text-zinc-300 text-base flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#fbbf24' }} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

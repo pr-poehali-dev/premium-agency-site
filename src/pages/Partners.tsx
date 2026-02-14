@@ -27,57 +27,55 @@ const Partners = () => {
         path="/partners"
       />
       <PageTransition>
-        <div className="absolute inset-0 p-5 pb-32 flex items-stretch justify-center overflow-hidden">
-          <div className="w-full h-full flex flex-col">
-            <div
-              className="flex-1 rounded-3xl overflow-y-auto"
-              style={{
-                background: 'rgba(0,0,0,0.6)',
-                border: '1px solid rgba(110,231,183,0.2)',
-                backdropFilter: 'blur(40px)',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-              }}
-            >
-              <div className="h-full flex flex-col p-6 md:p-8 lg:p-10">
-                <h2 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8 text-center" style={{ color: '#6ee7b7' }}>
-                  ПАРТНЁРЫ
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                  {partners.map((partner) => (
-                    <div
-                      key={partner.name}
-                      className="rounded-2xl p-4 md:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
-                      style={{
-                        background: 'rgba(255,255,255,0.03)',
-                        border: '1px solid rgba(110,231,183,0.1)',
-                      }}
-                    >
-                      <div className="mx-auto w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(110,231,183,0.1)' }}>
-                        <Icon name={partner.icon} size={24} style={{ color: '#6ee7b7' }} />
-                      </div>
-                      <h3 className="font-montserrat font-semibold text-xs md:text-sm text-white">{partner.name}</h3>
-                      <p className="font-montserrat text-zinc-500 text-[10px] md:text-xs">{partner.desc}</p>
+        <div className="p-5 pb-32">
+          <div
+            className="rounded-3xl"
+            style={{
+              background: 'rgba(0,0,0,0.6)',
+              border: '1px solid rgba(110,231,183,0.2)',
+              backdropFilter: 'blur(40px)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+            }}
+          >
+            <div className="p-6 md:p-8 lg:p-10">
+              <h2 className="font-montserrat font-semibold text-2xl mb-8 text-center" style={{ color: '#6ee7b7' }}>
+                ПАРТНЁРЫ
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                {partners.map((partner) => (
+                  <div
+                    key={partner.name}
+                    className="rounded-2xl p-5 text-center transition-all duration-300 hover:scale-[1.03]"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(110,231,183,0.1)',
+                    }}
+                  >
+                    <div className="mx-auto w-14 h-14 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(110,231,183,0.1)' }}>
+                      <Icon name={partner.icon} size={28} style={{ color: '#6ee7b7' }} />
                     </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {benefits.map((item) => (
-                    <div
-                      key={item.title}
-                      className="rounded-2xl p-4 md:p-5"
-                      style={{
-                        background: 'rgba(110,231,183,0.05)',
-                        border: '1px solid rgba(110,231,183,0.15)',
-                      }}
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <Icon name={item.icon} size={20} style={{ color: '#6ee7b7' }} />
-                        <h3 className="font-montserrat font-semibold text-xs md:text-sm" style={{ color: '#6ee7b7' }}>{item.title}</h3>
-                      </div>
-                      <p className="font-montserrat text-zinc-400 text-[10px] md:text-xs leading-relaxed">{item.desc}</p>
+                    <h3 className="font-montserrat font-semibold text-base text-white">{partner.name}</h3>
+                    <p className="font-montserrat text-zinc-500 text-sm">{partner.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {benefits.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl p-5"
+                    style={{
+                      background: 'rgba(110,231,183,0.05)',
+                      border: '1px solid rgba(110,231,183,0.15)',
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <Icon name={item.icon} size={22} style={{ color: '#6ee7b7' }} />
+                      <h3 className="font-montserrat font-semibold text-base" style={{ color: '#6ee7b7' }}>{item.title}</h3>
                     </div>
-                  ))}
-                </div>
+                    <p className="font-montserrat text-zinc-400 text-base leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
