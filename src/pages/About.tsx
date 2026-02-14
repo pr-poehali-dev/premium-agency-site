@@ -5,19 +5,27 @@ import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageTitle, SectionTitle, BodyText } from '@/components/Typography';
 
-const values = [
-  { icon: 'Zap', title: 'Скорость', desc: 'Быстрый запуск проектов без потери качества' },
-  { icon: 'Shield', title: 'Надёжность', desc: 'Стабильные решения с гарантией работоспособности' },
-  { icon: 'Lightbulb', title: 'Инновации', desc: 'Применяем передовые технологии и AI' },
-  { icon: 'Heart', title: 'Забота', desc: 'Индивидуальный подход к каждому клиенту' },
-];
-
-const milestones = [
-  { year: '2017', text: 'Основание компании' },
-  { year: '2019', text: 'Первые enterprise-проекты' },
-  { year: '2021', text: 'Запуск AI-направления' },
-  { year: '2023', text: '100+ реализованных проектов' },
-  { year: '2025', text: 'Международная экспансия' },
+const advantages = [
+  { 
+    icon: 'Award', 
+    title: 'Опыт и компетентность', 
+    desc: 'Много лет успешного опыта разработки сложных продуктов и веб-сервисов с использованием искусственного интеллекта. Наши разработчики имеют высокий уровень профессионализма – от Middle до Team Lead.' 
+  },
+  { 
+    icon: 'Star', 
+    title: 'Доверие крупных брендов', 
+    desc: 'Реализовали успешные проекты для таких компаний, как Сбер, Яндекс, ВКонтакте, Телеграм, а также ресторанных сетей.' 
+  },
+  { 
+    icon: 'Zap', 
+    title: 'Качество и скорость', 
+    desc: 'Мы гарантируем безупречное качество выполнения проектов и быструю реализацию благодаря опытной команде, эффективным процессам и современным технологиям.' 
+  },
+  { 
+    icon: 'DollarSign', 
+    title: 'Стоимость разработки', 
+    desc: 'Сочетание доступных цен с высоким уровнем качества позволяет нашим клиентам эффективно использовать свой бюджет для достижения превосходных результатов.' 
+  },
 ];
 
 const About = () => {
@@ -58,39 +66,25 @@ const About = () => {
               </div>
             </div>
           </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                {values.map((v) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {advantages.map((item) => (
                   <div
-                    key={v.title}
-                    className="rounded-2xl p-3 sm:p-5 text-center transition-all duration-300 hover:scale-[1.03]"
+                    key={item.title}
+                    className="rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
                       border: '1px solid rgba(234,179,8,0.1)',
                     }}
                   >
-                    <div className="mx-auto w-12 h-12 rounded-full flex items-center justify-center mb-3" style={{ background: 'rgba(234,179,8,0.1)' }}>
-                      <Icon name={v.icon} size={24} style={{ color: '#eab308' }} />
+                    <div className="flex items-start gap-4 mb-3">
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
+                        <Icon name={item.icon} size={24} style={{ color: '#eab308' }} />
+                      </div>
+                      <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase text-white" style={{ color: '#eab308' }}>{item.title}</h3>
                     </div>
-                    <h3 className="font-montserrat font-semibold text-sm md:text-base uppercase text-white mb-1">{v.title}</h3>
-                    <p className="font-montserrat text-white text-xs md:text-sm">{v.desc}</p>
+                    <p className="font-montserrat text-white text-sm md:text-base leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
-              </div>
-              <div className="rounded-2xl p-6" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.15)' }}>
-                <SectionTitle>НАША ИСТОРИЯ</SectionTitle>
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
-                  {milestones.map((m, i) => (
-                    <div key={m.year} className="flex md:flex-col items-center gap-3 md:gap-1 text-center">
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style={{ background: 'rgba(234,179,8,0.2)', color: '#eab308' }}>
-                        {i + 1}
-                      </div>
-                      <div>
-                        <div className="font-montserrat font-bold text-sm md:text-base text-white">{m.year}</div>
-                        <div className="font-montserrat text-white text-xs md:text-sm">{m.text}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
         </PageContainer>
       </PageTransition>
