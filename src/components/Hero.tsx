@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <div className="min-h-[calc(100vh-120px)] flex flex-col items-center justify-center relative gap-8 md:gap-12">
-      <div className="flex flex-col items-center justify-center gap-2 md:gap-4">
+      <div className="flex flex-col items-center justify-center">
         <h1
           className="font-zen text-[8rem] sm:text-[10rem] md:text-[16rem] lg:text-[20rem] tracking-normal text-white leading-none"
           style={{
@@ -11,15 +11,15 @@ const Hero = () => {
           <span className="text-yellow-500" style={{ textShadow: '0 0 60px rgba(234,179,8,0.3), 0 0 120px rgba(234,179,8,0.1)' }}>a</span>lbe
         </h1>
         <p
-          className="text-center font-light whitespace-nowrap tracking-[0.5em] text-xs sm:text-sm md:text-base lg:text-lg uppercase"
+          className="text-center font-light whitespace-nowrap tracking-[0.3em] text-[2rem] sm:text-[2.8rem] md:text-[4.4rem] lg:text-[5.6rem] -mt-2 sm:-mt-3 md:-mt-8 lg:-mt-12"
           style={{
-            background: 'linear-gradient(90deg, #52525b 0%, #d4d4d8 50%, #52525b 100%)',
+            background: 'linear-gradient(90deg, #3f3f46 0%, #fafafa 30%, #fafafa 70%, #3f3f46 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             textShadow: 'none',
           }}
         >
-          Digital Agency
+          DIGITAL AGENCY
         </p>
       </div>
       
