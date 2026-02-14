@@ -154,7 +154,7 @@ const DockMenu = () => {
                         }}
                       >
                         <div className="bg-zinc-900/95 backdrop-blur-xl px-4 py-2 rounded-xl border border-zinc-700/40 shadow-2xl">
-                          <span className="text-xs font-medium text-white whitespace-nowrap tracking-wide">
+                          <span className="text-xs font-montserrat font-medium text-white whitespace-nowrap tracking-wide">
                             {item.label}
                           </span>
                         </div>
@@ -214,7 +214,7 @@ const DockMenu = () => {
                     }}
                   >
                     <div className="bg-zinc-900/95 backdrop-blur-xl px-4 py-2 rounded-xl border border-zinc-700/40 shadow-2xl">
-                      <span className="text-xs font-medium text-white whitespace-nowrap tracking-wide">
+                      <span className="text-xs font-montserrat font-medium text-white whitespace-nowrap tracking-wide">
                         {menuIcon.label}
                       </span>
                     </div>
