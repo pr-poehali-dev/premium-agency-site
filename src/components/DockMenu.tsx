@@ -239,10 +239,10 @@ const DockMenu = () => {
           <div 
             className="relative z-50 rounded-2xl md:rounded-3xl p-4 md:p-8 mx-4"
             style={{
-              background: 'rgba(0,0,0,0.85)',
-              border: '1px solid rgba(6,182,212,0.3)',
+              background: 'rgba(82,82,91,0.08)',
+              border: '1px solid rgba(161,161,170,0.2)',
               backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)',
               animation: 'scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
             }}
             onClick={(e) => e.stopPropagation()}
@@ -252,36 +252,24 @@ const DockMenu = () => {
                 <button
                   key={index}
                   onClick={() => handleItemClick(item.path)}
-                  className="group relative flex flex-col items-center gap-2 md:gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95"
+                  className="group relative flex flex-col items-center gap-2 md:gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-[1.03] active:scale-95"
                   style={{
-                    background: 'rgba(255,255,255,0.03)',
-                    border: '1px solid rgba(234,179,8,0.13)',
+                    background: 'rgba(234,179,8,0.08)',
+                    border: '1px solid rgba(234,179,8,0.2)',
                   }}
                 >
-                  <div 
-                    className="p-3 md:p-4 rounded-lg md:rounded-xl"
-                    style={{
-                      background: 'rgba(234,179,8,0.06)',
-                    }}
-                  >
-                    <Icon
-                      name={item.icon}
-                      size={isMobile ? 28 : 40}
-                      strokeWidth={1.2}
-                      style={{ 
-                        color: '#eab308',
-                        filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
-                      }}
-                    />
-                  </div>
-                  <span 
-                    className="text-[10px] md:text-xs font-medium whitespace-nowrap"
+                  <Icon
+                    name={item.icon}
+                    size={isMobile ? 28 : 44}
+                    strokeWidth={1.2}
                     style={{ 
-                      background: 'linear-gradient(75deg, #eab308 0%, rgba(0,0,0,0.8) 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
+                      color: '#eab308',
+                      filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
                     }}
+                  />
+                  <span 
+                    className="text-[10px] md:text-xs font-montserrat font-light whitespace-nowrap tracking-wide uppercase"
+                    style={{ color: '#eab308' }}
                   >
                     {item.label}
                   </span>
