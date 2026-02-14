@@ -5,20 +5,20 @@ import Icon from '@/components/ui/icon';
 import { useNavigate } from 'react-router-dom';
 
 const allPages = [
-  { icon: 'House', label: 'Главная', path: '/', color: '#f97316' },
-  { icon: 'Folder', label: 'Портфолио', path: '/portfolio', color: '#fb923c' },
-  { icon: 'Palette', label: 'Дизайн', path: '/design', color: '#f97316' },
-  { icon: 'Code', label: 'Разработка', path: '/development', color: '#fdba74' },
-  { icon: 'TrendingUp', label: 'Маркетинг', path: '/marketing', color: '#fbbf24' },
-  { icon: 'Brain', label: 'AI', path: '/ai', color: '#fde047' },
-  { icon: 'DollarSign', label: 'Стоимость', path: '/pricing', color: '#facc15' },
-  { icon: 'UserCheck', label: 'Команда', path: '/team', color: '#bef264' },
-  { icon: 'MessageSquareText', label: 'Отзывы', path: '/reviews', color: '#86efac' },
-  { icon: 'Handshake', label: 'Партнеры', path: '/partners', color: '#6ee7b7' },
-  { icon: 'Mail', label: 'Контакты', path: '/contact', color: '#5eead4' },
-  { icon: 'Users', label: 'О нас', path: '/about', color: '#2dd4bf' },
-  { icon: 'ClipboardList', label: 'Квиз', path: '/quiz', color: '#22d3ee' },
-  { icon: 'HelpCircle', label: 'FAQ', path: '/faqs', color: '#a855f7' },
+  { icon: 'House', label: 'Главная', path: '/', color: '#fbbf24' },
+  { icon: 'Folder', label: 'Портфолио', path: '/portfolio', color: '#fcd34d' },
+  { icon: 'Palette', label: 'Дизайн', path: '/design', color: '#fde68a' },
+  { icon: 'Code', label: 'Разработка', path: '/development', color: '#fef08a' },
+  { icon: 'TrendingUp', label: 'Маркетинг', path: '/marketing', color: '#fef9c3' },
+  { icon: 'Brain', label: 'AI', path: '/ai', color: '#bef264' },
+  { icon: 'DollarSign', label: 'Стоимость', path: '/pricing', color: '#86efac' },
+  { icon: 'UserCheck', label: 'Команда', path: '/team', color: '#6ee7b7' },
+  { icon: 'MessageSquareText', label: 'Отзывы', path: '/reviews', color: '#5eead4' },
+  { icon: 'Handshake', label: 'Партнеры', path: '/partners', color: '#2dd4bf' },
+  { icon: 'Phone', label: 'Контакты', path: '/contact', color: '#22d3ee' },
+  { icon: 'Users', label: 'О нас', path: '/about', color: '#38bdf8' },
+  { icon: 'ClipboardList', label: 'Квиз', path: '/quiz', color: '#818cf8' },
+  { icon: 'HelpCircle', label: 'FAQ', path: '/faqs', color: '#a78bfa' },
 ];
 
 const Menu = () => {
