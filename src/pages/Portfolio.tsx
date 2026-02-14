@@ -31,7 +31,7 @@ const casesByCategory = {
       cost: '150 000 ₽',
       duration: '2 недели',
       image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/4514b74c-e7d5-4b17-93f4-79db0781afd5.png',
-      link: '#',
+      link: 'https://mu-se.ru/',
     },
     {
       title: 'Премиум сайт-приложение цифрового агентства',
@@ -105,7 +105,7 @@ const casesByCategory = {
       cost: '150 000 ₽',
       duration: '2 недели',
       image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/4514b74c-e7d5-4b17-93f4-79db0781afd5.png',
-      link: '#',
+      link: 'https://mu-se.ru/',
     },
     {
       title: 'Премиум сайт-приложение цифрового агентства',
