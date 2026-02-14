@@ -5,34 +5,51 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 
 const allPages = [
-  { label: 'Главная', path: '/' },
-  { label: 'Портфолио', path: '/portfolio' },
-  { label: 'Дизайн', path: '/design' },
-  { label: 'Разработка', path: '/development' },
-  { label: 'Маркетинг', path: '/marketing' },
-  { label: 'AI', path: '/ai' },
-  { label: 'Стоимость', path: '/pricing' },
-  { label: 'Команда', path: '/team' },
-  { label: 'Отзывы', path: '/reviews' },
-  { label: 'Клиенты', path: '/partners' },
-  { label: 'Контакты', path: '/contact' },
-  { label: 'О нас', path: '/about' },
-  { label: 'Квиз', path: '/quiz' },
-  { label: 'FAQ', path: '/faqs' },
+  { label: 'Главная', path: '/', size: 'large' },
+  { label: 'Портфолио', path: '/portfolio', size: 'large' },
+  { label: 'Дизайн', path: '/design', size: 'medium' },
+  { label: 'Разработка', path: '/development', size: 'medium' },
+  { label: 'Маркетинг', path: '/marketing', size: 'medium' },
+  { label: 'AI', path: '/ai', size: 'medium' },
+  { label: 'Стоимость', path: '/pricing', size: 'small' },
+  { label: 'Команда', path: '/team', size: 'small' },
+  { label: 'Отзывы', path: '/reviews', size: 'small' },
+  { label: 'Клиенты', path: '/partners', size: 'small' },
+  { label: 'Контакты', path: '/contact', size: 'small' },
+  { label: 'О нас', path: '/about', size: 'small' },
+  { label: 'Квиз', path: '/quiz', size: 'small' },
+  { label: 'FAQ', path: '/faqs', size: 'small' },
 ];
 
 const Menu = () => {
   const navigate = useNavigate();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [loadedIframes, setLoadedIframes] = useState<Set<number>>(new Set());
   const iframeRefs = useRef<(HTMLIFrameElement | null)[]>([]);
 
   useEffect(() => {
-    iframeRefs.current.forEach((iframe) => {
+    iframeRefs.current.forEach((iframe, index) => {
       if (iframe) {
         iframe.style.pointerEvents = 'none';
+        iframe.onload = () => {
+          setLoadedIframes(prev => new Set(prev).add(index));
+        };
       }
     });
   }, []);
+
+  const getSizeClass = (size: string) => {
+    switch (size) {
+      case 'large':
+        return 'col-span-2 row-span-2';
+      case 'medium':
+        return 'col-span-2 row-span-1';
+      case 'small':
+        return 'col-span-1 row-span-1';
+      default:
+        return 'col-span-1 row-span-1';
+    }
+  };
 
   return (
     <AppLayout>
@@ -42,45 +59,53 @@ const Menu = () => {
         path="/menu"
       />
       <PageTransition>
-        <div className="fixed inset-0 p-4 sm:p-6 md:p-8 pb-24 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)' }}>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-[2000px] mx-auto">
+        <div className="fixed inset-0 p-3 sm:p-4 md:p-6 pb-24 overflow-auto" style={{ background: 'rgba(0,0,0,0.95)' }}>
+          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 auto-rows-[120px] md:auto-rows-[140px] gap-2 md:gap-3 max-w-[1800px] mx-auto">
             {allPages.map((page, index) => (
               <button
                 key={page.path}
                 onClick={() => navigate(page.path)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95"
+                className={`group relative rounded-lg md:rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-95 ${getSizeClass(page.size)}`}
                 style={{
                   background: 'rgba(255,255,255,0.03)',
-                  border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.5)' : '2px solid rgba(234,179,8,0.2)',
-                  aspectRatio: '16/10',
+                  border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(234,179,8,0.15)',
+                  boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.2)' : '0 4px 16px rgba(0,0,0,0.3)',
                 }}
               >
                 <div className="absolute inset-0 overflow-hidden">
                   <iframe
                     ref={(el) => (iframeRefs.current[index] = el)}
                     src={page.path === '/' ? '/' : page.path}
+                    loading="eager"
                     className="w-full h-full border-0"
                     style={{
-                      transform: 'scale(0.25)',
+                      transform: 'scale(0.2)',
                       transformOrigin: 'top left',
-                      width: '400%',
-                      height: '400%',
+                      width: '500%',
+                      height: '500%',
                       pointerEvents: 'none',
+                      opacity: loadedIframes.has(index) ? 1 : 0,
+                      transition: 'opacity 0.3s ease',
                     }}
                     title={page.label}
                   />
+                  {!loadedIframes.has(index) && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-8 h-8 border-2 border-t-transparent border-[#eab308] rounded-full animate-spin" />
+                    </div>
+                  )}
                 </div>
                 <div 
                   className="absolute inset-0 transition-opacity duration-300"
                   style={{
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)',
-                    opacity: hoveredIndex === index ? 0.6 : 1,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)',
+                    opacity: hoveredIndex === index ? 0.5 : 1,
                   }}
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
-                  <span className="font-montserrat text-xs md:text-sm font-light tracking-wide uppercase text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                  <span className="font-montserrat text-[10px] md:text-xs font-light tracking-wide uppercase text-white block" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.9)' }}>
                     {page.label}
                   </span>
                 </div>
