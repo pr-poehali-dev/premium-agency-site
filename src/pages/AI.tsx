@@ -1,34 +1,78 @@
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
+import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle } from '@/components/Typography';
-import ServiceCard from '@/components/ServiceCard';
+import { PageTitle, SectionTitle } from '@/components/Typography';
 
-const aiServices = [
+const ourProducts = [
   {
-    icon: 'Brain',
-    title: 'MACHINE LEARNING',
-    desc: 'Обучаем модели на ваших данных для прогнозирования и автоматизации',
-    items: ['Предиктивная аналитика', 'Рекомендательные системы', 'Детекция аномалий', 'Кластеризация данных'],
-  },
-  {
-    icon: 'MessageCircle',
-    title: 'NLP / ЧАТБОТЫ',
-    desc: 'Обработка естественного языка и умные диалоговые системы',
-    items: ['Чат-боты и ассистенты', 'Анализ тональности', 'Извлечение сущностей', 'Автоматический перевод'],
-  },
-  {
+    title: 'Vision AI',
+    desc: 'Система на архитектуре Faster R-CNN предоставляется как мощное решение для анализа видеопотока и классификации данных. Эта технология обеспечивает эффективное обнаружение объектов в реальном времени.',
     icon: 'Eye',
-    title: 'КОМПЬЮТЕРНОЕ ЗРЕНИЕ',
-    desc: 'Распознавание изображений, видео и реальных объектов',
-    items: ['Распознавание лиц', 'OCR документов', 'Контроль качества', 'Видеоаналитика'],
   },
   {
-    icon: 'Sparkles',
-    title: 'ГЕНЕРАТИВНЫЙ AI',
-    desc: 'Создание контента, изображений и кода с помощью ИИ',
-    items: ['Генерация текстов', 'Создание изображений', 'Кодогенерация', 'Персонализация контента'],
+    title: 'AlbeAI',
+    desc: 'Анализатор бизнеса в реальном времени — изучает конкурентов, отслеживает тренды рынка и предоставляет персонализированные рекомендации для роста вашего бизнеса. Автоматизирует аналитику и помогает принимать решения на основе данных.',
+    icon: 'TrendingUp',
+  },
+  {
+    title: 'Brand Chef AI',
+    desc: 'Внедрение технологии Vision AI в кухонные процессы открывает новые возможности для улучшения работы поваров и управления кухней. Автоматизация контроля качества, стандартизация процессов и повышение эффективности.',
+    icon: 'ChefHat',
+  },
+];
+
+const brandChefFeatures = [
+  {
+    icon: 'Clock',
+    title: 'Управление временем приготовления',
+    desc: 'Отслеживание времени, затрачиваемого на приготовление блюд, помогает выявить узкие места и оптимизировать рабочий процесс.',
+  },
+  {
+    icon: 'AlertCircle',
+    title: 'Определение отклонений',
+    desc: 'Автоматический анализ процесса приготовления позволяет быстро выявлять и исправлять ошибки.',
+  },
+  {
+    icon: 'GraduationCap',
+    title: 'Обучение и анализ KPI',
+    desc: 'Отслеживание эффективности каждого повара помогает выявлять зоны для улучшения и нацеливать обучение.',
+  },
+  {
+    icon: 'Package',
+    title: 'Управление запасами',
+    desc: 'Помощь в управлении запасами путем отслеживания использования ингредиентов в режиме реального времени.',
+  },
+  {
+    icon: 'ShieldCheck',
+    title: 'Контроль санитарных норм',
+    desc: 'Платформа помогает отслеживать соблюдение санитарных норм на кухне.',
+  },
+  {
+    icon: 'Repeat',
+    title: 'Стандартизация',
+    desc: 'Использование стандартов подачи и автоматический анализ блюд в режиме реального времени помогает обеспечить одинаковую презентацию и качество блюд, вне зависимости от смены повара.',
+  },
+  {
+    icon: 'Scale',
+    title: 'Весовой контроль',
+    desc: 'Использование умных весов для проверки соответствия массы порции заявленным стандартам. Анализ отклонений и уведомление персонала о необходимости корректировки.',
+  },
+  {
+    icon: 'Thermometer',
+    title: 'Тепловой мониторинг',
+    desc: 'Датчики тепла обеспечивают контроль температуры готовых блюд. Гарантия того, что блюдо находится в нужных температурных пределах перед подачей.',
+  },
+  {
+    icon: 'Camera',
+    title: 'Сканирование готового блюда',
+    desc: 'Использование камер для визуального анализа оформления и презентации блюда. Сравнение с эталонными изображениями для соблюдения стандартов подачи.',
+  },
+  {
+    icon: 'BarChart',
+    title: 'Анализ и отчетность',
+    desc: 'Сбор данных по времени приготовления, температуре, массе и внешнему виду для усовершенствования процессов. Генерация отчетов о соответствии стандартам и производительности кухни.',
   },
 ];
 
@@ -37,22 +81,62 @@ const AI = () => {
     <AppLayout>
       <SEO
         title="AI-решения"
-        description="Разработка AI-решений: машинное обучение, NLP, компьютерное зрение, генеративный AI. Внедряем искусственный интеллект в ваш бизнес."
+        description="Наши AI-разработки: Vision AI, AlbeAI, Brand Chef AI. Внедряем искусственный интеллект в бизнес и производственные процессы."
         path="/ai"
       />
       <PageTransition>
         <PageContainer>
-          <PageTitle>ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</PageTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {aiServices.map((service) => (
-              <ServiceCard
-                key={service.title}
-                icon={service.icon}
-                title={service.title}
-                description={service.desc}
-                items={service.items}
-              />
+          <PageTitle>НАШИ РАЗРАБОТКИ В ИИ</PageTitle>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {ourProducts.map((product) => (
+              <div
+                key={product.title}
+                className="rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(234,179,8,0.1)',
+                }}
+              >
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(234,179,8,0.1)' }}>
+                  <Icon name={product.icon} size={28} style={{ color: '#eab308' }} />
+                </div>
+                <h3 className="font-montserrat font-light text-xl uppercase mb-3" style={{ color: '#eab308' }}>
+                  {product.title}
+                </h3>
+                <p className="font-montserrat text-white text-sm leading-relaxed">
+                  {product.desc}
+                </p>
+              </div>
             ))}
+          </div>
+
+          <div className="rounded-3xl p-6 md:p-8 mb-8" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.15)' }}>
+            <SectionTitle>BRAND CHEF AI — ПРИМЕНЕНИЕ</SectionTitle>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {brandChefFeatures.map((feature) => (
+                <div
+                  key={feature.title}
+                  className="rounded-xl p-5 transition-all duration-300 hover:scale-[1.02]"
+                  style={{
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(234,179,8,0.1)',
+                  }}
+                >
+                  <div className="flex items-start gap-4 mb-2">
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
+                      <Icon name={feature.icon} size={20} style={{ color: '#eab308' }} />
+                    </div>
+                    <h4 className="font-montserrat font-medium text-base text-white">
+                      {feature.title}
+                    </h4>
+                  </div>
+                  <p className="font-montserrat text-sm text-zinc-400 leading-relaxed ml-14">
+                    {feature.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </PageContainer>
       </PageTransition>
