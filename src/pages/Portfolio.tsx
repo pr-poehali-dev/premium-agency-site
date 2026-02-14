@@ -153,16 +153,17 @@ const Portfolio = () => {
 
         {selectedCategory && (
           <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 overflow-y-auto"
             style={{ background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(10px)' }}
             onClick={() => setSelectedCategory(null)}
           >
             <div
-              className="relative max-w-5xl w-full max-h-[85vh] rounded-3xl flex flex-col"
+              className="relative max-w-5xl w-full my-auto rounded-3xl flex flex-col"
               style={{
                 background: 'rgba(0,0,0,0.98)',
                 border: `2px solid ${categories.find(c => c.name === selectedCategory)?.color}40`,
                 boxShadow: '0 20px 80px rgba(0,0,0,0.8)',
+                maxHeight: 'calc(100vh - 2rem)',
               }}
               onClick={(e) => e.stopPropagation()}
             >
