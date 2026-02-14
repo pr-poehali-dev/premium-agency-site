@@ -85,7 +85,7 @@ const DockMenu = () => {
 
   return (
     <>
-      <nav className="fixed bottom-4 md:bottom-8 left-0 right-0 px-4 md:px-8 pointer-events-none z-50">
+      <nav className="fixed bottom-5 left-0 right-0 px-5 pointer-events-none z-50">
         <div className="relative max-w-fit mx-auto pointer-events-auto" ref={containerRef}>
           <div
             className="rounded-xl md:rounded-2xl px-3 py-2 md:px-5 md:py-3"
