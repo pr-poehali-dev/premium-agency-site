@@ -2,6 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
 
 const reviews = [
   {
@@ -57,20 +58,10 @@ const Reviews = () => {
         path="/reviews"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-24 sm:pb-28">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(134,239,172,0.2)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                ОТЗЫВЫ КЛИЕНТОВ
-              </h2>
+        <PageContainer>
+          <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
+            ОТЗЫВЫ КЛИЕНТОВ
+          </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {reviews.map((review, index) => (
                   <div
@@ -95,18 +86,16 @@ const Reviews = () => {
                       {review.text}
                     </p>
                     <div className="border-t border-zinc-800 pt-4">
-                      <div className="font-montserrat font-semibold text-lg text-white">{review.name}</div>
+                      <div className="font-montserrat font-semibold text-lg uppercase" style={{ color: '#eab308' }}>{review.name}</div>
                       {review.position && (
                         <div className="font-montserrat text-white text-sm mb-1">{review.position}</div>
                       )}
-                      <div className="font-montserrat text-sm font-medium" style={{ color: '#eab308' }}>{review.company}</div>
+                      <div className="font-montserrat text-sm font-medium text-white">{review.company}</div>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );
