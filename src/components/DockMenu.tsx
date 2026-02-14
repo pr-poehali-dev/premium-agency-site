@@ -49,6 +49,40 @@ const DockMenu = () => {
     return () => window.removeEventListener('resize', calculateVisible);
   }, []);
 
+  useEffect(() => {
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (isScrolling) return;
+
+      const currentIndex = menuItems.findIndex(item => item.path === location.pathname);
+      if (currentIndex === -1) return;
+
+      if (e.deltaY > 0 && currentIndex < menuItems.length - 1) {
+        isScrolling = true;
+        navigate(menuItems[currentIndex + 1].path);
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isScrolling = false;
+        }, 800);
+      } else if (e.deltaY < 0 && currentIndex > 0) {
+        isScrolling = true;
+        navigate(menuItems[currentIndex - 1].path);
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isScrolling = false;
+        }, 800);
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      clearTimeout(scrollTimeout);
+    };
+  }, [location.pathname, navigate]);
+
   const visibleItems = menuItems.slice(0, visibleCount);
   const hiddenItems = menuItems.slice(visibleCount);
 
