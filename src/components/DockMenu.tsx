@@ -5,19 +5,19 @@ const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const menuItems = [
-    { icon: 'House', label: 'Главная', color: '#8b5cf6' },
-    { icon: 'Folder', label: 'Портфолио', color: '#7c3aed' },
-    { icon: 'Code', label: 'Разработка', color: '#6366f1' },
-    { icon: 'TrendingUp', label: 'Маркетинг', color: '#3b82f6' },
-    { icon: 'Brain', label: 'AI', color: '#0ea5e9' },
-    { icon: 'DollarSign', label: 'Стоимость', color: '#06b6d4' },
-    { icon: 'UserCheck', label: 'Команда', color: '#14b8a6' },
-    { icon: 'MessageSquareText', label: 'Отзывы', color: '#10b981' },
-    { icon: 'Handshake', label: 'Партнеры', color: '#22c55e' },
-    { icon: 'Mail', label: 'Контакты', color: '#84cc16' },
-    { icon: 'Users', label: 'О нас', color: '#ec4899' },
-    { icon: 'ClipboardList', label: 'Квиз', color: '#d946ef' },
-    { icon: 'LayoutGrid', label: 'Меню', color: '#a855f7' },
+    { icon: 'House', label: 'Главная', color: '#3b82f6' },
+    { icon: 'Folder', label: 'Портфолио', color: '#2563eb' },
+    { icon: 'Code', label: 'Разработка', color: '#1d4ed8' },
+    { icon: 'TrendingUp', label: 'Маркетинг', color: '#6366f1' },
+    { icon: 'Brain', label: 'AI', color: '#8b5cf6' },
+    { icon: 'DollarSign', label: 'Стоимость', color: '#a855f7' },
+    { icon: 'UserCheck', label: 'Команда', color: '#c026d3' },
+    { icon: 'MessageSquareText', label: 'Отзывы', color: '#d946ef' },
+    { icon: 'Handshake', label: 'Партнеры', color: '#ec4899' },
+    { icon: 'Mail', label: 'Контакты', color: '#f472b6' },
+    { icon: 'Users', label: 'О нас', color: '#fb7185' },
+    { icon: 'ClipboardList', label: 'Квиз', color: '#f43f5e' },
+    { icon: 'LayoutGrid', label: 'Меню', color: '#06b6d4' },
   ];
 
   const getScale = (index: number) => {
