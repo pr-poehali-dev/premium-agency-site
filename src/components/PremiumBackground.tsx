@@ -35,7 +35,7 @@ const PremiumBackground = () => {
     let tick = 0;
     let w = 0;
     let h = 0;
-    const lastFrameTime = 0;
+    let lastFrameTime = 0;
     const targetFPS = 30;
     const frameInterval = 1000 / targetFPS;
 
