@@ -3,6 +3,8 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
+import { PageTitle } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface FaqItem {
@@ -64,12 +66,12 @@ const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; 
       {...hoverProps}
       className="hover-card rounded-2xl overflow-hidden"
       style={getHoverStyle({
-        background: isOpen ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.6)',
-        border: `1px solid ${isOpen ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
+        background: isOpen ? 'rgba(192,132,252,0.08)' : 'rgba(11,15,31,0.6)',
+        border: `1px solid ${isOpen ? 'rgba(192,132,252,0.3)' : 'rgba(255,255,255,0.08)'}`,
       })}
     >
       <button
-        className="w-full flex items-center justify-between gap-4 p-5"
+        className="w-full flex items-center justify-between gap-4 p-6"
         onClick={() => setOpenIndex(isOpen ? null : index)}
       >
         <span className="font-montserrat font-medium text-base md:text-lg text-white text-left">
@@ -78,7 +80,7 @@ const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; 
         <Icon
           name="ChevronDown"
           size={20}
-          style={{ color: '#eab308', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
+          style={{ color: '#C084FC', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
         />
       </button>
       <div
@@ -89,7 +91,7 @@ const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; 
           overflow: 'hidden',
         }}
       >
-        <p className="font-montserrat text-white text-base md:text-lg px-5 pb-5 leading-relaxed">
+        <p className="font-montserrat text-white text-base md:text-lg px-6 pb-6 leading-relaxed">
           {item.a}
         </p>
       </div>
@@ -108,37 +110,26 @@ const Faqs = () => {
         path="/faqs"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-24 sm:pb-28">
-          <div
-            className="rounded-3xl"
-            style={{
-              background: 'rgba(11,15,31,0.85)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4 text-center uppercase" style={{ color: '#eab308' }}>
-                ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-              </h2>
-              <p className="text-zinc-400 font-montserrat text-lg max-w-2xl leading-relaxed text-center mx-auto mb-12">
-                Ответы на популярные вопросы о разработке, ценах, сроках и технологиях.
-              </p>
-              <div className="space-y-3 max-w-4xl mx-auto">
-                {faqItems.map((item, i) => (
-                  <FaqItemCard 
-                    key={i} 
-                    item={item} 
-                    index={i} 
-                    openIndex={openIndex} 
-                    setOpenIndex={setOpenIndex} 
-                  />
-                ))}
-              </div>
-            </div>
+        <PageContainer>
+          <div className="mb-16">
+            <PageTitle color="#C084FC">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Ответы на популярные вопросы о разработке, ценах, сроках и технологиях.
+            </p>
           </div>
-        </div>
+
+          <div className="space-y-4 max-w-4xl mx-auto">
+            {faqItems.map((item, i) => (
+              <FaqItemCard 
+                key={i} 
+                item={item} 
+                index={i} 
+                openIndex={openIndex} 
+                setOpenIndex={setOpenIndex} 
+              />
+            ))}
+          </div>
+        </PageContainer>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </PageTransition>
     </AppLayout>
