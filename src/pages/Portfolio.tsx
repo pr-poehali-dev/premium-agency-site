@@ -149,12 +149,13 @@ const Portfolio = () => {
               return (
                 <div
                   key={index}
-                  className="group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+                  className="group relative rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:-translate-y-2"
                   style={{
                     background: 'rgba(11,15,31,0.85)',
                     border: '1px solid rgba(255,255,255,0.08)',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-                    backdropFilter: 'blur(10px)'
+                    backdropFilter: 'blur(10px)',
+                    willChange: 'transform'
                   }}
                 >
                   <div className="absolute top-4 right-4 z-10">
