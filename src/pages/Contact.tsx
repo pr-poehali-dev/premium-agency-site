@@ -82,23 +82,21 @@ const Contact = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="flex flex-col items-center">
-            <div className="mb-16 text-center">
-              <PageTitle color="#2DD4BF">СВЯЗАТЬСЯ С НАМИ</PageTitle>
-              <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed mx-auto">
-                Обсудим ваш проект в течение 24 часов. Работаем по всей России, Европе и США.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-6 max-w-3xl w-full mb-8">
-              {contacts.map((contact) => (
-                <ContactCard key={contact.label} contact={contact} />
-              ))}
-            </div>
+          <div className="mb-16">
+            <PageTitle color="#2DD4BF">СВЯЗАТЬСЯ С НАМИ</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Обсудим ваш проект в течение 24 часов. Работаем по всей России, Европе и США.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-6 max-w-3xl mb-8">
+            {contacts.map((contact) => (
+              <ContactCard key={contact.label} contact={contact} />
+            ))}
+          </div>
 
-            <div className="w-full max-w-2xl rounded-2xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <div id="vk_groups"></div>
-            </div>
+          <div className="w-full max-w-2xl rounded-2xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div id="vk_groups"></div>
           </div>
         </PageContainer>
       </PageTransition>
