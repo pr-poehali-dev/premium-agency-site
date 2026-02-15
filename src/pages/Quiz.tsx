@@ -3,6 +3,8 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
+import PageContainer from '@/components/PageContainer';
+import { PageTitle } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Question {
@@ -67,31 +69,39 @@ const Quiz = () => {
         path="/quiz"
       />
       <PageTransition>
-        <div className="p-2 sm:p-5 pb-32 min-h-[80vh] flex items-center justify-center">
-          <div
-            className="rounded-3xl w-full max-w-3xl"
-            style={{
-              background: 'rgba(11,15,31,0.85)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              backdropFilter: 'blur(40px)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-            }}
-          >
-            <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10">
-              {!isFinished ? (
-                <>
-                  <div className="flex gap-2 mb-6">
-                    {questions.map((_, i) => (
-                      <div
-                        key={i}
-                        className="h-1.5 w-14 rounded-full transition-all duration-300"
-                        style={{ background: i <= step ? '#eab308' : 'rgba(234,179,8,0.15)' }}
-                      />
-                    ))}
-                  </div>
-                  <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
-                    {questions[step].q}
-                  </h2>
+        <PageContainer>
+          <div className="mb-16">
+            <PageTitle color="#FBBF24">КВИЗ</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Подберём оптимальное решение для вашего бизнеса. Ответьте на 3 вопроса и получите персональное предложение.
+            </p>
+          </div>
+
+          <div className="flex items-center justify-center pb-16">
+            <div
+              className="rounded-3xl w-full max-w-3xl"
+              style={{
+                background: 'rgba(11,15,31,0.85)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                backdropFilter: 'blur(40px)',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+              }}
+            >
+              <div className="flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10">
+                {!isFinished ? (
+                  <>
+                    <div className="flex gap-2 mb-6">
+                      {questions.map((_, i) => (
+                        <div
+                          key={i}
+                          className="h-1.5 w-14 rounded-full transition-all duration-300"
+                          style={{ background: i <= step ? '#FBBF24' : 'rgba(251,191,36,0.15)' }}
+                        />
+                      ))}
+                    </div>
+                    <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#FBBF24' }}>
+                      {questions[step].q}
+                    </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
                     {questions[step].options.map((option) => (
                       <QuizOption key={option} option={option} onClick={() => handleSelect(option)} />
@@ -100,8 +110,8 @@ const Quiz = () => {
                 </>
               ) : (
                 <div className="text-center max-w-md py-8">
-                  <div className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ background: 'rgba(234,179,8,0.15)' }}>
-                    <Icon name="CheckCircle" size={32} style={{ color: '#eab308' }} />
+                  <div className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ background: 'rgba(251,191,36,0.15)' }}>
+                    <Icon name="CheckCircle" size={32} style={{ color: '#FBBF24' }} />
                   </div>
                   <h2 className="font-montserrat font-semibold text-2xl text-white mb-3">
                     Спасибо за ответы!
@@ -112,7 +122,7 @@ const Quiz = () => {
                   <button
                     onClick={() => { setStep(0); setAnswers([]); }}
                     className="font-montserrat text-base px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
-                    style={{ background: 'rgba(234,179,8,0.15)', color: '#eab308', border: '1px solid rgba(234,179,8,0.3)' }}
+                    style={{ background: 'rgba(251,191,36,0.15)', color: '#FBBF24', border: '1px solid rgba(251,191,36,0.3)' }}
                   >
                     Пройти заново
                   </button>
@@ -121,6 +131,7 @@ const Quiz = () => {
             </div>
           </div>
         </div>
+        </PageContainer>
       </PageTransition>
     </AppLayout>
   );
