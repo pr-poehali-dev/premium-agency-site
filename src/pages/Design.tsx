@@ -14,48 +14,55 @@ interface DesignService {
   image: string;
 }
 
+interface ProcessStep {
+  step: string;
+  title: string;
+  desc: string;
+  icon: string;
+}
+
 const designServices: DesignService[] = [
   {
     icon: 'Layers',
     title: 'UI/UX ДИЗАЙН',
     desc: 'Проектируем интерфейсы, которые увеличивают конверсию и удерживают пользователей. Исследуем поведение, создаем прототипы, тестируем гипотезы.',
     number: '01',
-    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/da2de26b-6ee8-4ae5-87e6-eece0f27f2b1.jpg',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/ed45e4e0-cd78-4702-82fc-711574b7f595.jpg',
   },
   {
     icon: 'Monitor',
     title: 'ВЕБ-ДИЗАЙН',
     desc: 'Создаем визуально привлекательные и функциональные веб-сайты. От лендингов до корпоративных порталов и интернет-магазинов.',
     number: '02',
-    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/689ef99b-3d28-4fe3-b199-b09c5e3629e5.jpg',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/5f7a7afe-8394-4b6d-82ce-350df4a71a88.jpg',
   },
   {
     icon: 'Smartphone',
     title: 'МОБИЛЬНЫЙ ДИЗАЙН',
     desc: 'Нативный опыт для iOS и Android с фокусом на юзабилити. Human Interface Guidelines и Material Design в каждой детали.',
     number: '03',
-    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/01d58f10-1386-4e0f-94f8-51aa96612428.jpg',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/786ee893-db76-4fdb-b127-43e91c7adf20.jpg',
   },
   {
     icon: 'Sparkles',
     title: 'БРЕНДИНГ',
     desc: 'Формируем уникальный визуальный язык вашего бренда. От логотипа до полного гайдлайна — создаем узнаваемый образ.',
     number: '04',
-    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/fb0889d4-ec0c-4162-bcee-cb9a8946dd4e.jpg',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/e0ecbeb3-fedc-4a2e-be11-28ec54ab2779.jpg',
   },
   {
     icon: 'Frame',
     title: 'ДИЗАЙН-СИСТЕМЫ',
     desc: 'Разрабатываем масштабируемые дизайн-системы для крупных продуктов. Компоненты, паттерны и гайдлайны для единого UX.',
     number: '05',
-    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/da2de26b-6ee8-4ae5-87e6-eece0f27f2b1.jpg',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/cdbc722d-1748-462a-8369-a8e4e5364458.jpg',
   },
   {
     icon: 'Zap',
     title: 'MOTION ДИЗАЙН',
     desc: 'Создаем анимации и микроинтеракции, которые оживляют интерфейсы. Плавные переходы, динамичные эффекты, премиальный опыт.',
     number: '06',
-    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/689ef99b-3d28-4fe3-b199-b09c5e3629e5.jpg',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/166f46ec-595f-4745-a10d-24f16e3f3ab1.jpg',
   },
 ];
 
@@ -64,6 +71,33 @@ const stats = [
   { value: '98%', label: 'ДОВОЛЬНЫХ КЛИЕНТОВ' },
   { value: '5+', label: 'ЛЕТ НА РЫНКЕ' },
   { value: '24/7', label: 'ПОДДЕРЖКА' },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: '01',
+    title: 'ИССЛЕДОВАНИЕ',
+    desc: 'Изучаем ваш бизнес, целевую аудиторию и конкурентов. Проводим интервью, анализируем данные, формируем гипотезы.',
+    icon: 'Search',
+  },
+  {
+    step: '02',
+    title: 'ПРОТОТИПИРОВАНИЕ',
+    desc: 'Создаем интерактивные прототипы и тестируем пользовательские сценарии. Находим оптимальные решения до старта дизайна.',
+    icon: 'Layout',
+  },
+  {
+    step: '03',
+    title: 'ВИЗУАЛЬНЫЙ ДИЗАЙН',
+    desc: 'Разрабатываем уникальный стиль, подбираем цвета, шрифты и создаем все экраны. Каждая деталь работает на ваши цели.',
+    icon: 'Palette',
+  },
+  {
+    step: '04',
+    title: 'ТЕСТИРОВАНИЕ',
+    desc: 'Проверяем дизайн на реальных пользователях, собираем обратную связь и вносим правки. Результат — интерфейс, который работает.',
+    icon: 'CheckCircle',
+  },
 ];
 
 const ServiceCard = ({ service }: { service: DesignService }) => {
@@ -111,6 +145,43 @@ const ServiceCard = ({ service }: { service: DesignService }) => {
   );
 };
 
+const ProcessCard = ({ step }: { step: ProcessStep }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card group relative rounded-3xl p-8 md:hover:scale-[1.02]"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.6)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      })}
+    >
+      <div className="flex items-start gap-6 mb-6">
+        <div
+          className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+          style={{ background: 'rgba(45,157,143,0.15)' }}
+        >
+          <Icon name={step.icon} size={32} style={{ color: '#2d9d8f' }} />
+        </div>
+        
+        <div className="flex-1">
+          <div className="font-zen text-4xl font-bold mb-2 opacity-30" style={{ color: '#2d9d8f' }}>
+            {step.step}
+          </div>
+          <h3 className="font-montserrat font-semibold text-2xl uppercase tracking-tight" style={{ color: '#2d9d8f' }}>
+            {step.title}
+          </h3>
+        </div>
+      </div>
+      
+      <p className="font-montserrat text-zinc-300 text-base leading-relaxed">
+        {step.desc}
+      </p>
+    </div>
+  );
+};
+
 const Design = () => {
   return (
     <AppLayout>
@@ -140,9 +211,24 @@ const Design = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {designServices.map((service) => (
               <ServiceCard key={service.title} service={service} />
+            ))}
+          </div>
+
+          <div className="mb-16">
+            <h2 className="font-zen text-4xl md:text-5xl font-bold uppercase mb-4" style={{ color: '#2d9d8f' }}>
+              ПРОЦЕСС РАБОТЫ
+            </h2>
+            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed">
+              Следуем проверенной методологии — от исследования до финального продукта. Каждый этап нацелен на результат.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+            {processSteps.map((step) => (
+              <ProcessCard key={step.step} step={step} />
             ))}
           </div>
 
