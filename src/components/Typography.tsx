@@ -20,7 +20,7 @@ interface SectionTitleProps {
 
 export const SectionTitle = ({ children, color = '#eab308' }: SectionTitleProps) => {
   return (
-    <h2 className="font-montserrat font-light text-xl md:text-3xl lg:text-4xl tracking-wide mb-6 text-center uppercase" style={{ color }}>
+    <h2 className="font-montserrat font-light text-xl md:text-3xl lg:text-5xl tracking-wide mb-6 text-center uppercase" style={{ color }}>
       {children}
     </h2>
   );
