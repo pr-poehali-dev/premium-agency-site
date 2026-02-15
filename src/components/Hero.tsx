@@ -53,12 +53,12 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Правая часть - ноутбук (только на десктопе) */}
+      {/* Правая часть - iMac (только на десктопе) */}
       <div className="hidden md:flex w-1/2 justify-center items-center">
         <img 
-          src="https://cdn.poehali.dev/files/e5837389-1d8d-4a6e-a20b-c2d0c2270871.png" 
-          alt="Laptop" 
-          className="w-full max-w-2xl object-contain"
+          src="https://cdn.poehali.dev/files/c51e6326-95f9-4990-b006-2c6315d43134.png" 
+          alt="iMac" 
+          className="w-full max-w-4xl object-contain"
           style={{
             filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.5))',
           }}
