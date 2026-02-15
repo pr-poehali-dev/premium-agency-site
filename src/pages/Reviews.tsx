@@ -81,15 +81,15 @@ const ReviewCard = ({ review }: { review: Review }) => {
           />
         ))}
       </div>
-      <BodyText className="mb-6">
+      <BodyText className="mb-6 text-sm md:text-base lg:text-lg">
         {review.text}
       </BodyText>
       <div className="border-t border-zinc-800 pt-4">
-        <div className="font-montserrat font-semibold text-base md:text-lg uppercase" style={{ color: '#eab308' }}>{review.name}</div>
+        <div className="font-montserrat font-semibold text-base md:text-lg lg:text-xl uppercase" style={{ color: '#eab308' }}>{review.name}</div>
         {review.position && (
-          <div className="font-montserrat text-white text-xs md:text-sm mb-1">{review.position}</div>
+          <div className="font-montserrat text-white text-xs md:text-sm lg:text-base mb-1">{review.position}</div>
         )}
-        <div className="font-montserrat text-xs md:text-sm font-medium text-white">{review.company}</div>
+        <div className="font-montserrat text-xs md:text-sm lg:text-base font-medium text-white">{review.company}</div>
       </div>
     </div>
   );

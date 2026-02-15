@@ -96,16 +96,16 @@ const PlanCard = ({ plan }: { plan: Plan }) => {
           <Icon name={plan.icon} size={24} style={{ color: '#eab308' }} />
         </div>
         <div>
-          <h3 className="font-montserrat font-semibold text-base md:text-lg uppercase" style={{ color: '#eab308' }}>
+          <h3 className="font-montserrat font-semibold text-base md:text-lg lg:text-xl uppercase" style={{ color: '#eab308' }}>
             {plan.title}
           </h3>
-          <p className="font-montserrat text-white text-xs md:text-sm">{plan.desc}</p>
+          <p className="font-montserrat text-white text-xs md:text-sm lg:text-base">{plan.desc}</p>
         </div>
       </div>
-      <div className="font-montserrat font-bold text-xl md:text-2xl text-white mb-4">{plan.price}</div>
+      <div className="font-montserrat font-bold text-xl md:text-2xl lg:text-3xl text-white mb-4">{plan.price}</div>
       <ul className="space-y-2">
         {plan.items.map((item) => (
-          <li key={item} className="font-montserrat text-white text-sm md:text-base flex items-center gap-2">
+          <li key={item} className="font-montserrat text-white text-sm md:text-base lg:text-lg flex items-center gap-2">
             <Icon name="Check" size={16} style={{ color: '#eab308' }} />
             {item}
           </li>
@@ -131,9 +131,9 @@ const ServiceItemCard = ({ item }: { item: ServiceItem }) => {
         <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
           <Icon name={item.icon} size={20} style={{ color: '#eab308' }} />
         </div>
-        <h4 className="font-montserrat font-medium text-sm md:text-base uppercase" style={{ color: '#eab308' }}>{item.title}</h4>
+        <h4 className="font-montserrat font-medium text-sm md:text-base lg:text-lg uppercase" style={{ color: '#eab308' }}>{item.title}</h4>
       </div>
-      <p className="font-montserrat text-sm md:text-base text-white ml-11">{item.price}</p>
+      <p className="font-montserrat text-sm md:text-base lg:text-lg text-white ml-11">{item.price}</p>
     </div>
   );
 };

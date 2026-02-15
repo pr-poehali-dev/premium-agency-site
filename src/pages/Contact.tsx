@@ -40,8 +40,8 @@ const ContactCard = ({ contact }: { contact: Contact }) => {
         <Icon name={contact.icon} size={24} style={{ color: '#eab308' }} />
       </div>
       <div>
-        <div className="font-montserrat text-white text-xs md:text-sm">{contact.label}</div>
-        <div className="font-montserrat font-medium text-sm md:text-base text-white">{contact.value}</div>
+        <div className="font-montserrat text-white text-xs md:text-sm lg:text-base">{contact.label}</div>
+        <div className="font-montserrat font-medium text-sm md:text-base lg:text-lg text-white">{contact.value}</div>
       </div>
     </Wrapper>
   );

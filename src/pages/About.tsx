@@ -51,9 +51,9 @@ const AdvantageCard = ({ advantage }: { advantage: Advantage }) => {
         <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
           <Icon name={advantage.icon} size={24} style={{ color: '#eab308' }} />
         </div>
-        <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase text-white" style={{ color: '#eab308' }}>{advantage.title}</h3>
+        <h3 className="font-montserrat font-light text-xl md:text-2xl lg:text-3xl uppercase text-white" style={{ color: '#eab308' }}>{advantage.title}</h3>
       </div>
-      <p className="font-montserrat text-white text-sm md:text-base leading-relaxed">{advantage.desc}</p>
+      <p className="font-montserrat text-white text-sm md:text-base lg:text-lg leading-relaxed">{advantage.desc}</p>
     </div>
   );
 };

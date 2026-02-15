@@ -167,11 +167,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </div>
 
       <div className="p-6 space-y-4 flex flex-col flex-1">
-        <h3 className="font-montserrat font-medium text-xl text-white leading-tight">
+        <h3 className="font-montserrat font-medium text-xl md:text-2xl text-white leading-tight">
           {project.title}
         </h3>
         
-        <p className="text-sm text-zinc-400 leading-relaxed">
+        <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
           {project.desc}
         </p>
 

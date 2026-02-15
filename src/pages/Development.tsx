@@ -20,6 +20,13 @@ interface TechStack {
   items: string[];
 }
 
+interface ProcessStep {
+  step: string;
+  title: string;
+  desc: string;
+  icon: string;
+}
+
 const services: Service[] = [
   {
     title: 'МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ',
@@ -48,6 +55,33 @@ const services: Service[] = [
     desc: 'Внедряем искусственный интеллект в ваш бизнес: машинное обучение, компьютерное зрение, NLP, аналитика Big Data.',
     number: '04',
     image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/ada904a0-b96d-4aa3-8c06-082226fe412e.jpg',
+  },
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    step: '01',
+    title: 'АНАЛИТИКА',
+    desc: 'Изучаем бизнес-процессы, определяем требования, анализируем конкурентов. Формируем техническое задание и выбираем оптимальный стек.',
+    icon: 'Search',
+  },
+  {
+    step: '02',
+    title: 'ПРОЕКТИРОВАНИЕ',
+    desc: 'Проектируем архитектуру системы, создаём прототипы интерфейсов, разрабатываем структуру базы данных и API.',
+    icon: 'Layout',
+  },
+  {
+    step: '03',
+    title: 'РАЗРАБОТКА',
+    desc: 'Пишем чистый код, следуем best practices, используем CI/CD. Регулярные демо и корректировки на основе обратной связи.',
+    icon: 'Code',
+  },
+  {
+    step: '04',
+    title: 'ТЕСТИРОВАНИЕ',
+    desc: 'Комплексное тестирование: unit, integration, e2e. Проверяем производительность, безопасность, UX. Готовим к продакшену.',
+    icon: 'CheckCircle',
   },
 ];
 
@@ -106,17 +140,13 @@ const ServiceCard = ({ service }: { service: Service }) => {
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="relative w-full aspect-square overflow-hidden">
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
         <img
           src={service.image}
           alt={service.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
-        
-        <div className="absolute top-6 left-6 font-montserrat text-6xl font-bold opacity-20">
-          {service.number}
-        </div>
       </div>
       
       <div className="relative p-8">
@@ -127,14 +157,51 @@ const ServiceCard = ({ service }: { service: Service }) => {
           <Icon name={service.icon} size={28} style={{ color: '#d4a30a' }} />
         </div>
 
-        <h3 className="font-montserrat font-semibold text-xl uppercase mb-3 tracking-tight" style={{ color: '#d4a30a' }}>
+        <h3 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#d4a30a' }}>
           {service.title}
         </h3>
 
-        <p className="font-montserrat text-zinc-300 text-sm leading-relaxed">
+        <p className="font-montserrat text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
           {service.desc}
         </p>
       </div>
+    </div>
+  );
+};
+
+const ProcessCard = ({ step }: { step: ProcessStep }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card group relative rounded-3xl p-8 md:hover:scale-[1.02]"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.6)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      })}
+    >
+      <div className="flex items-start gap-6 mb-6">
+        <div
+          className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+          style={{ background: 'rgba(212,163,10,0.15)' }}
+        >
+          <Icon name={step.icon} size={32} style={{ color: '#d4a30a' }} />
+        </div>
+        
+        <div className="flex-1">
+          <div className="font-montserrat text-4xl font-bold mb-2 opacity-20">
+            {step.step}
+          </div>
+          <h3 className="font-montserrat font-semibold text-xl md:text-2xl uppercase tracking-tight" style={{ color: '#d4a30a' }}>
+            {step.title}
+          </h3>
+        </div>
+      </div>
+      
+      <p className="font-montserrat text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
+        {step.desc}
+      </p>
     </div>
   );
 };
@@ -201,6 +268,19 @@ const Development = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {services.map((service) => (
               <ServiceCard key={service.title} service={service} />
+            ))}
+          </div>
+
+          <div className="mb-16">
+            <SectionTitle>ПРОЦЕСС РАБОТЫ</SectionTitle>
+            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
+              Структурированный подход к разработке — от аналитики до запуска. Контролируем каждый этап.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+            {processSteps.map((step) => (
+              <ProcessCard key={step.step} step={step} />
             ))}
           </div>
 

@@ -14,6 +14,7 @@ interface TeamMember {
 interface Stat {
   value: string;
   label: string;
+  isNumber?: boolean;
 }
 
 const teamLeaders: TeamMember[] = [
@@ -40,10 +41,10 @@ const teamLeaders: TeamMember[] = [
 ];
 
 const stats: Stat[] = [
-  { value: '20+', label: 'Специалистов' },
-  { value: '30+', label: 'Проектов в год' },
-  { value: '7', label: 'Лет опыта' },
-  { value: 'СНГ, EU, USA', label: 'Рынки' },
+  { value: '20+', label: 'Специалистов', isNumber: true },
+  { value: '30+', label: 'Проектов в год', isNumber: true },
+  { value: '7', label: 'Лет опыта', isNumber: true },
+  { value: 'СНГ, EU, USA', label: 'Рынки', isNumber: false },
 ];
 
 const StatCard = ({ stat }: { stat: Stat }) => {
@@ -58,7 +59,7 @@ const StatCard = ({ stat }: { stat: Stat }) => {
         border: '1px solid rgba(255,255,255,0.08)' 
       })}
     >
-      <div className="font-montserrat font-light text-xl md:text-2xl text-white">{stat.value}</div>
+      <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-light text-xl md:text-2xl text-white`}>{stat.value}</div>
       <div className="font-montserrat font-light text-white text-xs md:text-sm uppercase">{stat.label}</div>
     </div>
   );
@@ -84,10 +85,10 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
         />
       </div>
       <div className="p-5 text-center">
-        <h3 className="font-montserrat font-light text-base md:text-lg uppercase mb-2" style={{ color: '#eab308' }}>
+        <h3 className="font-montserrat font-light text-base md:text-lg lg:text-xl uppercase mb-2" style={{ color: '#eab308' }}>
           {member.name}
         </h3>
-        <p className="font-montserrat font-light text-xs md:text-sm text-white uppercase tracking-wide">
+        <p className="font-montserrat font-light text-xs md:text-sm lg:text-base text-white uppercase tracking-wide">
           {member.role}
         </p>
       </div>

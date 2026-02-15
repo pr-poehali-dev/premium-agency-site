@@ -67,10 +67,10 @@ const designServices: DesignService[] = [
 ];
 
 const stats = [
-  { value: '120+', label: 'ПРОЕКТОВ' },
-  { value: '98%', label: 'ДОВОЛЬНЫХ КЛИЕНТОВ' },
-  { value: '5+', label: 'ЛЕТ НА РЫНКЕ' },
-  { value: '24/7', label: 'ПОДДЕРЖКА' },
+  { value: '120+', label: 'ПРОЕКТОВ', isNumber: true },
+  { value: '98%', label: 'ДОВОЛЬНЫХ КЛИЕНТОВ', isNumber: true },
+  { value: '5+', label: 'ЛЕТ НА РЫНКЕ', isNumber: true },
+  { value: '24/7', label: 'ПОДДЕРЖКА', isNumber: false },
 ];
 
 const processSteps: ProcessStep[] = [
@@ -112,17 +112,13 @@ const ServiceCard = ({ service }: { service: DesignService }) => {
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="relative w-full aspect-square overflow-hidden">
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
         <img
           src={service.image}
           alt={service.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
-        
-        <div className="absolute top-6 left-6 font-montserrat text-6xl font-bold opacity-20">
-          {service.number}
-        </div>
       </div>
       
       <div className="relative p-8">
@@ -133,11 +129,11 @@ const ServiceCard = ({ service }: { service: DesignService }) => {
           <Icon name={service.icon} size={28} style={{ color: '#2d9d8f' }} />
         </div>
 
-        <h3 className="font-montserrat font-semibold text-xl uppercase mb-3 tracking-tight" style={{ color: '#2d9d8f' }}>
+        <h3 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#2d9d8f' }}>
           {service.title}
         </h3>
 
-        <p className="font-montserrat text-zinc-300 text-sm leading-relaxed">
+        <p className="font-montserrat text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
           {service.desc}
         </p>
       </div>
@@ -169,13 +165,13 @@ const ProcessCard = ({ step }: { step: ProcessStep }) => {
           <div className="font-montserrat text-4xl font-bold mb-2 opacity-20">
             {step.step}
           </div>
-          <h3 className="font-montserrat font-semibold text-2xl uppercase tracking-tight" style={{ color: '#2d9d8f' }}>
+          <h3 className="font-montserrat font-semibold text-xl md:text-2xl uppercase tracking-tight" style={{ color: '#2d9d8f' }}>
             {step.title}
           </h3>
         </div>
       </div>
       
-      <p className="font-montserrat text-zinc-300 text-base leading-relaxed">
+      <p className="font-montserrat text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
         {step.desc}
       </p>
     </div>
@@ -240,7 +236,7 @@ const Design = () => {
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <div className="font-montserrat text-4xl md:text-5xl font-bold mb-2" style={{ color: '#2d9d8f' }}>
+                <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} text-4xl md:text-5xl font-bold mb-2`} style={{ color: '#2d9d8f' }}>
                   {stat.value}
                 </div>
                 <div className="font-montserrat text-xs uppercase tracking-widest text-zinc-500">

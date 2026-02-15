@@ -72,7 +72,7 @@ const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; 
         className="w-full flex items-center justify-between gap-4 p-5"
         onClick={() => setOpenIndex(isOpen ? null : index)}
       >
-        <span className="font-montserrat font-medium text-base text-white text-left">
+        <span className="font-montserrat font-medium text-base md:text-lg text-white text-left">
           {item.q}
         </span>
         <Icon
@@ -89,7 +89,7 @@ const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; 
           overflow: 'hidden',
         }}
       >
-        <p className="font-montserrat text-white text-base px-5 pb-5 leading-relaxed">
+        <p className="font-montserrat text-white text-base md:text-lg px-5 pb-5 leading-relaxed">
           {item.a}
         </p>
       </div>

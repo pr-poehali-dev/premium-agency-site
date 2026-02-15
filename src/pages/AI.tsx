@@ -109,17 +109,13 @@ const ProductCard = ({ product }: { product: Product }) => {
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="relative w-full aspect-square overflow-hidden">
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
         <img
           src={product.image}
           alt={product.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
-        
-        <div className="absolute top-6 left-6 font-montserrat text-6xl font-bold opacity-20">
-          {product.number}
-        </div>
       </div>
       
       <div className="relative p-8">
@@ -130,11 +126,11 @@ const ProductCard = ({ product }: { product: Product }) => {
           <Icon name={product.icon} size={28} style={{ color: '#eab308' }} />
         </div>
 
-        <h3 className="font-montserrat font-semibold text-xl uppercase mb-3 tracking-tight" style={{ color: '#eab308' }}>
+        <h3 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#eab308' }}>
           {product.title}
         </h3>
 
-        <p className="font-montserrat text-zinc-300 text-sm leading-relaxed">
+        <p className="font-montserrat text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
           {product.desc}
         </p>
       </div>
@@ -158,11 +154,11 @@ const FeatureCard = ({ feature }: { feature: Feature }) => {
         <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
           <Icon name={feature.icon} size={20} style={{ color: '#eab308' }} />
         </div>
-        <h4 className="font-montserrat font-light text-base uppercase" style={{ color: '#eab308' }}>
+        <h4 className="font-montserrat font-light text-base md:text-lg uppercase" style={{ color: '#eab308' }}>
           {feature.title}
         </h4>
       </div>
-      <p className="font-montserrat text-sm text-white leading-relaxed ml-14">
+      <p className="font-montserrat text-sm md:text-base text-white leading-relaxed ml-14">
         {feature.desc}
       </p>
     </div>
