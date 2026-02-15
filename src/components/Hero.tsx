@@ -9,7 +9,7 @@ const Hero = () => {
             textShadow: '0 0 120px rgba(255,255,255,0.15), 0 0 240px rgba(234,179,8,0.08)',
           }}
         >
-          <span className="text-yellow-500" style={{ textShadow: '0 0 80px rgba(234,179,8,0.5), 0 0 160px rgba(234,179,8,0.2)' }}>a</span>lbe
+          <span className="text-yellow-500">a</span>lbe
         </h1>
         <p
           className="text-center font-light -mt-2 sm:-mt-3 md:-mt-8 lg:-mt-12 xl:-mt-16 w-full"

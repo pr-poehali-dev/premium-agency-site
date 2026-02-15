@@ -14,7 +14,7 @@ const DockMenu = () => {
     { icon: 'House', label: 'Главная', color: '#FF6B6B', bgColor: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%)', path: '/' },
     { icon: 'Folder', label: 'Портфолио', color: '#4ECDC4', bgColor: 'linear-gradient(135deg, #4ECDC4 0%, #44B3AA 100%)', path: '/portfolio' },
     { icon: 'Palette', label: 'Дизайн', color: '#95E1D3', bgColor: 'linear-gradient(135deg, #95E1D3 0%, #7CC9B9 100%)', path: '/design' },
-    { icon: 'Code', label: 'Разработка', color: '#FFE66D', bgColor: 'linear-gradient(135deg, #FFE66D 0%, #F6D55C 100%)', path: '/development' },
+    { icon: 'Code', label: 'Разработка', color: '#eab308', bgColor: 'linear-gradient(135deg, #eab308 0%, #ca8a04 100%)', path: '/development' },
     { icon: 'TrendingUp', label: 'Маркетинг', color: '#FF8C42', bgColor: 'linear-gradient(135deg, #FF8C42 0%, #E67E3C 100%)', path: '/marketing' },
     { icon: 'Brain', label: 'AI', color: '#A78BFA', bgColor: 'linear-gradient(135deg, #A78BFA 0%, #9676E8 100%)', path: '/ai' },
     { icon: 'DollarSign', label: 'Стоимость', color: '#34D399', bgColor: 'linear-gradient(135deg, #34D399 0%, #2AB87A 100%)', path: '/pricing' },
@@ -100,10 +100,10 @@ const DockMenu = () => {
           <div
             className="rounded-xl md:rounded-2xl px-3 py-2 md:px-5 md:py-3"
             style={{
-              background: 'rgba(82,82,91,0.08)',
-              border: '1px solid rgba(161,161,170,0.2)',
+              background: 'linear-gradient(180deg, rgba(82,82,91,0.15) 0%, rgba(82,82,91,0.08) 100%)',
+              border: '1px solid rgba(161,161,170,0.25)',
               backdropFilter: 'blur(40px)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)',
+              boxShadow: '0 12px 40px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.08), inset 0 -2px 4px rgba(0,0,0,0.15)',
             }}
           >
             <div className="flex items-end justify-center gap-2 md:gap-4">
@@ -134,7 +134,9 @@ const DockMenu = () => {
                         boxShadow: isHovered || isActive 
                           ? `0 8px 24px ${item.color}60, 0 4px 12px ${item.color}40, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)` 
                           : `0 4px 12px ${item.color}30, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)`,
-                        transform: isHovered || isActive ? 'translateY(-2px)' : 'none'
+                        transform: isHovered || isActive ? 'translateY(-2px)' : 'none',
+                        opacity: isActive ? 1 : 0.85,
+                        border: isActive ? `2px solid ${item.color}` : 'none'
                       }}
                     >
                       <div 
