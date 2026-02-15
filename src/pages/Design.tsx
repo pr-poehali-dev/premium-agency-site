@@ -236,10 +236,10 @@ const Design = () => {
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} text-4xl md:text-5xl font-bold mb-2`} style={{ color: '#2d9d8f' }}>
+                <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-4xl md:text-5xl lg:text-6xl mb-2`} style={{ color: '#2d9d8f' }}>
                   {stat.value}
                 </div>
-                <div className="font-montserrat text-xs uppercase tracking-widest text-zinc-500">
+                <div className="font-montserrat text-xs md:text-sm uppercase tracking-wide text-zinc-400">
                   {stat.label}
                 </div>
               </div>

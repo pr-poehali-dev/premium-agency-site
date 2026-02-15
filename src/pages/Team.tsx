@@ -59,8 +59,12 @@ const StatCard = ({ stat }: { stat: Stat }) => {
         border: '1px solid rgba(255,255,255,0.08)' 
       })}
     >
-      <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-light text-xl md:text-2xl text-white`}>{stat.value}</div>
-      <div className="font-montserrat font-light text-white text-xs md:text-sm uppercase">{stat.label}</div>
+      <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-4xl md:text-5xl lg:text-6xl mb-2`} style={{ color: '#eab308' }}>
+        {stat.value}
+      </div>
+      <div className="font-montserrat text-xs md:text-sm uppercase tracking-wide text-zinc-400">
+        {stat.label}
+      </div>
     </div>
   );
 };
