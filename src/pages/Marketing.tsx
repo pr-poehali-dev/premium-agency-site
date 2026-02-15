@@ -201,7 +201,7 @@ const Marketing = () => {
 
           <div className="mb-16">
             <SectionTitle color="#d66b2a">ПРОЦЕСС РАБОТЫ</SectionTitle>
-            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               От аудита до масштабирования — проверенная методология digital-маркетинга.
             </p>
           </div>
