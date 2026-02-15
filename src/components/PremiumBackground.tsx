@@ -27,19 +27,19 @@ const PremiumBackground = () => {
 
   const pageColors: { [key: string]: { primary: string; secondary: string } } = {
     '/': { primary: 'rgba(255,107,107,0.5)', secondary: 'rgba(238,90,82,0.3)' },
-    '/portfolio': { primary: 'rgba(78,205,196,0.5)', secondary: 'rgba(68,179,170,0.3)' },
-    '/design': { primary: 'rgba(149,225,211,0.5)', secondary: 'rgba(124,201,185,0.3)' },
-    '/development': { primary: 'rgba(255,230,109,0.5)', secondary: 'rgba(246,213,92,0.3)' },
-    '/marketing': { primary: 'rgba(255,140,66,0.5)', secondary: 'rgba(230,126,60,0.3)' },
-    '/ai': { primary: 'rgba(167,139,250,0.5)', secondary: 'rgba(150,118,232,0.3)' },
-    '/pricing': { primary: 'rgba(52,211,153,0.5)', secondary: 'rgba(42,184,122,0.3)' },
-    '/team': { primary: 'rgba(96,165,250,0.5)', secondary: 'rgba(79,143,232,0.3)' },
-    '/reviews': { primary: 'rgba(244,114,182,0.5)', secondary: 'rgba(226,95,160,0.3)' },
-    '/partners': { primary: 'rgba(129,140,248,0.5)', secondary: 'rgba(107,118,230,0.3)' },
-    '/contact': { primary: 'rgba(45,212,191,0.5)', secondary: 'rgba(38,186,170,0.3)' },
-    '/about': { primary: 'rgba(56,189,248,0.5)', secondary: 'rgba(46,167,230,0.3)' },
-    '/quiz': { primary: 'rgba(251,191,36,0.5)', secondary: 'rgba(233,174,30,0.3)' },
-    '/faqs': { primary: 'rgba(192,132,252,0.5)', secondary: 'rgba(169,111,232,0.3)' },
+    '/portfolio': { primary: 'rgba(78,205,196,0.8)', secondary: 'rgba(68,179,170,0.5)' },
+    '/design': { primary: 'rgba(149,225,211,0.8)', secondary: 'rgba(124,201,185,0.5)' },
+    '/development': { primary: 'rgba(234,179,8,0.8)', secondary: 'rgba(202,138,4,0.5)' },
+    '/marketing': { primary: 'rgba(255,140,66,0.8)', secondary: 'rgba(230,126,60,0.5)' },
+    '/ai': { primary: 'rgba(167,139,250,0.8)', secondary: 'rgba(150,118,232,0.5)' },
+    '/pricing': { primary: 'rgba(52,211,153,0.8)', secondary: 'rgba(42,184,122,0.5)' },
+    '/team': { primary: 'rgba(96,165,250,0.8)', secondary: 'rgba(79,143,232,0.5)' },
+    '/reviews': { primary: 'rgba(244,114,182,0.8)', secondary: 'rgba(226,95,160,0.5)' },
+    '/partners': { primary: 'rgba(129,140,248,0.8)', secondary: 'rgba(107,118,230,0.5)' },
+    '/contact': { primary: 'rgba(45,212,191,0.8)', secondary: 'rgba(38,186,170,0.5)' },
+    '/about': { primary: 'rgba(56,189,248,0.8)', secondary: 'rgba(46,167,230,0.5)' },
+    '/quiz': { primary: 'rgba(251,191,36,0.8)', secondary: 'rgba(233,174,30,0.5)' },
+    '/faqs': { primary: 'rgba(192,132,252,0.8)', secondary: 'rgba(169,111,232,0.5)' },
   };
 
   const currentColor = pageColors[location.pathname] || pageColors['/'];
@@ -294,7 +294,7 @@ const PremiumBackground = () => {
         <div 
           className="absolute inset-0 transition-all duration-700"
           style={{ 
-            background: `linear-gradient(135deg, ${currentColor.primary.replace('0.5', '0.15')} 0%, ${currentColor.secondary.replace('0.3', '0.08')} 100%)`
+            background: `linear-gradient(135deg, ${currentColor.primary.replace(/0\.\d+/, '0.4')} 0%, ${currentColor.secondary.replace(/0\.\d+/, '0.25')} 100%)`
           }}
         />
       )}
