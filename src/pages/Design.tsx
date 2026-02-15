@@ -11,6 +11,7 @@ interface DesignService {
   title: string;
   desc: string;
   number: string;
+  image: string;
 }
 
 const designServices: DesignService[] = [
@@ -19,36 +20,42 @@ const designServices: DesignService[] = [
     title: 'UI/UX ДИЗАЙН',
     desc: 'Проектируем интерфейсы, которые увеличивают конверсию и удерживают пользователей. Исследуем поведение, создаем прототипы, тестируем гипотезы.',
     number: '01',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/da2de26b-6ee8-4ae5-87e6-eece0f27f2b1.jpg',
   },
   {
     icon: 'Monitor',
     title: 'ВЕБ-ДИЗАЙН',
     desc: 'Создаем визуально привлекательные и функциональные веб-сайты. От лендингов до корпоративных порталов и интернет-магазинов.',
     number: '02',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/689ef99b-3d28-4fe3-b199-b09c5e3629e5.jpg',
   },
   {
     icon: 'Smartphone',
     title: 'МОБИЛЬНЫЙ ДИЗАЙН',
     desc: 'Нативный опыт для iOS и Android с фокусом на юзабилити. Human Interface Guidelines и Material Design в каждой детали.',
     number: '03',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/01d58f10-1386-4e0f-94f8-51aa96612428.jpg',
   },
   {
     icon: 'Sparkles',
     title: 'БРЕНДИНГ',
     desc: 'Формируем уникальный визуальный язык вашего бренда. От логотипа до полного гайдлайна — создаем узнаваемый образ.',
     number: '04',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/fb0889d4-ec0c-4162-bcee-cb9a8946dd4e.jpg',
   },
   {
     icon: 'Frame',
     title: 'ДИЗАЙН-СИСТЕМЫ',
     desc: 'Разрабатываем масштабируемые дизайн-системы для крупных продуктов. Компоненты, паттерны и гайдлайны для единого UX.',
     number: '05',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/da2de26b-6ee8-4ae5-87e6-eece0f27f2b1.jpg',
   },
   {
     icon: 'Zap',
     title: 'MOTION ДИЗАЙН',
     desc: 'Создаем анимации и микроинтеракции, которые оживляют интерфейсы. Плавные переходы, динамичные эффекты, премиальный опыт.',
     number: '06',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/689ef99b-3d28-4fe3-b199-b09c5e3629e5.jpg',
   },
 ];
 
@@ -65,29 +72,38 @@ const ServiceCard = ({ service }: { service: DesignService }) => {
   return (
     <div
       {...hoverProps}
-      className="hover-card group relative rounded-3xl p-8 md:hover:scale-[1.02] overflow-hidden"
+      className="hover-card group relative rounded-3xl overflow-hidden md:hover:scale-[1.02]"
       style={getHoverStyle({
         background: 'rgba(11,15,31,0.7)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="absolute top-6 right-8 font-zen text-7xl font-bold opacity-5 select-none">
-        {service.number}
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
+        
+        <div className="absolute top-6 left-6 font-zen text-6xl font-bold" style={{ color: 'rgba(45,157,143,0.6)' }}>
+          {service.number}
+        </div>
       </div>
       
-      <div className="relative z-10">
+      <div className="relative p-8">
         <div
-          className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:rotate-12"
-          style={{ background: 'rgba(45,157,143,0.1)' }}
+          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-500 group-hover:rotate-12"
+          style={{ background: 'rgba(45,157,143,0.15)' }}
         >
-          <Icon name={service.icon} size={32} style={{ color: '#2d9d8f' }} />
+          <Icon name={service.icon} size={28} style={{ color: '#2d9d8f' }} />
         </div>
 
-        <h3 className="font-montserrat font-semibold text-2xl uppercase mb-4 tracking-tight" style={{ color: '#2d9d8f' }}>
+        <h3 className="font-montserrat font-semibold text-xl uppercase mb-3 tracking-tight" style={{ color: '#2d9d8f' }}>
           {service.title}
         </h3>
 
-        <p className="font-montserrat text-zinc-300 text-base leading-relaxed">
+        <p className="font-montserrat text-zinc-300 text-sm leading-relaxed">
           {service.desc}
         </p>
       </div>
