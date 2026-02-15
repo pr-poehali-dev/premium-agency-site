@@ -4,8 +4,17 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageTitle, BodyText } from '@/components/Typography';
+import { useCardHover } from '@/hooks/useCardHover';
 
-const reviews = [
+interface Review {
+  name: string;
+  company: string;
+  position: string;
+  text: string;
+  rating: number;
+}
+
+const reviews: Review[] = [
   {
     name: 'Команда СБЕР',
     company: 'ПАО Сбербанк',
@@ -50,6 +59,42 @@ const reviews = [
   },
 ];
 
+const ReviewCard = ({ review }: { review: Review }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card rounded-2xl p-5 sm:p-6 md:p-8 md:hover:scale-[1.01]"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.7)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      })}
+    >
+      <div className="flex gap-1 mb-4">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Icon
+            key={i}
+            name="Star"
+            size={20}
+            style={{ color: i < review.rating ? '#eab308' : '#3f3f46', fill: i < review.rating ? '#eab308' : 'none' }}
+          />
+        ))}
+      </div>
+      <BodyText className="mb-6">
+        {review.text}
+      </BodyText>
+      <div className="border-t border-zinc-800 pt-4">
+        <div className="font-montserrat font-semibold text-base md:text-lg uppercase" style={{ color: '#eab308' }}>{review.name}</div>
+        {review.position && (
+          <div className="font-montserrat text-white text-xs md:text-sm mb-1">{review.position}</div>
+        )}
+        <div className="font-montserrat text-xs md:text-sm font-medium text-white">{review.company}</div>
+      </div>
+    </div>
+  );
+};
+
 const Reviews = () => {
   return (
     <AppLayout>
@@ -61,39 +106,12 @@ const Reviews = () => {
       <PageTransition>
         <PageContainer>
           <PageTitle>ОТЗЫВЫ КЛИЕНТОВ</PageTitle>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {reviews.map((review, index) => (
-                  <div
-                    key={index}
-                    className="rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:scale-[1.01]"
-                    style={{
-                      background: 'rgba(11,15,31,0.7)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                    }}
-                  >
-                    <div className="flex gap-1 mb-4">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Icon
-                          key={i}
-                          name="Star"
-                          size={20}
-                          style={{ color: i < review.rating ? '#eab308' : '#3f3f46', fill: i < review.rating ? '#eab308' : 'none' }}
-                        />
-                      ))}
-                    </div>
-                    <BodyText className="mb-6">
-                      {review.text}
-                    </BodyText>
-                    <div className="border-t border-zinc-800 pt-4">
-                      <div className="font-montserrat font-semibold text-base md:text-lg uppercase" style={{ color: '#eab308' }}>{review.name}</div>
-                      {review.position && (
-                        <div className="font-montserrat text-white text-xs md:text-sm mb-1">{review.position}</div>
-                      )}
-                      <div className="font-montserrat text-xs md:text-sm font-medium text-white">{review.company}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {reviews.map((review, index) => (
+              <ReviewCard key={index} review={review} />
+            ))}
+          </div>
         </PageContainer>
       </PageTransition>
     </AppLayout>

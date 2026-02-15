@@ -3,9 +3,16 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, SectionTitle, BodyText } from '@/components/Typography';
+import { PageTitle, BodyText } from '@/components/Typography';
+import { useCardHover } from '@/hooks/useCardHover';
 
-const advantages = [
+interface Advantage {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+const advantages: Advantage[] = [
   { 
     icon: 'Award', 
     title: 'Опыт и компетентность', 
@@ -27,6 +34,29 @@ const advantages = [
     desc: 'Сочетание доступных цен с высоким уровнем качества позволяет нашим клиентам эффективно использовать свой бюджет для достижения превосходных результатов.' 
   },
 ];
+
+const AdvantageCard = ({ advantage }: { advantage: Advantage }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card rounded-2xl p-6 md:hover:scale-[1.02]"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.7)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      })}
+    >
+      <div className="flex items-start gap-4 mb-3">
+        <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
+          <Icon name={advantage.icon} size={24} style={{ color: '#eab308' }} />
+        </div>
+        <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase text-white" style={{ color: '#eab308' }}>{advantage.title}</h3>
+      </div>
+      <p className="font-montserrat text-white text-sm md:text-base leading-relaxed">{advantage.desc}</p>
+    </div>
+  );
+};
 
 const About = () => {
   return (
@@ -66,26 +96,12 @@ const About = () => {
               </div>
             </div>
           </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {advantages.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]"
-                    style={{
-                      background: 'rgba(11,15,31,0.7)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                    }}
-                  >
-                    <div className="flex items-start gap-4 mb-3">
-                      <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
-                        <Icon name={item.icon} size={24} style={{ color: '#eab308' }} />
-                      </div>
-                      <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase text-white" style={{ color: '#eab308' }}>{item.title}</h3>
-                    </div>
-                    <p className="font-montserrat text-white text-sm md:text-base leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {advantages.map((item) => (
+              <AdvantageCard key={item.title} advantage={item} />
+            ))}
+          </div>
         </PageContainer>
       </PageTransition>
     </AppLayout>

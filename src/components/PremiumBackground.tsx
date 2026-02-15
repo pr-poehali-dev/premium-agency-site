@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { getPageColor } from '@/utils/pageColors';
 
 interface Node {
   x: number;
@@ -25,24 +26,7 @@ const PremiumBackground = () => {
   const staticRef = useRef<HTMLCanvasElement>(null);
   const location = useLocation();
 
-  const pageColors: { [key: string]: { primary: string; secondary: string } } = {
-    '/': { primary: 'rgba(255,107,107,0.5)', secondary: 'rgba(238,90,82,0.3)' },
-    '/portfolio': { primary: 'rgba(78,205,196,0.8)', secondary: 'rgba(68,179,170,0.5)' },
-    '/design': { primary: 'rgba(149,225,211,0.8)', secondary: 'rgba(124,201,185,0.5)' },
-    '/development': { primary: 'rgba(234,179,8,0.8)', secondary: 'rgba(202,138,4,0.5)' },
-    '/marketing': { primary: 'rgba(255,140,66,0.8)', secondary: 'rgba(230,126,60,0.5)' },
-    '/ai': { primary: 'rgba(167,139,250,0.8)', secondary: 'rgba(150,118,232,0.5)' },
-    '/pricing': { primary: 'rgba(52,211,153,0.8)', secondary: 'rgba(42,184,122,0.5)' },
-    '/team': { primary: 'rgba(96,165,250,0.8)', secondary: 'rgba(79,143,232,0.5)' },
-    '/reviews': { primary: 'rgba(244,114,182,0.8)', secondary: 'rgba(226,95,160,0.5)' },
-    '/partners': { primary: 'rgba(129,140,248,0.8)', secondary: 'rgba(107,118,230,0.5)' },
-    '/contact': { primary: 'rgba(45,212,191,0.8)', secondary: 'rgba(38,186,170,0.5)' },
-    '/about': { primary: 'rgba(56,189,248,0.8)', secondary: 'rgba(46,167,230,0.5)' },
-    '/quiz': { primary: 'rgba(251,191,36,0.8)', secondary: 'rgba(233,174,30,0.5)' },
-    '/faqs': { primary: 'rgba(192,132,252,0.8)', secondary: 'rgba(169,111,232,0.5)' },
-  };
-
-  const currentColor = pageColors[location.pathname] || pageColors['/'];
+  const currentColor = getPageColor(location.pathname);
 
   useEffect(() => {
     const isMobile = window.innerWidth <= 768;

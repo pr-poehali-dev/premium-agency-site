@@ -4,8 +4,21 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageTitle, SectionTitle } from '@/components/Typography';
+import { useCardHover } from '@/hooks/useCardHover';
 
-const ourProducts = [
+interface Product {
+  title: string;
+  desc: string;
+  icon: string;
+}
+
+interface Feature {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+const ourProducts: Product[] = [
   {
     title: 'Vision AI',
     desc: 'Система на архитектуре Faster R-CNN предоставляется как мощное решение для анализа видеопотока и классификации данных. Эта технология обеспечивает эффективное обнаружение объектов в реальном времени.',
@@ -23,7 +36,7 @@ const ourProducts = [
   },
 ];
 
-const brandChefFeatures = [
+const brandChefFeatures: Feature[] = [
   {
     icon: 'Clock',
     title: 'Управление временем приготовления',
@@ -76,6 +89,58 @@ const brandChefFeatures = [
   },
 ];
 
+const ProductCard = ({ product }: { product: Product }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card rounded-2xl p-6 md:hover:scale-[1.02]"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.7)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      })}
+    >
+      <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(234,179,8,0.1)' }}>
+        <Icon name={product.icon} size={28} style={{ color: '#eab308' }} />
+      </div>
+      <h3 className="font-montserrat font-light text-xl uppercase mb-3" style={{ color: '#eab308' }}>
+        {product.title}
+      </h3>
+      <p className="font-montserrat text-white text-sm leading-relaxed">
+        {product.desc}
+      </p>
+    </div>
+  );
+};
+
+const FeatureCard = ({ feature }: { feature: Feature }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card rounded-2xl p-5 md:hover:scale-[1.02]"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.7)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      })}
+    >
+      <div className="flex items-start gap-4 mb-2">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
+          <Icon name={feature.icon} size={20} style={{ color: '#eab308' }} />
+        </div>
+        <h4 className="font-montserrat font-light text-base uppercase" style={{ color: '#eab308' }}>
+          {feature.title}
+        </h4>
+      </div>
+      <p className="font-montserrat text-sm text-white leading-relaxed ml-14">
+        {feature.desc}
+      </p>
+    </div>
+  );
+};
+
 const AI = () => {
   return (
     <AppLayout>
@@ -102,24 +167,7 @@ const AI = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {ourProducts.map((product) => (
-              <div
-                key={product.title}
-                className="rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]"
-                style={{
-                  background: 'rgba(11,15,31,0.7)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                }}
-              >
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(234,179,8,0.1)' }}>
-                  <Icon name={product.icon} size={28} style={{ color: '#eab308' }} />
-                </div>
-                <h3 className="font-montserrat font-light text-xl uppercase mb-3" style={{ color: '#eab308' }}>
-                  {product.title}
-                </h3>
-                <p className="font-montserrat text-white text-sm leading-relaxed">
-                  {product.desc}
-                </p>
-              </div>
+              <ProductCard key={product.title} product={product} />
             ))}
           </div>
 
@@ -127,26 +175,7 @@ const AI = () => {
             <SectionTitle>BRAND CHEF AI — ПРИМЕНЕНИЕ</SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {brandChefFeatures.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02]"
-                  style={{
-                    background: 'rgba(11,15,31,0.7)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                  }}
-                >
-                  <div className="flex items-start gap-4 mb-2">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
-                      <Icon name={feature.icon} size={20} style={{ color: '#eab308' }} />
-                    </div>
-                    <h4 className="font-montserrat font-light text-base uppercase" style={{ color: '#eab308' }}>
-                      {feature.title}
-                    </h4>
-                  </div>
-                  <p className="font-montserrat text-sm text-white leading-relaxed ml-14">
-                    {feature.desc}
-                  </p>
-                </div>
+                <FeatureCard key={feature.title} feature={feature} />
               ))}
             </div>
           </div>

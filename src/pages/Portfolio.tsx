@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
@@ -5,6 +6,7 @@ import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageTitle } from '@/components/Typography';
 import Button from '@/components/Button';
+import { useCardHover } from '@/hooks/useCardHover';
 
 const categoryColors: { [key: string]: { color: string; bgColor: string } } = {
   'Дизайн': { color: '#2d9d8f', bgColor: 'linear-gradient(135deg, #2d9d8f 0%, #258576 100%)' },
@@ -12,7 +14,18 @@ const categoryColors: { [key: string]: { color: string; bgColor: string } } = {
   'Маркетинг': { color: '#d66b2a', bgColor: 'linear-gradient(135deg, #d66b2a 0%, #bf5f24 100%)' },
 };
 
-const allCases = [
+interface Project {
+  title: string;
+  desc: string;
+  tech: string[];
+  cost: string;
+  duration: string;
+  image: string;
+  link: string;
+  category: string;
+}
+
+const allCases: Project[] = [
   {
     title: 'Онлайн-магазин автомобилей',
     desc: 'Создали дизайн онлайн-магазина для крупнейшего автодилера Республики Беларусь',
@@ -115,7 +128,108 @@ const allCases = [
   },
 ];
 
+const ProjectCard = ({ project }: { project: Project }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+  const categoryStyle = categoryColors[project.category];
+
+  return (
+    <div
+      {...hoverProps}
+      className="group hover-card relative rounded-2xl overflow-hidden md:hover:scale-[1.03] md:hover:-translate-y-2 flex flex-col h-full"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.85)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+        backdropFilter: 'blur(10px)',
+        willChange: 'transform',
+      })}
+    >
+      <div className="absolute top-4 right-4 z-10">
+        <div
+          className="px-3 py-1.5 rounded-lg font-montserrat text-xs font-medium uppercase tracking-wide flex items-center gap-2"
+          style={{
+            background: categoryStyle.bgColor,
+            color: '#ffffff',
+            boxShadow: `0 4px 12px ${categoryStyle.color}40`,
+          }}
+        >
+          {project.category}
+        </div>
+      </div>
+
+      <div className="relative aspect-[16/10] overflow-hidden bg-black/30">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      </div>
+
+      <div className="p-6 space-y-4 flex flex-col flex-1">
+        <h3 className="font-montserrat font-medium text-xl text-white leading-tight">
+          {project.title}
+        </h3>
+        
+        <p className="text-sm text-zinc-400 leading-relaxed">
+          {project.desc}
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {project.tech.map((tech, i) => (
+            <span
+              key={i}
+              className="px-3 py-1 rounded-lg text-xs font-montserrat"
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                color: 'rgba(255,255,255,0.7)',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 pt-2 mt-auto">
+          <div>
+            <div className="text-xs text-zinc-500 font-montserrat mb-1">Стоимость</div>
+            <div className="font-montserrat font-semibold text-sm text-white">{project.cost}</div>
+          </div>
+          <div>
+            <div className="text-xs text-zinc-500 font-montserrat mb-1">Срок</div>
+            <div className="font-montserrat font-semibold text-sm text-white">{project.duration}</div>
+          </div>
+        </div>
+
+        {project.link !== '#' && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-montserrat text-sm font-medium transition-all duration-300 hover:opacity-80 mt-2"
+            style={{
+              background: categoryStyle.bgColor,
+              color: '#ffffff',
+            }}
+          >
+            Открыть проект
+            <Icon name="ExternalLink" size={16} />
+          </a>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const Portfolio = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('Все');
+  
+  const categories = ['Все', ...Object.keys(categoryColors)];
+  const filteredCases = selectedCategory === 'Все' 
+    ? allCases 
+    : allCases.filter(c => c.category === selectedCategory);
+
   const handleOrderProject = () => {
     window.open('https://t.me/albe_web', '_blank');
   };
@@ -142,123 +256,36 @@ const Portfolio = () => {
         <PageContainer>
           <PageTitle>ПОРТФОЛИО</PageTitle>
           
+          <div className="flex flex-wrap gap-3 justify-center mb-8">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className="px-4 py-2 rounded-xl font-montserrat text-sm font-medium transition-all duration-300"
+                style={{
+                  background: selectedCategory === cat ? 'rgba(234,179,8,0.15)' : 'rgba(11,15,31,0.7)',
+                  border: selectedCategory === cat ? '1px solid rgba(234,179,8,0.3)' : '1px solid rgba(255,255,255,0.08)',
+                  color: selectedCategory === cat ? '#eab308' : '#fff',
+                }}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {allCases.map((project, index) => {
-              const categoryStyle = categoryColors[project.category];
-              
-              return (
-                <div
-                  key={index}
-                  className="group relative rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:-translate-y-2 flex flex-col h-full"
-                  style={{
-                    background: 'rgba(11,15,31,0.85)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-                    backdropFilter: 'blur(10px)',
-                    willChange: 'transform'
-                  }}
-                >
-                  <div className="absolute top-4 right-4 z-10">
-                    <div
-                      className="px-3 py-1.5 rounded-lg font-montserrat text-xs font-medium uppercase tracking-wide flex items-center gap-2"
-                      style={{
-                        background: categoryStyle.bgColor,
-                        color: '#ffffff',
-                        boxShadow: `0 4px 12px ${categoryStyle.color}40`,
-                      }}
-                    >
-                      {project.category}
-                    </div>
-                  </div>
+            {filteredCases.map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </div>
 
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black/30">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  </div>
-
-                  <div className="p-6 space-y-4 flex flex-col flex-1">
-                    <h3 className="font-montserrat font-medium text-xl text-white leading-tight">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-sm text-zinc-400 leading-relaxed">
-                      {project.desc}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 rounded-lg text-xs font-montserrat"
-                          style={{
-                            background: 'rgba(255,255,255,0.05)',
-                            color: categoryStyle.color,
-                            border: `1px solid ${categoryStyle.color}30`,
-                          }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center justify-between pt-4 border-t border-white/10 mt-auto">
-                      <div className="space-y-1">
-                        <div className="text-xs text-zinc-500 uppercase tracking-wide">Стоимость</div>
-                        <div className="font-montserrat font-medium text-white">{project.cost}</div>
-                      </div>
-                      <div className="space-y-1 text-right">
-                        <div className="text-xs text-zinc-500 uppercase tracking-wide">Срок</div>
-                        <div className="font-montserrat font-medium text-white">{project.duration}</div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col gap-3">
-                      {project.link !== '#' && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block w-full py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
-                          style={{
-                            background: categoryStyle.bgColor,
-                            color: '#ffffff',
-                            boxShadow: `0 4px 12px ${categoryStyle.color}30`,
-                          }}
-                        >
-                          Посмотреть проект
-                        </a>
-                      )}
-                      <button
-                        onClick={handleQuiz}
-                        className="w-full py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
-                        style={{
-                          background: categoryStyle.bgColor,
-                          color: '#ffffff',
-                          boxShadow: `0 4px 12px ${categoryStyle.color}30`,
-                        }}
-                      >
-                        Пройти квиз
-                      </button>
-                      <button
-                        onClick={handleOrderProject}
-                        className="w-full py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
-                        style={{
-                          background: 'transparent',
-                          border: `2px solid ${categoryStyle.color}`,
-                          color: categoryStyle.color,
-                        }}
-                      >
-                        Заказать проект
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            <Button onClick={handleQuiz} variant="primary">
+              Пройти квиз
+            </Button>
+            <Button onClick={handleOrderProject} variant="outline">
+              Заказать проект
+            </Button>
           </div>
         </PageContainer>
       </PageTransition>

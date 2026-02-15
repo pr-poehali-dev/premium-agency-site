@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
-import { useState } from 'react';
+import { useCardHover } from '@/hooks/useCardHover';
 
-const questions = [
+interface Question {
+  q: string;
+  options: string[];
+}
+
+const questions: Question[] = [
   {
     q: 'Что вам нужно?',
     options: ['Сайт / Лендинг', 'Мобильное приложение', 'CRM / ERP система', 'AI-решение', 'Дизайн / Брендинг'],
@@ -18,6 +24,24 @@ const questions = [
     options: ['Срочно (до 2 недель)', '1-2 месяца', '3-6 месяцев', 'Не спешим', 'Нужна оценка сроков'],
   },
 ];
+
+const QuizOption = ({ option, onClick }: { option: string; onClick: () => void }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <button
+      {...hoverProps}
+      onClick={onClick}
+      className="hover-card rounded-2xl p-4 md:p-5 text-left md:hover:scale-[1.03] active:scale-95"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.7)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      })}
+    >
+      <span className="font-montserrat text-base text-white">{option}</span>
+    </button>
+  );
+};
 
 const Quiz = () => {
   const [step, setStep] = useState(0);
@@ -70,17 +94,7 @@ const Quiz = () => {
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
                     {questions[step].options.map((option) => (
-                      <button
-                        key={option}
-                        onClick={() => handleSelect(option)}
-                        className="rounded-2xl p-4 md:p-5 text-left transition-all duration-300 hover:scale-[1.03] active:scale-95"
-                        style={{
-                          background: 'rgba(11,15,31,0.7)',
-                          border: '1px solid rgba(255,255,255,0.08)',
-                        }}
-                      >
-                        <span className="font-montserrat text-base text-white">{option}</span>
-                      </button>
+                      <QuizOption key={option} option={option} onClick={() => handleSelect(option)} />
                     ))}
                   </div>
                 </>

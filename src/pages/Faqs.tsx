@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
-import { useState } from 'react';
+import { useCardHover } from '@/hooks/useCardHover';
 
-const faqItems = [
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+const faqItems: FaqItem[] = [
   {
     q: 'Сколько времени занимает разработка проекта?',
     a: 'Сроки зависят от сложности: лендинг — от 2 недель, корпоративный сайт — от 1 месяца, сложные платформы — от 3 месяцев. Точные сроки обсуждаем после анализа ТЗ.',
@@ -49,6 +55,48 @@ const faqSchema = {
   })),
 };
 
+const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; index: number; openIndex: number | null; setOpenIndex: (index: number | null) => void }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+  const isOpen = openIndex === index;
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card rounded-2xl overflow-hidden"
+      style={getHoverStyle({
+        background: isOpen ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.7)',
+        border: `1px solid ${isOpen ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
+      })}
+    >
+      <button
+        className="w-full flex items-center justify-between gap-4 p-5"
+        onClick={() => setOpenIndex(isOpen ? null : index)}
+      >
+        <span className="font-montserrat font-medium text-base text-white text-left">
+          {item.q}
+        </span>
+        <Icon
+          name="ChevronDown"
+          size={20}
+          style={{ color: '#eab308', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
+        />
+      </button>
+      <div
+        style={{
+          maxHeight: isOpen ? '200px' : '0',
+          opacity: isOpen ? 1 : 0,
+          transition: 'max-height 0.3s ease, opacity 0.2s ease',
+          overflow: 'hidden',
+        }}
+      >
+        <p className="font-montserrat text-white text-base px-5 pb-5 leading-relaxed">
+          {item.a}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const Faqs = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -76,40 +124,13 @@ const Faqs = () => {
               </h2>
               <div className="space-y-3 max-w-4xl mx-auto">
                 {faqItems.map((item, i) => (
-                  <div
-                    key={i}
-                    className="rounded-2xl overflow-hidden transition-all duration-300"
-                    style={{
-                      background: openIndex === i ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.7)',
-                      border: `1px solid ${openIndex === i ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
-                    }}
-                  >
-                    <button
-                      className="w-full flex items-center justify-between gap-4 p-5"
-                      onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                    >
-                      <span className="font-montserrat font-medium text-base text-white text-left">
-                        {item.q}
-                      </span>
-                      <Icon
-                        name="ChevronDown"
-                        size={20}
-                        style={{ color: '#eab308', transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s ease' }}
-                      />
-                    </button>
-                    <div
-                      style={{
-                        maxHeight: openIndex === i ? '200px' : '0',
-                        opacity: openIndex === i ? 1 : 0,
-                        transition: 'max-height 0.3s ease, opacity 0.2s ease',
-                        overflow: 'hidden',
-                      }}
-                    >
-                      <p className="font-montserrat text-white text-base px-5 pb-5 leading-relaxed">
-                        {item.a}
-                      </p>
-                    </div>
-                  </div>
+                  <FaqItemCard 
+                    key={i} 
+                    item={item} 
+                    index={i} 
+                    openIndex={openIndex} 
+                    setOpenIndex={setOpenIndex} 
+                  />
                 ))}
               </div>
             </div>

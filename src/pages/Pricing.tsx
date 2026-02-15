@@ -3,9 +3,26 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, SectionTitle, BodyText } from '@/components/Typography';
+import { PageTitle, SectionTitle } from '@/components/Typography';
+import { useCardHover } from '@/hooks/useCardHover';
 
-const plans = [
+interface Plan {
+  title: string;
+  price: string;
+  desc: string;
+  icon: string;
+  color: string;
+  popular?: boolean;
+  items: string[];
+}
+
+interface ServiceItem {
+  title: string;
+  price: string;
+  icon: string;
+}
+
+const plans: Plan[] = [
   {
     title: 'СТАРТ',
     price: 'от 150 000 ₽',
@@ -33,7 +50,7 @@ const plans = [
   },
 ];
 
-const services = [
+const services: ServiceItem[] = [
   { title: 'Лендинг', price: 'от 10 000 за блок', icon: 'FileText' },
   { title: 'Чат-бот', price: 'от 100 000', icon: 'Bot' },
   { title: 'Корпоративный сайт', price: 'от 200 000', icon: 'Building2' },
@@ -45,7 +62,7 @@ const services = [
   { title: 'Разработка ИИ решений', price: 'от 1 000 000', icon: 'Brain' },
 ];
 
-const support = [
+const support: ServiceItem[] = [
   { title: 'Консультация', price: 'бесплатно', icon: 'MessageCircle' },
   { title: 'Составление технического задания', price: 'бесплатно', icon: 'ClipboardCheck' },
   { title: 'Дизайн UI/UX', price: 'от 20 000', icon: 'Palette' },
@@ -53,6 +70,73 @@ const support = [
   { title: 'Доработка проекта', price: 'по согласованию', icon: 'Wrench' },
   { title: 'Техническая поддержка', price: 'по согласованию', icon: 'Headphones' },
 ];
+
+const PlanCard = ({ plan }: { plan: Plan }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card relative rounded-2xl p-3 sm:p-5 md:p-6 md:hover:scale-[1.02]"
+      style={getHoverStyle({
+        background: plan.popular ? 'rgba(234,179,8,0.06)' : 'rgba(11,15,31,0.7)',
+        border: `1px solid ${plan.popular ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
+      })}
+    >
+      {plan.popular && (
+        <div
+          className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-sm font-bold"
+          style={{ background: '#eab308', color: '#000' }}
+        >
+          ПОПУЛЯРНЫЙ
+        </div>
+      )}
+      <div className="flex items-center gap-3 mb-4">
+        <div className="p-2.5 rounded-xl" style={{ background: 'rgba(234,179,8,0.15)' }}>
+          <Icon name={plan.icon} size={24} style={{ color: '#eab308' }} />
+        </div>
+        <div>
+          <h3 className="font-montserrat font-semibold text-base md:text-lg uppercase" style={{ color: '#eab308' }}>
+            {plan.title}
+          </h3>
+          <p className="font-montserrat text-white text-xs md:text-sm">{plan.desc}</p>
+        </div>
+      </div>
+      <div className="font-montserrat font-bold text-xl md:text-2xl text-white mb-4">{plan.price}</div>
+      <ul className="space-y-2">
+        {plan.items.map((item) => (
+          <li key={item} className="font-montserrat text-white text-sm md:text-base flex items-center gap-2">
+            <Icon name="Check" size={16} style={{ color: '#eab308' }} />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+const ServiceItemCard = ({ item }: { item: ServiceItem }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card rounded-xl p-4 md:hover:scale-[1.02]"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.7)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      })}
+    >
+      <div className="flex items-center gap-3 mb-2">
+        <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
+          <Icon name={item.icon} size={20} style={{ color: '#eab308' }} />
+        </div>
+        <h4 className="font-montserrat font-medium text-sm md:text-base uppercase" style={{ color: '#eab308' }}>{item.title}</h4>
+      </div>
+      <p className="font-montserrat text-sm md:text-base text-white ml-11">{item.price}</p>
+    </div>
+  );
+};
 
 const Pricing = () => {
   return (
@@ -66,91 +150,26 @@ const Pricing = () => {
       <PageTransition>
         <PageContainer>
           <PageTitle>СТОИМОСТЬ УСЛУГ</PageTitle>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
-                {plans.map((plan) => (
-                  <div
-                    key={plan.title}
-                    className="relative rounded-2xl p-3 sm:p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
-                    style={{
-                      background: plan.popular ? 'rgba(234,179,8,0.06)' : 'rgba(11,15,31,0.7)',
-                      border: `1px solid ${plan.popular ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
-                    }}
-                  >
-                    {plan.popular && (
-                      <div
-                        className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-sm font-bold"
-                        style={{ background: '#eab308', color: '#000' }}
-                      >
-                        ПОПУЛЯРНЫЙ
-                      </div>
-                    )}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2.5 rounded-xl" style={{ background: 'rgba(234,179,8,0.15)' }}>
-                        <Icon name={plan.icon} size={24} style={{ color: '#eab308' }} />
-                      </div>
-                      <div>
-                        <h3 className="font-montserrat font-semibold text-base md:text-lg uppercase" style={{ color: '#eab308' }}>
-                          {plan.title}
-                        </h3>
-                        <p className="font-montserrat text-white text-xs md:text-sm">{plan.desc}</p>
-                      </div>
-                    </div>
-                    <div className="font-montserrat font-bold text-xl md:text-2xl text-white mb-4">{plan.price}</div>
-                    <ul className="space-y-2">
-                      {plan.items.map((item) => (
-                        <li key={item} className="font-montserrat text-white text-sm md:text-base flex items-center gap-2">
-                          <Icon name="Check" size={16} style={{ color: '#eab308' }} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
+            {plans.map((plan) => (
+              <PlanCard key={plan.title} plan={plan} />
+            ))}
+          </div>
 
-              <SectionTitle>РАЗРАБОТКА</SectionTitle>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
-                {services.map((service) => (
-                  <div
-                    key={service.title}
-                    className="rounded-xl p-4 transition-all duration-300 hover:scale-[1.02]"
-                    style={{
-                      background: 'rgba(11,15,31,0.7)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                    }}
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
-                        <Icon name={service.icon} size={20} style={{ color: '#eab308' }} />
-                      </div>
-                      <h4 className="font-montserrat font-medium text-sm md:text-base uppercase" style={{ color: '#eab308' }}>{service.title}</h4>
-                    </div>
-                    <p className="font-montserrat text-sm md:text-base text-white ml-11">{service.price}</p>
-                  </div>
-                ))}
-              </div>
+          <SectionTitle>РАЗРАБОТКА</SectionTitle>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
+            {services.map((service) => (
+              <ServiceItemCard key={service.title} item={service} />
+            ))}
+          </div>
 
-              <SectionTitle>ПОДДЕРЖКА И АНАЛИТИКА</SectionTitle>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {support.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-xl p-4 transition-all duration-300 hover:scale-[1.02]"
-                    style={{
-                      background: 'rgba(11,15,31,0.7)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                    }}
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
-                        <Icon name={item.icon} size={20} style={{ color: '#eab308' }} />
-                      </div>
-                      <h4 className="font-montserrat font-medium text-sm md:text-base uppercase" style={{ color: '#eab308' }}>{item.title}</h4>
-                    </div>
-                    <p className="font-montserrat text-sm md:text-base text-white ml-11">{item.price}</p>
-                  </div>
-                ))}
-              </div>
+          <SectionTitle>ПОДДЕРЖКА И АНАЛИТИКА</SectionTitle>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {support.map((item) => (
+              <ServiceItemCard key={item.title} item={item} />
+            ))}
+          </div>
         </PageContainer>
       </PageTransition>
     </AppLayout>

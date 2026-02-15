@@ -3,8 +3,15 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
 import { PageTitle } from '@/components/Typography';
+import { useCardHover } from '@/hooks/useCardHover';
 
-const clients = [
+interface Client {
+  name: string;
+  logo: string;
+  isDark: boolean;
+}
+
+const clients: Client[] = [
   { name: 'Аэрофлот', logo: 'https://cdn.poehali.dev/files/4f9c0d7b-d804-401a-acd5-f20a8d8f7b9a.png', isDark: false },
   { name: 'Лукойл', logo: 'https://cdn.poehali.dev/files/a798ad1d-5279-44eb-b261-feb7c0117cdd.png', isDark: false },
   { name: 'Деловой Петербург', logo: 'https://cdn.poehali.dev/files/4fb78e8d-d718-480b-8e17-a4ae28dcfd81.png', isDark: false },
@@ -17,6 +24,31 @@ const clients = [
   { name: 'Т-Банк', logo: 'https://cdn.poehali.dev/files/32051a84-d001-46a0-808c-9f68469f9dfa.png', isDark: false },
   { name: 'Зенит', logo: 'https://cdn.poehali.dev/files/7c2572ab-04d4-4802-9e60-20738749315f.png', isDark: false },
 ];
+
+const ClientCard = ({ client }: { client: Client }) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
+  return (
+    <div
+      {...hoverProps}
+      className="hover-card rounded-2xl p-6 flex items-center justify-center md:hover:scale-[1.03]"
+      style={getHoverStyle({
+        background: 'rgba(11,15,31,0.7)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        minHeight: '140px',
+      })}
+    >
+      <img
+        src={client.logo}
+        alt={client.name}
+        className="max-w-full max-h-20 object-contain"
+        style={{
+          filter: client.isDark ? 'brightness(0) invert(1)' : 'none',
+        }}
+      />
+    </div>
+  );
+};
 
 const Partners = () => {
   return (
@@ -32,24 +64,7 @@ const Partners = () => {
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
             {clients.map((client) => (
-              <div
-                key={client.name}
-                className="rounded-2xl p-6 flex items-center justify-center transition-all duration-300 hover:scale-[1.03]"
-                style={{
-                  background: 'rgba(11,15,31,0.7)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  minHeight: '140px',
-                }}
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-w-full max-h-20 object-contain"
-                  style={{
-                    filter: client.isDark ? 'brightness(0) invert(1)' : 'none',
-                  }}
-                />
-              </div>
+              <ClientCard key={client.name} client={client} />
             ))}
           </div>
         </PageContainer>

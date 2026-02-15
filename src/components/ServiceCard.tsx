@@ -1,6 +1,7 @@
 import Icon from '@/components/ui/icon';
 import { CardTitle, BodyText } from '@/components/Typography';
-import { ReactNode } from 'react';
+import { useCardHover } from '@/hooks/useCardHover';
+import type { ReactNode } from 'react';
 
 interface ServiceCardProps {
   icon: string;
@@ -11,13 +12,16 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ icon, title, description, items, children }: ServiceCardProps) => {
+  const { hoverProps, getHoverStyle } = useCardHover();
+
   return (
     <div
-      className="group rounded-2xl p-4 md:p-6 transition-all duration-300 hover:scale-[1.02]"
-      style={{
+      {...hoverProps}
+      className="group hover-card rounded-2xl p-4 md:p-6 md:hover:scale-[1.02]"
+      style={getHoverStyle({
         background: 'rgba(11,15,31,0.7)',
         border: '1px solid rgba(255,255,255,0.08)',
-      }}
+      })}
     >
       <div className="flex items-center gap-3 mb-3">
         <div className="p-2.5 md:p-3 rounded-xl" style={{ background: 'rgba(234,179,8,0.1)' }}>

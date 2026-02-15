@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="min-h-[calc(100vh-120px)] flex flex-col items-center justify-center relative gap-8 md:gap-12">
+    <div className="h-screen md:min-h-[calc(100vh-120px)] flex flex-col items-center justify-center relative gap-8 md:gap-12 overflow-hidden md:overflow-visible">
       <div className="flex flex-col items-center justify-center w-full px-4">
         <h1
           className="font-zen tracking-normal text-white leading-none"
