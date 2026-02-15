@@ -149,7 +149,7 @@ const Portfolio = () => {
               return (
                 <div
                   key={index}
-                  className="group relative rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:-translate-y-2"
+                  className="group relative rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:-translate-y-2 flex flex-col h-full"
                   style={{
                     background: 'rgba(11,15,31,0.85)',
                     border: '1px solid rgba(255,255,255,0.08)',
@@ -180,7 +180,7 @@ const Portfolio = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   </div>
 
-                  <div className="p-6 space-y-4">
+                  <div className="p-6 space-y-4 flex flex-col flex-1">
                     <h3 className="font-montserrat font-medium text-xl text-white leading-tight">
                       {project.title}
                     </h3>
@@ -205,7 +205,7 @@ const Portfolio = () => {
                       ))}
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                    <div className="flex items-center justify-between pt-4 border-t border-white/10 mt-auto">
                       <div className="space-y-1">
                         <div className="text-xs text-zinc-500 uppercase tracking-wide">Стоимость</div>
                         <div className="font-montserrat font-medium text-white">{project.cost}</div>
