@@ -188,7 +188,7 @@ const AI = () => {
       <PageTransition>
         <PageContainer>
           <div className="mb-16">
-            <PageTitle>ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</PageTitle>
+            <PageTitle color="#eab308">ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Внедряем AI-технологии в реальный бизнес. Машинное обучение, компьютерное зрение, NLP — автоматизируем то, что раньше казалось невозможным.
             </p>
@@ -201,7 +201,7 @@ const AI = () => {
           </div>
 
           <div className="mb-16">
-            <SectionTitle>ВОЗМОЖНОСТИ AI В БИЗНЕСЕ</SectionTitle>
+            <SectionTitle color="#eab308">ВОЗМОЖНОСТИ AI В БИЗНЕСЕ</SectionTitle>
             <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
               Примеры применения искусственного интеллекта — от контроля качества до предиктивной аналитики.
             </p>
