@@ -2,7 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle } from '@/components/Typography';
+import { PageTitle, SectionTitle } from '@/components/Typography';
 import Icon from '@/components/ui/icon';
 import { useCardHover } from '@/hooks/useCardHover';
 
@@ -112,7 +112,7 @@ const ServiceCard = ({ service }: { service: DesignService }) => {
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative w-full aspect-square overflow-hidden">
         <img
           src={service.image}
           alt={service.title}
@@ -120,7 +120,7 @@ const ServiceCard = ({ service }: { service: DesignService }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
         
-        <div className="absolute top-6 left-6 font-zen text-6xl font-bold" style={{ color: 'rgba(45,157,143,0.6)' }}>
+        <div className="absolute top-6 left-6 font-montserrat text-6xl font-bold opacity-20">
           {service.number}
         </div>
       </div>
@@ -166,7 +166,7 @@ const ProcessCard = ({ step }: { step: ProcessStep }) => {
         </div>
         
         <div className="flex-1">
-          <div className="font-zen text-4xl font-bold mb-2 opacity-30" style={{ color: '#2d9d8f' }}>
+          <div className="font-montserrat text-4xl font-bold mb-2 opacity-20">
             {step.step}
           </div>
           <h3 className="font-montserrat font-semibold text-2xl uppercase tracking-tight" style={{ color: '#2d9d8f' }}>
@@ -218,10 +218,8 @@ const Design = () => {
           </div>
 
           <div className="mb-16">
-            <h2 className="font-zen text-4xl md:text-5xl font-bold uppercase mb-4" style={{ color: '#2d9d8f' }}>
-              ПРОЦЕСС РАБОТЫ
-            </h2>
-            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed">
+            <SectionTitle>ПРОЦЕСС РАБОТЫ</SectionTitle>
+            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
               Следуем проверенной методологии — от исследования до финального продукта. Каждый этап нацелен на результат.
             </p>
           </div>
@@ -242,7 +240,7 @@ const Design = () => {
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <div className="font-zen text-4xl md:text-5xl font-bold mb-2" style={{ color: '#2d9d8f' }}>
+                <div className="font-montserrat text-4xl md:text-5xl font-bold mb-2" style={{ color: '#2d9d8f' }}>
                   {stat.value}
                 </div>
                 <div className="font-montserrat text-xs uppercase tracking-widest text-zinc-500">
