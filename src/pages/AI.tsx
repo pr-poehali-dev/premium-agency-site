@@ -121,12 +121,12 @@ const ProductCard = ({ product }: { product: Product }) => {
       <div className="relative p-5">
         <div
           className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-12"
-          style={{ background: 'rgba(234,179,8,0.15)' }}
+          style={{ background: 'rgba(167,139,250,0.15)' }}
         >
-          <Icon name={product.icon} size={24} style={{ color: '#eab308' }} />
+          <Icon name={product.icon} size={24} style={{ color: '#A78BFA' }} />
         </div>
 
-        <h3 className="font-montserrat font-light text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#eab308' }}>
+        <h3 className="font-montserrat font-light text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#A78BFA' }}>
           {product.title}
         </h3>
 
@@ -151,10 +151,10 @@ const FeatureCard = ({ feature }: { feature: Feature }) => {
       })}
     >
       <div className="flex flex-col items-start gap-4 mb-3">
-        <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.15)' }}>
-          <Icon name={feature.icon} size={24} style={{ color: '#eab308' }} />
+        <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(167,139,250,0.15)' }}>
+          <Icon name={feature.icon} size={24} style={{ color: '#A78BFA' }} />
         </div>
-        <h4 className="font-montserrat font-light text-base md:text-lg uppercase" style={{ color: '#eab308' }}>
+        <h4 className="font-montserrat font-light text-base md:text-lg uppercase" style={{ color: '#A78BFA' }}>
           {feature.title}
         </h4>
       </div>
@@ -188,7 +188,7 @@ const AI = () => {
       <PageTransition>
         <PageContainer>
           <div className="mb-16">
-            <PageTitle color="#eab308">ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</PageTitle>
+            <PageTitle color="#A78BFA">ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Внедряем AI-технологии в реальный бизнес. Машинное обучение, компьютерное зрение, NLP — автоматизируем то, что раньше казалось невозможным.
             </p>
@@ -201,7 +201,7 @@ const AI = () => {
           </div>
 
           <div className="mb-16">
-            <SectionTitle color="#eab308">ВОЗМОЖНОСТИ AI В БИЗНЕСЕ</SectionTitle>
+            <SectionTitle color="#A78BFA">ВОЗМОЖНОСТИ AI В БИЗНЕСЕ</SectionTitle>
             <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
               Примеры применения искусственного интеллекта — от контроля качества до предиктивной аналитики.
             </p>
