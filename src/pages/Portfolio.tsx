@@ -231,6 +231,17 @@ const ProjectCard = ({ project }: { project: Project }) => {
           >
             Заказать проект
           </a>
+          <a
+            href="/pricing"
+            className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-montserrat text-base font-medium transition-all duration-300 hover:scale-105"
+            style={{
+              background: 'rgba(78,205,196,0.08)',
+              color: '#4ECDC4',
+              border: '1px solid rgba(78,205,196,0.2)',
+            }}
+          >
+            Посмотреть все цены
+          </a>
         </div>
       </div>
     </div>
@@ -297,21 +308,6 @@ const Portfolio = () => {
             {filteredCases.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
-          </div>
-
-          <div className="flex justify-center mt-16">
-            <a
-              href="/pricing"
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-montserrat text-lg font-medium transition-all duration-300 hover:scale-105"
-              style={{
-                background: 'rgba(78,205,196,0.15)',
-                color: '#4ECDC4',
-                border: '1px solid rgba(78,205,196,0.3)',
-              }}
-            >
-              Посмотреть все цены
-              <Icon name="ArrowRight" size={20} />
-            </a>
           </div>
         </PageContainer>
       </PageTransition>
