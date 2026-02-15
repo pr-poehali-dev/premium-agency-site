@@ -72,8 +72,8 @@ const Pricing = () => {
                     key={plan.title}
                     className="relative rounded-2xl p-3 sm:p-5 md:p-6 transition-all duration-300 hover:scale-[1.02]"
                     style={{
-                      background: plan.popular ? 'rgba(234,179,8,0.06)' : 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${plan.popular ? 'rgba(234,179,8,0.3)' : 'rgba(234,179,8,0.1)'}`,
+                      background: plan.popular ? 'rgba(234,179,8,0.06)' : 'rgba(11,15,31,0.7)',
+                      border: `1px solid ${plan.popular ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
                     }}
                   >
                     {plan.popular && (
@@ -115,8 +115,8 @@ const Pricing = () => {
                     key={service.title}
                     className="rounded-xl p-4 transition-all duration-300 hover:scale-[1.02]"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(234,179,8,0.1)',
+                      background: 'rgba(11,15,31,0.7)',
+                      border: '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
                     <div className="flex items-center gap-3 mb-2">
@@ -137,8 +137,8 @@ const Pricing = () => {
                     key={item.title}
                     className="rounded-xl p-4 transition-all duration-300 hover:scale-[1.02]"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(234,179,8,0.1)',
+                      background: 'rgba(11,15,31,0.7)',
+                      border: '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
                     <div className="flex items-center gap-3 mb-2">

@@ -106,8 +106,8 @@ const AI = () => {
                 key={product.title}
                 className="rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(234,179,8,0.1)',
+                  background: 'rgba(11,15,31,0.7)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
                 <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(234,179,8,0.1)' }}>
@@ -131,8 +131,8 @@ const AI = () => {
                   key={feature.title}
                   className="rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02]"
                   style={{
-                    background: 'rgba(255,255,255,0.03)',
-                    border: '1px solid rgba(234,179,8,0.1)',
+                    background: 'rgba(11,15,31,0.7)',
+                    border: '1px solid rgba(255,255,255,0.08)',
                   }}
                 >
                   <div className="flex items-start gap-4 mb-2">

@@ -48,7 +48,7 @@ const Menu = () => {
       />
       <PageTransition>
         {/* Desktop - карточки со скриншотами */}
-        <div className="fixed inset-0 p-8 overflow-hidden items-center justify-center hidden lg:flex" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 20000 }}>
+        <div className="fixed inset-0 p-8 overflow-hidden items-center justify-center hidden lg:flex" style={{ background: 'rgba(11,15,31,0.85)', zIndex: 20000 }}>
           <div className="grid grid-cols-5 gap-5 w-full h-full max-w-[1800px]" style={{ gridAutoRows: 'minmax(0, 1fr)', paddingBottom: '100px' }}>
             {allPages.map((page, index) => (
               <button
@@ -58,8 +58,8 @@ const Menu = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-95 ${getSizeClass(page.size)}`}
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(234,179,8,0.15)',
+                  background: 'rgba(11,15,31,0.7)',
+                  border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(255,255,255,0.08)',
                   boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.25)' : '0 4px 16px rgba(0,0,0,0.3)',
                 }}
               >
@@ -71,7 +71,7 @@ const Menu = () => {
                 <div 
                   className="absolute inset-0 transition-opacity duration-300"
                   style={{
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 30%, transparent 60%)',
+                    background: 'linear-gradient(to top, rgba(11,15,31,0.9) 0%, rgba(11,15,31,0.5) 30%, transparent 60%)',
                     opacity: hoveredIndex === index ? 0.6 : 1,
                   }}
                 />
@@ -86,7 +86,7 @@ const Menu = () => {
         </div>
 
         {/* Mobile/Tablet - сетка с иконками */}
-        <div className="fixed inset-0 flex items-center justify-center p-6 lg:hidden" style={{ background: 'rgba(0,0,0,0.95)', zIndex: 20000 }}>
+        <div className="fixed inset-0 flex items-center justify-center p-6 lg:hidden" style={{ background: 'rgba(11,15,31,0.85)', zIndex: 20000 }}>
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 max-w-2xl w-full">
             {allPages.map((page, index) => (
               <button
@@ -96,8 +96,8 @@ const Menu = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="group relative flex flex-col items-center gap-3 p-4 rounded-xl transition-all duration-300"
                 style={{
-                  background: hoveredIndex === index ? 'rgba(234,179,8,0.08)' : 'rgba(255,255,255,0.03)',
-                  border: hoveredIndex === index ? '1px solid rgba(234,179,8,0.3)' : '1px solid rgba(234,179,8,0.1)',
+                  background: hoveredIndex === index ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.7)',
+                  border: hoveredIndex === index ? '1px solid rgba(234,179,8,0.3)' : '1px solid rgba(255,255,255,0.08)',
                 }}
               >
                 <Icon

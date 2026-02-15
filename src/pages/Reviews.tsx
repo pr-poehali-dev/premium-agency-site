@@ -67,8 +67,8 @@ const Reviews = () => {
                     key={index}
                     className="rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-300 hover:scale-[1.01]"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(234,179,8,0.15)',
+                      background: 'rgba(11,15,31,0.7)',
+                      border: '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
                     <div className="flex gap-1 mb-4">

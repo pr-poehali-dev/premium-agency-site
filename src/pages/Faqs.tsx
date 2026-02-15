@@ -64,8 +64,8 @@ const Faqs = () => {
           <div
             className="rounded-3xl"
             style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(234,179,8,0.2)',
+              background: 'rgba(11,15,31,0.85)',
+              border: '1px solid rgba(255,255,255,0.08)',
               backdropFilter: 'blur(40px)',
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
@@ -80,8 +80,8 @@ const Faqs = () => {
                     key={i}
                     className="rounded-2xl overflow-hidden transition-all duration-300"
                     style={{
-                      background: openIndex === i ? 'rgba(234,179,8,0.08)' : 'rgba(255,255,255,0.03)',
-                      border: `1px solid ${openIndex === i ? 'rgba(234,179,8,0.3)' : 'rgba(234,179,8,0.1)'}`,
+                      background: openIndex === i ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.7)',
+                      border: `1px solid ${openIndex === i ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
                     }}
                   >
                     <button

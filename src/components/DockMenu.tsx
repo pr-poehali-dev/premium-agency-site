@@ -100,10 +100,10 @@ const DockMenu = () => {
           <div
             className="rounded-xl md:rounded-2xl px-3 py-2 md:px-5 md:py-3"
             style={{
-              background: 'linear-gradient(180deg, rgba(82,82,91,0.15) 0%, rgba(82,82,91,0.08) 100%)',
-              border: '1px solid rgba(161,161,170,0.25)',
+              background: 'linear-gradient(180deg, rgba(11,15,31,0.95) 0%, rgba(11,15,31,0.85) 100%)',
+              border: '1px solid rgba(255,255,255,0.1)',
               backdropFilter: 'blur(40px)',
-              boxShadow: '0 12px 40px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.08), inset 0 -2px 4px rgba(0,0,0,0.15)',
+              boxShadow: '0 12px 40px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.08), inset 0 -2px 4px rgba(0,0,0,0.2)',
             }}
           >
             <div className="flex items-end justify-center gap-2 md:gap-4">

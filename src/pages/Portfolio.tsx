@@ -151,9 +151,10 @@ const Portfolio = () => {
                   key={index}
                   className="group relative rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]"
                   style={{
-                    background: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                    background: 'rgba(11,15,31,0.85)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+                    backdropFilter: 'blur(10px)'
                   }}
                 >
                   <div className="absolute top-4 right-4 z-10">

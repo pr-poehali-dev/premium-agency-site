@@ -49,7 +49,7 @@ const Team = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.1)' }}>
+              <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: 'rgba(11,15,31,0.7)', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="font-montserrat font-light text-xl md:text-2xl text-white">{stat.value}</div>
                 <div className="font-montserrat font-light text-white text-xs md:text-sm uppercase">{stat.label}</div>
               </div>
@@ -62,8 +62,8 @@ const Team = () => {
                 key={member.name}
                 className="rounded-2xl overflow-hidden transition-all duration-300"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(234,179,8,0.15)',
+                  background: 'rgba(11,15,31,0.7)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
                 <div className="relative overflow-hidden" style={{ aspectRatio: '4/5' }}>

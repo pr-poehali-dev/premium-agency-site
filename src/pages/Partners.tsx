@@ -36,8 +36,8 @@ const Partners = () => {
                 key={client.name}
                 className="rounded-2xl p-6 flex items-center justify-center transition-all duration-300 hover:scale-[1.03]"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(234,179,8,0.1)',
+                  background: 'rgba(11,15,31,0.7)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                   minHeight: '140px',
                 }}
               >

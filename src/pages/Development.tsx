@@ -106,8 +106,8 @@ const Development = () => {
                     key={service.title}
                     className="group relative rounded-2xl p-3 sm:p-6 transition-all duration-300 hover:scale-[1.02]"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(234,179,8,0.1)',
+                      background: 'rgba(11,15,31,0.7)',
+                      border: '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
                     <div className="flex items-center gap-4 mb-4">
@@ -132,8 +132,8 @@ const Development = () => {
               <div
                 className="rounded-2xl p-6 md:p-8"
                 style={{
-                  background: 'rgba(234,179,8,0.03)',
-                  border: '1px solid rgba(234,179,8,0.15)',
+                  background: 'rgba(11,15,31,0.7)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
                 <SectionTitle>СТЕК ТЕХНОЛОГИЙ</SectionTitle>
@@ -143,7 +143,7 @@ const Development = () => {
                       key={stack.title}
                       className="rounded-xl p-4"
                       style={{
-                        background: 'rgba(255,255,255,0.02)',
+                        background: 'rgba(11,15,31,0.7)',
                         border: `1px solid #eab30820`,
                       }}
                     >

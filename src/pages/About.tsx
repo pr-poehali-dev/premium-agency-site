@@ -43,7 +43,7 @@ const About = () => {
             Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования.
           </BodyText>
 
-          <div className="max-w-4xl mx-auto mb-12 rounded-3xl overflow-hidden" style={{ background: 'rgba(234,179,8,0.05)', border: '1px solid rgba(234,179,8,0.15)' }}>
+          <div className="max-w-4xl mx-auto mb-12 rounded-3xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.7)', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-0">
               <div className="relative h-[400px] md:h-auto">
                 <img 
@@ -72,8 +72,8 @@ const About = () => {
                     key={item.title}
                     className="rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(234,179,8,0.1)',
+                      background: 'rgba(11,15,31,0.7)',
+                      border: '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
                     <div className="flex items-start gap-4 mb-3">

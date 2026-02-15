@@ -47,8 +47,8 @@ const Quiz = () => {
           <div
             className="rounded-3xl w-full max-w-3xl"
             style={{
-              background: 'rgba(0,0,0,0.6)',
-              border: '1px solid rgba(234,179,8,0.2)',
+              background: 'rgba(11,15,31,0.85)',
+              border: '1px solid rgba(255,255,255,0.08)',
               backdropFilter: 'blur(40px)',
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}
@@ -75,8 +75,8 @@ const Quiz = () => {
                         onClick={() => handleSelect(option)}
                         className="rounded-2xl p-4 md:p-5 text-left transition-all duration-300 hover:scale-[1.03] active:scale-95"
                         style={{
-                          background: 'rgba(255,255,255,0.03)',
-                          border: '1px solid rgba(234,179,8,0.1)',
+                          background: 'rgba(11,15,31,0.7)',
+                          border: '1px solid rgba(255,255,255,0.08)',
                         }}
                       >
                         <span className="font-montserrat text-base text-white">{option}</span>

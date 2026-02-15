@@ -15,8 +15,8 @@ const ServiceCard = ({ icon, title, description, items, children }: ServiceCardP
     <div
       className="group rounded-2xl p-4 md:p-6 transition-all duration-300 hover:scale-[1.02]"
       style={{
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(234,179,8,0.1)',
+        background: 'rgba(11,15,31,0.7)',
+        border: '1px solid rgba(255,255,255,0.08)',
       }}
     >
       <div className="flex items-center gap-3 mb-3">
