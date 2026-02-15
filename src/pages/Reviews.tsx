@@ -106,7 +106,7 @@ const Reviews = () => {
       <PageTransition>
         <PageContainer>
           <div className="mb-16">
-            <PageTitle>ОТЗЫВЫ КЛИЕНТОВ</PageTitle>
+            <PageTitle color="#F472B6">ОТЗЫВЫ КЛИЕНТОВ</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Реальные отзывы от компаний, с которыми мы работали. Доверие клиентов — наша лучшая рекомендация.
             </p>
