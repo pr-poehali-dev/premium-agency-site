@@ -53,13 +53,13 @@ const StatCard = ({ stat }: { stat: Stat }) => {
   return (
     <div 
       {...hoverProps}
-      className="hover-card text-center p-4 rounded-xl" 
+      className="hover-card text-center p-6 rounded-2xl" 
       style={getHoverStyle({ 
         background: 'rgba(11,15,31,0.6)', 
         border: '1px solid rgba(255,255,255,0.08)' 
       })}
     >
-      <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-4xl md:text-5xl lg:text-6xl mb-2`} style={{ color: '#eab308' }}>
+      <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-3xl md:text-4xl lg:text-4xl mb-2`} style={{ color: '#60A5FA' }}>
         {stat.value}
       </div>
       <div className="font-montserrat text-xs md:text-sm uppercase tracking-wide text-zinc-400">
@@ -89,7 +89,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
         />
       </div>
       <div className="p-5 text-center">
-        <h3 className="font-montserrat font-light text-base md:text-lg lg:text-xl uppercase mb-2" style={{ color: '#eab308' }}>
+        <h3 className="font-montserrat font-light text-base md:text-lg lg:text-xl uppercase mb-2" style={{ color: '#60A5FA' }}>
           {member.name}
         </h3>
         <p className="font-montserrat font-light text-xs md:text-sm lg:text-base text-white uppercase tracking-wide">
@@ -111,13 +111,13 @@ const Team = () => {
       <PageTransition>
         <PageContainer>
           <div className="mb-16">
-            <PageTitle>НАША КОМАНДА</PageTitle>
+            <PageTitle color="#60A5FA">НАША КОМАНДА</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Профессиональная команда разработчиков, дизайнеров и маркетологов. Каждый — эксперт в своей области.
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {stats.map((stat) => (
               <StatCard key={stat.label} stat={stat} />
             ))}
