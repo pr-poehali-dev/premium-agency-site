@@ -212,7 +212,7 @@ const TechStackCard = ({ stack }: { stack: TechStack }) => {
   return (
     <div
       {...hoverProps}
-      className="hover-card rounded-xl p-4"
+      className="hover-card rounded-xl p-6 h-full flex flex-col"
       style={getHoverStyle({
         background: 'rgba(11,15,31,0.6)',
         border: `1px solid #d4a30a20`,
@@ -226,7 +226,7 @@ const TechStackCard = ({ stack }: { stack: TechStack }) => {
       </h4>
       <ul className="space-y-1.5">
         {stack.items.map((item) => (
-          <li key={item} className="font-montserrat text-white text-sm leading-relaxed flex items-start gap-2">
+          <li key={item} className="font-montserrat text-white text-base md:text-lg leading-relaxed flex items-start gap-2">
             <span className="w-1 h-1 rounded-full flex-shrink-0 mt-2" style={{ background: '#d4a30a' }} />
             {item}
           </li>
@@ -291,7 +291,7 @@ const Development = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-stretch">
             {techStack.map((stack) => (
               <TechStackCard key={stack.title} stack={stack} />
             ))}
