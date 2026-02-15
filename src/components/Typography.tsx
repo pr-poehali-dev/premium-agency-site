@@ -112,3 +112,28 @@ export const SmallText = ({ children, className = '' }: SmallTextProps) => {
     </p>
   );
 };
+
+interface StatCardProps {
+  value: string;
+  label: string;
+  isNumber?: boolean;
+}
+
+export const StatCard = ({ value, label, isNumber = true }: StatCardProps) => {
+  return (
+    <div 
+      className="hover-card text-center p-6 rounded-2xl transition-transform duration-300 hover:scale-105" 
+      style={{ 
+        background: 'rgba(11,15,31,0.6)', 
+        border: '1px solid rgba(255,255,255,0.08)' 
+      }}
+    >
+      <div className={`${isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-3xl md:text-4xl lg:text-4xl mb-2 text-zinc-400`}>
+        {value}
+      </div>
+      <div className="font-montserrat text-xs md:text-sm uppercase tracking-wide text-zinc-500">
+        {label}
+      </div>
+    </div>
+  );
+};

@@ -2,19 +2,13 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
-import { PageHeader } from '@/components/Typography';
+import { PageHeader, StatCard } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface TeamMember {
   name: string;
   role: string;
   image: string;
-}
-
-interface Stat {
-  value: string;
-  label: string;
-  isNumber?: boolean;
 }
 
 const teamLeaders: TeamMember[] = [
@@ -40,34 +34,12 @@ const teamLeaders: TeamMember[] = [
   },
 ];
 
-const stats: Stat[] = [
+const stats = [
   { value: '20+', label: 'Специалистов', isNumber: true },
   { value: '30+', label: 'Проектов в год', isNumber: true },
   { value: '7', label: 'Лет опыта', isNumber: true },
   { value: 'СНГ, EU, USA', label: 'Рынки', isNumber: false },
 ];
-
-const StatCard = ({ stat }: { stat: Stat }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
-  return (
-    <div 
-      {...hoverProps}
-      className="hover-card text-center p-6 rounded-2xl" 
-      style={getHoverStyle({ 
-        background: 'rgba(11,15,31,0.6)', 
-        border: '1px solid rgba(255,255,255,0.08)' 
-      })}
-    >
-      <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-3xl md:text-4xl lg:text-4xl mb-2`} style={{ color: '#60A5FA' }}>
-        {stat.value}
-      </div>
-      <div className="font-montserrat text-xs md:text-sm uppercase tracking-wide text-zinc-400">
-        {stat.label}
-      </div>
-    </div>
-  );
-};
 
 const MemberCard = ({ member }: { member: TeamMember }) => {
   const { hoverProps, getHoverStyle } = useCardHover();
@@ -118,7 +90,7 @@ const Team = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {stats.map((stat) => (
-              <StatCard key={stat.label} stat={stat} />
+              <StatCard key={stat.label} value={stat.value} label={stat.label} isNumber={stat.isNumber} />
             ))}
           </div>
 

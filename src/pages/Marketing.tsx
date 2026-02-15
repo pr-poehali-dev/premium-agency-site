@@ -2,7 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
-import { PageHeader, SectionHeader } from '@/components/Typography';
+import { PageHeader, SectionHeader, StatCard } from '@/components/Typography';
 import Icon from '@/components/ui/icon';
 import { useCardHover } from '@/hooks/useCardHover';
 
@@ -212,21 +212,7 @@ const Marketing = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="text-center p-6 rounded-2xl"
-                style={{
-                  background: 'rgba(11,15,31,0.6)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                }}
-              >
-                <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-3xl md:text-4xl lg:text-4xl mb-2`} style={{ color: '#d66b2a' }}>
-                  {stat.value}
-                </div>
-                <div className="font-montserrat text-xs md:text-sm uppercase tracking-wide text-zinc-400">
-                  {stat.label}
-                </div>
-              </div>
+              <StatCard key={stat.label} value={stat.value} label={stat.label} isNumber={stat.isNumber} />
             ))}
           </div>
         </PageContainer>
