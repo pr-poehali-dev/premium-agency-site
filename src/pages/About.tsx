@@ -43,12 +43,12 @@ const AdvantageCard = ({ advantage }: { advantage: Advantage }) => {
       {...hoverProps}
       className="hover-card rounded-2xl p-6 md:hover:scale-[1.02]"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
       <div className="flex items-start gap-4 mb-3">
-        <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.1)' }}>
+        <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.15)' }}>
           <Icon name={advantage.icon} size={24} style={{ color: '#eab308' }} />
         </div>
         <h3 className="font-montserrat font-light text-xl md:text-2xl lg:text-3xl uppercase text-white" style={{ color: '#eab308' }}>{advantage.title}</h3>
@@ -75,7 +75,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto mb-24 rounded-3xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.7)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div className="max-w-4xl mx-auto mb-24 rounded-3xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-0">
               <div className="relative h-[400px] md:h-auto">
                 <img 

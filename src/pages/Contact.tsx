@@ -30,13 +30,13 @@ const ContactCard = ({ contact }: { contact: Contact }) => {
     <Wrapper
       {...extraProps}
       {...hoverProps}
-      className="hover-card group rounded-2xl p-3 sm:p-5 md:p-6 flex items-center gap-4 md:hover:scale-[1.03] cursor-pointer"
+      className="hover-card group rounded-2xl p-6 flex items-center gap-4 md:hover:scale-[1.03] cursor-pointer"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="p-3 rounded-xl" style={{ background: 'rgba(234,179,8,0.1)' }}>
+      <div className="p-3 rounded-2xl" style={{ background: 'rgba(234,179,8,0.15)' }}>
         <Icon name={contact.icon} size={24} style={{ color: '#eab308' }} />
       </div>
       <div>
@@ -96,7 +96,7 @@ const Contact = () => {
               ))}
             </div>
 
-            <div className="w-full max-w-2xl rounded-2xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.7)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="w-full max-w-2xl rounded-2xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
               <div id="vk_groups"></div>
             </div>
           </div>

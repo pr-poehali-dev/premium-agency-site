@@ -65,9 +65,9 @@ const ReviewCard = ({ review }: { review: Review }) => {
   return (
     <div
       {...hoverProps}
-      className="hover-card rounded-2xl p-5 sm:p-6 md:p-8 md:hover:scale-[1.01]"
+      className="hover-card rounded-2xl p-6 md:hover:scale-[1.01]"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >

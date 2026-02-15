@@ -137,7 +137,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       {...hoverProps}
       className="group hover-card relative rounded-2xl overflow-hidden md:hover:scale-[1.03] md:hover:-translate-y-2 flex flex-col h-full"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.85)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
         boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
         backdropFilter: 'blur(10px)',
@@ -268,7 +268,7 @@ const Portfolio = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className="px-4 py-2 rounded-xl font-montserrat text-sm font-medium transition-all duration-300"
                 style={{
-                  background: selectedCategory === cat ? 'rgba(234,179,8,0.15)' : 'rgba(11,15,31,0.7)',
+                  background: selectedCategory === cat ? 'rgba(234,179,8,0.15)' : 'rgba(11,15,31,0.6)',
                   border: selectedCategory === cat ? '1px solid rgba(234,179,8,0.3)' : '1px solid rgba(255,255,255,0.08)',
                   color: selectedCategory === cat ? '#eab308' : '#fff',
                 }}

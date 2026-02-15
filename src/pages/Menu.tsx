@@ -58,7 +58,7 @@ const Menu = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`group relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.03] active:scale-95 ${getSizeClass(page.size)}`}
                 style={{
-                  background: 'rgba(11,15,31,0.7)',
+                  background: 'rgba(11,15,31,0.6)',
                   border: hoveredIndex === index ? '2px solid rgba(234,179,8,0.6)' : '2px solid rgba(255,255,255,0.08)',
                   boxShadow: hoveredIndex === index ? '0 8px 32px rgba(234,179,8,0.25)' : '0 4px 16px rgba(0,0,0,0.3)',
                 }}
@@ -96,7 +96,7 @@ const Menu = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="group relative flex flex-col items-center gap-3 p-4 rounded-xl transition-all duration-300"
                 style={{
-                  background: hoveredIndex === index ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.7)',
+                  background: hoveredIndex === index ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.6)',
                   border: hoveredIndex === index ? '1px solid rgba(234,179,8,0.3)' : '1px solid rgba(255,255,255,0.08)',
                 }}
               >

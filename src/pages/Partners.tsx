@@ -33,7 +33,7 @@ const ClientCard = ({ client }: { client: Client }) => {
       {...hoverProps}
       className="hover-card rounded-2xl p-6 flex items-center justify-center md:hover:scale-[1.03]"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
         minHeight: '140px',
       })}

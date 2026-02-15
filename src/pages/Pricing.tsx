@@ -77,9 +77,9 @@ const PlanCard = ({ plan }: { plan: Plan }) => {
   return (
     <div
       {...hoverProps}
-      className="hover-card relative rounded-2xl p-3 sm:p-5 md:p-6 md:hover:scale-[1.02]"
+      className="hover-card relative rounded-2xl p-6 md:hover:scale-[1.02]"
       style={getHoverStyle({
-        background: plan.popular ? 'rgba(234,179,8,0.06)' : 'rgba(11,15,31,0.7)',
+        background: plan.popular ? 'rgba(234,179,8,0.06)' : 'rgba(11,15,31,0.6)',
         border: `1px solid ${plan.popular ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
       })}
     >
@@ -123,7 +123,7 @@ const ServiceItemCard = ({ item }: { item: ServiceItem }) => {
       {...hoverProps}
       className="hover-card rounded-xl p-4 md:hover:scale-[1.02]"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >

@@ -34,7 +34,7 @@ const QuizOption = ({ option, onClick }: { option: string; onClick: () => void }
       onClick={onClick}
       className="hover-card rounded-2xl p-4 md:p-5 text-left md:hover:scale-[1.03] active:scale-95"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >

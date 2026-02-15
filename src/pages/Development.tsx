@@ -136,7 +136,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
       {...hoverProps}
       className="hover-card group relative rounded-3xl overflow-hidden md:hover:scale-[1.02]"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
@@ -149,12 +149,12 @@ const ServiceCard = ({ service }: { service: Service }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
       </div>
       
-      <div className="relative p-8">
+      <div className="relative p-6">
         <div
-          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-500 group-hover:rotate-12"
+          className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-12"
           style={{ background: 'rgba(212,163,10,0.15)' }}
         >
-          <Icon name={service.icon} size={28} style={{ color: '#d4a30a' }} />
+          <Icon name={service.icon} size={24} style={{ color: '#d4a30a' }} />
         </div>
 
         <h3 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#d4a30a' }}>
@@ -175,22 +175,22 @@ const ProcessCard = ({ step }: { step: ProcessStep }) => {
   return (
     <div
       {...hoverProps}
-      className="hover-card group relative rounded-3xl p-8 md:hover:scale-[1.02]"
+      className="hover-card group relative rounded-3xl p-6 md:hover:scale-[1.02]"
       style={getHoverStyle({
         background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="flex items-start gap-6 mb-6">
+      <div className="flex items-start gap-6 mb-4">
         <div
-          className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+          className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
           style={{ background: 'rgba(212,163,10,0.15)' }}
         >
-          <Icon name={step.icon} size={32} style={{ color: '#d4a30a' }} />
+          <Icon name={step.icon} size={24} style={{ color: '#d4a30a' }} />
         </div>
         
         <div className="flex-1">
-          <div className="font-montserrat text-4xl font-bold mb-2 opacity-20">
+          <div className="font-zen text-5xl font-bold mb-2 opacity-30">
             {step.step}
           </div>
           <h3 className="font-montserrat font-semibold text-xl md:text-2xl uppercase tracking-tight" style={{ color: '#d4a30a' }}>
@@ -214,7 +214,7 @@ const TechStackCard = ({ stack }: { stack: TechStack }) => {
       {...hoverProps}
       className="hover-card rounded-xl p-4"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: `1px solid #d4a30a20`,
       })}
     >

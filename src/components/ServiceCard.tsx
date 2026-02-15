@@ -19,13 +19,13 @@ const ServiceCard = ({ icon, title, description, items, children }: ServiceCardP
       {...hoverProps}
       className="group hover-card rounded-2xl p-4 md:p-6 md:hover:scale-[1.02]"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
       <div className="flex items-center gap-3 mb-3">
-        <div className="p-2.5 md:p-3 rounded-xl" style={{ background: 'rgba(234,179,8,0.1)' }}>
-          <Icon name={icon} size={28} style={{ color: '#eab308' }} />
+        <div className="p-2.5 md:p-3 rounded-2xl" style={{ background: 'rgba(234,179,8,0.15)' }}>
+          <Icon name={icon} size={24} style={{ color: '#eab308' }} />
         </div>
         <div className="flex-1">
           <CardTitle>{title}</CardTitle>

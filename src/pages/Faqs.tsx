@@ -64,7 +64,7 @@ const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; 
       {...hoverProps}
       className="hover-card rounded-2xl overflow-hidden"
       style={getHoverStyle({
-        background: isOpen ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.7)',
+        background: isOpen ? 'rgba(234,179,8,0.08)' : 'rgba(11,15,31,0.6)',
         border: `1px solid ${isOpen ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
       })}
     >

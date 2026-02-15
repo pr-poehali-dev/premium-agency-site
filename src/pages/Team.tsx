@@ -55,7 +55,7 @@ const StatCard = ({ stat }: { stat: Stat }) => {
       {...hoverProps}
       className="hover-card text-center p-4 rounded-xl" 
       style={getHoverStyle({ 
-        background: 'rgba(11,15,31,0.7)', 
+        background: 'rgba(11,15,31,0.6)', 
         border: '1px solid rgba(255,255,255,0.08)' 
       })}
     >
@@ -77,7 +77,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
       {...hoverProps}
       className="hover-card rounded-2xl overflow-hidden md:hover:scale-[1.02]"
       style={getHoverStyle({
-        background: 'rgba(11,15,31,0.7)',
+        background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
