@@ -222,7 +222,7 @@ const Marketing = () => {
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-4xl md:text-5xl lg:text-6xl mb-2`} style={{ color: '#d66b2a' }}>
+                <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-3xl md:text-4xl lg:text-4xl mb-2`} style={{ color: '#d66b2a' }}>
                   {stat.value}
                 </div>
                 <div className="font-montserrat text-xs md:text-sm uppercase tracking-wide text-zinc-400">
