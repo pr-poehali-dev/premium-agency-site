@@ -7,9 +7,9 @@ import { PageTitle } from '@/components/Typography';
 import Button from '@/components/Button';
 
 const categoryColors: { [key: string]: { color: string; bgColor: string } } = {
-  'Дизайн': { color: '#95E1D3', bgColor: 'linear-gradient(135deg, #95E1D3 0%, #7CC9B9 100%)' },
-  'Разработка': { color: '#FFE66D', bgColor: 'linear-gradient(135deg, #FFE66D 0%, #F6D55C 100%)' },
-  'Маркетинг': { color: '#FF8C42', bgColor: 'linear-gradient(135deg, #FF8C42 0%, #E67E3C 100%)' },
+  'Дизайн': { color: '#2d9d8f', bgColor: 'linear-gradient(135deg, #2d9d8f 0%, #258576 100%)' },
+  'Разработка': { color: '#d4a30a', bgColor: 'linear-gradient(135deg, #d4a30a 0%, #b88b08 100%)' },
+  'Маркетинг': { color: '#d66b2a', bgColor: 'linear-gradient(135deg, #d66b2a 0%, #bf5f24 100%)' },
 };
 
 const allCases = [
@@ -142,7 +142,7 @@ const Portfolio = () => {
         <PageContainer>
           <PageTitle>ПОРТФОЛИО</PageTitle>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {allCases.map((project, index) => {
               const categoryStyle = categoryColors[project.category];
               
