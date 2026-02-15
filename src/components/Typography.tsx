@@ -7,9 +7,16 @@ interface PageTitleProps {
 
 export const PageTitle = ({ children, color = '#eab308' }: PageTitleProps) => {
   return (
-    <h1 className="font-montserrat font-light text-4xl md:text-7xl lg:text-8xl tracking-wide mb-8 md:mb-16 mt-4 md:mt-8 px-4 md:px-0 text-center uppercase" style={{ color }}>
-      {children}
-    </h1>
+    <div className="relative mb-8 md:mb-12">
+      <h1 className="font-montserrat font-light text-4xl md:text-7xl lg:text-8xl tracking-wide mb-4 uppercase" style={{ color }}>
+        {children}
+      </h1>
+      <div className="flex items-center gap-4">
+        <div className="h-1 w-24 rounded-full" style={{ background: color }} />
+        <div className="h-1 w-12 rounded-full" style={{ background: `${color}60` }} />
+        <div className="h-1 w-6 rounded-full" style={{ background: `${color}30` }} />
+      </div>
+    </div>
   );
 };
 
@@ -20,9 +27,16 @@ interface SectionTitleProps {
 
 export const SectionTitle = ({ children, color = '#eab308' }: SectionTitleProps) => {
   return (
-    <h2 className="font-montserrat font-light text-xl md:text-3xl lg:text-5xl tracking-wide mb-6 text-center uppercase" style={{ color }}>
-      {children}
-    </h2>
+    <div className="relative mb-8">
+      <h2 className="font-montserrat font-light text-xl md:text-3xl lg:text-5xl tracking-wide mb-3 uppercase" style={{ color }}>
+        {children}
+      </h2>
+      <div className="flex items-center gap-3">
+        <div className="h-0.5 w-16 rounded-full" style={{ background: color }} />
+        <div className="h-0.5 w-8 rounded-full" style={{ background: `${color}60` }} />
+        <div className="h-0.5 w-4 rounded-full" style={{ background: `${color}30` }} />
+      </div>
+    </div>
   );
 };
 
