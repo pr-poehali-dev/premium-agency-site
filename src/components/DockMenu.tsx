@@ -126,17 +126,23 @@ const DockMenu = () => {
                     }}
                   >
                     <div 
-                      className="relative rounded-lg md:rounded-[14px] transition-all duration-300 flex items-center justify-center"
+                      className="relative rounded-lg md:rounded-[14px] transition-all duration-300 flex items-center justify-center overflow-hidden"
                       style={{
                         width: isMobile ? '48px' : '64px',
                         height: isMobile ? '48px' : '64px',
                         background: item.bgColor,
                         boxShadow: isHovered || isActive 
-                          ? `0 8px 24px ${item.color}40, inset 0 1px 0 rgba(255,255,255,0.2)` 
-                          : `0 4px 12px ${item.color}20, inset 0 1px 0 rgba(255,255,255,0.2)`,
+                          ? `0 8px 24px ${item.color}60, 0 4px 12px ${item.color}40, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)` 
+                          : `0 4px 12px ${item.color}30, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)`,
                         transform: isHovered || isActive ? 'translateY(-2px)' : 'none'
                       }}
                     >
+                      <div 
+                        className="absolute inset-0 opacity-50"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.2) 100%)'
+                        }}
+                      />
                       <Icon
                         name={item.icon}
                         size={isMobile ? 24 : 32}
@@ -144,7 +150,7 @@ const DockMenu = () => {
                         className="relative z-10 transition-opacity duration-300"
                         style={{ 
                           color: '#ffffff',
-                          filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                          filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3)) drop-shadow(0 1px 2px rgba(0,0,0,0.5))'
                         }}
                       />
                     </div>
@@ -179,17 +185,23 @@ const DockMenu = () => {
                 }}
               >
                 <div 
-                  className="relative rounded-lg md:rounded-[14px] transition-all duration-300 flex items-center justify-center"
+                  className="relative rounded-lg md:rounded-[14px] transition-all duration-300 flex items-center justify-center overflow-hidden"
                   style={{
                     width: isMobile ? '48px' : '64px',
                     height: isMobile ? '48px' : '64px',
                     background: menuIcon.bgColor,
                     boxShadow: hoveredIndex === visibleItems.length || isMenuOpen
-                      ? `0 8px 24px ${menuIcon.color}40, inset 0 1px 0 rgba(255,255,255,0.2)` 
-                      : `0 4px 12px ${menuIcon.color}20, inset 0 1px 0 rgba(255,255,255,0.2)`,
+                      ? `0 8px 24px ${menuIcon.color}60, 0 4px 12px ${menuIcon.color}40, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)` 
+                      : `0 4px 12px ${menuIcon.color}30, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)`,
                     transform: hoveredIndex === visibleItems.length || isMenuOpen ? 'translateY(-2px)' : 'none'
                   }}
                 >
+                  <div 
+                    className="absolute inset-0 opacity-50"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.2) 100%)'
+                    }}
+                  />
                   <Icon
                     name={menuIcon.icon}
                     size={isMobile ? 24 : 32}
@@ -197,7 +209,7 @@ const DockMenu = () => {
                     className="relative z-10 transition-opacity duration-300"
                     style={{ 
                       color: '#ffffff',
-                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3)) drop-shadow(0 1px 2px rgba(0,0,0,0.5))'
                     }}
                   />
                   {hiddenItems.length > 0 && (
@@ -263,21 +275,28 @@ const DockMenu = () => {
                   className="group relative flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-[1.03] active:scale-95"
                 >
                   <div 
-                    className="rounded-xl md:rounded-2xl flex items-center justify-center"
+                    className="relative rounded-xl md:rounded-2xl flex items-center justify-center overflow-hidden"
                     style={{
                       width: isMobile ? '64px' : '96px',
                       height: isMobile ? '64px' : '96px',
                       background: item.bgColor,
-                      boxShadow: `0 8px 24px ${item.color}30, inset 0 1px 0 rgba(255,255,255,0.2)`,
+                      boxShadow: `0 8px 24px ${item.color}40, 0 4px 12px ${item.color}30, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)`,
                     }}
                   >
+                    <div 
+                      className="absolute inset-0 opacity-50"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.2) 100%)'
+                      }}
+                    />
                     <Icon
                       name={item.icon}
                       size={isMobile ? 32 : 48}
                       strokeWidth={2}
+                      className="relative z-10"
                       style={{ 
                         color: '#ffffff',
-                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3)) drop-shadow(0 1px 2px rgba(0,0,0,0.5))'
                       }}
                     />
                   </div>
