@@ -291,12 +291,39 @@ const PremiumBackground = () => {
           <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 40%, transparent 0%, rgba(0,0,0,0.7) 100%)' }} />
         </>
       ) : (
-        <div 
-          className="absolute inset-0 transition-all duration-700"
-          style={{ 
-            background: `linear-gradient(135deg, ${currentColor.primary.replace(/0\.\d+/, '0.4')} 0%, ${currentColor.secondary.replace(/0\.\d+/, '0.25')} 100%)`
-          }}
-        />
+        <>
+          <div 
+            className="absolute inset-0 transition-all duration-700"
+            style={{ 
+              background: `radial-gradient(circle at 85% 85%, ${currentColor.secondary.replace(/0\.\d+/, '0.35')} 0%, ${currentColor.secondary.replace(/0\.\d+/, '0.15')} 40%, transparent 70%)`
+            }}
+          />
+          
+          <div 
+            className="absolute top-[15%] right-[10%] w-[400px] h-[400px] rounded-full transition-all duration-700"
+            style={{ 
+              background: `radial-gradient(circle, ${currentColor.primary.replace(/0\.\d+/, '0.2')} 0%, transparent 70%)`,
+              filter: 'blur(40px)'
+            }}
+          />
+          
+          <div 
+            className="absolute bottom-[20%] left-[15%] w-[300px] h-[300px] transition-all duration-700"
+            style={{ 
+              background: `radial-gradient(circle, ${currentColor.secondary.replace(/0\.\d+/, '0.15')} 0%, transparent 70%)`,
+              filter: 'blur(30px)',
+              clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)'
+            }}
+          />
+          
+          <div 
+            className="absolute top-[40%] left-[5%] w-[200px] h-[200px] rounded-full transition-all duration-700"
+            style={{ 
+              background: `radial-gradient(circle, ${currentColor.primary.replace(/0\.\d+/, '0.12')} 0%, transparent 70%)`,
+              filter: 'blur(25px)'
+            }}
+          />
+        </>
       )}
 
       <style>{`

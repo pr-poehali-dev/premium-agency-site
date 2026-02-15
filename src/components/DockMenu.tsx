@@ -135,7 +135,6 @@ const DockMenu = () => {
                           ? `0 8px 24px ${item.color}60, 0 4px 12px ${item.color}40, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)` 
                           : `0 4px 12px ${item.color}30, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)`,
                         transform: isHovered || isActive ? 'translateY(-2px)' : 'none',
-                        opacity: isActive ? 1 : 0.85,
                         border: isActive ? `2px solid ${item.color}` : 'none'
                       }}
                     >
