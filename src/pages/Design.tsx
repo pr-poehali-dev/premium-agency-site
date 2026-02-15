@@ -162,10 +162,10 @@ const ProcessCard = ({ step }: { step: ProcessStep }) => {
         </div>
         
         <div className="flex-1">
-          <div className="font-zen text-5xl font-bold mb-2 opacity-30">
+          <div className="font-zen text-3xl font-bold mb-2 opacity-30">
             {step.step}
           </div>
-          <h3 className="font-montserrat font-semibold text-xl md:text-2xl uppercase tracking-tight" style={{ color: '#2d9d8f' }}>
+          <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase tracking-tight" style={{ color: '#2d9d8f' }}>
             {step.title}
           </h3>
         </div>
@@ -236,7 +236,7 @@ const Design = () => {
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-4xl md:text-5xl lg:text-6xl mb-2`} style={{ color: '#2d9d8f' }}>
+                <div className={`${stat.isNumber ? 'font-zen' : 'font-montserrat'} font-bold text-3xl md:text-4xl lg:text-4xl mb-2`} style={{ color: '#2d9d8f' }}>
                   {stat.value}
                 </div>
                 <div className="font-montserrat text-xs md:text-sm uppercase tracking-wide text-zinc-400">
