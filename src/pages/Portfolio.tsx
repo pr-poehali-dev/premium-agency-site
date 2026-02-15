@@ -216,34 +216,51 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    {project.link !== '#' && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-full py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
-                        style={{
-                          background: categoryStyle.bgColor,
-                          color: '#ffffff',
-                          boxShadow: `0 4px 12px ${categoryStyle.color}30`,
-                        }}
-                      >
-                        Посмотреть проект
-                      </a>
-                    )}
+                    <div className="grid grid-cols-1 gap-3">
+                      {project.link !== '#' && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
+                          style={{
+                            background: categoryStyle.bgColor,
+                            color: '#ffffff',
+                            boxShadow: `0 4px 12px ${categoryStyle.color}30`,
+                          }}
+                        >
+                          Посмотреть проект
+                        </a>
+                      )}
+                      <div className="grid grid-cols-2 gap-3">
+                        <button
+                          onClick={handleQuiz}
+                          className="py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
+                          style={{
+                            background: categoryStyle.bgColor,
+                            color: '#ffffff',
+                            boxShadow: `0 4px 12px ${categoryStyle.color}30`,
+                          }}
+                        >
+                          Пройти квиз
+                        </button>
+                        <button
+                          onClick={handleOrderProject}
+                          className="py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
+                          style={{
+                            background: categoryStyle.bgColor,
+                            color: '#ffffff',
+                            boxShadow: `0 4px 12px ${categoryStyle.color}30`,
+                          }}
+                        >
+                          Заказать проект
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
             })}
-          </div>
-
-          <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button onClick={handleQuiz} variant="primary">
-              Пройти квиз
-            </Button>
-            <Button onClick={handleOrderProject} variant="secondary">
-              Заказать проект
-            </Button>
           </div>
         </PageContainer>
       </PageTransition>
