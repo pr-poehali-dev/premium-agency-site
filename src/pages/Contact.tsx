@@ -30,18 +30,18 @@ const ContactCard = ({ contact }: { contact: Contact }) => {
     <Wrapper
       {...extraProps}
       {...hoverProps}
-      className="hover-card group rounded-2xl p-6 flex items-center gap-4 md:hover:scale-[1.03] cursor-pointer"
+      className="hover-card group rounded-2xl p-8 flex flex-col items-center text-center gap-4 md:hover:scale-[1.03] cursor-pointer"
       style={getHoverStyle({
         background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="p-3 rounded-2xl" style={{ background: 'rgba(234,179,8,0.15)' }}>
-        <Icon name={contact.icon} size={24} style={{ color: '#eab308' }} />
+      <div className="p-4 rounded-2xl" style={{ background: 'rgba(45,212,191,0.15)' }}>
+        <Icon name={contact.icon} size={32} style={{ color: '#2DD4BF' }} />
       </div>
       <div>
-        <div className="font-montserrat text-white text-xs md:text-sm lg:text-base">{contact.label}</div>
-        <div className="font-montserrat font-medium text-sm md:text-base lg:text-lg text-white">{contact.value}</div>
+        <div className="font-montserrat text-zinc-400 text-sm md:text-base uppercase tracking-wide mb-2">{contact.label}</div>
+        <div className="font-montserrat font-medium text-base md:text-lg lg:text-xl text-white">{contact.value}</div>
       </div>
     </Wrapper>
   );
@@ -84,13 +84,13 @@ const Contact = () => {
         <PageContainer>
           <div className="flex flex-col items-center">
             <div className="mb-16 text-center">
-              <PageTitle>СВЯЗАТЬСЯ С НАМИ</PageTitle>
+              <PageTitle color="#2DD4BF">СВЯЗАТЬСЯ С НАМИ</PageTitle>
               <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed mx-auto">
                 Обсудим ваш проект в течение 24 часов. Работаем по всей России, Европе и США.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-2xl w-full mb-8">
+            <div className="grid grid-cols-2 gap-6 max-w-3xl w-full mb-8">
               {contacts.map((contact) => (
                 <ContactCard key={contact.label} contact={contact} />
               ))}
