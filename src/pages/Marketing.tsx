@@ -2,7 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, SectionTitle } from '@/components/Typography';
+import { PageHeader, SectionHeader } from '@/components/Typography';
 import Icon from '@/components/ui/icon';
 import { useCardHover } from '@/hooks/useCardHover';
 
@@ -186,12 +186,11 @@ const Marketing = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#d66b2a">МАРКЕТИНГ</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Привлекаем клиентов, которые покупают. Работаем на результат — каждый рубль рекламного бюджета приносит прибыль.
-            </p>
-          </div>
+          <PageHeader 
+            title="МАРКЕТИНГ" 
+            description="Привлекаем клиентов, которые покупают. Работаем на результат — каждый рубль рекламного бюджета приносит прибыль." 
+            color="#d66b2a"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {marketingServices.map((service) => (
@@ -199,12 +198,11 @@ const Marketing = () => {
             ))}
           </div>
 
-          <div className="mb-16">
-            <SectionTitle color="#d66b2a">ПРОЦЕСС РАБОТЫ</SectionTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              От аудита до масштабирования — проверенная методология digital-маркетинга.
-            </p>
-          </div>
+          <SectionHeader 
+            title="ПРОЦЕСС РАБОТЫ" 
+            description="От аудита до масштабирования — проверенная методология digital-маркетинга." 
+            color="#d66b2a"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {processSteps.map((step) => (

@@ -3,7 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, SectionTitle } from '@/components/Typography';
+import { PageHeader, SectionHeader } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Advantage {
@@ -68,12 +68,11 @@ const About = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#38BDF8">О КОМПАНИИ</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования.
-            </p>
-          </div>
+          <PageHeader 
+            title="О КОМПАНИИ" 
+            description="Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования." 
+            color="#38BDF8"
+          />
 
           <div className="max-w-4xl mx-auto mb-24 rounded-3xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-0">
@@ -99,12 +98,11 @@ const About = () => {
             </div>
           </div>
 
-          <div className="mb-16">
-            <SectionTitle color="#38BDF8">ПОЧЕМУ ВЫБИРАЮТ НАС</SectionTitle>
-            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
-              Опыт, технологии, результат — наши главные преимущества.
-            </p>
-          </div>
+          <SectionHeader 
+            title="ПОЧЕМУ ВЫБИРАЮТ НАС" 
+            description="Опыт, технологии, результат — наши главные преимущества." 
+            color="#38BDF8"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {advantages.map((item) => (

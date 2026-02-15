@@ -2,7 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, SectionTitle } from '@/components/Typography';
+import { PageHeader, SectionHeader } from '@/components/Typography';
 import Icon from '@/components/ui/icon';
 import { useCardHover } from '@/hooks/useCardHover';
 
@@ -200,12 +200,11 @@ const Design = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#2d9d8f">ДИЗАЙН</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Создаем дизайн, который работает на бизнес. Каждый пиксель продуман, каждая анимация имеет цель — увеличить конверсию и сделать пользователей счастливыми.
-            </p>
-          </div>
+          <PageHeader 
+            title="ДИЗАЙН" 
+            description="Создаем дизайн, который работает на бизнес. Каждый пиксель продуман, каждая анимация имеет цель — увеличить конверсию и сделать пользователей счастливыми." 
+            color="#2d9d8f"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {designServices.map((service) => (
@@ -213,12 +212,11 @@ const Design = () => {
             ))}
           </div>
 
-          <div className="mb-16">
-            <SectionTitle color="#2d9d8f">ПРОЦЕСС РАБОТЫ</SectionTitle>
-            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
-              Следуем проверенной методологии — от исследования до финального продукта. Каждый этап нацелен на результат.
-            </p>
-          </div>
+          <SectionHeader 
+            title="ПРОЦЕСС РАБОТЫ" 
+            description="Следуем проверенной методологии — от исследования до финального продукта. Каждый этап нацелен на результат." 
+            color="#2d9d8f"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {processSteps.map((step) => (

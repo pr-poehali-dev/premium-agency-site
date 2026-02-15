@@ -4,7 +4,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle } from '@/components/Typography';
+import { PageHeader } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Contact {
@@ -82,12 +82,11 @@ const Contact = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#2DD4BF">СВЯЗАТЬСЯ С НАМИ</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Обсудим ваш проект в течение 24 часов. Работаем по всей России, Европе и США.
-            </p>
-          </div>
+          <PageHeader 
+            title="СВЯЗАТЬСЯ С НАМИ" 
+            description="Обсудим ваш проект в течение 24 часов. Работаем по всей России, Европе и США." 
+            color="#2DD4BF"
+          />
           
           <div className="grid grid-cols-2 gap-6 max-w-3xl mb-8">
             {contacts.map((contact) => (

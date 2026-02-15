@@ -3,7 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, BodyText } from '@/components/Typography';
+import { PageHeader, BodyText } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Review {
@@ -105,12 +105,11 @@ const Reviews = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#F472B6">ОТЗЫВЫ КЛИЕНТОВ</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Реальные отзывы от компаний, с которыми мы работали. Доверие клиентов — наша лучшая рекомендация.
-            </p>
-          </div>
+          <PageHeader 
+            title="ОТЗЫВЫ КЛИЕНТОВ" 
+            description="Реальные отзывы от компаний, с которыми мы работали. Доверие клиентов — наша лучшая рекомендация." 
+            color="#F472B6"
+          />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {reviews.map((review, index) => (

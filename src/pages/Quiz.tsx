@@ -4,7 +4,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle } from '@/components/Typography';
+import { PageHeader } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Question {
@@ -70,12 +70,11 @@ const Quiz = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#FBBF24">КВИЗ</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Подберём оптимальное решение для вашего бизнеса. Ответьте на 3 вопроса и получите персональное предложение.
-            </p>
-          </div>
+          <PageHeader 
+            title="КВИЗ" 
+            description="Подберём оптимальное решение для вашего бизнеса. Ответьте на 3 вопроса и получите персональное предложение." 
+            color="#FBBF24"
+          />
 
           <div className="flex items-center justify-center pb-16">
             <div

@@ -4,7 +4,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle } from '@/components/Typography';
+import { PageHeader } from '@/components/Typography';
 import Button from '@/components/Button';
 import { useCardHover } from '@/hooks/useCardHover';
 
@@ -280,12 +280,11 @@ const Portfolio = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#4ECDC4">ПОРТФОЛИО</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Реальные проекты — от лендингов до сложных платформ. Каждый кейс — история успеха клиента.
-            </p>
-          </div>
+          <PageHeader 
+            title="ПОРТФОЛИО" 
+            description="Реальные проекты — от лендингов до сложных платформ. Каждый кейс — история успеха клиента." 
+            color="#4ECDC4"
+          />
           
           <div className="flex flex-wrap gap-4 mb-12">
             {categories.map((cat) => (

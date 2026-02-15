@@ -20,6 +20,23 @@ export const PageTitle = ({ children, color = '#eab308' }: PageTitleProps) => {
   );
 };
 
+interface PageHeaderProps {
+  title: string;
+  description: string;
+  color?: string;
+}
+
+export const PageHeader = ({ title, description, color = '#eab308' }: PageHeaderProps) => {
+  return (
+    <div className="mb-16">
+      <PageTitle color={color}>{title}</PageTitle>
+      <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+        {description}
+      </p>
+    </div>
+  );
+};
+
 interface SectionTitleProps {
   children: ReactNode;
   color?: string;
@@ -36,6 +53,23 @@ export const SectionTitle = ({ children, color = '#eab308' }: SectionTitleProps)
         <div className="h-0.5 w-8 rounded-full" style={{ background: `${color}60` }} />
         <div className="h-0.5 w-4 rounded-full" style={{ background: `${color}30` }} />
       </div>
+    </div>
+  );
+};
+
+interface SectionHeaderProps {
+  title: string;
+  description: string;
+  color?: string;
+}
+
+export const SectionHeader = ({ title, description, color = '#eab308' }: SectionHeaderProps) => {
+  return (
+    <div className="mb-16">
+      <SectionTitle color={color}>{title}</SectionTitle>
+      <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+        {description}
+      </p>
     </div>
   );
 };

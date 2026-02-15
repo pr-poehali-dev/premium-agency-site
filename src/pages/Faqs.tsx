@@ -4,7 +4,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle } from '@/components/Typography';
+import { PageHeader } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface FaqItem {
@@ -111,12 +111,11 @@ const Faqs = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#C084FC">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Ответы на популярные вопросы о разработке, ценах, сроках и технологиях.
-            </p>
-          </div>
+          <PageHeader 
+            title="ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ" 
+            description="Ответы на популярные вопросы о разработке, ценах, сроках и технологиях." 
+            color="#C084FC"
+          />
 
           <div className="space-y-4 max-w-4xl mx-auto">
             {faqItems.map((item, i) => (

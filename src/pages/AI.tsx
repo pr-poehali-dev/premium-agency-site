@@ -3,7 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, SectionTitle } from '@/components/Typography';
+import { PageHeader, SectionHeader } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Product {
@@ -187,12 +187,11 @@ const AI = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#A78BFA">ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Внедряем AI-технологии в реальный бизнес. Машинное обучение, компьютерное зрение, NLP — автоматизируем то, что раньше казалось невозможным.
-            </p>
-          </div>
+          <PageHeader 
+            title="ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ" 
+            description="Внедряем AI-технологии в реальный бизнес. Машинное обучение, компьютерное зрение, NLP — автоматизируем то, что раньше казалось невозможным." 
+            color="#A78BFA"
+          />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
             {ourProducts.map((product) => (
@@ -200,12 +199,11 @@ const AI = () => {
             ))}
           </div>
 
-          <div className="mb-16">
-            <SectionTitle color="#A78BFA">ВОЗМОЖНОСТИ AI В БИЗНЕСЕ</SectionTitle>
-            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
-              Примеры применения искусственного интеллекта — от контроля качества до предиктивной аналитики.
-            </p>
-          </div>
+          <SectionHeader 
+            title="ВОЗМОЖНОСТИ AI В БИЗНЕСЕ" 
+            description="Примеры применения искусственного интеллекта — от контроля качества до предиктивной аналитики." 
+            color="#A78BFA"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-stretch">
             {brandChefFeatures.map((feature) => (

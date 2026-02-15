@@ -2,7 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle } from '@/components/Typography';
+import { PageHeader } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface TeamMember {
@@ -110,12 +110,11 @@ const Team = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#60A5FA">НАША КОМАНДА</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Профессиональная команда разработчиков, дизайнеров и маркетологов. Каждый — эксперт в своей области.
-            </p>
-          </div>
+          <PageHeader 
+            title="НАША КОМАНДА" 
+            description="Профессиональная команда разработчиков, дизайнеров и маркетологов. Каждый — эксперт в своей области." 
+            color="#60A5FA"
+          />
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {stats.map((stat) => (

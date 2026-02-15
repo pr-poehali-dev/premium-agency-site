@@ -3,7 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, SectionTitle } from '@/components/Typography';
+import { PageHeader, SectionHeader } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Service {
@@ -258,12 +258,11 @@ const Development = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#d4a30a">РАЗРАБОТКА</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Создаем технологические продукты, которые масштабируются. Современный стек, чистый код, надежная архитектура — проекты, которыми гордимся.
-            </p>
-          </div>
+          <PageHeader 
+            title="РАЗРАБОТКА" 
+            description="Создаем технологические продукты, которые масштабируются. Современный стек, чистый код, надежная архитектура — проекты, которыми гордимся." 
+            color="#d4a30a"
+          />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {services.map((service) => (
@@ -271,12 +270,11 @@ const Development = () => {
             ))}
           </div>
 
-          <div className="mb-16">
-            <SectionTitle color="#d4a30a">ПРОЦЕСС РАБОТЫ</SectionTitle>
-            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
-              Структурированный подход к разработке — от аналитики до запуска. Контролируем каждый этап.
-            </p>
-          </div>
+          <SectionHeader 
+            title="ПРОЦЕСС РАБОТЫ" 
+            description="Структурированный подход к разработке — от аналитики до запуска. Контролируем каждый этап." 
+            color="#d4a30a"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {processSteps.map((step) => (
@@ -284,12 +282,11 @@ const Development = () => {
             ))}
           </div>
 
-          <div className="mb-16">
-            <SectionTitle color="#d4a30a">СТЕК ТЕХНОЛОГИЙ</SectionTitle>
-            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
-              Используем проверенные и современные технологии. Выбираем инструменты под задачу — не гонимся за хайпом, а создаем надежные решения.
-            </p>
-          </div>
+          <SectionHeader 
+            title="СТЕК ТЕХНОЛОГИЙ" 
+            description="Используем проверенные и современные технологии. Выбираем инструменты под задачу — не гонимся за хайпом, а создаем надежные решения." 
+            color="#d4a30a"
+          />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-stretch">
             {techStack.map((stack) => (

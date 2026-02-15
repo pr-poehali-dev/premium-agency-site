@@ -2,7 +2,7 @@ import AppLayout from '@/components/AppLayout';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle } from '@/components/Typography';
+import { PageHeader } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Client {
@@ -60,12 +60,11 @@ const Partners = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-16">
-            <PageTitle color="#818CF8">НАШИ КЛИЕНТЫ</PageTitle>
-            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
-              Нам доверяют крупнейшие компании России и мира. Работаем с брендами, которые знает каждый.
-            </p>
-          </div>
+          <PageHeader 
+            title="НАШИ КЛИЕНТЫ" 
+            description="Нам доверяют крупнейшие компании России и мира. Работаем с брендами, которые знает каждый." 
+            color="#818CF8"
+          />
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
             {clients.map((client) => (
