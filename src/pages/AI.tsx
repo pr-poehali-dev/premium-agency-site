@@ -144,13 +144,13 @@ const FeatureCard = ({ feature }: { feature: Feature }) => {
   return (
     <div
       {...hoverProps}
-      className="hover-card rounded-2xl p-6 md:hover:scale-[1.02]"
+      className="hover-card rounded-2xl p-6 md:hover:scale-[1.02] h-full flex flex-col"
       style={getHoverStyle({
         background: 'rgba(11,15,31,0.6)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="flex items-start gap-4 mb-2">
+      <div className="flex flex-col items-start gap-4 mb-3">
         <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.15)' }}>
           <Icon name={feature.icon} size={24} style={{ color: '#eab308' }} />
         </div>
@@ -158,7 +158,7 @@ const FeatureCard = ({ feature }: { feature: Feature }) => {
           {feature.title}
         </h4>
       </div>
-      <p className="font-montserrat text-sm md:text-base text-white leading-relaxed ml-14">
+      <p className="font-montserrat text-base md:text-lg text-white leading-relaxed">
         {feature.desc}
       </p>
     </div>
@@ -207,7 +207,7 @@ const AI = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-stretch">
             {brandChefFeatures.map((feature) => (
               <FeatureCard key={feature.title} feature={feature} />
             ))}
