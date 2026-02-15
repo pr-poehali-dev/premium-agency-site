@@ -171,7 +171,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           {project.title}
         </h3>
         
-        <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
+        <p className="text-base md:text-lg text-zinc-400 leading-relaxed">
           {project.desc}
         </p>
 
@@ -193,12 +193,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         <div className="grid grid-cols-2 gap-3 pt-2 mt-auto">
           <div>
-            <div className="text-xs text-zinc-500 font-montserrat mb-1">Стоимость</div>
-            <div className="font-montserrat font-semibold text-sm text-white">{project.cost}</div>
+            <div className="text-sm text-zinc-500 font-montserrat mb-1">Стоимость</div>
+            <div className="font-montserrat font-semibold text-base md:text-lg text-white">{project.cost}</div>
           </div>
           <div>
-            <div className="text-xs text-zinc-500 font-montserrat mb-1">Срок</div>
-            <div className="font-montserrat font-semibold text-sm text-white">{project.duration}</div>
+            <div className="text-sm text-zinc-500 font-montserrat mb-1">Срок</div>
+            <div className="font-montserrat font-semibold text-base md:text-lg text-white">{project.duration}</div>
           </div>
         </div>
 
@@ -254,8 +254,8 @@ const Portfolio = () => {
       />
       <PageTransition>
         <PageContainer>
-          <div className="mb-12">
-            <PageTitle>ПОРТФОЛИО</PageTitle>
+          <div className="mb-16">
+            <PageTitle color="#4ECDC4">ПОРТФОЛИО</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Реальные проекты — от лендингов до сложных платформ. Каждый кейс — история успеха клиента.
             </p>
