@@ -4,7 +4,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, BodyText } from '@/components/Typography';
+import { PageTitle } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Contact {
@@ -83,7 +83,12 @@ const Contact = () => {
       <PageTransition>
         <PageContainer>
           <div className="flex flex-col items-center">
-            <PageTitle>СВЯЗАТЬСЯ С НАМИ</PageTitle>
+            <div className="mb-16 text-center">
+              <PageTitle>СВЯЗАТЬСЯ С НАМИ</PageTitle>
+              <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed mx-auto">
+                Обсудим ваш проект в течение 24 часов. Работаем по всей России, Европе и США.
+              </p>
+            </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-2xl w-full mb-8">
               {contacts.map((contact) => (
@@ -91,13 +96,9 @@ const Contact = () => {
               ))}
             </div>
 
-            <div className="w-full max-w-2xl rounded-2xl overflow-hidden mb-8" style={{ background: 'rgba(11,15,31,0.7)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="w-full max-w-2xl rounded-2xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.7)', border: '1px solid rgba(255,255,255,0.08)' }}>
               <div id="vk_groups"></div>
             </div>
-
-            <BodyText className="text-center max-w-md">
-              Оставьте заявку — мы свяжемся с вами в течение 24 часов и обсудим ваш проект
-            </BodyText>
           </div>
         </PageContainer>
       </PageTransition>

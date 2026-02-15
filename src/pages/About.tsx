@@ -3,7 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
-import { PageTitle, BodyText } from '@/components/Typography';
+import { PageTitle, SectionTitle } from '@/components/Typography';
 import { useCardHover } from '@/hooks/useCardHover';
 
 interface Advantage {
@@ -68,12 +68,14 @@ const About = () => {
       />
       <PageTransition>
         <PageContainer>
-          <PageTitle>О КОМПАНИИ</PageTitle>
-          <BodyText className="text-center max-w-2xl mx-auto mb-8">
-            Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования.
-          </BodyText>
+          <div className="mb-16">
+            <PageTitle>О КОМПАНИИ</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования.
+            </p>
+          </div>
 
-          <div className="max-w-4xl mx-auto mb-12 rounded-3xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.7)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div className="max-w-4xl mx-auto mb-24 rounded-3xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.7)', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-0">
               <div className="relative h-[400px] md:h-auto">
                 <img 
@@ -95,6 +97,13 @@ const About = () => {
                 </blockquote>
               </div>
             </div>
+          </div>
+
+          <div className="mb-16">
+            <SectionTitle>ПОЧЕМУ ВЫБИРАЮТ НАС</SectionTitle>
+            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
+              Опыт, технологии, результат — наши главные преимущества.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

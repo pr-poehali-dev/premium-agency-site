@@ -119,9 +119,12 @@ const Faqs = () => {
             }}
           >
             <div className="p-4 sm:p-6 md:p-8 lg:p-10">
-              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center uppercase" style={{ color: '#eab308' }}>
+              <h2 className="font-montserrat font-light text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4 text-center uppercase" style={{ color: '#eab308' }}>
                 ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
               </h2>
+              <p className="text-zinc-400 font-montserrat text-lg max-w-2xl leading-relaxed text-center mx-auto mb-12">
+                Ответы на популярные вопросы о разработке, ценах, сроках и технологиях.
+              </p>
               <div className="space-y-3 max-w-4xl mx-auto">
                 {faqItems.map((item, i) => (
                   <FaqItemCard 

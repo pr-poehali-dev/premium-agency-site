@@ -254,7 +254,12 @@ const Portfolio = () => {
       />
       <PageTransition>
         <PageContainer>
-          <PageTitle>ПОРТФОЛИО</PageTitle>
+          <div className="mb-12">
+            <PageTitle>ПОРТФОЛИО</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Реальные проекты — от лендингов до сложных платформ. Каждый кейс — история успеха клиента.
+            </p>
+          </div>
           
           <div className="flex flex-wrap gap-3 justify-center mb-8">
             {categories.map((cat) => (

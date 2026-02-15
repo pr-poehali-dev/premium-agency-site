@@ -10,6 +10,8 @@ interface Product {
   title: string;
   desc: string;
   icon: string;
+  number: string;
+  image: string;
 }
 
 interface Feature {
@@ -21,18 +23,24 @@ interface Feature {
 const ourProducts: Product[] = [
   {
     title: 'Vision AI',
-    desc: 'Система на архитектуре Faster R-CNN предоставляется как мощное решение для анализа видеопотока и классификации данных. Эта технология обеспечивает эффективное обнаружение объектов в реальном времени.',
+    desc: 'Система компьютерного зрения на архитектуре Faster R-CNN для анализа видеопотока в реальном времени. Распознавание объектов, детекция аномалий, контроль качества.',
     icon: 'Eye',
+    number: '01',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/2012d07d-4a69-4714-9a3e-df33dd2b882e.jpg',
   },
   {
     title: 'AlbeAI',
-    desc: 'Анализатор бизнеса в реальном времени — изучает конкурентов, отслеживает тренды рынка и предоставляет персонализированные рекомендации для роста вашего бизнеса. Автоматизирует аналитику и помогает принимать решения на основе данных.',
+    desc: 'Аналитическая платформа с искусственным интеллектом для бизнеса. Анализ конкурентов, прогнозирование трендов, персонализированные рекомендации на основе Big Data.',
     icon: 'TrendingUp',
+    number: '02',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/6042c9f2-ce10-4fcb-927f-ad0ad958a491.jpg',
   },
   {
     title: 'Brand Chef AI',
-    desc: 'Внедрение технологии Vision AI в кухонные процессы открывает новые возможности для улучшения работы поваров и управления кухней. Автоматизация контроля качества, стандартизация процессов и повышение эффективности.',
+    desc: 'AI-система для ресторанного бизнеса. Контроль качества блюд через компьютерное зрение, автоматизация процессов, стандартизация подачи, аналитика эффективности.',
     icon: 'ChefHat',
+    number: '03',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/4439d740-d5e9-41cd-a2dd-e26bb6e848e7.jpg',
   },
 ];
 
@@ -95,21 +103,41 @@ const ProductCard = ({ product }: { product: Product }) => {
   return (
     <div
       {...hoverProps}
-      className="hover-card rounded-2xl p-6 md:hover:scale-[1.02]"
+      className="hover-card group relative rounded-3xl overflow-hidden md:hover:scale-[1.02]"
       style={getHoverStyle({
         background: 'rgba(11,15,31,0.7)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(234,179,8,0.1)' }}>
-        <Icon name={product.icon} size={28} style={{ color: '#eab308' }} />
+      <div className="relative w-full aspect-square overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
+        
+        <div className="absolute top-6 left-6 font-montserrat text-6xl font-bold opacity-20">
+          {product.number}
+        </div>
       </div>
-      <h3 className="font-montserrat font-light text-xl uppercase mb-3" style={{ color: '#eab308' }}>
-        {product.title}
-      </h3>
-      <p className="font-montserrat text-white text-sm leading-relaxed">
-        {product.desc}
-      </p>
+      
+      <div className="relative p-8">
+        <div
+          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-500 group-hover:rotate-12"
+          style={{ background: 'rgba(234,179,8,0.15)' }}
+        >
+          <Icon name={product.icon} size={28} style={{ color: '#eab308' }} />
+        </div>
+
+        <h3 className="font-montserrat font-semibold text-xl uppercase mb-3 tracking-tight" style={{ color: '#eab308' }}>
+          {product.title}
+        </h3>
+
+        <p className="font-montserrat text-zinc-300 text-sm leading-relaxed">
+          {product.desc}
+        </p>
+      </div>
     </div>
   );
 };
@@ -163,21 +191,30 @@ const AI = () => {
       />
       <PageTransition>
         <PageContainer>
-          <PageTitle>НАШИ РАЗРАБОТКИ В ИИ</PageTitle>
+          <div className="mb-16">
+            <PageTitle>ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Внедряем AI-технологии в реальный бизнес. Машинное обучение, компьютерное зрение, NLP — автоматизируем то, что раньше казалось невозможным.
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
             {ourProducts.map((product) => (
               <ProductCard key={product.title} product={product} />
             ))}
           </div>
 
-          <div className="mb-8">
-            <SectionTitle>BRAND CHEF AI — ПРИМЕНЕНИЕ</SectionTitle>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {brandChefFeatures.map((feature) => (
-                <FeatureCard key={feature.title} feature={feature} />
-              ))}
-            </div>
+          <div className="mb-16">
+            <SectionTitle>ВОЗМОЖНОСТИ AI В БИЗНЕСЕ</SectionTitle>
+            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
+              Примеры применения искусственного интеллекта — от контроля качества до предиктивной аналитики.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {brandChefFeatures.map((feature) => (
+              <FeatureCard key={feature.title} feature={feature} />
+            ))}
           </div>
         </PageContainer>
       </PageTransition>

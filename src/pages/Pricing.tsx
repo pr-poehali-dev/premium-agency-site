@@ -149,22 +149,39 @@ const Pricing = () => {
       />
       <PageTransition>
         <PageContainer>
-          <PageTitle>СТОИМОСТЬ УСЛУГ</PageTitle>
+          <div className="mb-16">
+            <PageTitle>СТОИМОСТЬ УСЛУГ</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Прозрачное ценообразование без скрытых платежей. Выбирайте пакет или закажите индивидуальное решение под ваш бюджет.
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-16">
             {plans.map((plan) => (
               <PlanCard key={plan.title} plan={plan} />
             ))}
           </div>
 
-          <SectionTitle>РАЗРАБОТКА</SectionTitle>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
+          <div className="mb-16">
+            <SectionTitle>РАЗРАБОТКА</SectionTitle>
+            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
+              Разрабатываем под ключ — от простого лендинга до сложных AI-платформ.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-24">
             {services.map((service) => (
               <ServiceItemCard key={service.title} item={service} />
             ))}
           </div>
 
-          <SectionTitle>ПОДДЕРЖКА И АНАЛИТИКА</SectionTitle>
+          <div className="mb-16">
+            <SectionTitle>ПОДДЕРЖКА И АНАЛИТИКА</SectionTitle>
+            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
+              Консультации, техническая поддержка, доработки — мы всегда на связи.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {support.map((item) => (
               <ServiceItemCard key={item.title} item={item} />

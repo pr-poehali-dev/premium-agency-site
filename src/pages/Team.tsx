@@ -105,9 +105,14 @@ const Team = () => {
       />
       <PageTransition>
         <PageContainer>
-          <PageTitle>НАША КОМАНДА</PageTitle>
+          <div className="mb-16">
+            <PageTitle>НАША КОМАНДА</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Профессиональная команда разработчиков, дизайнеров и маркетологов. Каждый — эксперт в своей области.
+            </p>
+          </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
             {stats.map((stat) => (
               <StatCard key={stat.label} stat={stat} />
             ))}

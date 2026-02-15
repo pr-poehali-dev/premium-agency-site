@@ -105,7 +105,12 @@ const Reviews = () => {
       />
       <PageTransition>
         <PageContainer>
-          <PageTitle>ОТЗЫВЫ КЛИЕНТОВ</PageTitle>
+          <div className="mb-16">
+            <PageTitle>ОТЗЫВЫ КЛИЕНТОВ</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Реальные отзывы от компаний, с которыми мы работали. Доверие клиентов — наша лучшая рекомендация.
+            </p>
+          </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {reviews.map((review, index) => (

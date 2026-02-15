@@ -9,7 +9,9 @@ import { useCardHover } from '@/hooks/useCardHover';
 interface Service {
   title: string;
   icon: string;
-  items: string[];
+  desc: string;
+  number: string;
+  image: string;
 }
 
 interface TechStack {
@@ -20,30 +22,32 @@ interface TechStack {
 
 const services: Service[] = [
   {
-    title: 'МОБИЛЬНОЕ ПРИЛОЖЕНИЕ',
+    title: 'МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ',
     icon: 'Smartphone',
-    items: ['Нативное', 'Кроссплатформенное', 'ВЕБ-Приложение'],
+    desc: 'Разрабатываем нативные и кроссплатформенные приложения для iOS и Android. От стартапов до корпоративных решений с миллионами пользователей.',
+    number: '01',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/38e5b32c-9948-4145-8651-b4d011c06fec.jpg',
   },
   {
-    title: 'КОРПОРАТИВНЫЙ ПОРТАЛ',
-    icon: 'Building2',
-    items: ['Создаем полноценный инструмент для взаимодействия с клиентами и партнерами компании'],
+    title: 'ВЕБ-ПЛАТФОРМЫ',
+    icon: 'Globe',
+    desc: 'Создаем высоконагруженные веб-приложения и SaaS-платформы. Современный стек, микросервисная архитектура, масштабируемость.',
+    number: '02',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/8d6e9c19-ce7c-4d13-87b4-f5a675ba34f1.jpg',
   },
   {
-    title: 'CRM/ERP - СИСТЕМУ',
+    title: 'CRM/ERP СИСТЕМЫ',
     icon: 'Database',
-    items: ['CRM - Для Управления Клиентами', 'ERP - Для Управления Ресурсами'],
+    desc: 'Проектируем и внедряем системы управления бизнес-процессами. Автоматизация продаж, складской учет, управление ресурсами.',
+    number: '03',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/6dfd2bcb-310a-457f-80a1-5ae3aac4ee38.jpg',
   },
   {
-    title: 'РЕШЕНИЕ НА БАЗЕ ИИ',
+    title: 'AI РЕШЕНИЯ',
     icon: 'Brain',
-    items: [
-      'Машинное Обучение',
-      'Обработка Естественного Языка (NLP)',
-      'Компьютерное Зрение',
-      'Роботизация Процессов (RPA)',
-      'Генеративные Технологии',
-    ],
+    desc: 'Внедряем искусственный интеллект в ваш бизнес: машинное обучение, компьютерное зрение, NLP, аналитика Big Data.',
+    number: '04',
+    image: 'https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/files/ada904a0-b96d-4aa3-8c06-082226fe412e.jpg',
   },
 ];
 
@@ -96,27 +100,41 @@ const ServiceCard = ({ service }: { service: Service }) => {
   return (
     <div
       {...hoverProps}
-      className="group hover-card relative rounded-2xl p-3 sm:p-6 md:hover:scale-[1.02]"
+      className="hover-card group relative rounded-3xl overflow-hidden md:hover:scale-[1.02]"
       style={getHoverStyle({
         background: 'rgba(11,15,31,0.7)',
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="flex items-center gap-4 mb-4">
-        <div className="p-3 rounded-xl" style={{ background: 'rgba(234,179,8,0.1)' }}>
-          <Icon name={service.icon} size={32} style={{ color: '#eab308' }} />
+      <div className="relative w-full aspect-square overflow-hidden">
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
+        
+        <div className="absolute top-6 left-6 font-montserrat text-6xl font-bold opacity-20">
+          {service.number}
         </div>
-        <h3 className="font-montserrat font-semibold text-lg uppercase" style={{ color: '#eab308' }}>
+      </div>
+      
+      <div className="relative p-8">
+        <div
+          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-500 group-hover:rotate-12"
+          style={{ background: 'rgba(212,163,10,0.15)' }}
+        >
+          <Icon name={service.icon} size={28} style={{ color: '#d4a30a' }} />
+        </div>
+
+        <h3 className="font-montserrat font-semibold text-xl uppercase mb-3 tracking-tight" style={{ color: '#d4a30a' }}>
           {service.title}
         </h3>
+
+        <p className="font-montserrat text-zinc-300 text-sm leading-relaxed">
+          {service.desc}
+        </p>
       </div>
-      <ul className="space-y-2">
-        {service.items.map((item) => (
-          <li key={item} className="font-montserrat text-white text-sm md:text-base leading-relaxed">
-            {item}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
@@ -130,19 +148,19 @@ const TechStackCard = ({ stack }: { stack: TechStack }) => {
       className="hover-card rounded-xl p-4"
       style={getHoverStyle({
         background: 'rgba(11,15,31,0.7)',
-        border: `1px solid #eab30820`,
+        border: `1px solid #d4a30a20`,
       })}
     >
       <h4
         className="font-montserrat font-semibold text-base mb-3 pb-2 uppercase"
-        style={{ color: '#eab308', borderBottom: `1px solid #eab30820` }}
+        style={{ color: '#d4a30a', borderBottom: `1px solid #d4a30a20` }}
       >
         {stack.title}
       </h4>
       <ul className="space-y-1.5">
         {stack.items.map((item) => (
           <li key={item} className="font-montserrat text-white text-sm leading-relaxed flex items-start gap-2">
-            <span className="w-1 h-1 rounded-full flex-shrink-0 mt-2" style={{ background: '#eab308' }} />
+            <span className="w-1 h-1 rounded-full flex-shrink-0 mt-2" style={{ background: '#d4a30a' }} />
             {item}
           </li>
         ))}
@@ -173,27 +191,30 @@ const Development = () => {
       />
       <PageTransition>
         <PageContainer>
-          <PageTitle>ЧТО МЫ РАЗРАБАТЫВАЕМ</PageTitle>
+          <div className="mb-16">
+            <PageTitle>РАЗРАБОТКА</PageTitle>
+            <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
+              Создаем технологические продукты, которые масштабируются. Современный стек, чистый код, надежная архитектура — проекты, которыми гордимся.
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
             {services.map((service) => (
               <ServiceCard key={service.title} service={service} />
             ))}
           </div>
 
-          <div
-            className="rounded-2xl p-6 md:p-8"
-            style={{
-              background: 'rgba(11,15,31,0.7)',
-              border: '1px solid rgba(255,255,255,0.08)',
-            }}
-          >
+          <div className="mb-16">
             <SectionTitle>СТЕК ТЕХНОЛОГИЙ</SectionTitle>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {techStack.map((stack) => (
-                <TechStackCard key={stack.title} stack={stack} />
-              ))}
-            </div>
+            <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
+              Используем проверенные и современные технологии. Выбираем инструменты под задачу — не гонимся за хайпом, а создаем надежные решения.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {techStack.map((stack) => (
+              <TechStackCard key={stack.title} stack={stack} />
+            ))}
           </div>
         </PageContainer>
       </PageTransition>
