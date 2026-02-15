@@ -157,6 +157,16 @@ const DockMenu = () => {
                       />
                     </div>
 
+                    {isActive && (
+                      <div 
+                        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full transition-all duration-300"
+                        style={{
+                          background: item.color,
+                          boxShadow: `0 0 8px ${item.color}80, 0 0 4px ${item.color}`
+                        }}
+                      />
+                    )}
+
                     {!isMobile && (
                       <div
                         className="absolute -top-12 left-1/2 pointer-events-none transition-all duration-300"
