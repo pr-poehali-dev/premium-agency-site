@@ -48,10 +48,10 @@ const AdvantageCard = ({ advantage }: { advantage: Advantage }) => {
       })}
     >
       <div className="flex items-start gap-4 mb-3">
-        <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,179,8,0.15)' }}>
-          <Icon name={advantage.icon} size={24} style={{ color: '#eab308' }} />
+        <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(56,189,248,0.15)' }}>
+          <Icon name={advantage.icon} size={24} style={{ color: '#38BDF8' }} />
         </div>
-        <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase text-white" style={{ color: '#eab308' }}>{advantage.title}</h3>
+        <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase text-white" style={{ color: '#38BDF8' }}>{advantage.title}</h3>
       </div>
       <p className="font-montserrat text-white text-sm md:text-base lg:text-lg leading-relaxed">{advantage.desc}</p>
     </div>
@@ -69,7 +69,7 @@ const About = () => {
       <PageTransition>
         <PageContainer>
           <div className="mb-16">
-            <PageTitle>О КОМПАНИИ</PageTitle>
+            <PageTitle color="#38BDF8">О КОМПАНИИ</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Мы — цифровое агентство полного цикла. Создаём технологические продукты, которые трансформируют бизнес: от идеи до запуска и масштабирования.
             </p>
@@ -85,12 +85,12 @@ const About = () => {
                 />
               </div>
               <div className="p-6 md:p-8 flex flex-col justify-center">
-                <h3 className="font-montserrat font-light text-2xl md:text-3xl uppercase text-white mb-2" style={{ color: '#eab308' }}>
+                <h3 className="font-montserrat font-light text-2xl md:text-3xl uppercase text-white mb-2" style={{ color: '#38BDF8' }}>
                   Алексей Беляев
                 </h3>
                 <p className="font-montserrat text-sm text-zinc-400 mb-4">Основатель и CEO</p>
                 <blockquote className="relative">
-                  <div className="absolute -left-2 -top-2 text-6xl opacity-20" style={{ color: '#eab308' }}>"</div>
+                  <div className="absolute -left-2 -top-2 text-6xl opacity-20" style={{ color: '#38BDF8' }}>"</div>
                   <p className="font-montserrat text-base md:text-lg text-white leading-relaxed relative z-10 italic">
                     Я создал ALBE, чтобы доказать: качественный digital не должен быть доступен только корпорациям. Каждый бизнес заслуживает технологии, которые работают.
                   </p>
@@ -100,7 +100,7 @@ const About = () => {
           </div>
 
           <div className="mb-16">
-            <SectionTitle>ПОЧЕМУ ВЫБИРАЮТ НАС</SectionTitle>
+            <SectionTitle color="#38BDF8">ПОЧЕМУ ВЫБИРАЮТ НАС</SectionTitle>
             <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
               Опыт, технологии, результат — наши главные преимущества.
             </p>
