@@ -46,7 +46,8 @@ const PremiumBackground = () => {
 
   useEffect(() => {
     const isMobile = window.innerWidth <= 768;
-    if (isMobile) return;
+    const isHomePage = location.pathname === '/';
+    if (isMobile || !isHomePage) return;
 
     const canvas = canvasRef.current;
     const staticCanvas = staticRef.current;
@@ -253,37 +254,50 @@ const PremiumBackground = () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [location.pathname]);
+
+  const isHomePage = location.pathname === '/';
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
-      <div
-        className="absolute top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full opacity-[0.08] transition-all duration-700"
-        style={{ background: `radial-gradient(circle, ${currentColor.primary} 0%, ${currentColor.secondary} 30%, transparent 60%)` }}
-      />
+      {isHomePage ? (
+        <>
+          <div
+            className="absolute top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full opacity-[0.08] transition-all duration-700"
+            style={{ background: `radial-gradient(circle, ${currentColor.primary} 0%, ${currentColor.secondary} 30%, transparent 60%)` }}
+          />
 
-      <div
-        className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] rounded-full transition-all duration-700"
-        style={{
-          background: `radial-gradient(circle, ${currentColor.primary.replace('0.5', '0.05')} 0%, transparent 60%)`,
-          animation: 'techPulse 12s ease-in-out infinite',
-        }}
-      />
+          <div
+            className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] rounded-full transition-all duration-700"
+            style={{
+              background: `radial-gradient(circle, ${currentColor.primary.replace('0.5', '0.05')} 0%, transparent 60%)`,
+              animation: 'techPulse 12s ease-in-out infinite',
+            }}
+          />
 
-      <div
-        className="absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] rounded-full transition-all duration-700"
-        style={{
-          background: `radial-gradient(circle, ${currentColor.secondary.replace('0.3', '0.04')} 0%, transparent 60%)`,
-          animation: 'techPulse 15s ease-in-out infinite 4s',
-        }}
-      />
+          <div
+            className="absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] rounded-full transition-all duration-700"
+            style={{
+              background: `radial-gradient(circle, ${currentColor.secondary.replace('0.3', '0.04')} 0%, transparent 60%)`,
+              animation: 'techPulse 15s ease-in-out infinite 4s',
+            }}
+          />
 
-      <canvas ref={staticRef} className="absolute inset-0 w-full h-full" />
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+          <canvas ref={staticRef} className="absolute inset-0 w-full h-full" />
+          <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 40%, transparent 0%, rgba(0,0,0,0.7) 100%)' }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 40%, transparent 0%, rgba(0,0,0,0.7) 100%)' }} />
+        </>
+      ) : (
+        <div 
+          className="absolute inset-0 transition-all duration-700"
+          style={{ 
+            background: `linear-gradient(135deg, ${currentColor.primary.replace('0.5', '0.15')} 0%, ${currentColor.secondary.replace('0.3', '0.08')} 100%)`
+          }}
+        />
+      )}
 
       <style>{`
         @keyframes techPulse {
