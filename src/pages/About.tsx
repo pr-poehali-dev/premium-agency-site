@@ -85,7 +85,7 @@ const About = () => {
                 />
               </div>
               <div className="p-6 md:p-8 flex flex-col justify-center">
-                <h3 className="font-montserrat font-light text-2xl md:text-3xl uppercase text-white mb-2" style={{ color: '#38BDF8' }}>
+                <h3 className="font-montserrat font-light text-2xl md:text-3xl uppercase text-white mb-2" style={{ color: '#eab308' }}>
                   Алексей Беляев
                 </h3>
                 <p className="font-montserrat text-sm text-zinc-400 mb-4">Основатель и CEO</p>

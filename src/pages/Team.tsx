@@ -89,7 +89,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
         />
       </div>
       <div className="p-5 text-center">
-        <h3 className="font-montserrat font-light text-base md:text-lg lg:text-xl uppercase mb-2" style={{ color: '#60A5FA' }}>
+        <h3 className="font-montserrat font-light text-base md:text-lg lg:text-xl uppercase mb-2" style={{ color: '#eab308' }}>
           {member.name}
         </h3>
         <p className="font-montserrat font-light text-xs md:text-sm lg:text-base text-white uppercase tracking-wide">
