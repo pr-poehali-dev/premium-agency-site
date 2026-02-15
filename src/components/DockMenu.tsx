@@ -11,23 +11,23 @@ const DockMenu = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
-    { icon: 'House', label: 'Главная', color: '#fbbf24', path: '/' },
-    { icon: 'Folder', label: 'Портфолио', color: '#fcd34d', path: '/portfolio' },
-    { icon: 'Palette', label: 'Дизайн', color: '#fde68a', path: '/design' },
-    { icon: 'Code', label: 'Разработка', color: '#fef08a', path: '/development' },
-    { icon: 'TrendingUp', label: 'Маркетинг', color: '#fef9c3', path: '/marketing' },
-    { icon: 'Brain', label: 'AI', color: '#bef264', path: '/ai' },
-    { icon: 'DollarSign', label: 'Стоимость', color: '#86efac', path: '/pricing' },
-    { icon: 'UserCheck', label: 'Команда', color: '#6ee7b7', path: '/team' },
-    { icon: 'MessageSquareText', label: 'Отзывы', color: '#5eead4', path: '/reviews' },
-    { icon: 'Building2', label: 'Клиенты', color: '#2dd4bf', path: '/partners' },
-    { icon: 'Phone', label: 'Контакты', color: '#22d3ee', path: '/contact' },
-    { icon: 'Users', label: 'О нас', color: '#38bdf8', path: '/about' },
-    { icon: 'ClipboardList', label: 'Квиз', color: '#818cf8', path: '/quiz' },
-    { icon: 'HelpCircle', label: 'FAQ', color: '#a78bfa', path: '/faqs' },
+    { icon: 'House', label: 'Главная', color: '#FF6B6B', bgColor: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%)', path: '/' },
+    { icon: 'Folder', label: 'Портфолио', color: '#4ECDC4', bgColor: 'linear-gradient(135deg, #4ECDC4 0%, #44B3AA 100%)', path: '/portfolio' },
+    { icon: 'Palette', label: 'Дизайн', color: '#95E1D3', bgColor: 'linear-gradient(135deg, #95E1D3 0%, #7CC9B9 100%)', path: '/design' },
+    { icon: 'Code', label: 'Разработка', color: '#FFE66D', bgColor: 'linear-gradient(135deg, #FFE66D 0%, #F6D55C 100%)', path: '/development' },
+    { icon: 'TrendingUp', label: 'Маркетинг', color: '#FF8C42', bgColor: 'linear-gradient(135deg, #FF8C42 0%, #E67E3C 100%)', path: '/marketing' },
+    { icon: 'Brain', label: 'AI', color: '#A78BFA', bgColor: 'linear-gradient(135deg, #A78BFA 0%, #9676E8 100%)', path: '/ai' },
+    { icon: 'DollarSign', label: 'Стоимость', color: '#34D399', bgColor: 'linear-gradient(135deg, #34D399 0%, #2AB87A 100%)', path: '/pricing' },
+    { icon: 'UserCheck', label: 'Команда', color: '#60A5FA', bgColor: 'linear-gradient(135deg, #60A5FA 0%, #4F8FE8 100%)', path: '/team' },
+    { icon: 'MessageSquareText', label: 'Отзывы', color: '#F472B6', bgColor: 'linear-gradient(135deg, #F472B6 0%, #E25FA0 100%)', path: '/reviews' },
+    { icon: 'Building2', label: 'Клиенты', color: '#818CF8', bgColor: 'linear-gradient(135deg, #818CF8 0%, #6B76E6 100%)', path: '/partners' },
+    { icon: 'Phone', label: 'Контакты', color: '#2DD4BF', bgColor: 'linear-gradient(135deg, #2DD4BF 0%, #26BAAA 100%)', path: '/contact' },
+    { icon: 'Users', label: 'О нас', color: '#38BDF8', bgColor: 'linear-gradient(135deg, #38BDF8 0%, #2EA7E6 100%)', path: '/about' },
+    { icon: 'ClipboardList', label: 'Квиз', color: '#FBBF24', bgColor: 'linear-gradient(135deg, #FBBF24 0%, #E9AE1E 100%)', path: '/quiz' },
+    { icon: 'HelpCircle', label: 'FAQ', color: '#C084FC', bgColor: 'linear-gradient(135deg, #C084FC 0%, #A96FE8 100%)', path: '/faqs' },
   ];
 
-  const menuIcon = { icon: 'LayoutGrid', label: 'Меню', color: '#06b6d4', path: '/menu' };
+  const menuIcon = { icon: 'LayoutGrid', label: 'Меню', color: '#00F0FF', bgColor: 'linear-gradient(135deg, #00F0FF 0%, #00D4E6 100%)', path: '/menu' };
 
   useEffect(() => {
     const calculateVisible = () => {
@@ -125,22 +125,26 @@ const DockMenu = () => {
                       transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                     }}
                   >
-                    <div className="relative p-2 md:p-3">
-                      <div
-                        className="absolute inset-0 rounded-lg md:rounded-[14px] transition-all duration-300"
-                        style={{
-                          background: isHovered || isActive ? 'rgba(234,179,8,0.08)' : 'transparent',
-                          border: isHovered || isActive ? '1px solid rgba(234,179,8,0.2)' : '1px solid transparent',
-                        }}
-                      />
+                    <div 
+                      className="relative rounded-lg md:rounded-[14px] transition-all duration-300 flex items-center justify-center"
+                      style={{
+                        width: isMobile ? '48px' : '64px',
+                        height: isMobile ? '48px' : '64px',
+                        background: item.bgColor,
+                        boxShadow: isHovered || isActive 
+                          ? `0 8px 24px ${item.color}40, inset 0 1px 0 rgba(255,255,255,0.2)` 
+                          : `0 4px 12px ${item.color}20, inset 0 1px 0 rgba(255,255,255,0.2)`,
+                        transform: isHovered || isActive ? 'translateY(-2px)' : 'none'
+                      }}
+                    >
                       <Icon
                         name={item.icon}
-                        size={isMobile ? 28 : 44}
-                        strokeWidth={1.2}
+                        size={isMobile ? 24 : 32}
+                        strokeWidth={2}
                         className="relative z-10 transition-opacity duration-300"
                         style={{ 
-                          color: '#eab308',
-                          filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
+                          color: '#ffffff',
+                          filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
                         }}
                       />
                     </div>
@@ -174,22 +178,26 @@ const DockMenu = () => {
                   transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                 }}
               >
-                <div className="relative p-2 md:p-3">
-                  <div
-                    className="absolute inset-0 rounded-lg md:rounded-[14px] transition-all duration-300"
-                    style={{
-                      background: hoveredIndex === visibleItems.length || isMenuOpen ? 'rgba(234,179,8,0.08)' : 'transparent',
-                      border: hoveredIndex === visibleItems.length || isMenuOpen ? '1px solid rgba(234,179,8,0.2)' : '1px solid transparent',
-                    }}
-                  />
+                <div 
+                  className="relative rounded-lg md:rounded-[14px] transition-all duration-300 flex items-center justify-center"
+                  style={{
+                    width: isMobile ? '48px' : '64px',
+                    height: isMobile ? '48px' : '64px',
+                    background: menuIcon.bgColor,
+                    boxShadow: hoveredIndex === visibleItems.length || isMenuOpen
+                      ? `0 8px 24px ${menuIcon.color}40, inset 0 1px 0 rgba(255,255,255,0.2)` 
+                      : `0 4px 12px ${menuIcon.color}20, inset 0 1px 0 rgba(255,255,255,0.2)`,
+                    transform: hoveredIndex === visibleItems.length || isMenuOpen ? 'translateY(-2px)' : 'none'
+                  }}
+                >
                   <Icon
                     name={menuIcon.icon}
-                    size={isMobile ? 28 : 44}
-                    strokeWidth={1.2}
+                    size={isMobile ? 24 : 32}
+                    strokeWidth={2}
                     className="relative z-10 transition-opacity duration-300"
                     style={{ 
-                      color: '#eab308',
-                      filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
+                      color: '#ffffff',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
                     }}
                   />
                   {hiddenItems.length > 0 && (
@@ -252,24 +260,30 @@ const DockMenu = () => {
                 <button
                   key={index}
                   onClick={() => handleItemClick(item.path)}
-                  className="group relative flex flex-col items-center gap-2 md:gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-[1.03] active:scale-95"
-                  style={{
-                    background: 'rgba(234,179,8,0.08)',
-                    border: '1px solid rgba(234,179,8,0.2)',
-                  }}
+                  className="group relative flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-[1.03] active:scale-95"
                 >
-                  <Icon
-                    name={item.icon}
-                    size={isMobile ? 28 : 44}
-                    strokeWidth={1.2}
-                    style={{ 
-                      color: '#eab308',
-                      filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
+                  <div 
+                    className="rounded-xl md:rounded-2xl flex items-center justify-center"
+                    style={{
+                      width: isMobile ? '64px' : '96px',
+                      height: isMobile ? '64px' : '96px',
+                      background: item.bgColor,
+                      boxShadow: `0 8px 24px ${item.color}30, inset 0 1px 0 rgba(255,255,255,0.2)`,
                     }}
-                  />
+                  >
+                    <Icon
+                      name={item.icon}
+                      size={isMobile ? 32 : 48}
+                      strokeWidth={2}
+                      style={{ 
+                        color: '#ffffff',
+                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                      }}
+                    />
+                  </div>
                   <span 
                     className="text-[10px] md:text-xs font-montserrat font-light whitespace-nowrap tracking-wide uppercase"
-                    style={{ color: '#eab308' }}
+                    style={{ color: item.color }}
                   >
                     {item.label}
                   </span>

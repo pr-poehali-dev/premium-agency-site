@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 
 interface Node {
   x: number;
@@ -22,6 +23,26 @@ interface DataPacket {
 const PremiumBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const staticRef = useRef<HTMLCanvasElement>(null);
+  const location = useLocation();
+
+  const pageColors: { [key: string]: { primary: string; secondary: string } } = {
+    '/': { primary: 'rgba(255,107,107,0.5)', secondary: 'rgba(238,90,82,0.3)' },
+    '/portfolio': { primary: 'rgba(78,205,196,0.5)', secondary: 'rgba(68,179,170,0.3)' },
+    '/design': { primary: 'rgba(149,225,211,0.5)', secondary: 'rgba(124,201,185,0.3)' },
+    '/development': { primary: 'rgba(255,230,109,0.5)', secondary: 'rgba(246,213,92,0.3)' },
+    '/marketing': { primary: 'rgba(255,140,66,0.5)', secondary: 'rgba(230,126,60,0.3)' },
+    '/ai': { primary: 'rgba(167,139,250,0.5)', secondary: 'rgba(150,118,232,0.3)' },
+    '/pricing': { primary: 'rgba(52,211,153,0.5)', secondary: 'rgba(42,184,122,0.3)' },
+    '/team': { primary: 'rgba(96,165,250,0.5)', secondary: 'rgba(79,143,232,0.3)' },
+    '/reviews': { primary: 'rgba(244,114,182,0.5)', secondary: 'rgba(226,95,160,0.3)' },
+    '/partners': { primary: 'rgba(129,140,248,0.5)', secondary: 'rgba(107,118,230,0.3)' },
+    '/contact': { primary: 'rgba(45,212,191,0.5)', secondary: 'rgba(38,186,170,0.3)' },
+    '/about': { primary: 'rgba(56,189,248,0.5)', secondary: 'rgba(46,167,230,0.3)' },
+    '/quiz': { primary: 'rgba(251,191,36,0.5)', secondary: 'rgba(233,174,30,0.3)' },
+    '/faqs': { primary: 'rgba(192,132,252,0.5)', secondary: 'rgba(169,111,232,0.3)' },
+  };
+
+  const currentColor = pageColors[location.pathname] || pageColors['/'];
 
   useEffect(() => {
     const isMobile = window.innerWidth <= 768;
@@ -237,22 +258,22 @@ const PremiumBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
       <div
-        className="absolute top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full opacity-[0.08]"
-        style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.5) 0%, rgba(138,109,233,0.3) 30%, transparent 60%)' }}
+        className="absolute top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full opacity-[0.08] transition-all duration-700"
+        style={{ background: `radial-gradient(circle, ${currentColor.primary} 0%, ${currentColor.secondary} 30%, transparent 60%)` }}
       />
 
       <div
-        className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] rounded-full"
+        className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] rounded-full transition-all duration-700"
         style={{
-          background: 'radial-gradient(circle, rgba(0,240,255,0.05) 0%, transparent 60%)',
+          background: `radial-gradient(circle, ${currentColor.primary.replace('0.5', '0.05')} 0%, transparent 60%)`,
           animation: 'techPulse 12s ease-in-out infinite',
         }}
       />
 
       <div
-        className="absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] rounded-full"
+        className="absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] rounded-full transition-all duration-700"
         style={{
-          background: 'radial-gradient(circle, rgba(138,109,233,0.04) 0%, transparent 60%)',
+          background: `radial-gradient(circle, ${currentColor.secondary.replace('0.3', '0.04')} 0%, transparent 60%)`,
           animation: 'techPulse 15s ease-in-out infinite 4s',
         }}
       />
