@@ -8,7 +8,7 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   return (
-    <div className="min-h-screen bg-black text-foreground relative">
+    <div className="min-h-screen bg-background text-foreground relative">
       <PremiumBackground />
       <div className="relative z-10 min-h-screen">
         {children}

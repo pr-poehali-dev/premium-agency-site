@@ -53,7 +53,7 @@ const PremiumBackground = () => {
     const drawGrid = () => {
       sCtx.clearRect(0, 0, w, h);
       const gridSize = 60;
-      sCtx.strokeStyle = 'rgba(234,179,8,0.025)';
+      sCtx.strokeStyle = 'rgba(0,240,255,0.025)';
       sCtx.lineWidth = 0.5;
       for (let x = 0; x < w; x += gridSize) {
         sCtx.beginPath();
@@ -69,7 +69,7 @@ const PremiumBackground = () => {
       }
 
       const bigGrid = 180;
-      sCtx.strokeStyle = 'rgba(234,179,8,0.045)';
+      sCtx.strokeStyle = 'rgba(0,240,255,0.045)';
       sCtx.lineWidth = 0.5;
       for (let x = 0; x < w; x += bigGrid) {
         sCtx.beginPath();
@@ -86,7 +86,7 @@ const PremiumBackground = () => {
 
       for (let x = 0; x < w; x += bigGrid) {
         for (let y = 0; y < h; y += bigGrid) {
-          sCtx.fillStyle = 'rgba(234,179,8,0.06)';
+          sCtx.fillStyle = 'rgba(0,240,255,0.06)';
           sCtx.beginPath();
           sCtx.arc(x, y, 1.5, 0, Math.PI * 2);
           sCtx.fill();
@@ -159,7 +159,7 @@ const PremiumBackground = () => {
           const d = Math.sqrt(dx * dx + dy * dy);
           if (d < connectionDist) {
             const alpha = (1 - d / connectionDist) * 0.12;
-            ctx.strokeStyle = `rgba(234,179,8,${alpha})`;
+            ctx.strokeStyle = `rgba(0,240,255,${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -174,13 +174,13 @@ const PremiumBackground = () => {
         const pulseAlpha = Math.sin(n.pulse) * 0.15 + 0.15;
 
         ctx.globalAlpha = pulseAlpha;
-        ctx.fillStyle = 'rgba(234,179,8,1)';
+        ctx.fillStyle = 'rgba(0,240,255,1)';
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.size * 4, 0, Math.PI * 2);
         ctx.fill();
 
         ctx.globalAlpha = n.opacity * 0.6 + Math.sin(n.pulse) * 0.2;
-        ctx.fillStyle = 'rgba(234,179,8,1)';
+        ctx.fillStyle = 'rgba(0,240,255,1)';
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.size, 0, Math.PI * 2);
         ctx.fill();
@@ -210,7 +210,7 @@ const PremiumBackground = () => {
         const alpha = p.progress < 0.1 ? p.progress * 10 : p.progress > 0.9 ? (1 - p.progress) * 10 : 1;
 
         ctx.globalAlpha = alpha * 0.3;
-        ctx.fillStyle = 'rgba(234,179,8,1)';
+        ctx.fillStyle = 'rgba(0,240,255,1)';
         ctx.beginPath();
         ctx.arc(x, y, 6, 0, Math.PI * 2);
         ctx.fill();
@@ -237,14 +237,14 @@ const PremiumBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
       <div
-        className="absolute top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full opacity-[0.06]"
-        style={{ background: 'radial-gradient(circle, rgba(234,179,8,0.5) 0%, rgba(234,179,8,0.1) 30%, transparent 60%)' }}
+        className="absolute top-[30%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full opacity-[0.08]"
+        style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.5) 0%, rgba(138,109,233,0.3) 30%, transparent 60%)' }}
       />
 
       <div
         className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(234,179,8,0.04) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(0,240,255,0.05) 0%, transparent 60%)',
           animation: 'techPulse 12s ease-in-out infinite',
         }}
       />
@@ -252,7 +252,7 @@ const PremiumBackground = () => {
       <div
         className="absolute bottom-[-10%] left-[-5%] w-[700px] h-[700px] rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(234,179,8,0.03) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(138,109,233,0.04) 0%, transparent 60%)',
           animation: 'techPulse 15s ease-in-out infinite 4s',
         }}
       />
