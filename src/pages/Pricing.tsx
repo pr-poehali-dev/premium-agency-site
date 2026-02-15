@@ -96,7 +96,7 @@ const PlanCard = ({ plan }: { plan: Plan }) => {
           <Icon name={plan.icon} size={24} style={{ color: '#eab308' }} />
         </div>
         <div>
-          <h3 className="font-montserrat font-semibold text-base md:text-lg lg:text-xl uppercase" style={{ color: '#eab308' }}>
+          <h3 className="font-montserrat font-light text-base md:text-lg lg:text-xl uppercase" style={{ color: '#eab308' }}>
             {plan.title}
           </h3>
           <p className="font-montserrat text-white text-xs md:text-sm lg:text-base">{plan.desc}</p>
@@ -131,7 +131,7 @@ const ServiceItemCard = ({ item }: { item: ServiceItem }) => {
         <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
           <Icon name={item.icon} size={20} style={{ color: '#eab308' }} />
         </div>
-        <h4 className="font-montserrat font-medium text-sm md:text-base lg:text-lg uppercase" style={{ color: '#eab308' }}>{item.title}</h4>
+        <h4 className="font-montserrat font-light text-sm md:text-base lg:text-lg uppercase" style={{ color: '#eab308' }}>{item.title}</h4>
       </div>
       <p className="font-montserrat text-sm md:text-base lg:text-lg text-white ml-11">{item.price}</p>
     </div>

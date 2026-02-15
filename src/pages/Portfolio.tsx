@@ -157,7 +157,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
       </div>
 
-      <div className="relative aspect-[16/10] overflow-hidden bg-black/30">
+      <div className="relative aspect-[3/2] overflow-hidden bg-black/30">
         <img
           src={project.image}
           alt={project.title}
@@ -166,7 +166,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       </div>
 
-      <div className="p-6 space-y-4 flex flex-col flex-1">
+      <div className="p-5 space-y-4 flex flex-col flex-1">
         <h3 className="font-montserrat font-medium text-xl md:text-2xl text-white leading-tight">
           {project.title}
         </h3>

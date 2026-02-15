@@ -135,7 +135,7 @@ const ServiceCard = ({ service }: { service: MarketingService }) => {
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="relative w-full aspect-[4/3] overflow-hidden">
+      <div className="relative w-full aspect-[3/2] overflow-hidden">
         <img
           src={service.image}
           alt={service.title}
@@ -144,7 +144,7 @@ const ServiceCard = ({ service }: { service: MarketingService }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
       </div>
       
-      <div className="relative p-6">
+      <div className="relative p-5">
         <div
           className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-12"
           style={{ background: 'rgba(214,107,42,0.15)' }}
@@ -152,7 +152,7 @@ const ServiceCard = ({ service }: { service: MarketingService }) => {
           <Icon name={service.icon} size={24} style={{ color: '#d66b2a' }} />
         </div>
 
-        <h3 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#d66b2a' }}>
+        <h3 className="font-montserrat font-light text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#d66b2a' }}>
           {service.title}
         </h3>
 
@@ -187,7 +187,7 @@ const Marketing = () => {
       <PageTransition>
         <PageContainer>
           <div className="mb-16">
-            <PageTitle>МАРКЕТИНГ</PageTitle>
+            <PageTitle color="#d66b2a">МАРКЕТИНГ</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Привлекаем клиентов, которые покупают. Работаем на результат — каждый рубль рекламного бюджета приносит прибыль.
             </p>
@@ -200,7 +200,7 @@ const Marketing = () => {
           </div>
 
           <div className="mb-16">
-            <SectionTitle>ПРОЦЕСС РАБОТЫ</SectionTitle>
+            <SectionTitle color="#d66b2a">ПРОЦЕСС РАБОТЫ</SectionTitle>
             <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
               От аудита до масштабирования — проверенная методология digital-маркетинга.
             </p>

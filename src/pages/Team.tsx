@@ -81,7 +81,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="relative overflow-hidden" style={{ aspectRatio: '4/5' }}>
+      <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
         <img 
           src={member.image} 
           alt={member.name}

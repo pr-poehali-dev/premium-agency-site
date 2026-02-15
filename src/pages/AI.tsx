@@ -109,7 +109,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         border: '1px solid rgba(255,255,255,0.08)',
       })}
     >
-      <div className="relative w-full aspect-[4/3] overflow-hidden">
+      <div className="relative w-full aspect-[3/2] overflow-hidden">
         <img
           src={product.image}
           alt={product.title}
@@ -118,7 +118,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90" />
       </div>
       
-      <div className="relative p-6">
+      <div className="relative p-5">
         <div
           className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-12"
           style={{ background: 'rgba(234,179,8,0.15)' }}
@@ -126,7 +126,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           <Icon name={product.icon} size={24} style={{ color: '#eab308' }} />
         </div>
 
-        <h3 className="font-montserrat font-semibold text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#eab308' }}>
+        <h3 className="font-montserrat font-light text-xl md:text-2xl lg:text-3xl uppercase mb-3 tracking-tight" style={{ color: '#eab308' }}>
           {product.title}
         </h3>
 
