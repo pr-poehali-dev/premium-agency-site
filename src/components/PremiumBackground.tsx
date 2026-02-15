@@ -24,6 +24,9 @@ const PremiumBackground = () => {
   const staticRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) return;
+
     const canvas = canvasRef.current;
     const staticCanvas = staticRef.current;
     if (!canvas || !staticCanvas) return;
