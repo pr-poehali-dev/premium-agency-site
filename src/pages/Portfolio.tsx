@@ -202,21 +202,36 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </div>
         </div>
 
-        {project.link !== '#' && (
+        <div className="flex flex-col gap-2 mt-2">
+          {project.link !== '#' && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-montserrat text-base font-medium transition-all duration-300 hover:scale-105"
+              style={{
+                background: categoryStyle.bgColor,
+                color: '#ffffff',
+              }}
+            >
+              Открыть проект
+              <Icon name="ExternalLink" size={18} />
+            </a>
+          )}
           <a
-            href={project.link}
+            href="https://t.me/albe_web"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-montserrat text-sm font-medium transition-all duration-300 hover:opacity-80 mt-2"
+            className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-montserrat text-base font-medium transition-all duration-300 hover:scale-105"
             style={{
-              background: categoryStyle.bgColor,
-              color: '#ffffff',
+              background: 'rgba(78,205,196,0.15)',
+              color: '#4ECDC4',
+              border: '1px solid rgba(78,205,196,0.3)',
             }}
           >
-            Открыть проект
-            <Icon name="ExternalLink" size={16} />
+            Заказать проект
           </a>
-        )}
+        </div>
       </div>
     </div>
   );
@@ -261,16 +276,16 @@ const Portfolio = () => {
             </p>
           </div>
           
-          <div className="flex flex-wrap gap-3 justify-center mb-8">
+          <div className="flex flex-wrap gap-4 mb-12">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className="px-4 py-2 rounded-xl font-montserrat text-sm font-medium transition-all duration-300"
+                className="px-6 py-3 rounded-xl font-montserrat text-base md:text-lg font-medium transition-all duration-300 hover:scale-105"
                 style={{
-                  background: selectedCategory === cat ? 'rgba(234,179,8,0.15)' : 'rgba(11,15,31,0.6)',
-                  border: selectedCategory === cat ? '1px solid rgba(234,179,8,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                  color: selectedCategory === cat ? '#eab308' : '#fff',
+                  background: selectedCategory === cat ? 'rgba(78,205,196,0.15)' : 'rgba(11,15,31,0.6)',
+                  border: selectedCategory === cat ? '1px solid rgba(78,205,196,0.3)' : '1px solid rgba(255,255,255,0.08)',
+                  color: selectedCategory === cat ? '#4ECDC4' : '#fff',
                 }}
               >
                 {cat}
@@ -284,13 +299,19 @@ const Portfolio = () => {
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            <Button onClick={handleQuiz} variant="primary">
-              Пройти квиз
-            </Button>
-            <Button onClick={handleOrderProject} variant="outline">
-              Заказать проект
-            </Button>
+          <div className="flex justify-center mt-16">
+            <a
+              href="/pricing"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-montserrat text-lg font-medium transition-all duration-300 hover:scale-105"
+              style={{
+                background: 'rgba(78,205,196,0.15)',
+                color: '#4ECDC4',
+                border: '1px solid rgba(78,205,196,0.3)',
+              }}
+            >
+              Посмотреть все цены
+              <Icon name="ArrowRight" size={20} />
+            </a>
           </div>
         </PageContainer>
       </PageTransition>
