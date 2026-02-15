@@ -159,10 +159,10 @@ const DockMenu = () => {
 
                     {isActive && (
                       <div 
-                        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full transition-all duration-300"
+                        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full transition-all duration-300"
                         style={{
                           background: item.color,
-                          boxShadow: `0 0 8px ${item.color}80, 0 0 4px ${item.color}`
+                          boxShadow: `0 0 12px ${item.color}80, 0 0 6px ${item.color}`
                         }}
                       />
                     )}
