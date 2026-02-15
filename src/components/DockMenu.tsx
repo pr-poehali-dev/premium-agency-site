@@ -11,23 +11,23 @@ const DockMenu = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
-    { icon: 'House', label: 'Главная', color: '#00F0FF', path: '/' },
-    { icon: 'Folder', label: 'Портфолио', color: '#00F0FF', path: '/portfolio' },
-    { icon: 'Palette', label: 'Дизайн', color: '#00F0FF', path: '/design' },
-    { icon: 'Code', label: 'Разработка', color: '#00F0FF', path: '/development' },
-    { icon: 'TrendingUp', label: 'Маркетинг', color: '#00F0FF', path: '/marketing' },
-    { icon: 'Brain', label: 'AI', color: '#8A6DE9', path: '/ai' },
-    { icon: 'DollarSign', label: 'Стоимость', color: '#8A6DE9', path: '/pricing' },
-    { icon: 'UserCheck', label: 'Команда', color: '#8A6DE9', path: '/team' },
-    { icon: 'MessageSquareText', label: 'Отзывы', color: '#8A6DE9', path: '/reviews' },
-    { icon: 'Building2', label: 'Клиенты', color: '#8A6DE9', path: '/partners' },
-    { icon: 'Phone', label: 'Контакты', color: '#8A6DE9', path: '/contact' },
-    { icon: 'Users', label: 'О нас', color: '#8A6DE9', path: '/about' },
-    { icon: 'ClipboardList', label: 'Квиз', color: '#8A6DE9', path: '/quiz' },
-    { icon: 'HelpCircle', label: 'FAQ', color: '#8A6DE9', path: '/faqs' },
+    { icon: 'House', label: 'Главная', color: '#fbbf24', path: '/' },
+    { icon: 'Folder', label: 'Портфолио', color: '#fcd34d', path: '/portfolio' },
+    { icon: 'Palette', label: 'Дизайн', color: '#fde68a', path: '/design' },
+    { icon: 'Code', label: 'Разработка', color: '#fef08a', path: '/development' },
+    { icon: 'TrendingUp', label: 'Маркетинг', color: '#fef9c3', path: '/marketing' },
+    { icon: 'Brain', label: 'AI', color: '#bef264', path: '/ai' },
+    { icon: 'DollarSign', label: 'Стоимость', color: '#86efac', path: '/pricing' },
+    { icon: 'UserCheck', label: 'Команда', color: '#6ee7b7', path: '/team' },
+    { icon: 'MessageSquareText', label: 'Отзывы', color: '#5eead4', path: '/reviews' },
+    { icon: 'Building2', label: 'Клиенты', color: '#2dd4bf', path: '/partners' },
+    { icon: 'Phone', label: 'Контакты', color: '#22d3ee', path: '/contact' },
+    { icon: 'Users', label: 'О нас', color: '#38bdf8', path: '/about' },
+    { icon: 'ClipboardList', label: 'Квиз', color: '#818cf8', path: '/quiz' },
+    { icon: 'HelpCircle', label: 'FAQ', color: '#a78bfa', path: '/faqs' },
   ];
 
-  const menuIcon = { icon: 'LayoutGrid', label: 'Меню', color: '#00F0FF', path: '/menu' };
+  const menuIcon = { icon: 'LayoutGrid', label: 'Меню', color: '#06b6d4', path: '/menu' };
 
   useEffect(() => {
     const calculateVisible = () => {
@@ -90,8 +90,8 @@ const DockMenu = () => {
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
           <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="75%">
-            <stop offset="0%" stopColor="#00F0FF" stopOpacity="1" />
-            <stop offset="100%" stopColor="#8A6DE9" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#eab308" stopOpacity="1" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0.8" />
           </linearGradient>
         </defs>
       </svg>
@@ -129,8 +129,8 @@ const DockMenu = () => {
                       <div
                         className="absolute inset-0 rounded-lg md:rounded-[14px] transition-all duration-300"
                         style={{
-                          background: isHovered || isActive ? 'rgba(0,240,255,0.08)' : 'transparent',
-                          border: isHovered || isActive ? '1px solid rgba(0,240,255,0.2)' : '1px solid transparent',
+                          background: isHovered || isActive ? 'rgba(234,179,8,0.08)' : 'transparent',
+                          border: isHovered || isActive ? '1px solid rgba(234,179,8,0.2)' : '1px solid transparent',
                         }}
                       />
                       <Icon
@@ -139,8 +139,8 @@ const DockMenu = () => {
                         strokeWidth={1.2}
                         className="relative z-10 transition-opacity duration-300"
                         style={{ 
-                          color: item.color,
-                          filter: `drop-shadow(0 0 8px ${item.color}40)`
+                          color: '#eab308',
+                          filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
                         }}
                       />
                     </div>
@@ -178,8 +178,8 @@ const DockMenu = () => {
                   <div
                     className="absolute inset-0 rounded-lg md:rounded-[14px] transition-all duration-300"
                     style={{
-                      background: hoveredIndex === visibleItems.length || isMenuOpen ? 'rgba(0,240,255,0.08)' : 'transparent',
-                      border: hoveredIndex === visibleItems.length || isMenuOpen ? '1px solid rgba(0,240,255,0.2)' : '1px solid transparent',
+                      background: hoveredIndex === visibleItems.length || isMenuOpen ? 'rgba(234,179,8,0.08)' : 'transparent',
+                      border: hoveredIndex === visibleItems.length || isMenuOpen ? '1px solid rgba(234,179,8,0.2)' : '1px solid transparent',
                     }}
                   />
                   <Icon
@@ -188,8 +188,8 @@ const DockMenu = () => {
                     strokeWidth={1.2}
                     className="relative z-10 transition-opacity duration-300"
                     style={{ 
-                      color: '#00F0FF',
-                      filter: 'drop-shadow(0 0 8px rgba(0,240,255,0.4))'
+                      color: '#eab308',
+                      filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
                     }}
                   />
                   {hiddenItems.length > 0 && (
@@ -254,8 +254,8 @@ const DockMenu = () => {
                   onClick={() => handleItemClick(item.path)}
                   className="group relative flex flex-col items-center gap-2 md:gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-[1.03] active:scale-95"
                   style={{
-                    background: 'rgba(0,240,255,0.08)',
-                    border: '1px solid rgba(0,240,255,0.2)',
+                    background: 'rgba(234,179,8,0.08)',
+                    border: '1px solid rgba(234,179,8,0.2)',
                   }}
                 >
                   <Icon
@@ -263,13 +263,13 @@ const DockMenu = () => {
                     size={isMobile ? 28 : 44}
                     strokeWidth={1.2}
                     style={{ 
-                      color: item.color,
-                      filter: `drop-shadow(0 0 8px ${item.color}40)`
+                      color: '#eab308',
+                      filter: 'drop-shadow(0 0 8px rgba(234,179,8,0.3))'
                     }}
                   />
                   <span 
                     className="text-[10px] md:text-xs font-montserrat font-light whitespace-nowrap tracking-wide uppercase"
-                    style={{ color: item.color }}
+                    style={{ color: '#eab308' }}
                   >
                     {item.label}
                   </span>
