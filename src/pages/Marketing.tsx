@@ -107,10 +107,10 @@ const ProcessCard = ({ step }: { step: ProcessStep }) => {
         </div>
         
         <div className="flex-1">
-          <div className="font-zen text-5xl font-bold mb-2 opacity-30">
+          <div className="font-zen text-3xl font-bold mb-2 opacity-30">
             {step.step}
           </div>
-          <h3 className="font-montserrat font-semibold text-xl md:text-2xl uppercase tracking-tight" style={{ color: '#d66b2a' }}>
+          <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase tracking-tight" style={{ color: '#d66b2a' }}>
             {step.title}
           </h3>
         </div>
