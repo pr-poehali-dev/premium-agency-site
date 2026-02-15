@@ -216,7 +216,7 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-3">
+                    <div className="flex flex-col gap-3">
                       {project.link !== '#' && (
                         <a
                           href={project.link}
@@ -232,30 +232,28 @@ const Portfolio = () => {
                           Посмотреть проект
                         </a>
                       )}
-                      <div className="grid grid-cols-2 gap-3">
-                        <button
-                          onClick={handleQuiz}
-                          className="py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
-                          style={{
-                            background: categoryStyle.bgColor,
-                            color: '#ffffff',
-                            boxShadow: `0 4px 12px ${categoryStyle.color}30`,
-                          }}
-                        >
-                          Пройти квиз
-                        </button>
-                        <button
-                          onClick={handleOrderProject}
-                          className="py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
-                          style={{
-                            background: categoryStyle.bgColor,
-                            color: '#ffffff',
-                            boxShadow: `0 4px 12px ${categoryStyle.color}30`,
-                          }}
-                        >
-                          Заказать проект
-                        </button>
-                      </div>
+                      <button
+                        onClick={handleQuiz}
+                        className="w-full py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
+                        style={{
+                          background: categoryStyle.bgColor,
+                          color: '#ffffff',
+                          boxShadow: `0 4px 12px ${categoryStyle.color}30`,
+                        }}
+                      >
+                        Пройти квиз
+                      </button>
+                      <button
+                        onClick={handleOrderProject}
+                        className="w-full py-3 rounded-xl text-center font-montserrat text-sm font-medium uppercase tracking-wide transition-all duration-300 hover:scale-[1.02]"
+                        style={{
+                          background: 'transparent',
+                          border: `2px solid ${categoryStyle.color}`,
+                          color: categoryStyle.color,
+                        }}
+                      >
+                        Заказать проект
+                      </button>
                     </div>
                   </div>
                 </div>

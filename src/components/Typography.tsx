@@ -6,7 +6,7 @@ interface PageTitleProps {
 
 export const PageTitle = ({ children }: PageTitleProps) => {
   return (
-    <h1 className="font-montserrat font-light text-6xl md:text-7xl lg:text-8xl tracking-wide mb-16 mt-8 text-center uppercase" style={{ color: '#eab308' }}>
+    <h1 className="font-montserrat font-light text-4xl md:text-7xl lg:text-8xl tracking-wide mb-8 md:mb-16 mt-4 md:mt-8 px-4 md:px-0 text-center uppercase" style={{ color: '#eab308' }}>
       {children}
     </h1>
   );
