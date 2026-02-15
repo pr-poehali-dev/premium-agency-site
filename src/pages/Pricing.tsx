@@ -79,24 +79,24 @@ const PlanCard = ({ plan }: { plan: Plan }) => {
       {...hoverProps}
       className="hover-card relative rounded-2xl p-6 md:hover:scale-[1.02]"
       style={getHoverStyle({
-        background: plan.popular ? 'rgba(234,179,8,0.06)' : 'rgba(11,15,31,0.6)',
-        border: `1px solid ${plan.popular ? 'rgba(234,179,8,0.3)' : 'rgba(255,255,255,0.08)'}`,
+        background: plan.popular ? 'rgba(52,211,153,0.06)' : 'rgba(11,15,31,0.6)',
+        border: `1px solid ${plan.popular ? 'rgba(52,211,153,0.3)' : 'rgba(255,255,255,0.08)'}`,
       })}
     >
       {plan.popular && (
         <div
           className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-sm font-bold"
-          style={{ background: '#eab308', color: '#000' }}
+          style={{ background: '#34D399', color: '#000' }}
         >
           ПОПУЛЯРНЫЙ
         </div>
       )}
       <div className="flex items-center gap-3 mb-4">
-        <div className="p-2.5 rounded-xl" style={{ background: 'rgba(234,179,8,0.15)' }}>
-          <Icon name={plan.icon} size={24} style={{ color: '#eab308' }} />
+        <div className="p-2.5 rounded-xl" style={{ background: 'rgba(52,211,153,0.15)' }}>
+          <Icon name={plan.icon} size={24} style={{ color: '#34D399' }} />
         </div>
         <div>
-          <h3 className="font-montserrat font-light text-base md:text-lg lg:text-xl uppercase" style={{ color: '#eab308' }}>
+          <h3 className="font-montserrat font-light text-base md:text-lg lg:text-xl uppercase" style={{ color: '#34D399' }}>
             {plan.title}
           </h3>
           <p className="font-montserrat text-white text-xs md:text-sm lg:text-base">{plan.desc}</p>
@@ -106,7 +106,7 @@ const PlanCard = ({ plan }: { plan: Plan }) => {
       <ul className="space-y-2">
         {plan.items.map((item) => (
           <li key={item} className="font-montserrat text-white text-sm md:text-base lg:text-lg flex items-center gap-2">
-            <Icon name="Check" size={16} style={{ color: '#eab308' }} />
+            <Icon name="Check" size={16} style={{ color: '#34D399' }} />
             {item}
           </li>
         ))}
@@ -128,10 +128,10 @@ const ServiceItemCard = ({ item }: { item: ServiceItem }) => {
       })}
     >
       <div className="flex items-center gap-3 mb-2">
-        <div className="p-2 rounded-lg" style={{ background: 'rgba(234,179,8,0.15)' }}>
-          <Icon name={item.icon} size={20} style={{ color: '#eab308' }} />
+        <div className="p-2 rounded-lg" style={{ background: 'rgba(52,211,153,0.15)' }}>
+          <Icon name={item.icon} size={20} style={{ color: '#34D399' }} />
         </div>
-        <h4 className="font-montserrat font-light text-sm md:text-base lg:text-lg uppercase" style={{ color: '#eab308' }}>{item.title}</h4>
+        <h4 className="font-montserrat font-light text-sm md:text-base lg:text-lg uppercase" style={{ color: '#34D399' }}>{item.title}</h4>
       </div>
       <p className="font-montserrat text-sm md:text-base lg:text-lg text-white ml-11">{item.price}</p>
     </div>
@@ -150,7 +150,7 @@ const Pricing = () => {
       <PageTransition>
         <PageContainer>
           <div className="mb-16">
-            <PageTitle>СТОИМОСТЬ УСЛУГ</PageTitle>
+            <PageTitle color="#34D399">СТОИМОСТЬ УСЛУГ</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Прозрачное ценообразование без скрытых платежей. Выбирайте пакет или закажите индивидуальное решение под ваш бюджет.
             </p>
@@ -163,7 +163,7 @@ const Pricing = () => {
           </div>
 
           <div className="mb-16">
-            <SectionTitle>РАЗРАБОТКА</SectionTitle>
+            <SectionTitle color="#34D399">РАЗРАБОТКА</SectionTitle>
             <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
               Разрабатываем под ключ — от простого лендинга до сложных AI-платформ.
             </p>
@@ -176,7 +176,7 @@ const Pricing = () => {
           </div>
 
           <div className="mb-16">
-            <SectionTitle>ПОДДЕРЖКА И АНАЛИТИКА</SectionTitle>
+            <SectionTitle color="#34D399">ПОДДЕРЖКА И АНАЛИТИКА</SectionTitle>
             <p className="text-zinc-400 font-montserrat text-lg max-w-3xl leading-relaxed text-center mx-auto">
               Консультации, техническая поддержка, доработки — мы всегда на связи.
             </p>
