@@ -61,7 +61,7 @@ const Partners = () => {
       <PageTransition>
         <PageContainer>
           <div className="mb-16">
-            <PageTitle>НАШИ КЛИЕНТЫ</PageTitle>
+            <PageTitle color="#818CF8">НАШИ КЛИЕНТЫ</PageTitle>
             <p className="text-zinc-400 font-montserrat text-xl max-w-3xl mt-6 leading-relaxed">
               Нам доверяют крупнейшие компании России и мира. Работаем с брендами, которые знает каждый.
             </p>
