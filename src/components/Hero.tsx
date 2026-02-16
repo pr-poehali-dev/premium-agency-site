@@ -1,35 +1,6 @@
 const Hero = () => {
   return (
     <div className="h-screen md:min-h-[calc(100vh-120px)] flex flex-col items-center justify-center relative gap-8 md:gap-16 overflow-hidden">
-      <div className="absolute inset-0 hidden md:block pointer-events-none">
-        <div 
-          className="absolute left-[15%] top-0 bottom-0 w-px"
-          style={{
-            background: 'linear-gradient(180deg, transparent 0%, rgba(234,179,8,0.15) 30%, rgba(234,179,8,0.25) 50%, rgba(234,179,8,0.15) 70%, transparent 100%)',
-            boxShadow: '0 0 20px rgba(234,179,8,0.1)'
-          }}
-        />
-        <div 
-          className="absolute right-[15%] top-0 bottom-0 w-px"
-          style={{
-            background: 'linear-gradient(180deg, transparent 0%, rgba(234,179,8,0.15) 30%, rgba(234,179,8,0.25) 50%, rgba(234,179,8,0.15) 70%, transparent 100%)',
-            boxShadow: '0 0 20px rgba(234,179,8,0.1)'
-          }}
-        />
-        <div 
-          className="absolute left-0 right-0 top-[30%] h-px"
-          style={{
-            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 15%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 85%, transparent 100%)'
-          }}
-        />
-        <div 
-          className="absolute left-0 right-0 bottom-[25%] h-px"
-          style={{
-            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.05) 15%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 85%, transparent 100%)'
-          }}
-        />
-      </div>
-
       <div className="flex flex-col items-center justify-center w-full px-4 relative z-10">
         <h1
           className="font-zen tracking-normal text-white leading-none relative"
