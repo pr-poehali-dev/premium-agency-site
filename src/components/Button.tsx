@@ -21,24 +21,27 @@ const Button = ({
     switch (variant) {
       case 'primary':
         return {
-          background: '#eab308',
+          background: 'linear-gradient(135deg, #eab308 0%, #f59e0b 100%)',
           color: '#000',
           border: 'none',
-          fontWeight: '600',
+          fontWeight: '500',
+          boxShadow: '0 4px 20px rgba(234,179,8,0.35), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3)',
         };
       case 'secondary':
         return {
-          background: 'rgba(234,179,8,0.1)',
+          background: 'rgba(11,15,31,0.8)',
           color: '#eab308',
-          border: '1px solid rgba(234,179,8,0.3)',
-          fontWeight: '500',
+          border: '1px solid rgba(234,179,8,0.4)',
+          fontWeight: '400',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(234,179,8,0.15)',
         };
       case 'outline':
         return {
-          background: 'transparent',
+          background: 'rgba(11,15,31,0.6)',
           color: '#fff',
-          border: '1px solid rgba(255,255,255,0.2)',
-          fontWeight: '500',
+          border: '1px solid rgba(255,255,255,0.25)',
+          fontWeight: '400',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
         };
       default:
         return {};
@@ -48,20 +51,33 @@ const Button = ({
   const getSizeClasses = () => {
     switch (size) {
       case 'small':
-        return 'px-4 py-2 text-xs md:text-sm rounded-lg';
+        return 'px-5 py-2.5 text-xs md:text-sm rounded-xl';
       case 'medium':
-        return 'px-6 py-3 text-sm md:text-base rounded-xl';
+        return 'px-7 py-3.5 text-sm md:text-base rounded-2xl';
       case 'large':
-        return 'px-8 py-4 text-base md:text-lg rounded-2xl';
+        return 'px-10 py-4.5 text-base md:text-lg rounded-3xl';
       default:
-        return 'px-6 py-3 text-sm md:text-base rounded-xl';
+        return 'px-7 py-3.5 text-sm md:text-base rounded-2xl';
+    }
+  };
+
+  const getHoverStyle = () => {
+    switch (variant) {
+      case 'primary':
+        return 'hover:shadow-[0_6px_28px_rgba(234,179,8,0.5),0_2px_12px_rgba(0,0,0,0.4)] hover:brightness-110';
+      case 'secondary':
+        return 'hover:bg-[rgba(234,179,8,0.12)] hover:border-[rgba(234,179,8,0.6)] hover:shadow-[0_6px_20px_rgba(234,179,8,0.2)]';
+      case 'outline':
+        return 'hover:bg-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.4)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.15)]';
+      default:
+        return '';
     }
   };
 
   return (
     <button
       onClick={onClick}
-      className={`font-montserrat uppercase tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 ${getSizeClasses()} ${fullWidth ? 'w-full' : ''} ${className}`}
+      className={`font-montserrat uppercase tracking-wider transition-all duration-500 hover:scale-[1.03] active:scale-[0.98] hover:-translate-y-0.5 ${getHoverStyle()} ${getSizeClasses()} ${fullWidth ? 'w-full' : ''} ${className}`}
       style={getVariantStyles()}
     >
       {children}
