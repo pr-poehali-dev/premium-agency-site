@@ -31,17 +31,6 @@ const Hero = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center w-full px-4 relative z-10">
-        <div className="hidden md:block absolute -top-16 left-1/2 -translate-x-1/2">
-          <div 
-            className="font-montserrat text-xs uppercase tracking-[0.3em] text-zinc-600"
-            style={{
-              textShadow: '0 0 20px rgba(255,255,255,0.1)'
-            }}
-          >
-            Premium Digital Experience
-          </div>
-        </div>
-
         <h1
           className="font-zen tracking-normal text-white leading-none relative"
           style={{
@@ -72,14 +61,6 @@ const Hero = () => {
         >
           DIGITAL AGENCY
         </p>
-        
-        <div className="hidden md:flex items-center gap-8 mt-8">
-          <div className="h-px w-20 bg-gradient-to-r from-transparent to-zinc-700" />
-          <div className="font-montserrat text-sm text-zinc-500 tracking-wider uppercase">
-            Создаём цифровые продукты мирового уровня
-          </div>
-          <div className="h-px w-20 bg-gradient-to-l from-transparent to-zinc-700" />
-        </div>
       </div>
       
       <div className="px-4 sm:px-8 md:px-16 relative z-10 md:mt-8">
