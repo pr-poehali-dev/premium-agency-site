@@ -54,7 +54,7 @@ const Contact = () => {
     script.async = true;
     script.onload = () => {
       if (window.VK) {
-        window.VK.Widgets.Group('vk_groups', { mode: 4, wide: 1, width: 'auto', height: '400', color1: '000000', color2: 'eab308', color3: 'eab308' }, 'albeweb');
+        window.VK.Widgets.Group('vk_groups', { mode: 3, wide: 1, width: 'auto', height: '400', color1: '0B0F1F', color2: 'FFFFFF', color3: '2DD4BF' }, 145018889);
       }
     };
     document.body.appendChild(script);
@@ -88,14 +88,16 @@ const Contact = () => {
             color="#2DD4BF"
           />
           
-          <div className="grid grid-cols-2 gap-6 max-w-3xl mb-8">
-            {contacts.map((contact) => (
-              <ContactCard key={contact.label} contact={contact} />
-            ))}
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr,380px] gap-6 lg:gap-8 w-full max-w-7xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {contacts.map((contact) => (
+                <ContactCard key={contact.label} contact={contact} />
+              ))}
+            </div>
 
-          <div className="w-full max-w-2xl rounded-2xl overflow-hidden" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
-            <div id="vk_groups"></div>
+            <div className="rounded-2xl overflow-hidden p-6" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div id="vk_groups"></div>
+            </div>
           </div>
         </PageContainer>
       </PageTransition>
