@@ -286,16 +286,23 @@ const Portfolio = () => {
             color="#4ECDC4"
           />
           
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-wrap gap-3 mb-12">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className="px-6 py-3 rounded-xl font-montserrat text-base md:text-lg font-medium transition-all duration-300 hover:scale-105"
+                className="px-7 py-3 rounded-2xl font-montserrat text-sm md:text-base font-normal uppercase tracking-wider transition-all duration-500 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.98]"
                 style={{
-                  background: selectedCategory === cat ? 'rgba(78,205,196,0.15)' : 'rgba(11,15,31,0.6)',
-                  border: selectedCategory === cat ? '1px solid rgba(78,205,196,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                  color: selectedCategory === cat ? '#4ECDC4' : '#fff',
+                  background: selectedCategory === cat 
+                    ? 'rgba(11,15,31,0.85)' 
+                    : 'rgba(11,15,31,0.5)',
+                  border: selectedCategory === cat 
+                    ? '1px solid rgba(78,205,196,0.5)' 
+                    : '1px solid rgba(255,255,255,0.12)',
+                  color: selectedCategory === cat ? '#4ECDC4' : 'rgba(255,255,255,0.7)',
+                  boxShadow: selectedCategory === cat 
+                    ? '0 4px 20px rgba(78,205,196,0.25), inset 0 1px 0 rgba(78,205,196,0.15)' 
+                    : '0 2px 10px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05)',
                 }}
               >
                 {cat}
