@@ -54,7 +54,7 @@ const Contact = () => {
     script.async = true;
     script.onload = () => {
       if (window.VK) {
-        window.VK.Widgets.Group('vk_groups', { mode: 3, wide: 1, width: 'auto', height: '800', color1: '0B0F1F', color2: 'FFFFFF', color3: '2DD4BF' }, 145018889);
+        window.VK.Widgets.Group('vk_groups', { mode: 3, wide: 1, width: 'auto', height: '550', color1: '0B0F1F', color2: 'FFFFFF', color3: '2DD4BF' }, 145018889);
       }
     };
     document.body.appendChild(script);
