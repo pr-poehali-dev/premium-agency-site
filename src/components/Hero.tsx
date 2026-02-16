@@ -45,7 +45,7 @@ const Hero = () => {
         <h1
           className="font-zen tracking-normal text-white leading-none relative"
           style={{
-            fontSize: 'clamp(5rem, 22vw, 28rem)',
+            fontSize: 'clamp(4rem, 18vw, 20rem)',
             textShadow: '0 0 120px rgba(255,255,255,0.2), 0 0 240px rgba(234,179,8,0.15)',
           }}
         >
@@ -59,9 +59,9 @@ const Hero = () => {
           </span>lbe
         </h1>
         <p
-          className="text-center font-light -mt-2 sm:-mt-3 md:-mt-8 lg:-mt-12 xl:-mt-16 w-full"
+          className="text-center font-light -mt-2 sm:-mt-3 md:-mt-6 lg:-mt-8 xl:-mt-10 w-full"
           style={{
-            fontSize: 'clamp(1.4rem, 7vw, 8rem)',
+            fontSize: 'clamp(1.2rem, 5.5vw, 6rem)',
             letterSpacing: 'clamp(0.15em, 0.5vw, 0.6em)',
             background: 'linear-gradient(90deg, #27272a 0%, #fafafa 25%, #fafafa 75%, #27272a 100%)',
             WebkitBackgroundClip: 'text',
@@ -101,7 +101,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="text-center space-y-3 md:space-y-4">
+          <div className="text-center space-y-2 md:space-y-3">
             <p 
               className="text-base sm:text-xl md:text-2xl lg:text-3xl font-light tracking-wide leading-tight uppercase"
               style={{
@@ -112,11 +112,6 @@ const Hero = () => {
             >
               Мы создаём не просто сайты
             </p>
-            <div className="hidden md:flex items-center justify-center gap-4">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent to-yellow-500/30" />
-              <div className="w-1.5 h-1.5 rounded-full bg-yellow-500/50" />
-              <div className="h-px w-16 bg-gradient-to-l from-transparent to-yellow-500/30" />
-            </div>
             <p
               className="text-base sm:text-xl md:text-3xl lg:text-5xl font-light tracking-wide leading-tight uppercase"
               style={{
