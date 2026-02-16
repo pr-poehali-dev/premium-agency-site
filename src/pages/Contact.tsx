@@ -75,8 +75,8 @@ const VKWidget = () => {
   }, []);
 
   return (
-    <div className="rounded-2xl overflow-hidden p-6 flex flex-col gap-6" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
-      <div className="flex items-center gap-4">
+    <div className="rounded-2xl overflow-hidden flex flex-col h-full" style={{ background: 'rgba(11,15,31,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}>
+      <div className="p-6 flex items-center gap-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
         <img 
           src="https://cdn.poehali.dev/projects/acc8769e-c8ec-49dd-ad45-d836356bdafc/bucket/6bedfd3a-8642-44ca-8845-1083669301b6.png" 
           alt="ALBE VK"
@@ -88,33 +88,35 @@ const VKWidget = () => {
         </div>
       </div>
 
-      <div className="text-center">
-        <div 
-          className="font-zen text-white mb-2"
+      <div className="flex-1 flex flex-col items-center justify-center p-8 gap-6">
+        <div className="text-center">
+          <div 
+            className="font-zen text-white mb-2"
+            style={{
+              fontSize: 'clamp(3rem, 8vw, 6rem)',
+              textShadow: '0 0 60px rgba(45,212,191,0.3)',
+            }}
+          >
+            {subscribers.toLocaleString('ru-RU')}
+          </div>
+          <div className="font-montserrat text-zinc-400 text-lg uppercase tracking-wider">подписчиков</div>
+        </div>
+
+        <a
+          href="https://vk.com/club145018889"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-7 py-3 rounded-2xl font-montserrat text-base font-normal uppercase tracking-wider transition-all duration-500 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.98] w-full max-w-xs text-center"
           style={{
-            fontSize: 'clamp(3rem, 6vw, 5rem)',
-            textShadow: '0 0 60px rgba(45,212,191,0.3)',
+            background: 'rgba(11,15,31,0.85)',
+            border: '1px solid rgba(45,212,191,0.5)',
+            color: '#2DD4BF',
+            boxShadow: '0 4px 20px rgba(45,212,191,0.25), inset 0 1px 0 rgba(45,212,191,0.15)',
           }}
         >
-          {subscribers.toLocaleString('ru-RU')}
-        </div>
-        <div className="font-montserrat text-zinc-400 text-base uppercase tracking-wider">подписчиков</div>
+          Подписаться
+        </a>
       </div>
-
-      <a
-        href="https://vk.com/club145018889"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-7 py-3 rounded-2xl font-montserrat text-base font-normal uppercase tracking-wider transition-all duration-500 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.98] w-full text-center"
-        style={{
-          background: 'rgba(11,15,31,0.85)',
-          border: '1px solid rgba(45,212,191,0.5)',
-          color: '#2DD4BF',
-          boxShadow: '0 4px 20px rgba(45,212,191,0.25), inset 0 1px 0 rgba(45,212,191,0.15)',
-        }}
-      >
-        Подписаться
-      </a>
     </div>
   );
 };
