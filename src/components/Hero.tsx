@@ -6,13 +6,21 @@ const Hero = () => {
           className="font-zen tracking-normal text-white leading-none"
           style={{
             fontSize: 'clamp(5rem, 22vw, 28rem)',
-            textShadow: '0 0 120px rgba(255,255,255,0.15), 0 0 240px rgba(234,179,8,0.08)',
+            textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 8px 24px rgba(0,0,0,0.6), 0 16px 48px rgba(0,0,0,0.4), 0 0 120px rgba(255,255,255,0.1), 0 0 240px rgba(234,179,8,0.06)',
+            filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5))',
           }}
         >
-          <span className="text-yellow-500">a</span>lbe
+          <span className="text-yellow-500" style={{
+            textShadow: '0 4px 12px rgba(234,179,8,0.6), 0 8px 24px rgba(234,179,8,0.4), 0 16px 48px rgba(234,179,8,0.2), 0 0 80px rgba(234,179,8,0.3)',
+          }}>a</span>lbe
         </h1>
+        <div className="flex items-center gap-4 mt-4 mb-2">
+          <div className="h-1 w-24 rounded-full" style={{ background: '#eab308' }} />
+          <div className="h-1 w-12 rounded-full" style={{ background: 'rgba(234,179,8,0.6)' }} />
+          <div className="h-1 w-6 rounded-full" style={{ background: 'rgba(234,179,8,0.3)' }} />
+        </div>
         <p
-          className="text-center font-light -mt-2 sm:-mt-3 md:-mt-8 lg:-mt-12 xl:-mt-16 w-full"
+          className="text-center font-light -mt-2 sm:-mt-3 md:-mt-4 lg:-mt-6 w-full"
           style={{
             fontSize: 'clamp(1.4rem, 7vw, 8rem)',
             letterSpacing: 'clamp(0.15em, 0.5vw, 0.5em)',
