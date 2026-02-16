@@ -71,24 +71,6 @@
     display: none;
   }
 
-  html {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  html::-webkit-scrollbar {
-    display: none;
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
-  body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
   @media (min-width: 768px) {
     .hover-card {
       transition:

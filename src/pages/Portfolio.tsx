@@ -6,7 +6,7 @@ import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader } from '@/components/Typography';
 import Button from '@/components/Button';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 const categoryColors: { [key: string]: { color: string; bgColor: string } } = {
   'Дизайн': { color: '#2d9d8f', bgColor: 'linear-gradient(135deg, #2d9d8f 0%, #258576 100%)' },
@@ -129,20 +129,18 @@ const allCases: Project[] = [
 ];
 
 const ProjectCard = ({ project }: { project: Project }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
   const categoryStyle = categoryColors[project.category];
 
   return (
-    <div
-      {...hoverProps}
-      className="group hover-card relative rounded-2xl overflow-hidden md:hover:scale-[1.03] md:hover:-translate-y-2 flex flex-col h-full"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
+    <Card
+      className="group relative overflow-hidden md:hover:-translate-y-2 flex flex-col h-full"
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
+      style={{
         boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
         backdropFilter: 'blur(10px)',
         willChange: 'transform',
-      })}
+      }}
     >
       <div className="absolute top-4 right-4 z-10">
         <div
@@ -244,7 +242,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </a>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

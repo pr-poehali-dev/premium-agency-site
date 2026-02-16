@@ -1,6 +1,8 @@
 import Icon from '@/components/ui/icon';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { NAV_ITEMS, MENU_ICON } from '@/constants/navigation';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const DockMenu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -9,25 +11,7 @@ const DockMenu = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const menuItems = [
-    { icon: 'House', label: 'Главная', color: '#FF6B6B', bgColor: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%)', path: '/' },
-    { icon: 'Folder', label: 'Портфолио', color: '#4ECDC4', bgColor: 'linear-gradient(135deg, #4ECDC4 0%, #44B3AA 100%)', path: '/portfolio' },
-    { icon: 'Palette', label: 'Дизайн', color: '#95E1D3', bgColor: 'linear-gradient(135deg, #95E1D3 0%, #7CC9B9 100%)', path: '/design' },
-    { icon: 'Code', label: 'Разработка', color: '#eab308', bgColor: 'linear-gradient(135deg, #eab308 0%, #ca8a04 100%)', path: '/development' },
-    { icon: 'TrendingUp', label: 'Маркетинг', color: '#FF8C42', bgColor: 'linear-gradient(135deg, #FF8C42 0%, #E67E3C 100%)', path: '/marketing' },
-    { icon: 'Brain', label: 'AI', color: '#A78BFA', bgColor: 'linear-gradient(135deg, #A78BFA 0%, #9676E8 100%)', path: '/ai' },
-    { icon: 'DollarSign', label: 'Стоимость', color: '#34D399', bgColor: 'linear-gradient(135deg, #34D399 0%, #2AB87A 100%)', path: '/pricing' },
-    { icon: 'UserCheck', label: 'Команда', color: '#60A5FA', bgColor: 'linear-gradient(135deg, #60A5FA 0%, #4F8FE8 100%)', path: '/team' },
-    { icon: 'MessageSquareText', label: 'Отзывы', color: '#F472B6', bgColor: 'linear-gradient(135deg, #F472B6 0%, #E25FA0 100%)', path: '/reviews' },
-    { icon: 'Building2', label: 'Клиенты', color: '#818CF8', bgColor: 'linear-gradient(135deg, #818CF8 0%, #6B76E6 100%)', path: '/partners' },
-    { icon: 'Phone', label: 'Контакты', color: '#2DD4BF', bgColor: 'linear-gradient(135deg, #2DD4BF 0%, #26BAAA 100%)', path: '/contact' },
-    { icon: 'Users', label: 'О нас', color: '#38BDF8', bgColor: 'linear-gradient(135deg, #38BDF8 0%, #2EA7E6 100%)', path: '/about' },
-    { icon: 'ClipboardList', label: 'Квиз', color: '#FBBF24', bgColor: 'linear-gradient(135deg, #FBBF24 0%, #E9AE1E 100%)', path: '/quiz' },
-    { icon: 'HelpCircle', label: 'FAQ', color: '#C084FC', bgColor: 'linear-gradient(135deg, #C084FC 0%, #A96FE8 100%)', path: '/faqs' },
-  ];
-
-  const menuIcon = { icon: 'LayoutGrid', label: 'Меню', color: '#00F0FF', bgColor: 'linear-gradient(135deg, #00F0FF 0%, #00D4E6 100%)', path: '/menu' };
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const calculateVisible = () => {
@@ -41,7 +25,7 @@ const DockMenu = () => {
       const availableWidth = width - padding - menuIconSpace;
       const maxIcons = Math.floor(availableWidth / (iconWidth + gap));
       
-      setVisibleCount(Math.min(Math.max(maxIcons, 2), menuItems.length));
+      setVisibleCount(Math.min(Math.max(maxIcons, 2), NAV_ITEMS.length));
     };
 
     calculateVisible();
@@ -49,8 +33,8 @@ const DockMenu = () => {
     return () => window.removeEventListener('resize', calculateVisible);
   }, []);
 
-  const visibleItems = menuItems.slice(0, visibleCount);
-  const hiddenItems = menuItems.slice(visibleCount);
+  const visibleItems = NAV_ITEMS.slice(0, visibleCount);
+  const hiddenItems = NAV_ITEMS.slice(visibleCount);
 
   const getScale = (index: number) => {
     if (hoveredIndex === null) return 1;
@@ -82,8 +66,6 @@ const DockMenu = () => {
     navigate(path);
     setIsMenuOpen(false);
   };
-
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   return (
     <>
@@ -200,10 +182,10 @@ const DockMenu = () => {
                   style={{
                     width: isMobile ? '48px' : '64px',
                     height: isMobile ? '48px' : '64px',
-                    background: menuIcon.bgColor,
+                    background: MENU_ICON.bgColor,
                     boxShadow: hoveredIndex === visibleItems.length || isMenuOpen
-                      ? `0 8px 24px ${menuIcon.color}60, 0 4px 12px ${menuIcon.color}40, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)` 
-                      : `0 4px 12px ${menuIcon.color}30, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)`,
+                      ? `0 8px 24px ${MENU_ICON.color}60, 0 4px 12px ${MENU_ICON.color}40, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)` 
+                      : `0 4px 12px ${MENU_ICON.color}30, inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)`,
                     transform: hoveredIndex === visibleItems.length || isMenuOpen ? 'translateY(-2px)' : 'none'
                   }}
                 >
@@ -214,7 +196,7 @@ const DockMenu = () => {
                     }}
                   />
                   <Icon
-                    name={menuIcon.icon}
+                    name={MENU_ICON.icon}
                     size={isMobile ? 24 : 32}
                     strokeWidth={2}
                     className="relative z-10 transition-opacity duration-300"
@@ -246,7 +228,7 @@ const DockMenu = () => {
                   >
                     <div className="bg-zinc-900/95 backdrop-blur-xl px-4 py-2 rounded-xl border border-zinc-700/40 shadow-2xl">
                       <span className="text-xs font-montserrat font-light text-white whitespace-nowrap tracking-wide uppercase">
-                        {menuIcon.label}
+                        {MENU_ICON.label}
                       </span>
                     </div>
                   </div>

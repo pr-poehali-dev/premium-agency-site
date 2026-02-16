@@ -5,7 +5,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface Question {
   q: string;
@@ -28,19 +28,15 @@ const questions: Question[] = [
 ];
 
 const QuizOption = ({ option, onClick }: { option: string; onClick: () => void }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <button
-      {...hoverProps}
-      onClick={onClick}
-      className="hover-card rounded-2xl p-4 md:p-5 text-left md:hover:scale-[1.03] active:scale-95"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
-    >
-      <span className="font-montserrat text-base text-white">{option}</span>
+    <button onClick={onClick} className="text-left active:scale-95 w-full">
+      <Card
+        background="rgba(11,15,31,0.6)"
+        border="1px solid rgba(255,255,255,0.08)"
+        style={{ padding: '1rem 1.25rem' }}
+      >
+        <span className="font-montserrat text-base text-white">{option}</span>
+      </Card>
     </button>
   );
 };

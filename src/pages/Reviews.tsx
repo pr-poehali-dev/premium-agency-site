@@ -4,7 +4,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader, BodyText } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface Review {
   name: string;
@@ -60,16 +60,12 @@ const reviews: Review[] = [
 ];
 
 const ReviewCard = ({ review }: { review: Review }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card rounded-2xl p-6 md:hover:scale-[1.01]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+    <Card
+      hoverScale={false}
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
+      style={{ transform: 'scale(1.01)' }}
     >
       <div className="flex gap-1 mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
@@ -91,7 +87,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
         )}
         <div className="font-montserrat text-xs md:text-sm lg:text-base font-medium text-white">{review.company}</div>
       </div>
-    </div>
+    </Card>
   );
 };
 

@@ -4,7 +4,7 @@ import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader, SectionHeader, StatCard } from '@/components/Typography';
 import Icon from '@/components/ui/icon';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface MarketingService {
   icon: string;
@@ -87,16 +87,11 @@ const stats = [
 ];
 
 const ProcessCard = ({ step }: { step: ProcessStep }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card group relative rounded-3xl p-6 md:hover:scale-[1.02]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+    <Card
+      className="group relative"
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
     >
       <div className="flex items-start gap-6 mb-4">
         <div
@@ -119,21 +114,16 @@ const ProcessCard = ({ step }: { step: ProcessStep }) => {
       <p className="font-montserrat text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
         {step.desc}
       </p>
-    </div>
+    </Card>
   );
 };
 
 const ServiceCard = ({ service }: { service: MarketingService }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card group relative rounded-3xl overflow-hidden md:hover:scale-[1.02]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+    <Card
+      className="group relative overflow-hidden"
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
     >
       <div className="relative w-full aspect-[3/2] overflow-hidden">
         <img
@@ -160,7 +150,7 @@ const ServiceCard = ({ service }: { service: MarketingService }) => {
           {service.desc}
         </p>
       </div>
-    </div>
+    </Card>
   );
 };
 

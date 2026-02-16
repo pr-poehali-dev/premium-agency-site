@@ -4,7 +4,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader, SectionHeader } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface Plan {
   title: string;
@@ -72,16 +72,11 @@ const support: ServiceItem[] = [
 ];
 
 const PlanCard = ({ plan }: { plan: Plan }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card relative rounded-2xl p-6 md:hover:scale-[1.02]"
-      style={getHoverStyle({
-        background: plan.popular ? 'rgba(52,211,153,0.06)' : 'rgba(11,15,31,0.6)',
-        border: `1px solid ${plan.popular ? 'rgba(52,211,153,0.3)' : 'rgba(255,255,255,0.08)'}`,
-      })}
+    <Card
+      className="relative"
+      background={plan.popular ? 'rgba(52,211,153,0.06)' : 'rgba(11,15,31,0.6)'}
+      border={`1px solid ${plan.popular ? 'rgba(52,211,153,0.3)' : 'rgba(255,255,255,0.08)'}`}
     >
       {plan.popular && (
         <div
@@ -111,21 +106,15 @@ const PlanCard = ({ plan }: { plan: Plan }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </Card>
   );
 };
 
 const ServiceItemCard = ({ item }: { item: ServiceItem }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card rounded-xl p-4 md:hover:scale-[1.02]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+    <Card
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
     >
       <div className="flex items-center gap-3 mb-2">
         <div className="p-2 rounded-lg" style={{ background: 'rgba(52,211,153,0.15)' }}>
@@ -134,7 +123,7 @@ const ServiceItemCard = ({ item }: { item: ServiceItem }) => {
         <h4 className="font-montserrat font-light text-sm md:text-base lg:text-lg uppercase" style={{ color: '#34D399' }}>{item.title}</h4>
       </div>
       <p className="font-montserrat text-sm md:text-base lg:text-lg text-white ml-11">{item.price}</p>
-    </div>
+    </Card>
   );
 };
 

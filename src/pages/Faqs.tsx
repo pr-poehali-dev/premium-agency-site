@@ -5,7 +5,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface FaqItem {
   q: string;
@@ -58,17 +58,15 @@ const faqSchema = {
 };
 
 const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; index: number; openIndex: number | null; setOpenIndex: (index: number | null) => void }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
   const isOpen = openIndex === index;
 
   return (
-    <div
-      {...hoverProps}
-      className="hover-card rounded-2xl overflow-hidden"
-      style={getHoverStyle({
-        background: isOpen ? 'rgba(192,132,252,0.08)' : 'rgba(11,15,31,0.6)',
-        border: `1px solid ${isOpen ? 'rgba(192,132,252,0.3)' : 'rgba(255,255,255,0.08)'}`,
-      })}
+    <Card
+      className="overflow-hidden"
+      hoverScale={false}
+      background={isOpen ? 'rgba(192,132,252,0.08)' : 'rgba(11,15,31,0.6)'}
+      border={`1px solid ${isOpen ? 'rgba(192,132,252,0.3)' : 'rgba(255,255,255,0.08)'}`}
+      style={{ padding: 0 }}
     >
       <button
         className="w-full flex items-center justify-between gap-4 p-6"
@@ -95,7 +93,7 @@ const FaqItemCard = ({ item, index, openIndex, setOpenIndex }: { item: FaqItem; 
           {item.a}
         </p>
       </div>
-    </div>
+    </Card>
   );
 };
 

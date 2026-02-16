@@ -5,7 +5,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface Contact {
   icon: string;
@@ -22,27 +22,28 @@ const contacts: Contact[] = [
 ];
 
 const ContactCard = ({ contact }: { contact: Contact }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
   const Wrapper = contact.href ? 'a' : 'div';
   const extraProps = contact.href ? { href: contact.href, target: '_blank', rel: 'noopener noreferrer' } : {};
 
   return (
     <Wrapper
       {...extraProps}
-      {...hoverProps}
-      className="hover-card group rounded-2xl p-8 flex flex-col items-center text-center gap-4 md:hover:scale-[1.03] cursor-pointer"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+      className="cursor-pointer block"
     >
-      <div className="p-4 rounded-2xl" style={{ background: 'rgba(45,212,191,0.15)' }}>
-        <Icon name={contact.icon} size={32} style={{ color: '#2DD4BF' }} />
-      </div>
-      <div>
-        <div className="font-montserrat text-zinc-400 text-sm md:text-base uppercase tracking-wide mb-2">{contact.label}</div>
-        <div className="font-montserrat font-medium text-base md:text-lg lg:text-xl text-white">{contact.value}</div>
-      </div>
+      <Card
+        className="group flex flex-col items-center text-center gap-4"
+        background="rgba(11,15,31,0.6)"
+        border="1px solid rgba(255,255,255,0.08)"
+        style={{ padding: '2rem' }}
+      >
+        <div className="p-4 rounded-2xl" style={{ background: 'rgba(45,212,191,0.15)' }}>
+          <Icon name={contact.icon} size={32} style={{ color: '#2DD4BF' }} />
+        </div>
+        <div>
+          <div className="font-montserrat text-zinc-400 text-sm md:text-base uppercase tracking-wide mb-2">{contact.label}</div>
+          <div className="font-montserrat font-medium text-base md:text-lg lg:text-xl text-white">{contact.value}</div>
+        </div>
+      </Card>
     </Wrapper>
   );
 };

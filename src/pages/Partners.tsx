@@ -3,7 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface Client {
   name: string;
@@ -26,17 +26,12 @@ const clients: Client[] = [
 ];
 
 const ClientCard = ({ client }: { client: Client }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card rounded-2xl p-6 flex items-center justify-center md:hover:scale-[1.03]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-        minHeight: '140px',
-      })}
+    <Card
+      className="flex items-center justify-center"
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
+      style={{ minHeight: '140px' }}
     >
       <img
         src={client.logo}
@@ -46,7 +41,7 @@ const ClientCard = ({ client }: { client: Client }) => {
           filter: client.isDark ? 'brightness(0) invert(1)' : 'none',
         }}
       />
-    </div>
+    </Card>
   );
 };
 

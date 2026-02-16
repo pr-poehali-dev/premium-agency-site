@@ -4,7 +4,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader, SectionHeader } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface Advantage {
   icon: string;
@@ -36,16 +36,10 @@ const advantages: Advantage[] = [
 ];
 
 const AdvantageCard = ({ advantage }: { advantage: Advantage }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card rounded-2xl p-6 md:hover:scale-[1.02]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+    <Card
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
     >
       <div className="flex items-start gap-4 mb-3">
         <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(56,189,248,0.15)' }}>
@@ -54,7 +48,7 @@ const AdvantageCard = ({ advantage }: { advantage: Advantage }) => {
         <h3 className="font-montserrat font-light text-xl md:text-2xl uppercase text-white" style={{ color: '#38BDF8' }}>{advantage.title}</h3>
       </div>
       <p className="font-montserrat text-white text-sm md:text-base lg:text-lg leading-relaxed">{advantage.desc}</p>
-    </div>
+    </Card>
   );
 };
 

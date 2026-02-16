@@ -3,7 +3,7 @@ import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader, StatCard } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface TeamMember {
   name: string;
@@ -42,16 +42,11 @@ const stats = [
 ];
 
 const MemberCard = ({ member }: { member: TeamMember }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card rounded-2xl overflow-hidden md:hover:scale-[1.02]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+    <Card
+      className="overflow-hidden"
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
     >
       <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
         <img 
@@ -68,7 +63,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
           {member.role}
         </p>
       </div>
-    </div>
+    </Card>
   );
 };
 

@@ -4,7 +4,7 @@ import SEO from '@/components/SEO';
 import Icon from '@/components/ui/icon';
 import PageContainer from '@/components/PageContainer';
 import { PageHeader, SectionHeader } from '@/components/Typography';
-import { useCardHover } from '@/hooks/useCardHover';
+import Card from '@/components/Card';
 
 interface Service {
   title: string;
@@ -129,16 +129,11 @@ const techStack: TechStack[] = [
 ];
 
 const ServiceCard = ({ service }: { service: Service }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card group relative rounded-3xl overflow-hidden md:hover:scale-[1.02]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+    <Card
+      className="group relative overflow-hidden"
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
     >
       <div className="relative w-full aspect-[3/2] overflow-hidden">
         <img
@@ -165,21 +160,16 @@ const ServiceCard = ({ service }: { service: Service }) => {
           {service.desc}
         </p>
       </div>
-    </div>
+    </Card>
   );
 };
 
 const ProcessCard = ({ step }: { step: ProcessStep }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card group relative rounded-3xl p-6 md:hover:scale-[1.02]"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: '1px solid rgba(255,255,255,0.08)',
-      })}
+    <Card
+      className="group relative"
+      background="rgba(11,15,31,0.6)"
+      border="1px solid rgba(255,255,255,0.08)"
     >
       <div className="flex items-start gap-6 mb-4">
         <div
@@ -202,21 +192,16 @@ const ProcessCard = ({ step }: { step: ProcessStep }) => {
       <p className="font-montserrat text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
         {step.desc}
       </p>
-    </div>
+    </Card>
   );
 };
 
 const TechStackCard = ({ stack }: { stack: TechStack }) => {
-  const { hoverProps, getHoverStyle } = useCardHover();
-
   return (
-    <div
-      {...hoverProps}
-      className="hover-card rounded-xl p-6 h-full flex flex-col"
-      style={getHoverStyle({
-        background: 'rgba(11,15,31,0.6)',
-        border: `1px solid #d4a30a20`,
-      })}
+    <Card
+      className="h-full flex flex-col"
+      background="rgba(11,15,31,0.6)"
+      border="1px solid #d4a30a20"
     >
       <h4
         className="font-montserrat font-semibold text-base mb-3 pb-2 uppercase"
@@ -232,7 +217,7 @@ const TechStackCard = ({ stack }: { stack: TechStack }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </Card>
   );
 };
 
