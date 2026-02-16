@@ -225,10 +225,15 @@ const DockMenu = () => {
                   />
                   {hiddenItems.length > 0 && (
                     <div 
-                      className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center text-[8px] md:text-[10px] font-bold"
+                      className="absolute -top-1 -right-1 rounded-full flex items-center justify-center font-zen font-bold"
                       style={{
-                        background: '#eab308',
+                        width: isMobile ? '18px' : '22px',
+                        height: isMobile ? '18px' : '22px',
+                        fontSize: isMobile ? '10px' : '12px',
+                        background: 'linear-gradient(135deg, #eab308 0%, #f59e0b 100%)',
                         color: '#000',
+                        boxShadow: '0 2px 8px rgba(234,179,8,0.6), 0 1px 3px rgba(0,0,0,0.4)',
+                        border: '2px solid rgba(11,15,31,0.9)',
                       }}
                     >
                       {hiddenItems.length}
